@@ -35,6 +35,7 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Tabs and Dialog extracted (v0.5.0). Dialog uses the browser's native `<dialog>` (focus trap, Escape, focus return for free). A small script `dist/isa.js` makes tabs and dialogs work on plain HTML pages. SportHub's Modal is called Dialog here. | Claude |
 | 2026-11-14 | Alert and form fields approved. | Roberto |
 | 2026-11-14 | A Figma library will mirror the repo (code stays the source). Team: Thomas Buckingham's or Roberto's, either is fine. | Roberto |
+| 2026-11-14 | Figma library created in Roberto's team (he is admin there; guest in Thomas Buckingham's). Variables, styles and the six component families mirror v0.5.0. See `docs/figma.md`. | Claude |
 
 ## Open questions
 1. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
