@@ -52,10 +52,9 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | No Figma plan upgrade. Figma stays light only (the free plan allows one mode per variable collection). Dark mode is checked in `dist/preview.html`. A workaround without upgrade exists if designers ever need it: a second variable collection with the dark values and a page of dark component copies. | Roberto |
 | 2026-11-14 | Alerts and badges in dark mode stay as they are (light text on the full dark hue). | Roberto |
 | 2026-11-14 | Logos added to the repo from Roberto's folder ISA-Logos (38 SVG files, v0.13.0). PNG exports stay outside the repo. White variant on green and dark surfaces. | Roberto, Claude |
-| 2026-11-14 | The preview page also shows the higher-level decisions (principles, brand colors, logos, typography, spacing) and has a table of contents. The Education color logo is corrected to the official colors in the repo; its Figma source still needs the fix. | Roberto, Claude |
+| 2026-11-14 | The preview page also shows the higher-level decisions (principles, brand colors, logos, typography, spacing) and has a table of contents. The Education color logo is corrected to the official colors in the repo; and, later the same day, in its Figma source (file "ISA RIGGER CERT ADS") and in Roberto's ISA-Logos folder (SVG and PNG). | Roberto, Claude |
 
 ## Open questions
-1. **Education color logo, Figma source:** which Figma file holds the logos? The color values there need the same correction (`#009F9A`, `#E84026`, white), then a fresh export to Roberto's ISA-Logos folder (SVG and PNG).
 2. **Logo rules:** minimum sizes and exact clear space are not defined.
 3. **Solid badges (parked by Roberto, 2026-11-14):** SportHub has two solid badges (athlete: white on red, judge: white on green). Add a solid badge style, or keep soft and outline only? Do not raise again until Roberto does or the SportHub migration starts.
 
