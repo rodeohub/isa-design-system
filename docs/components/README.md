@@ -20,6 +20,9 @@ Each component ships as plain CSS (`dist/components.css`, classes `isa-*`, works
 | Avatar | [avatar.md](avatar.md) | draft |
 | Header, navigation, footer, skip link | [navigation.md](navigation.md) | draft |
 | Pagination | [pagination.md](pagination.md) | draft |
+| Breadcrumbs | [breadcrumbs.md](breadcrumbs.md) | draft |
+| Empty state | [empty.md](empty.md) | draft |
+| Toast | [toast.md](toast.md) | draft |
 | Form fields (text input, text area, select, checkbox, radio, fieldset) | [field.md](field.md) | draft |
 
 ## To extract from the Sport Hub (`sport-hub/src/ui`)

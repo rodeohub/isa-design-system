@@ -1,6 +1,11 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.7.0`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.8.0`, and upgrade on purpose.
+
+## 0.8.0 (2026-11-14)
+- New components that the Slackline Sport Hub does not have: **Breadcrumbs**, **Empty state** and **Toast** (CSS classes and React: `Breadcrumbs`, `EmptyState`, `ToastProvider`, `useToast`).
+- `dist/isa.js` exports `showToast` and handles `data-isa-toast` buttons.
+- New tokens `z.toast`, `size.toast-max`, `size.empty-max`.
 
 ## 0.7.0 (2026-11-14)
 - New components, extracted from the Slackline Sport Hub and adapted: **Drawer**, **Avatar**, **Header, Nav, Footer and SkipLink**, and **Pagination**.

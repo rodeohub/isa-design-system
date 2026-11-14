@@ -1,6 +1,7 @@
 // ISA Design System: small behavior script for plain HTML pages (React projects use isa-design-system/react instead).
 // Load it once as a module script (type="module") from dist/isa.js, or import { init } from "isa-design-system/isa.js".
 // Tabs:   <div class="isa-tabs" role="tablist"> with <button role="tab" aria-controls="panel-id">
+// Toast:  <button data-isa-toast="Saved" data-isa-toast-variant="success">, or showToast('Saved', { variant: 'success' })
 // Tooltip: closes with Escape (showing is done by CSS)
 // Dialog and Drawer: <button data-isa-dialog-open="dialog-id">, and inside the dialog <button data-isa-dialog-close>
 
@@ -71,7 +72,59 @@ export function initTooltips(root = document) {
   root.addEventListener('mouseout', (e) => { if (!e.relatedTarget || !e.target.closest?.('.isa-tooltip')?.contains(e.relatedTarget)) restore(e); });
 }
 
-export function init(root = document) { initTabs(root); initDialogs(root); initTooltips(root); }
+const TOAST_ICONS = {
+  info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
+  success: '<circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/>',
+  warning: '<path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/>',
+  danger: '<circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16h.01"/>',
+};
+const svg = (paths) => `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`;
+
+// Shows a short message at the bottom of the screen. Returns a function that removes it.
+// Errors stay until closed; other toasts leave after `duration` ms (default 6000, paused while hovered or focused).
+export function showToast(message, { variant = 'info', title = '', duration, closeLabel = 'Close', regionLabel = 'Notifications' } = {}) {
+  let region = document.querySelector('.isa-toast-region');
+  if (!region) {
+    region = document.createElement('div');
+    region.className = 'isa-toast-region';
+    region.setAttribute('role', 'region');
+    region.setAttribute('aria-label', regionLabel);
+    region.setAttribute('aria-live', 'polite');
+    document.body.append(region);
+  }
+  const toast = document.createElement('div');
+  toast.className = `isa-toast${variant === 'info' ? '' : ` isa-toast--${variant}`}`;
+  if (variant === 'danger') toast.setAttribute('role', 'alert');
+  toast.innerHTML = `${svg(TOAST_ICONS[variant] ?? TOAST_ICONS.info)}<div class="isa-toast__body"><strong class="isa-toast__title"></strong><span></span></div><button type="button" class="isa-toast__close">${svg('<path d="M6 6l12 12M18 6L6 18"/>')}</button>`;
+  const [titleEl, textEl] = toast.querySelector('.isa-toast__body').children;
+  if (title) titleEl.textContent = title; else titleEl.remove();
+  textEl.textContent = message; // text only: never HTML from data
+  toast.querySelector('.isa-toast__close').setAttribute('aria-label', closeLabel);
+  const ms = duration === undefined ? (variant === 'danger' ? 0 : 6000) : duration;
+  let timer;
+  const remove = () => { clearTimeout(timer); toast.remove(); };
+  const start = () => { if (ms > 0) timer = setTimeout(remove, ms); };
+  const pause = () => clearTimeout(timer);
+  toast.addEventListener('mouseenter', pause);
+  toast.addEventListener('focusin', pause);
+  toast.addEventListener('mouseleave', start);
+  toast.addEventListener('focusout', start);
+  toast.querySelector('.isa-toast__close').addEventListener('click', remove);
+  region.append(toast);
+  start();
+  return remove;
+}
+
+export function initToasts(root = document) {
+  if (root.isaToastsReady) return;
+  root.isaToastsReady = true;
+  root.addEventListener('click', (e) => {
+    const trigger = e.target.closest?.('[data-isa-toast]');
+    if (trigger) showToast(trigger.dataset.isaToast, { variant: trigger.dataset.isaToastVariant, title: trigger.dataset.isaToastTitle });
+  });
+}
+
+export function init(root = document) { initTabs(root); initDialogs(root); initTooltips(root); initToasts(root); }
 
 if (typeof document !== 'undefined') {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init());

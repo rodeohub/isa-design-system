@@ -1,6 +1,6 @@
 # Where the Sport Hub differs from the design system
 
-For the Sport Hub developers. Compared: design system v0.7.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
+For the Sport Hub developers. Compared: design system v0.8.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
 
 Nothing here has been changed in the Sport Hub. Updating it is a separate project that has not been decided (Roberto, 2026-11-14). This list is so you know what an update would involve. The Sport Hub was the starting point for the system, thank you for that work.
 
@@ -184,6 +184,9 @@ Other changes:
 PageLayout, Autocomplete (and FormikAutocomplete, UserAutocomplete), TableFilters, TableFilterFields, LinkFieldArray. Until they are extracted, nothing changes for them.
 
 Likely to stay Sport Hub specific: CountryFlag, EventDetailsCard, FeaturedAthleteCard, FeaturedEventCard, StackedMediaCard, ProfileMediaLinks, LabelValuePair, SortableList, UserForm, UserMenu, Icons.
+
+## 20. New in the system, not in the Sport Hub
+Breadcrumbs, Empty state and Toast (v0.8.0). Nothing to change: they are available when the Sport Hub needs them, e.g. an empty state where a table has no rows, or a toast after saving.
 
 ## If a migration is decided later, a sensible order
 1. Install a tagged version and load `fonts.css` and `tokens.css` only (no Tailwind theme yet). Nothing breaks; the roles become available.

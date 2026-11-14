@@ -28,6 +28,8 @@
     "avatar-md": { "$value": "3rem" },
     "avatar-lg": { "$value": "5rem" },
     "avatar-xl": { "$value": "7.5rem" },
+    "toast-max": { "$value": "24rem" },
+    "empty-max": { "$value": "28rem", "$description": "Text width of an empty state." },
     "dialog-max": { "$value": "37rem", "$description": "Maximum dialog width (592px)." }
   },
   "breakpoint": {
@@ -45,7 +47,8 @@
     "$type": "number",
     "$description": "Stacking order. Dialogs use the browser's top layer and need no z-index.",
     "sticky": { "$value": 10 },
-    "tooltip": { "$value": 40 }
+    "tooltip": { "$value": 40 },
+    "toast": { "$value": 50 }
   },
   "duration": {
     "$type": "duration",

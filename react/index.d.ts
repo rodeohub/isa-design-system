@@ -276,3 +276,33 @@ export interface PaginationProps extends Omit<React.HTMLAttributes<HTMLElement>,
 }
 export declare function Pagination(props: PaginationProps): React.ReactElement | null;
 export declare function pageList(page: number, pageCount: number, siblings?: number): (number | null)[];
+
+export interface BreadcrumbsProps extends React.HTMLAttributes<HTMLElement> {
+  /** From the top level down. The last item is the current page and is not a link. */
+  items: { href?: string; label: React.ReactNode }[];
+  linkAs?: React.ElementType;
+}
+export declare function Breadcrumbs(props: BreadcrumbsProps): React.ReactElement;
+
+export interface EmptyStateProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
+  /** What is empty, in plain words: "No events yet". */
+  title: React.ReactNode;
+  titleAs?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  /** Optional decorative icon (an svg with aria-hidden). */
+  icon?: React.ReactNode;
+  /** One main action, optionally a second. */
+  actions?: React.ReactNode;
+  /** No border and background, for use inside a card or table area. */
+  plain?: boolean;
+}
+export declare const EmptyState: React.ForwardRefExoticComponent<EmptyStateProps & React.RefAttributes<HTMLDivElement>>;
+
+export interface ToastOptions {
+  variant?: 'info' | 'success' | 'warning' | 'danger';
+  title?: React.ReactNode;
+  /** Milliseconds before it leaves. Default 6000; danger stays until closed. 0 = stay. */
+  duration?: number;
+}
+export declare function ToastProvider(props: { children?: React.ReactNode; regionLabel?: string; closeLabel?: string }): React.ReactElement;
+/** Returns show(message, options), which returns a function that removes the toast. */
+export declare function useToast(): (message: React.ReactNode, options?: ToastOptions) => () => void;

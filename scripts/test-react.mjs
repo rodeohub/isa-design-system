@@ -5,7 +5,7 @@ import { createElement as h } from 'react';
 import { renderToStaticMarkup as render } from 'react-dom/server';
 import { pageList } from '../react/Pagination.js';
 import { initials } from '../react/Avatar.js';
-import { Button, Badge, Alert, TextField, TextArea, SelectField, Checkbox, Radio, Fieldset, Tabs, Dialog, Card, CardGrid, Table, Spinner, Tooltip, Drawer, Avatar, Header, Nav, Footer, SkipLink, Pagination } from '../react/index.js';
+import { Button, Badge, Alert, TextField, TextArea, SelectField, Checkbox, Radio, Fieldset, Tabs, Dialog, Card, CardGrid, Table, Spinner, Tooltip, Drawer, Avatar, Header, Nav, Footer, SkipLink, Pagination, Breadcrumbs, EmptyState, ToastProvider, useToast } from '../react/index.js';
 
 const eq = (el, html) => assert.equal(render(el), html);
 
@@ -93,5 +93,14 @@ const pag = render(h(Pagination, { page: 1, pageCount: 12, onPageChange() {} }))
 for (const part of ['<nav aria-label="Pagination" class="isa-pagination">', 'aria-label="Previous page" type="button" class="isa-pagination__item" disabled=""', 'aria-label="Page 1" aria-current="page"', 'class="isa-pagination__gap"', 'aria-label="Page 12"', 'aria-label="Next page"']) assert.ok(pag.includes(part), `Pagination: missing ${part} in ${pag}`);
 has(h(Pagination, { page: 2, pageCount: 3, getHref: (p) => `?page=${p}` }), '<a aria-label="Page 3" class="isa-pagination__item" href="?page=3">3</a>', 'href="?page=1"');
 eq(h(Pagination, { page: 1, pageCount: 1 }), '');
+
+eq(h(Breadcrumbs, { items: [{ href: '/', label: 'Home' }, { href: '/events', label: 'Competitions' }, { label: 'Results' }] }),
+  '<nav aria-label="Breadcrumb" class="isa-breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/events">Competitions</a></li><li><span aria-current="page">Results</span></li></ol></nav>');
+eq(h(EmptyState, { title: 'No events yet', actions: h(Button, null, 'Register an event') }, 'Events appear here.'),
+  '<div class="isa-empty"><h3 class="isa-empty__title">No events yet</h3><p class="isa-empty__text">Events appear here.</p><div class="isa-empty__actions"><button class="isa-button" type="button">Register an event</button></div></div>');
+eq(h(EmptyState, { title: 'Nothing', plain: true, titleAs: 'h2' }), '<div class="isa-empty isa-empty--plain"><h2 class="isa-empty__title">Nothing</h2></div>');
+const Probe = () => { useToast(); return 'ok'; };
+eq(h(ToastProvider, null, h(Probe)), 'ok<div class="isa-toast-region" role="region" aria-label="Notifications" aria-live="polite"></div>');
+assert.throws(() => render(h(Probe)), /ToastProvider/);
 
 console.log('React components: all checks passed.');

@@ -83,6 +83,8 @@
   --isa-size-avatar-md: 3rem;
   --isa-size-avatar-lg: 5rem;
   --isa-size-avatar-xl: 7.5rem;
+  --isa-size-toast-max: 24rem;
+  --isa-size-empty-max: 28rem;
   --isa-size-dialog-max: 37rem;
   --isa-breakpoint-xs: 20rem;
   --isa-breakpoint-sm: 40rem;
@@ -93,6 +95,7 @@
   --isa-shadow-lg: 0 12px 32px #15151533;
   --isa-z-sticky: 10;
   --isa-z-tooltip: 40;
+  --isa-z-toast: 50;
   --isa-duration-fast: 120ms;
   --isa-duration-normal: 200ms;
   --isa-duration-slow: 320ms;
