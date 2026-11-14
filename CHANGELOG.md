@@ -1,6 +1,11 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.13.2`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.14.0`, and upgrade on purpose.
+
+## 0.14.0 (2026-11-15)
+- The design system has a name: **Onsight**. Display name only; the package name, the repository and the `isa-` prefixes do not change.
+- Preview page: the ISA wide logo at the top; the color roles are grouped (text, surfaces, borders and focus, buttons and actions, form fields, selected and small parts, status, categories, brand) with jump links.
+- The preview page is online: https://rodeohub.github.io/isa-design-system/ (GitHub Pages, from `main`). `index.html` at the root forwards to `dist/preview.html`.
 
 ## 0.13.2 (2026-11-14)
 - Logo rules in `assets/logos/README.md` and on the preview page: minimum sizes, clear space, which shape and variant to use, what not to do. Based on the ISA CD Manual.

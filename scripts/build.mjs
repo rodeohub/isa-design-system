@@ -136,12 +136,32 @@ ${['red', 'green', 'gray'].map((h) => `<div class="scale">${keys(`color.${h}.`).
 ];
 const compTitle = (f) => f.replace('.examples.html', '').replace(/^./, (c) => c.toUpperCase()).replace('Field', 'Form fields').replace('Navigation', 'Header, navigation and footer').replace('Empty', 'Empty state').replace('Page', 'Page layout');
 const comps = readdirSync('components').filter((f) => f.endsWith('.examples.html')).sort().map((f) => [compTitle(f), readFileSync(`components/${f}`, 'utf8')]);
-const rows = semanticColors.map((k) => `<tr><td><code>${k}</code></td><td>${sw(v(k))}</td>${dark ? `<td>${sw(resolve(dark, dark[k].value))}</td>` : ''}<td>${all[k].description ?? ''}</td></tr>`).join('\n');
-const reference = [['Color roles', `<p>What projects and components actually use: a name for each job a color does. Each role points at a step of the scales above, with a light and a dark value. Run <code>npm run check</code> for contrast results in every theme.</p><div class="scroll"><table><thead><tr><th>Role</th><th>Light</th>${dark ? '<th>Dark</th>' : ''}<th>Use</th></tr></thead>${rows}</table></div>`]];
+// Color roles, grouped by what they are for.
+const roleRow = (k) => `<tr><td><code>${k.slice(6)}</code></td><td>${sw(v(k))}</td>${dark ? `<td>${sw(resolve(dark, dark[k].value))}</td>` : ''}<td>${all[k].description ?? ''}</td></tr>`;
+const roleTable = (ks) => `<div class="scroll"><table class="roles"><thead><tr><th>Role</th><th>Light</th>${dark ? '<th>Dark</th>' : ''}<th>Use</th></tr></thead>${ks.map(roleRow).join('\n')}</table></div>`;
+const pick = (...prefixes) => semanticColors.filter((k) => prefixes.some((p) => k.startsWith(`color.${p}`)));
+const pairChip = (set, name, label) => `<span class="pair" style="background:${resolve(set, set[`color.${name}-bg`].value)};color:${resolve(set, set[`color.${name}-fg`].value)}">${label}</span>`;
+const pairTable = (group) => { const names = [...new Set(pick(`${group}.`).map((k) => k.slice(6).replace(/-(fg|bg)$/, '')))]; return `<div class="scroll"><table class="roles"><thead><tr><th>Roles</th><th>Light</th>${dark ? '<th>Dark</th>' : ''}</tr></thead>${names.map((n) => `<tr><td><code>${n}-fg</code> on <code>${n}-bg</code></td><td>${pairChip(all, n, n.split('.')[1])}</td>${dark ? `<td class="ondark">${pairChip(dark, n, n.split('.')[1])}</td>` : ''}</tr>`).join('')}</table></div>`; };
+const roleGroups = [
+  ['Text', 'Colors for words and icons.', roleTable(pick('text.'))],
+  ['Surfaces', 'Backgrounds of pages, sections and panels.', roleTable(pick('surface.'))],
+  ['Borders and focus', 'Lines around and between things, and the focus ring.', roleTable(pick('border.'))],
+  ['Buttons and actions', 'One set per kind of button: background, its hover and pressed steps, text and border.', ['primary', 'secondary', 'neutral', 'ghost', 'danger', 'disabled'].map((kind) => `<h4>${kind.replace(/^./, (c) => c.toUpperCase())}</h4>${roleTable(pick(`action.${kind}-`))}`).join('')],
+  ['Form fields', 'Inputs, selects, checkboxes and radios.', roleTable(pick('field.'))],
+  ['Selected, tables and small parts', 'The selected state (tabs, current page, options), tables, tooltips, spinners and the layer behind dialogs.', roleTable(pick('selected.', 'table.', 'tooltip.', 'spinner.', 'overlay.'))],
+  ['Status', 'Messages: success, danger, warning, info. Always a pair: text color on its background.', pairTable('status')],
+  ['Categories', 'Badges and tags. Always a pair: text color on its background.', pairTable('category')],
+  ['Brand', 'The official colors, for logos, large display text and decoration only.', roleTable(pick('brand.'))],
+];
+const reference = [['Color roles', `<p>What projects and components actually use: a name for each job a color does. Each role points at a step of the scales under Brand colors, with a light and a dark value. Role names start with <code>color.</code> (for example <code>color.text.muted</code>, in CSS <code>--isa-color-text-muted</code>). Run <code>npm run check</code> for contrast results in every theme.</p>
+<p class="jump">${roleGroups.map(([t]) => `<a href="#roles-${slug(t)}">${t}</a>`).join('')}</p>
+${roleGroups.map(([t, intro, body]) => `<h3 id="roles-${slug(t)}">${t}</h3><p>${intro}</p>${body}`).join('\n')}`]];
 const tocList = [['Foundations', foundations], ['Components', comps], ['Reference', reference]]
   .map(([group, items]) => `<li><span>${group}</span><ul>${items.map(([t]) => `<li><a href="#${slug(t)}">${t}</a></li>`).join('')}</ul></li>`).join('');
 const themeButton = '<button type="button" class="isa-button isa-button--neutral" data-isa-theme-toggle aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M12 7l5 -2M12 12h9M12 17l5 2" /></svg>Dark mode</button>';
-const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ISA Design System preview</title>
+const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+const name = pkg.displayName ?? 'ISA Design System';
+const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${name}: ISA Design System</title>
 <link rel="stylesheet" href="./fonts.css"><link rel="stylesheet" href="./tokens.css"><link rel="stylesheet" href="./components.css">
 <style>
 html{scroll-behavior:smooth;scroll-padding-top:var(--isa-space-4)}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -172,12 +192,19 @@ th{text-align:left;padding:var(--isa-space-2)}td{border-bottom:1px solid var(--i
 .toc a:focus-visible{outline:var(--isa-size-focus-ring-width) solid var(--isa-color-border-focus)}
 .toc-side{display:none}.toc-top{margin-top:var(--isa-space-6);border:1px solid var(--isa-color-border-default);border-radius:var(--isa-radius-lg);padding:var(--isa-space-2) var(--isa-space-4)}
 .toc-top summary{min-height:var(--isa-size-touch-target);display:flex;align-items:center;font-weight:var(--isa-font-weight-semibold);cursor:pointer}.toc-top a{min-height:var(--isa-size-touch-target)}
+.mast{display:inline-flex;margin:var(--isa-space-2) 0}.only-dark{display:none}[data-theme="dark"] .only-dark{display:block}[data-theme="dark"] .only-light{display:none}
+h1{margin-top:var(--isa-space-6)}.lead{font-size:var(--isa-font-size-xl);color:var(--isa-color-text-muted);margin:var(--isa-space-2) 0 0}
+h4{font-family:var(--isa-font-family-body);font-size:var(--isa-font-size-md);margin:var(--isa-space-5) 0 0}table.roles td:first-child{width:16rem}table.roles td:nth-child(2),table.roles td:nth-child(3){width:11rem;white-space:nowrap}
+#color-roles h3{font-size:var(--isa-font-size-2xl);margin-top:var(--isa-space-10);padding-top:var(--isa-space-4);border-top:1px solid var(--isa-color-border-default)}#color-roles h3+p{margin:var(--isa-space-1) 0 0;color:var(--isa-color-text-muted)}
+.jump{display:flex;flex-wrap:wrap;gap:var(--isa-space-2)}.jump a{display:inline-flex;align-items:center;min-height:var(--isa-size-control-sm);padding:0 var(--isa-space-3);border:1px solid var(--isa-color-border-strong);border-radius:var(--isa-radius-full);color:var(--isa-color-text-default);text-decoration:none;font-size:var(--isa-font-size-sm)}.jump a:hover{background:var(--isa-color-action-ghost-bg-hover)}
+td.ondark{background:#151515}
 .top{position:fixed;right:var(--isa-space-4);bottom:var(--isa-space-4);z-index:var(--isa-z-sticky)}
 @media (min-width:64rem){.layout{display:grid;grid-template-columns:15rem minmax(0,1fr)}.toc-side{display:block;position:sticky;top:0;align-self:start;max-height:100vh;overflow-y:auto;box-sizing:border-box;padding:var(--isa-space-8) var(--isa-space-4);border-right:1px solid var(--isa-color-border-default)}.toc-top{display:none}}
 </style></head>
 <body><a class="isa-skip-link" href="#main">Skip to content</a>
-<div class="layout"><nav class="toc toc-side" aria-label="Contents"><strong>Contents</strong><ul>${tocList}</ul></nav>
-<main id="main"><div class="row" style="justify-content:space-between"><h1 id="top">ISA Design System</h1>${themeButton}</div><p>Version ${JSON.parse(readFileSync('package.json', 'utf8')).version}. The decisions first (colors, logos, fonts, spacing), then live examples of every component, built from the same CSS that projects install. Press Tab to see focus rings.</p>
+<div class="layout"><nav class="toc toc-side" aria-label="Contents"><strong>${name}</strong><ul>${tocList}</ul></nav>
+<main id="main"><div class="row" style="justify-content:space-between" id="top"><span class="mast">${logo('isa-wide/isa-wide-color.svg', 'International Slackline Association', 40).replace('<img ', '<img class="only-light" ')}${logo('isa-wide/isa-wide-white.svg', 'International Slackline Association', 40).replace('<img ', '<img class="only-dark" ')}</span>${themeButton}</div>
+<h1>${name}</h1><p class="lead">The design system of the International Slackline Association. Version ${pkg.version}.</p><p>The decisions first (colors, logos, fonts, spacing), then live examples of every component, built from the same CSS that projects install. Press Tab to see focus rings.</p>
 <details class="toc toc-top"><summary>Contents</summary><nav aria-label="Contents"><ul>${tocList}</ul></nav></details>
 ${foundations.map(([t, b]) => section(t, b)).join('\n')}
 ${comps.map(([t, b]) => section(t, b)).join('\n')}

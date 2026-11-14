@@ -1,10 +1,12 @@
-# ISA Design System
+# Onsight: the ISA Design System
+
+"Onsight" is the name of the design system of the International Slackline Association (to onsight a line is to walk it clean on the first try). The repository, the npm package (`isa-design-system`) and the CSS names (`isa-`, `--isa-`) keep their names.
 
 Design tokens, guidelines and (soon) components for projects of the [International Slackline Association](https://slacklineinternational.org): web apps such as the Slackline Sport Hub, websites and future tools. It is written for people and for AI coding agents (Claude Code and others).
 
 - **Agents:** start with [AGENTS.md](AGENTS.md).
 - **People:** start with [DECISIONS.md](DECISIONS.md), then [docs/](docs/).
-- **Preview:** open `dist/preview.html` in a browser to see every color role.
+- **Preview:** <https://rodeohub.github.io/isa-design-system/> shows all decisions and every component on one page (the same file as `dist/preview.html`).
 
 ## What is in here
 - `tokens/`: the source of truth (close to the W3C Design Tokens format, simplified). Primitive values (official ISA palette, type, spacing) and semantic roles (text, surface, border, action, status, category).
