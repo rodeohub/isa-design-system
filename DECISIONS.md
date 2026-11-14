@@ -26,7 +26,7 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | SportHub changes are out of scope for now; migrating SportHub would be a separate project. | Roberto |
 | 2026-11-14 | Badge colors: new red and green distinct from status colors; violet added. Claude also added `brand` (ISA green) for ISA-specific badges. | Roberto, Claude |
 | 2026-11-14 | Fonts self-hosted (files in the repo), no Google Fonts requests. | Roberto |
-| 2026-11-14 | Versions numbered with semantic versioning, CHANGELOG.md, git tags. First tags: v0.1.0, v0.2.0. | Roberto |
+| 2026-11-14 | Versions numbered with semantic versioning, CHANGELOG.md, git tags. First tagged release: v0.2.0 (0.1.0 was never tagged; it had a Tailwind bug). | Roberto |
 | 2026-11-14 | Licence: MIT, like most popular design systems (e.g. GitHub Primer, GOV.UK Frontend, Radix; IBM Carbon and Atlassian use Apache 2.0). ISA name and logos excluded; fonts under SIL OFL. The other ISA repo checked (SportHub) has no licence file. | Roberto (asked for this), Claude (choice) |
 
 ## Open questions
