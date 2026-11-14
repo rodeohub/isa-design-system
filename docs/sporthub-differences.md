@@ -1,6 +1,6 @@
 # Where the Sport Hub differs from the design system
 
-For the Sport Hub developers. Compared: design system v0.5.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
+For the Sport Hub developers. Compared: design system v0.6.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
 
 Nothing here has been changed in the Sport Hub. Updating it is a separate project that has not been decided (Roberto, 2026-11-14). This list is so you know what an update would involve. The Sport Hub was the starting point for the system, thank you for that work.
 
@@ -16,7 +16,11 @@ Nothing here has been changed in the Sport Hub. Updating it is a separate projec
 | Accessibility | Medium | Contrast, focus rings, touch targets |
 | Tabs | Small to medium | Renamed, full keyboard and screen reader support |
 | Modal (now Dialog) | Medium | Native `<dialog>`, own action buttons |
-| Not yet in the system | None for now | Table, Card, Drawer, Tooltip and others |
+| Card | Small to medium | Link on the title, fewer props |
+| Table | Medium | System table is presentation only; TanStack logic stays |
+| Spinner | Small | Colors and sizes |
+| Tooltip | Small | New props, any trigger |
+| Not yet in the system | None for now | Drawer, Avatar, Navigation and others |
 
 ## 1. Colors
 **Brand values.** The official colors are ISA Red `#E84026`, ISA Green `#009F9A`, ISA Gray `#454546`. In the Sport Hub these sit at `green-600` and `red-600`; in the system they are `green.500` and `red.500`, and the scales around them are different values.
@@ -115,21 +119,46 @@ Other changes:
 - Title is 24px Barlow Condensed (now 18px), body 16px (now 14px), close button 44px with the label "Close".
 - On phones the footer buttons are full width with the main action on top.
 
-## 10. Accessibility rules that affect all screens
+## 10. Card
+- The link moves from the whole card to the title (`href` prop), stretched over the card. Before, the card was one big link whose name was all of its text.
+- `layout="content-only"` is gone: leave out the image. `shadow` (`none`, `subtle`, `elevated`) becomes a border by default, or `elevated`.
+- No lift on hover (was `translateY(-4px)`); hover shows a stronger border and shadow.
+- `next/image` is not built in: pass it through the `media` prop.
+- `CardGrid` has no `columns` and `gap` props; it fits as many 280px-plus columns as there is room for.
+- New: `title`, `titleAs`, `meta`, `footer` props. EventDetailsCard, FeaturedAthleteCard, FeaturedEventCard and StackedMediaCard stay in the Sport Hub and can use this Card.
+
+## 11. Table
+- The system Table only shows rows. Sorting, pagination and filters (TanStack Table, `TableFilters`, `TableFilterFields`) stay in the Sport Hub and pass the resulting rows, or the Sport Hub keeps its component and uses the `isa-table` classes.
+- New and required: a caption (can be visually hidden). New: `<th scope="row">` for the cell that names the row.
+- Sort headers are real buttons with `aria-sort` on the `<th>` (now the `<th>` itself is clickable, with no keyboard access).
+- The scrolling wrapper is focusable; optional sticky first column for phones.
+- Colors follow the roles (header text is dark gray on light gray).
+
+## 12. Spinner
+- `color` (`primary`, `white`, `neutral`) is replaced by the default brand green and `inherit` (follows the text color).
+- Sizes are 16, 24 and 40px (now 16, 20 and 24px). A gray track ring was added.
+- `label` prop for the screen reader text (now fixed "Loading").
+
+## 13. Tooltip
+- `position` (`top`, `bottom`, `left`, `right`) becomes `placement` (`top`, `bottom`) and `align` (`center`, `start`, `end`). It no longer flips; it is nudged sideways to stay on screen.
+- Any button or link can be the trigger (pass it as the child). Without a child it renders the info icon button, which now has an accessible name (`label`) and a 44px tap area.
+- Each tooltip gets its own id (now always `id="tooltip"`, which breaks with two on a page). Closes with Escape; the pointer can move onto the bubble.
+
+## 14. Accessibility rules that affect all screens
 - WCAG 2.2 AA is the minimum. Body text `neutral-700` (6.48:1) and headings `neutral-600` (4.95:1) pass today; the items listed above do not.
 - Every interactive element needs a visible focus ring. The Sport Hub has 3 `outline: none` rules and no `:focus-visible` styles.
 - Touch targets at least 44px (house rule, stricter than AA's 24px).
 - Links inside text are underlined.
 - Screens must work at 320 to 360px wide.
 
-## 11. Sport Hub components not in the system yet
-Table, Card, Drawer, Tooltip, Spinner, Avatar, Navigation, Footer, PageLayout. Until they are extracted, nothing changes for them.
+## 15. Sport Hub components not in the system yet
+Drawer, Avatar, Navigation, Footer, PageLayout. Until they are extracted, nothing changes for them.
 
 Likely to stay Sport Hub specific: CountryFlag, EventDetailsCard, FeaturedAthleteCard, FeaturedEventCard, StackedMediaCard, ProfileMediaLinks, LabelValuePair, SortableList, UserForm, UserMenu, Icons.
 
 ## If a migration is decided later, a sensible order
 1. Install a tagged version and load `fonts.css` and `tokens.css` only (no Tailwind theme yet). Nothing breaks; the roles become available.
 2. Switch fonts.
-3. Replace Button, Badge, Alert, form fields, Tabs and Modal with the system components, one at a time.
+3. Replace Button, Badge, Alert, form fields, Tabs, Modal, Card, Spinner and Tooltip with the system components, one at a time.
 4. Replace colors file by file, using `npx isa-audit` to track what is left.
 5. Import the Tailwind theme last, when no default color classes remain.

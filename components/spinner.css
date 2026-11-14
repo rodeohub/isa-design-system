@@ -1,0 +1,29 @@
+/* Spinner. Docs: docs/components/spinner.md. Extracted from the Slackline Sport Hub and adapted. */
+.isa-spinner {
+  box-sizing: border-box;
+  display: inline-block;
+  flex-shrink: 0;
+  width: var(--isa-size-spinner-md);
+  height: var(--isa-size-spinner-md);
+  border: 3px solid var(--isa-color-spinner-track);
+  border-top-color: var(--isa-color-spinner-fg);
+  border-radius: var(--isa-radius-full);
+  vertical-align: middle;
+  animation: isa-spin 0.8s linear infinite;
+}
+.isa-spinner--small { width: var(--isa-size-spinner-sm); height: var(--isa-size-spinner-sm); border-width: 2px; }
+.isa-spinner--large { width: var(--isa-size-spinner-lg); height: var(--isa-size-spinner-lg); border-width: 4px; }
+/* On colored or dark backgrounds: follows the text color. */
+.isa-spinner--inherit { border-color: transparent; border-top-color: currentColor; border-right-color: currentColor; }
+/* Spinner with visible text, centered in its area. */
+.isa-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--isa-space-3);
+  padding: var(--isa-space-6);
+  color: var(--isa-color-text-muted);
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-md);
+}
+@media (prefers-reduced-motion: reduce) { .isa-spinner { animation-duration: 3s; } }

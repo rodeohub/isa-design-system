@@ -1,6 +1,11 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.5.0`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.6.0`, and upgrade on purpose.
+
+## 0.6.0 (2026-11-14)
+- New components, extracted from the Slackline Sport Hub and adapted: **Card** (with card grid), **Table** (presentation only; sorting and paging stay in the project), **Spinner** and **Tooltip**.
+- `dist/isa.js` also handles tooltips (Escape, staying inside the screen).
+- New roles `table.*`, `tooltip.*`, `spinner.*`; new tokens `z.sticky`, `z.tooltip` and sizes for spinner, tooltip and cards. New utility class `isa-visually-hidden`.
 
 ## 0.5.0 (2026-11-14)
 - New components, extracted from the Slackline Sport Hub and adapted: **Tabs** (underline, large, pill, and links for page navigation) and **Dialog** (built on the native `<dialog>`).

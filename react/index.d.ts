@@ -114,3 +114,82 @@ export interface DialogProps extends Omit<React.DialogHTMLAttributes<HTMLDialogE
   closeLabel?: string;
 }
 export declare function Dialog(props: DialogProps): React.ReactElement;
+
+export interface CardProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
+  title?: React.ReactNode;
+  /** Heading level of the title. Pick the level that fits the page outline. Default: h3. */
+  titleAs?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  /** Makes the whole card clickable through a link on the title. */
+  href?: string;
+  /** Link component for href, e.g. a router Link. Default: "a". */
+  linkAs?: React.ElementType;
+  /** Image for the media area. alt is required ("" only if purely decorative). */
+  image?: React.ImgHTMLAttributes<HTMLImageElement> & { src: string; alt: string };
+  /** Your own media element instead of image (e.g. a framework image component). */
+  media?: React.ReactNode;
+  /** Small muted line under the title (place, date). */
+  meta?: React.ReactNode;
+  /** Badges or a button at the bottom. */
+  footer?: React.ReactNode;
+  /** horizontal puts the media on the left from 640px up. Default: vertical. */
+  layout?: 'vertical' | 'horizontal';
+  /** Shadow instead of a border. */
+  elevated?: boolean;
+  /** Wrapper element. Default: article. */
+  as?: React.ElementType;
+}
+export declare const Card: React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLElement>>;
+export declare function CardGrid(props: React.HTMLAttributes<HTMLUListElement>): React.ReactElement;
+
+export interface TableColumn<Row = any> {
+  key: string;
+  header: React.ReactNode;
+  /** right for numbers. */
+  align?: 'left' | 'right';
+  sortable?: boolean;
+  /** Marks the cell that names the row (rendered as a row header). */
+  rowHeader?: boolean;
+  render?: (row: Row, index: number) => React.ReactNode;
+}
+export interface TableSort { key: string; direction: 'ascending' | 'descending'; }
+export interface TableProps<Row = any> {
+  columns: TableColumn<Row>[];
+  /** Rows already sorted, filtered and paged by the project. */
+  rows: Row[];
+  /** Names the table. Required unless aria-label is given. */
+  caption?: React.ReactNode;
+  /** Keep the caption for screen readers only. */
+  captionHidden?: boolean;
+  sort?: TableSort;
+  onSortChange?: (sort: TableSort) => void;
+  rowKey?: (row: Row, index: number) => React.Key;
+  compact?: boolean;
+  /** Keep the first column visible while scrolling sideways. */
+  stickyFirst?: boolean;
+  className?: string;
+  'aria-label'?: string;
+  'aria-labelledby'?: string;
+}
+export declare function Table<Row = any>(props: TableProps<Row>): React.ReactElement;
+
+export interface SpinnerProps extends React.HTMLAttributes<HTMLSpanElement> {
+  size?: 'small' | 'medium' | 'large';
+  /** Text for screen readers. Default: "Loading". */
+  label?: string;
+  /** Use the surrounding text color (for colored or dark backgrounds). */
+  inherit?: boolean;
+}
+export declare const Spinner: React.ForwardRefExoticComponent<SpinnerProps & React.RefAttributes<HTMLSpanElement>>;
+
+export interface TooltipProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'content'> {
+  /** Short plain text. No links or buttons inside. */
+  content: React.ReactNode;
+  /** The trigger: one button or link. Leave out for an info icon button. */
+  children?: React.ReactElement;
+  /** Accessible name of the info icon button. Default: "More information". */
+  label?: string;
+  placement?: 'top' | 'bottom';
+  /** Use start or end near the screen edges. */
+  align?: 'center' | 'start' | 'end';
+}
+export declare function Tooltip(props: TooltipProps): React.ReactElement;

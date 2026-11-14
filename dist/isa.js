@@ -1,6 +1,7 @@
 // ISA Design System: small behavior script for plain HTML pages (React projects use isa-design-system/react instead).
 // Load it once as a module script (type="module") from dist/isa.js, or import { init } from "isa-design-system/isa.js".
 // Tabs:   <div class="isa-tabs" role="tablist"> with <button role="tab" aria-controls="panel-id">
+// Tooltip: closes with Escape (showing is done by CSS)
 // Dialog: <button data-isa-dialog-open="dialog-id">, and inside the dialog <button data-isa-dialog-close>
 
 function selectTab(list, tab, focus) {
@@ -47,7 +48,30 @@ export function initDialogs(root = document) {
   });
 }
 
-export function init(root = document) { initTabs(root); initDialogs(root); }
+export function initTooltips(root = document) {
+  if (root.isaTooltipsReady) return;
+  root.isaTooltipsReady = true;
+  const restore = (e) => e.target.closest?.('.isa-tooltip[data-dismissed]')?.removeAttribute('data-dismissed');
+  root.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    for (const tip of root.querySelectorAll('.isa-tooltip:hover, .isa-tooltip:focus-within')) tip.dataset.dismissed = 'true';
+  });
+  // Nudge the tooltip sideways if it would leave the screen.
+  const fit = (e) => {
+    const content = e.target.closest?.('.isa-tooltip')?.querySelector(':scope > .isa-tooltip__content');
+    if (!content) return;
+    content.style.setProperty('--isa-tooltip-shift', '0px');
+    const rect = content.getBoundingClientRect(), edge = 8, width = document.documentElement.clientWidth;
+    const shift = rect.left < edge ? edge - rect.left : rect.right > width - edge ? width - edge - rect.right : 0;
+    content.style.setProperty('--isa-tooltip-shift', `${shift}px`);
+  };
+  root.addEventListener('mouseover', fit);
+  root.addEventListener('focusin', fit);
+  root.addEventListener('focusout', restore);
+  root.addEventListener('mouseout', (e) => { if (!e.relatedTarget || !e.target.closest?.('.isa-tooltip')?.contains(e.relatedTarget)) restore(e); });
+}
+
+export function init(root = document) { initTabs(root); initDialogs(root); initTooltips(root); }
 
 if (typeof document !== 'undefined') {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init());

@@ -36,10 +36,15 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Alert and form fields approved. | Roberto |
 | 2026-11-14 | A Figma library will mirror the repo (code stays the source). Team: Thomas Buckingham's or Roberto's, either is fine. | Roberto |
 | 2026-11-14 | Figma library created in Roberto's team (he is admin there; guest in Thomas Buckingham's). Variables, styles and the six component families mirror v0.5.0. See `docs/figma.md`. | Claude |
+| 2026-11-14 | Tabs and Dialog approved. The Figma library is updated at the end of the project; the repo has priority. | Roberto |
+| 2026-11-14 | Card, Table, Spinner and Tooltip extracted (v0.6.0). Table is presentation only: SportHub's built-in sorting, paging and filters (TanStack) stay in SportHub. Cards do not move on hover. Tooltips open above or below only. | Claude |
 
 ## Open questions
 1. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
-2. **Review Tabs and Dialog** in `dist/preview.html`. Next suggested: Card, Table, Spinner, Tooltip.
+2. **Review Card, Table, Spinner and Tooltip** in `dist/preview.html`.
+3. **Solid badges:** SportHub has two solid badges (athlete: white on red, judge: white on green). Add a solid badge style to the system, or keep soft and outline only? (Roberto asked to decide this in the next round.)
+4. **Next components:** Drawer, Avatar, Navigation and Footer, pagination suggested.
+5. **Figma:** refresh the library at the end of the project (it is at v0.5.0).
 
 ## Next steps (from the review, not yet done)
 2. Missing tokens: elevation, z-index, easing, opacity, border width, icon sizes; text-style utilities for Tailwind.

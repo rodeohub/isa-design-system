@@ -8,7 +8,7 @@ You are working with the design system of the International Slackline Associatio
 3. **Fonts:** Barlow Condensed for headings 20px and up, Barlow for everything else. Body text at least 16px on phones.
 4. **Mobile first.** Every screen must work at 360px wide. Many ISA users are on phones.
 5. **Native HTML first:** real `<button>`, `<a href>`, `<label>` + `<input>`. No clickable divs.
-6. **Reuse before you create.** Check `docs/components/` for an existing component or pattern. Use the `isa-*` classes (or the React components) for buttons, badges, alerts, form fields, tabs and dialogs instead of styling your own. New patterns need a human decision; note them in your PR.
+6. **Reuse before you create.** Check `docs/components/` for an existing component or pattern. Use the `isa-*` classes (or the React components) for buttons, badges, alerts, form fields, tabs, dialogs, cards, tables, spinners and tooltips instead of styling your own. New patterns need a human decision; note them in your PR.
 7. **Brand red and green 500 are for logos, large display text and decoration**, not small text or small buttons on white.
 8. **Dark mode is not built yet,** but never hard-code light colors: using roles keeps it possible.
 9. **Before you say you are done** in a project: run `npx isa-audit <your src folder>` (zero hard-coded colors) and check your UI at 360px.
@@ -22,7 +22,7 @@ You are working with the design system of the International Slackline Associatio
 | Spacing, radius, breakpoints, layout | `docs/foundations/layout.md` |
 | Accessibility rules | `docs/foundations/accessibility.md` |
 | Themes and dark mode architecture | `docs/foundations/theming.md` |
-| Components: Button, Badge, Alert, form fields, Tabs, Dialog (list, how to add more) | `docs/components/README.md` |
+| Components: Button, Badge, Alert, form fields, Tabs, Dialog, Card, Table, Spinner, Tooltip (list, how to add more) | `docs/components/README.md` |
 | Component styles and live examples | `components/*.css`, `components/*.examples.html` |
 | React components | `react/` (`import { Button, Badge, Alert, TextField, ... } from "isa-design-system/react"`) |
 | What differs from the Slackline Sport Hub (for its developers) | `docs/sporthub-differences.md` |
@@ -32,8 +32,8 @@ You are working with the design system of the International Slackline Associatio
 
 ## Using it in a project
 - Tailwind v4: `@import "isa-design-system/fonts.css"; @import "isa-design-system/tailwind.css"; @import "isa-design-system/components.css" layer(components);`
-- Plain HTML: load `dist/fonts.css`, `dist/tokens.css`, `dist/components.css` and, for tabs and dialogs, `dist/isa.js` as a module script; then use `var(--isa-color-text-default)` etc.
-- Install a tagged version: `npm install github:rodeohub/isa-design-system#v0.5.0` (repo will move to the ISA GitHub organization). Check `CHANGELOG.md` before upgrading.
+- Plain HTML: load `dist/fonts.css`, `dist/tokens.css`, `dist/components.css` and, for tabs, dialogs and tooltips, `dist/isa.js` as a module script; then use `var(--isa-color-text-default)` etc.
+- Install a tagged version: `npm install github:rodeohub/isa-design-system#v0.6.0` (repo will move to the ISA GitHub organization). Check `CHANGELOG.md` before upgrading.
 
 ## Changing the system (in this repo)
 1. Edit `tokens/` (DTCG JSON) or `components/`, and the matching doc in `docs/`.

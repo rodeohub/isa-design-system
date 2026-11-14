@@ -7,6 +7,19 @@
   --isa-focus-color: var(--isa-color-border-focus-inverse);
 }
 
+/* Text for screen readers only. */
+.isa-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /* Alert. Docs: docs/components/alert.md. Extracted from the Slackline Sport Hub and adapted. */
 .isa-alert {
   --_bg: var(--isa-color-status-info-bg);
@@ -209,6 +222,87 @@
   .isa-button[aria-busy="true"]::before { animation: none; }
 }
 
+/* Card. Docs: docs/components/card.md. Extracted from the Slackline Sport Hub and adapted. */
+.isa-card {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--isa-color-border-default);
+  border-radius: var(--isa-radius-lg);
+  background-color: var(--isa-color-surface-default);
+  color: var(--isa-color-text-default);
+  font-family: var(--isa-font-family-body);
+  overflow: hidden;
+}
+.isa-card__media {
+  flex-shrink: 0;
+  aspect-ratio: 16 / 9;
+  background-color: var(--isa-color-surface-muted);
+  overflow: hidden;
+}
+.isa-card__media > img,
+.isa-card__media > picture > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.isa-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--isa-space-2);
+  min-width: 0;
+  padding: var(--isa-space-4);
+  font-size: var(--isa-font-size-md);
+  line-height: var(--isa-font-line-height-normal);
+}
+.isa-card__body > p { margin: 0; }
+.isa-card__title {
+  margin: 0;
+  color: var(--isa-color-text-default);
+  font-family: var(--isa-font-family-heading);
+  font-size: var(--isa-font-size-xl);
+  font-weight: var(--isa-font-weight-semibold);
+  line-height: var(--isa-font-line-height-snug);
+}
+.isa-card__meta { color: var(--isa-color-text-muted); font-size: var(--isa-font-size-sm); }
+.isa-card__footer { display: flex; flex-wrap: wrap; gap: var(--isa-space-2); align-items: center; margin-top: auto; padding-top: var(--isa-space-2); }
+
+/* Clickable card: put the link on the title; its ::after stretches over the whole card. */
+.isa-card__link { color: inherit; text-decoration: none; }
+.isa-card__link::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.isa-card__link:hover { color: var(--isa-color-text-link); text-decoration: underline; }
+.isa-card__link:focus-visible { outline: none; }
+.isa-card__link:focus-visible::after {
+  outline: var(--isa-size-focus-ring-width) solid var(--isa-focus-color, var(--isa-color-border-focus));
+  outline-offset: calc(var(--isa-size-focus-ring-width) * -1);
+}
+.isa-card:has(.isa-card__link) { transition: box-shadow var(--isa-duration-normal), border-color var(--isa-duration-normal); }
+.isa-card:has(.isa-card__link:hover) { border-color: var(--isa-color-border-strong); box-shadow: var(--isa-shadow-md); }
+/* Other links and buttons inside a clickable card stay clickable. */
+.isa-card:has(.isa-card__link) :is(a, button):not(.isa-card__link) { position: relative; z-index: 1; }
+
+.isa-card--elevated { border-color: transparent; box-shadow: var(--isa-shadow-md); }
+.isa-card--elevated:has(.isa-card__link:hover) { border-color: transparent; box-shadow: var(--isa-shadow-lg); }
+
+/* Horizontal from breakpoint.sm (40rem); stacked on phones. */
+@media (min-width: 40rem) {
+  .isa-card--horizontal { flex-direction: row; }
+  .isa-card--horizontal > .isa-card__media { width: 40%; aspect-ratio: auto; min-height: 100%; }
+}
+
+/* Card grid: as many columns as fit, one column on phones. */
+.isa-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--isa-size-card-min)), 1fr));
+  gap: var(--isa-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.isa-card-grid > li { display: flex; min-width: 0; }
+.isa-card-grid > li > .isa-card { flex: 1; }
+
+@media (prefers-reduced-motion: reduce) { .isa-card:has(.isa-card__link) { transition: none; } }
+
 /* Dialog (modal). Docs: docs/components/dialog.md. Extracted from the Slackline Sport Hub and adapted.
    Built on the native <dialog> element: opened with showModal() it traps focus, closes on Escape
    and returns focus to the button that opened it. */
@@ -404,6 +498,127 @@ textarea.isa-input { min-height: calc(var(--isa-size-touch-target) * 2); resize:
   .isa-input, .isa-select > select { transition: none; }
 }
 
+/* Spinner. Docs: docs/components/spinner.md. Extracted from the Slackline Sport Hub and adapted. */
+.isa-spinner {
+  box-sizing: border-box;
+  display: inline-block;
+  flex-shrink: 0;
+  width: var(--isa-size-spinner-md);
+  height: var(--isa-size-spinner-md);
+  border: 3px solid var(--isa-color-spinner-track);
+  border-top-color: var(--isa-color-spinner-fg);
+  border-radius: var(--isa-radius-full);
+  vertical-align: middle;
+  animation: isa-spin 0.8s linear infinite;
+}
+.isa-spinner--small { width: var(--isa-size-spinner-sm); height: var(--isa-size-spinner-sm); border-width: 2px; }
+.isa-spinner--large { width: var(--isa-size-spinner-lg); height: var(--isa-size-spinner-lg); border-width: 4px; }
+/* On colored or dark backgrounds: follows the text color. */
+.isa-spinner--inherit { border-color: transparent; border-top-color: currentColor; border-right-color: currentColor; }
+/* Spinner with visible text, centered in its area. */
+.isa-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--isa-space-3);
+  padding: var(--isa-space-6);
+  color: var(--isa-color-text-muted);
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-md);
+}
+@media (prefers-reduced-motion: reduce) { .isa-spinner { animation-duration: 3s; } }
+
+/* Table. Docs: docs/components/table.md. Extracted from the Slackline Sport Hub and adapted. */
+.isa-table-wrap {
+  max-width: 100%;
+  border: 1px solid var(--isa-color-table-border);
+  border-radius: var(--isa-radius-lg);
+  background-color: var(--isa-color-surface-default);
+  overflow-x: auto; /* wide tables scroll sideways on phones */
+}
+.isa-table-wrap:focus-visible {
+  outline: var(--isa-size-focus-ring-width) solid var(--isa-focus-color, var(--isa-color-border-focus));
+  outline-offset: var(--isa-size-focus-ring-offset);
+}
+.isa-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--isa-color-text-default);
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-md);
+  line-height: var(--isa-font-line-height-snug);
+  font-variant-numeric: tabular-nums;
+}
+.isa-table caption {
+  padding: var(--isa-space-3) var(--isa-space-4);
+  color: var(--isa-color-text-default);
+  font-weight: var(--isa-font-weight-semibold);
+  text-align: left;
+  caption-side: top;
+}
+.isa-table th,
+.isa-table td {
+  padding: var(--isa-space-3) var(--isa-space-4);
+  border-bottom: 1px solid var(--isa-color-table-border);
+  text-align: left;
+  vertical-align: middle;
+}
+.isa-table tbody tr:last-child > * { border-bottom: 0; }
+.isa-table thead th {
+  background-color: var(--isa-color-table-header-bg);
+  color: var(--isa-color-table-header-fg);
+  font-size: var(--isa-font-size-sm);
+  font-weight: var(--isa-font-weight-semibold);
+  white-space: nowrap;
+}
+.isa-table tbody th { font-weight: var(--isa-font-weight-semibold); }
+.isa-table tbody tr:hover > * { background-color: var(--isa-color-table-row-hover-bg); }
+.isa-table a { color: var(--isa-color-text-link); }
+.isa-table a:hover { color: var(--isa-color-text-link-hover); }
+.isa-table .isa-table__num { text-align: right; }
+
+/* Sortable column: a button inside the <th>, with aria-sort on the <th>. */
+.isa-table__sort {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--isa-space-1);
+  min-height: var(--isa-size-touch-target);
+  margin: calc(var(--isa-space-3) * -1) 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.isa-table__sort:hover { color: var(--isa-color-text-default); }
+.isa-table__sort:focus-visible {
+  outline: var(--isa-size-focus-ring-width) solid var(--isa-focus-color, var(--isa-color-border-focus));
+  outline-offset: var(--isa-size-focus-ring-offset);
+  border-radius: var(--isa-radius-sm);
+}
+.isa-table__sort svg { width: 1em; height: 1em; flex-shrink: 0; opacity: 0.45; }
+.isa-table th[aria-sort="ascending"] .isa-table__sort,
+.isa-table th[aria-sort="descending"] .isa-table__sort { color: var(--isa-color-text-default); }
+.isa-table th[aria-sort="ascending"] .isa-table__sort svg,
+.isa-table th[aria-sort="descending"] .isa-table__sort svg { opacity: 1; }
+.isa-table th[aria-sort="descending"] .isa-table__sort svg { transform: rotate(180deg); }
+
+.isa-table--compact th,
+.isa-table--compact td { padding: var(--isa-space-2) var(--isa-space-3); }
+.isa-table--compact { font-size: var(--isa-font-size-sm); }
+
+/* Keep the first column in view while scrolling sideways. */
+.isa-table--sticky-first tr > :first-child {
+  position: sticky;
+  left: 0;
+  z-index: var(--isa-z-sticky);
+  background-color: var(--isa-color-surface-default);
+}
+.isa-table--sticky-first thead tr > :first-child { background-color: var(--isa-color-table-header-bg); }
+.isa-table--sticky-first tbody tr:hover > :first-child { background-color: var(--isa-color-table-row-hover-bg); }
+
 /* Tabs. Docs: docs/components/tabs.md. Extracted from the Slackline Sport Hub and adapted. */
 .isa-tabs {
   display: flex;
@@ -475,3 +690,46 @@ textarea.isa-input { min-height: calc(var(--isa-size-touch-target) * 2); resize:
 .isa-tabpanel[hidden] { display: none; }
 
 @media (prefers-reduced-motion: reduce) { .isa-tab { transition: none; } }
+
+/* Tooltip. Docs: docs/components/tooltip.md. Extracted from the Slackline Sport Hub and adapted.
+   Shown by CSS on hover and keyboard focus; isa.js (or the React Tooltip) adds closing with Escape. */
+.isa-tooltip { position: relative; display: inline-flex; }
+.isa-tooltip__content {
+  position: absolute;
+  bottom: calc(100% + var(--isa-space-2));
+  left: 50%;
+  z-index: var(--isa-z-tooltip);
+  box-sizing: border-box;
+  width: max-content;
+  max-width: min(var(--isa-size-tooltip-max), 80vw);
+  padding: var(--isa-space-2) var(--isa-space-3);
+  border-radius: var(--isa-radius-sm);
+  background-color: var(--isa-color-tooltip-bg);
+  color: var(--isa-color-tooltip-fg);
+  box-shadow: var(--isa-shadow-md);
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-sm);
+  font-weight: var(--isa-font-weight-regular);
+  line-height: var(--isa-font-line-height-normal);
+  text-align: left;
+  text-transform: none;
+  white-space: normal;
+  /* --isa-tooltip-shift is set by isa.js / the React Tooltip to keep the tooltip inside the screen. */
+  transform: translateX(calc(-50% + var(--isa-tooltip-shift, 0px)));
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--isa-duration-fast), visibility var(--isa-duration-fast);
+}
+/* Invisible bridge so the pointer can move from the trigger onto the tooltip. */
+.isa-tooltip__content::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: var(--isa-space-2); }
+.isa-tooltip:hover > .isa-tooltip__content,
+.isa-tooltip:focus-within > .isa-tooltip__content { visibility: visible; opacity: 1; }
+.isa-tooltip[data-dismissed] > .isa-tooltip__content { visibility: hidden; opacity: 0; }
+
+.isa-tooltip--bottom > .isa-tooltip__content { top: calc(100% + var(--isa-space-2)); bottom: auto; }
+.isa-tooltip--bottom > .isa-tooltip__content::after { top: auto; bottom: 100%; }
+/* Align to the trigger's left or right edge instead of centering (also the fallback without script). */
+.isa-tooltip--start > .isa-tooltip__content { left: 0; transform: translateX(var(--isa-tooltip-shift, 0px)); }
+.isa-tooltip--end > .isa-tooltip__content { left: auto; right: 0; transform: translateX(var(--isa-tooltip-shift, 0px)); }
+
+@media (prefers-reduced-motion: reduce) { .isa-tooltip__content { transition: none; } }

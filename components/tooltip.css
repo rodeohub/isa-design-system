@@ -1,0 +1,42 @@
+/* Tooltip. Docs: docs/components/tooltip.md. Extracted from the Slackline Sport Hub and adapted.
+   Shown by CSS on hover and keyboard focus; isa.js (or the React Tooltip) adds closing with Escape. */
+.isa-tooltip { position: relative; display: inline-flex; }
+.isa-tooltip__content {
+  position: absolute;
+  bottom: calc(100% + var(--isa-space-2));
+  left: 50%;
+  z-index: var(--isa-z-tooltip);
+  box-sizing: border-box;
+  width: max-content;
+  max-width: min(var(--isa-size-tooltip-max), 80vw);
+  padding: var(--isa-space-2) var(--isa-space-3);
+  border-radius: var(--isa-radius-sm);
+  background-color: var(--isa-color-tooltip-bg);
+  color: var(--isa-color-tooltip-fg);
+  box-shadow: var(--isa-shadow-md);
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-sm);
+  font-weight: var(--isa-font-weight-regular);
+  line-height: var(--isa-font-line-height-normal);
+  text-align: left;
+  text-transform: none;
+  white-space: normal;
+  /* --isa-tooltip-shift is set by isa.js / the React Tooltip to keep the tooltip inside the screen. */
+  transform: translateX(calc(-50% + var(--isa-tooltip-shift, 0px)));
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--isa-duration-fast), visibility var(--isa-duration-fast);
+}
+/* Invisible bridge so the pointer can move from the trigger onto the tooltip. */
+.isa-tooltip__content::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: var(--isa-space-2); }
+.isa-tooltip:hover > .isa-tooltip__content,
+.isa-tooltip:focus-within > .isa-tooltip__content { visibility: visible; opacity: 1; }
+.isa-tooltip[data-dismissed] > .isa-tooltip__content { visibility: hidden; opacity: 0; }
+
+.isa-tooltip--bottom > .isa-tooltip__content { top: calc(100% + var(--isa-space-2)); bottom: auto; }
+.isa-tooltip--bottom > .isa-tooltip__content::after { top: auto; bottom: 100%; }
+/* Align to the trigger's left or right edge instead of centering (also the fallback without script). */
+.isa-tooltip--start > .isa-tooltip__content { left: 0; transform: translateX(var(--isa-tooltip-shift, 0px)); }
+.isa-tooltip--end > .isa-tooltip__content { left: auto; right: 0; transform: translateX(var(--isa-tooltip-shift, 0px)); }
+
+@media (prefers-reduced-motion: reduce) { .isa-tooltip__content { transition: none; } }

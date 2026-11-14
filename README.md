@@ -24,4 +24,4 @@ node scripts/audit.mjs ../some-project/src   # find hard-coded colors in a proje
 No dependencies; Node 18+.
 
 ## Status
-Version 0.5: foundations plus Button, Badge, Alert, form fields, Tabs and Dialog. More are extracted from the Slackline Sport Hub one at a time. Maintainers: Roberto de Oliveira, with Can Sahin and Muhammad Martinez.
+Version 0.6: foundations plus Button, Badge, Alert, form fields, Tabs, Dialog, Card, Table, Spinner and Tooltip. More are extracted from the Slackline Sport Hub one at a time. Maintainers: Roberto de Oliveira, with Can Sahin and Muhammad Martinez.

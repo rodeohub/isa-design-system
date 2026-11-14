@@ -1,0 +1,90 @@
+/* Table. Docs: docs/components/table.md. Extracted from the Slackline Sport Hub and adapted. */
+.isa-table-wrap {
+  max-width: 100%;
+  border: 1px solid var(--isa-color-table-border);
+  border-radius: var(--isa-radius-lg);
+  background-color: var(--isa-color-surface-default);
+  overflow-x: auto; /* wide tables scroll sideways on phones */
+}
+.isa-table-wrap:focus-visible {
+  outline: var(--isa-size-focus-ring-width) solid var(--isa-focus-color, var(--isa-color-border-focus));
+  outline-offset: var(--isa-size-focus-ring-offset);
+}
+.isa-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--isa-color-text-default);
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-md);
+  line-height: var(--isa-font-line-height-snug);
+  font-variant-numeric: tabular-nums;
+}
+.isa-table caption {
+  padding: var(--isa-space-3) var(--isa-space-4);
+  color: var(--isa-color-text-default);
+  font-weight: var(--isa-font-weight-semibold);
+  text-align: left;
+  caption-side: top;
+}
+.isa-table th,
+.isa-table td {
+  padding: var(--isa-space-3) var(--isa-space-4);
+  border-bottom: 1px solid var(--isa-color-table-border);
+  text-align: left;
+  vertical-align: middle;
+}
+.isa-table tbody tr:last-child > * { border-bottom: 0; }
+.isa-table thead th {
+  background-color: var(--isa-color-table-header-bg);
+  color: var(--isa-color-table-header-fg);
+  font-size: var(--isa-font-size-sm);
+  font-weight: var(--isa-font-weight-semibold);
+  white-space: nowrap;
+}
+.isa-table tbody th { font-weight: var(--isa-font-weight-semibold); }
+.isa-table tbody tr:hover > * { background-color: var(--isa-color-table-row-hover-bg); }
+.isa-table a { color: var(--isa-color-text-link); }
+.isa-table a:hover { color: var(--isa-color-text-link-hover); }
+.isa-table .isa-table__num { text-align: right; }
+
+/* Sortable column: a button inside the <th>, with aria-sort on the <th>. */
+.isa-table__sort {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--isa-space-1);
+  min-height: var(--isa-size-touch-target);
+  margin: calc(var(--isa-space-3) * -1) 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.isa-table__sort:hover { color: var(--isa-color-text-default); }
+.isa-table__sort:focus-visible {
+  outline: var(--isa-size-focus-ring-width) solid var(--isa-focus-color, var(--isa-color-border-focus));
+  outline-offset: var(--isa-size-focus-ring-offset);
+  border-radius: var(--isa-radius-sm);
+}
+.isa-table__sort svg { width: 1em; height: 1em; flex-shrink: 0; opacity: 0.45; }
+.isa-table th[aria-sort="ascending"] .isa-table__sort,
+.isa-table th[aria-sort="descending"] .isa-table__sort { color: var(--isa-color-text-default); }
+.isa-table th[aria-sort="ascending"] .isa-table__sort svg,
+.isa-table th[aria-sort="descending"] .isa-table__sort svg { opacity: 1; }
+.isa-table th[aria-sort="descending"] .isa-table__sort svg { transform: rotate(180deg); }
+
+.isa-table--compact th,
+.isa-table--compact td { padding: var(--isa-space-2) var(--isa-space-3); }
+.isa-table--compact { font-size: var(--isa-font-size-sm); }
+
+/* Keep the first column in view while scrolling sideways. */
+.isa-table--sticky-first tr > :first-child {
+  position: sticky;
+  left: 0;
+  z-index: var(--isa-z-sticky);
+  background-color: var(--isa-color-surface-default);
+}
+.isa-table--sticky-first thead tr > :first-child { background-color: var(--isa-color-table-header-bg); }
+.isa-table--sticky-first tbody tr:hover > :first-child { background-color: var(--isa-color-table-row-hover-bg); }

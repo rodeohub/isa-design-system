@@ -18,6 +18,11 @@
     "focus-ring-width": { "$value": "2px" },
     "focus-ring-offset": { "$value": "2px" },
     "content-max": { "$value": "80rem" },
+    "spinner-sm": { "$value": "1rem" },
+    "spinner-md": { "$value": "1.5rem" },
+    "spinner-lg": { "$value": "2.5rem" },
+    "tooltip-max": { "$value": "16rem" },
+    "card-min": { "$value": "17.5rem", "$description": "Narrowest card in a card grid (280px)." },
     "dialog-max": { "$value": "37rem", "$description": "Maximum dialog width (592px)." }
   },
   "breakpoint": {
@@ -30,6 +35,12 @@
     "$description": "Elevation. Simplified to CSS strings (gray 900 at low opacity).",
     "md": { "$value": "0 2px 8px #1515151f" },
     "lg": { "$value": "0 12px 32px #15151533" }
+  },
+  "z": {
+    "$type": "number",
+    "$description": "Stacking order. Dialogs use the browser's top layer and need no z-index.",
+    "sticky": { "$value": 10 },
+    "tooltip": { "$value": 40 }
   },
   "duration": {
     "$type": "duration",

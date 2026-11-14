@@ -2,7 +2,7 @@
 
 Components are extracted from the Slackline Sport Hub one at a time (with its developers' consent, Roberto 2026-11-14), adapted to these foundations, and documented here. Only components that exist in code are documented.
 
-Each component ships as plain CSS (`dist/components.css`, classes `isa-*`, works in any stack) plus an optional React wrapper (`isa-design-system/react`). Plain HTML pages load `dist/isa.js` for the two interactive ones (Tabs, Dialog). Live examples: `dist/preview.html`, sources in `components/*.examples.html`.
+Each component ships as plain CSS (`dist/components.css`, classes `isa-*`, works in any stack) plus an optional React wrapper (`isa-design-system/react`). Plain HTML pages load `dist/isa.js` for the interactive ones (Tabs, Dialog, Tooltip). Live examples: `dist/preview.html`, sources in `components/*.examples.html`.
 
 ## Available
 | Component | Doc | Status |
@@ -12,14 +12,18 @@ Each component ships as plain CSS (`dist/components.css`, classes `isa-*`, works
 | Alert | [alert.md](alert.md) | draft |
 | Tabs | [tabs.md](tabs.md) | draft |
 | Dialog (modal) | [dialog.md](dialog.md) | draft |
+| Card and card grid | [card.md](card.md) | draft |
+| Table | [table.md](table.md) | draft |
+| Spinner | [spinner.md](spinner.md) | draft |
+| Tooltip | [tooltip.md](tooltip.md) | draft |
 | Form fields (text input, text area, select, checkbox, radio, fieldset) | [field.md](field.md) | draft |
 
 ## To extract from the Sport Hub (`sport-hub/src/ui`)
-Suggested order: Card, Autocomplete, Table, Spinner, Tooltip, Drawer, Avatar, Navigation and Footer, PageLayout.
+Suggested order: Drawer, Avatar, Navigation and Footer, PageLayout, Autocomplete, pagination and table filters.
 
 Sport Hub specific, likely to stay there: CountryFlag, EventDetailsCard, FeaturedAthleteCard, FeaturedEventCard, StackedMediaCard, ProfileMediaLinks, LabelValuePair, SortableList, UserForm, UserMenu, Icons.
 
-Not in the Sport Hub yet, likely needed: toast, pagination, empty state, skeleton, breadcrumbs, date picker.
+Not in the Sport Hub yet, likely needed: toast, empty state, skeleton, breadcrumbs, date picker, progress bar.
 
 ## How to extract a component
 1. Read the Sport Hub source and list its variants and states.

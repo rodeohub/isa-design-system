@@ -1,0 +1,31 @@
+<!-- Table examples. Every snippet is valid usage; copy from here. Athlete names are placeholders. -->
+<h3>With caption, sortable column and numbers</h3>
+<div class="isa-table-wrap" role="region" aria-labelledby="ex-table-cap" tabindex="0">
+  <table class="isa-table">
+    <caption id="ex-table-cap">Freestyle Highline ranking, women</caption>
+    <thead>
+      <tr>
+        <th scope="col" aria-sort="ascending" class="isa-table__num"><button type="button" class="isa-table__sort">Rank <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></th>
+        <th scope="col">Athlete</th>
+        <th scope="col">Country</th>
+        <th scope="col" aria-sort="none" class="isa-table__num"><button type="button" class="isa-table__sort">Points <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="isa-table__num">1</td><th scope="row"><a href="#">[Athlete name]</a></th><td>Czechia</td><td class="isa-table__num">1,240</td><td><span class="isa-badge isa-badge--brand isa-badge--outline">ISA verified</span></td></tr>
+      <tr><td class="isa-table__num">2</td><th scope="row"><a href="#">[Athlete name]</a></th><td>Brazil</td><td class="isa-table__num">1,185</td><td><span class="isa-badge isa-badge--brand isa-badge--outline">ISA verified</span></td></tr>
+      <tr><td class="isa-table__num">3</td><th scope="row"><a href="#">[Athlete name]</a></th><td>Germany</td><td class="isa-table__num">990</td><td><span class="isa-badge">Pending</span></td></tr>
+    </tbody>
+  </table>
+</div>
+<h3>Compact</h3>
+<div class="isa-table-wrap" style="max-width: 28rem">
+  <table class="isa-table isa-table--compact">
+    <thead><tr><th scope="col">Discipline</th><th scope="col" class="isa-table__num">Events</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Freestyle Highline</th><td class="isa-table__num">12</td></tr>
+      <tr><th scope="row">Speed Highline</th><td class="isa-table__num">8</td></tr>
+    </tbody>
+  </table>
+</div>

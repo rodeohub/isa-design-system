@@ -4,3 +4,7 @@ export { Alert } from './Alert.js';
 export { TextField, TextArea, SelectField, Checkbox, Radio, Fieldset } from './Field.js';
 export { Tabs } from './Tabs.js';
 export { Dialog } from './Dialog.js';
+export { Card, CardGrid } from './Card.js';
+export { Table } from './Table.js';
+export { Spinner } from './Spinner.js';
+export { Tooltip } from './Tooltip.js';

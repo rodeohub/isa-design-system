@@ -57,6 +57,20 @@
       "disabled-bg": { "$value": "{color.gray.100}" },
       "disabled-fg": { "$value": "{color.gray.400}", "$description": "Disabled controls are exempt from contrast rules, but keep them recognisable." }
     },
+    "table": {
+      "header-bg": { "$value": "{color.gray.50}" },
+      "header-fg": { "$value": "{color.gray.500}" },
+      "row-hover-bg": { "$value": "{color.gray.50}" },
+      "border": { "$value": "{color.gray.200}" }
+    },
+    "tooltip": {
+      "bg": { "$value": "{color.gray.800}" },
+      "fg": { "$value": "{color.white}" }
+    },
+    "spinner": {
+      "fg": { "$value": "{color.green.500}", "$description": "Brand green: a graphic, needs 3:1." },
+      "track": { "$value": "{color.gray.200}" }
+    },
     "selected": {
       "$description": "The chosen item in a set: the current tab, a selected filter or row.",
       "fg": { "$value": "{color.green.700}" },

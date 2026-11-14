@@ -50,6 +50,14 @@
   --color-action-danger-fg: var(--isa-color-action-danger-fg);
   --color-action-disabled-bg: var(--isa-color-action-disabled-bg);
   --color-action-disabled-fg: var(--isa-color-action-disabled-fg);
+  --color-table-header-bg: var(--isa-color-table-header-bg);
+  --color-table-header-fg: var(--isa-color-table-header-fg);
+  --color-table-row-hover-bg: var(--isa-color-table-row-hover-bg);
+  --color-table-border: var(--isa-color-table-border);
+  --color-tooltip-bg: var(--isa-color-tooltip-bg);
+  --color-tooltip-fg: var(--isa-color-tooltip-fg);
+  --color-spinner-fg: var(--isa-color-spinner-fg);
+  --color-spinner-track: var(--isa-color-spinner-track);
   --color-selected-fg: var(--isa-color-selected-fg);
   --color-selected-bg: var(--isa-color-selected-bg);
   --color-selected-border: var(--isa-color-selected-border);
