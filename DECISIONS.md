@@ -49,6 +49,7 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Dark mode is on the to-do list. Before starting, Roberto answers the questions under Open questions. | Roberto |
 | 2026-11-14 | Dark mode built (v0.12.0). Roberto: a switch on the page; AA contrast; the Sport Hub mock page is the test page. Claude: opt-in per project (`data-theme="system"` follows the device until the switch is used; pages without `data-theme` stay light, so unchecked projects never turn dark by surprise); the choice is remembered in the browser; status and category colors are the light pairs swapped; new role `surface.raised`. | Roberto, Claude |
 | 2026-11-14 | Dark mode: header and footer are deep green (option B, green 900), chosen over green 700 and dark gray with a green line (v0.12.1). | Roberto |
+| 2026-11-14 | No Figma plan upgrade. Figma stays light only (the free plan allows one mode per variable collection). Dark mode is checked in `dist/preview.html`. A workaround without upgrade exists if designers ever need it: a second variable collection with the dark values and a page of dark component copies. | Roberto |
 
 ## Open questions
 1. **Logo SVGs and usage rules:** Roberto asked to be reminded to provide the SVG logos (2026-11-14).

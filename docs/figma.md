@@ -16,7 +16,7 @@ File: [ISA Design System](https://www.figma.com/design/3U795EQvIDPLGrEyHRT7Um) i
   - Card, Table, Spinner (size), Tooltip, Avatar (size, shape), Header, Footer, Drawer.
   - Pagination item (state), Pagination, Breadcrumbs, Empty state, Toast (variant), Autocomplete (shown open), Filters, Page title.
 
-The library matches v0.12.1 in light (updated 2026-11-14), including `surface/raised`. **There is no dark mode in Figma:** the Starter plan allows one mode per variable collection ("Limited to 1 modes only"). With a paid Figma plan, add a mode "Dark" to `Color` and fill it from `tokens/semantic/themes/dark.json`. Until then, check dark mode in `dist/preview.html`.
+The library matches v0.12.1 in light (updated 2026-11-14), including `surface/raised`. **There is no dark mode in Figma:** the Starter plan allows one mode per variable collection ("Limited to 1 modes only"). No plan upgrade is planned (Roberto, 2026-11-14). If designers need dark in Figma later, without upgrading: add a second collection with the dark values and a page of dark component copies. Until then, check dark mode in `dist/preview.html`.
 
 ## What is not in it
 - Hover, active, focus and loading states (defined in code; see each component doc).
