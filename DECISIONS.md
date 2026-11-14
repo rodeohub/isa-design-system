@@ -20,7 +20,7 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Repo lives on GitHub, public, created as rodeohub/isa-design-system and to be transferred to the International-Slackline-Association organization. Collaborators: Can Sahin (Can-Sahin), Muhammad Martinez (mmrtnz). | Roberto |
 | 2026-11-14 | Three token layers (primitive, semantic, component); projects use semantic roles only. Themes are separate semantic files. | Claude, from the decisions above |
 | 2026-11-14 | Category colors are a ready-to-use set of pairs. Which category gets which color is up to each project (e.g. SportHub), not the system. | Roberto |
-| 2026-11-14 | Sean moves the repo to the International-Slackline-Association organization. Collaborator invites sent to Can-Sahin and mmrtnz. | Roberto |
+| 2026-11-14 | Can (GitHub: Can-Sahin; earlier written "Sean" from dictation) moves the repo to the International-Slackline-Association organization. Collaborator invites sent to Can-Sahin and mmrtnz. | Roberto |
 | 2026-11-14 | Green 600 changed from `#008F8B` to `#00827E` so white text passes AA (4.67:1). Green 500 (official) unchanged. Primary buttons use green 600; links and secondary-button text stay green 700 because they also sit on light gray (600 is 4.32:1 there). Destructive buttons use red 600 (4.84:1). The vault note still shows the old 600 until Roberto says to update it. | Roberto (600 change), Claude (role mapping) |
 | 2026-11-14 | Independent review (Fable 5.2) done. Fixed right away: Tailwind breakpoints, focus ring on dark surfaces (`border.focus-inverse`), audit shipped to projects (`npx isa-audit`), WCAG wording (44px is a house rule, AA is 24px), link underline rule. Other findings are listed below as next steps. | Claude |
 | 2026-11-14 | SportHub changes are out of scope for now; migrating SportHub would be a separate project. | Roberto |
@@ -58,7 +58,7 @@ Agents working with Roberto: raise the open questions with him at the start of a
 6. **Logos for dark and brand surfaces** (white or light versions): remind Roberto to provide the SVG logos.
 
 ## Next steps
-1. Dark mode follow-ups: a Dark mode in the Figma `Color` collection, hover and focus states checked by hand in dark.
+1. Dark mode follow-ups: a Dark mode in the Figma `Color` collection (needs a paid Figma plan: Starter allows one mode), hover and focus states checked by hand in dark.
 2. If the Sport Hub migrates later (separate project): a class map from default Tailwind colors to roles.
 3. Possible components: multi-select dropdown, number field with steppers.
 4. Storybook: not needed now (the preview page and the example page cover it). Worth adding when several developers build React components here and want to test states and run visual regression checks.
