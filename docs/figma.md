@@ -16,7 +16,7 @@ File: [ISA Design System](https://www.figma.com/design/3U795EQvIDPLGrEyHRT7Um) i
   - Card, Table, Spinner (size), Tooltip, Avatar (size, shape), Header, Footer, Drawer.
   - Pagination item (state), Pagination, Breadcrumbs, Empty state, Toast (variant), Autocomplete (shown open), Filters, Page title.
 
-The library matches v0.11.0 (refreshed 2026-11-14).
+The library matches v0.11.0 (refreshed 2026-11-14). Not yet in it from v0.12.0: the role `surface.raised` and the dark theme. The update was stopped on 2026-11-14 by the daily limit of Figma connector calls on the Starter plan; retry another day. A second mode ("Dark") in a variable collection may need a paid Figma plan: if adding the mode fails, keep Figma light only and say so here.
 
 ## What is not in it
 - Hover, active, focus and loading states (defined in code; see each component doc).
