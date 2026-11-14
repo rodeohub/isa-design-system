@@ -1,6 +1,12 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.11.0`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.12.0`, and upgrade on purpose.
+
+## 0.12.0 (2026-11-14)
+- **Dark mode.** New theme `tokens/semantic/themes/dark.json`; every contrast pair is checked in both themes. Set `data-theme="dark"` on `<html>`, or `data-theme="system"` to follow the device. Pages without `data-theme` stay light.
+- Theme switch: `data-isa-theme-toggle` buttons (handled by `dist/isa.js`, choice remembered), `setTheme` and `isDark`, React `ThemeToggle` and `useTheme`. New class `isa-header__button` for icon buttons in the header.
+- New role `surface.raised` for dialogs, drawers, the autocomplete list and elevated cards (same as the page in light, one step lighter in dark).
+- Fix: themes are now written after the light theme in `dist/tokens.css`, so they can override it.
 
 ## 0.11.0 (2026-11-14)
 - **Footer** is now green like the header (`surface.brand`, white text and links, white focus ring). It was light gray. No markup change.

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <!-- Example page: a mock of the Slackline Sport Hub rankings page, built only from the ISA Design System.
      Athlete names, points and events are placeholders, not real data. Agents: use this as a model for a full page. -->
-<html lang="en">
+<html lang="en" data-theme="system">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var t=localStorage.getItem('isa-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <title>Rankings: Sport Hub (mock)</title>
 <link rel="stylesheet" href="../dist/fonts.css"><link rel="stylesheet" href="../dist/tokens.css"><link rel="stylesheet" href="../dist/components.css">
 <style>
 /* Page-specific layout only. Tokens only, no colors of its own. */
-body { margin: 0; }
+body { margin: 0; background-color: var(--isa-color-surface-default); }
 main h2 { margin: 0 0 var(--isa-space-4); font-family: var(--isa-text-style-h2-family); font-weight: var(--isa-text-style-h2-weight); font-size: var(--isa-font-size-3xl); line-height: var(--isa-text-style-h2-line-height); }
 main p { margin: 0; }
 .stack { display: flex; flex-direction: column; gap: var(--isa-space-4); }
@@ -25,6 +26,7 @@ main p { margin: 0; }
     <a class="isa-header__brand" href="#" aria-label="Sport Hub home">Sport Hub</a>
     <nav class="isa-header__nav" aria-label="Main"><ul class="isa-nav"><li><a class="isa-nav__link" href="#">Home</a></li><li><a class="isa-nav__link" href="#" aria-current="page">Rankings</a></li><li><a class="isa-nav__link" href="#">Competitions</a></li><li><a class="isa-nav__link" href="#">Judging</a></li><li><a class="isa-nav__link" href="#">Records &amp; Firsts</a></li></ul></nav>
     <div class="isa-header__actions">
+      <button type="button" class="isa-header__button" data-isa-theme-toggle aria-pressed="false" aria-label="Dark mode"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M12 7l5 -2M12 12h9M12 17l5 2"/></svg></button>
       <button type="button" class="isa-header__menu-button" aria-label="Menu" data-isa-dialog-open="menu"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </header>

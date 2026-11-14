@@ -5,7 +5,7 @@ import { createElement as h } from 'react';
 import { renderToStaticMarkup as render } from 'react-dom/server';
 import { pageList } from '../react/Pagination.js';
 import { initials } from '../react/Avatar.js';
-import { Button, Badge, Alert, TextField, TextArea, SelectField, Checkbox, Radio, Fieldset, Tabs, Dialog, Card, CardGrid, Table, Spinner, Tooltip, Drawer, Avatar, Header, Nav, Footer, SkipLink, Pagination, Breadcrumbs, EmptyState, ToastProvider, useToast, Autocomplete, Filters, Page, Main, PageTitle, Hero } from '../react/index.js';
+import { Button, Badge, Alert, TextField, TextArea, SelectField, Checkbox, Radio, Fieldset, Tabs, Dialog, Card, CardGrid, Table, Spinner, Tooltip, Drawer, Avatar, Header, Nav, Footer, SkipLink, Pagination, Breadcrumbs, EmptyState, ToastProvider, useToast, Autocomplete, Filters, Page, Main, PageTitle, Hero, ThemeToggle } from '../react/index.js';
 
 const eq = (el, html) => assert.equal(render(el), html);
 
@@ -115,5 +115,10 @@ assert.throws(() => render(h(Probe)), /ToastProvider/);
 }
 eq(h(Page, null, h(Main, { narrow: true }, h(PageTitle, { title: 'Results' }, 'Lead'), h(Hero, { src: '/a.jpg', alt: '', caption: 'Photo: X' }))),
   '<link rel="preload" as="image" href="/a.jpg"/><div class="isa-page"><main id="main" class="isa-main isa-main--narrow"><div class="isa-page-title"><h1>Results</h1><p>Lead</p></div><figure class="isa-hero"><img src="/a.jpg" alt=""/><figcaption>Photo: X</figcaption></figure></main></div>');
+
+{
+  const out = render(h(ThemeToggle, { className: 'isa-header__button' }));
+  assert.ok(out.startsWith('<button type="button" class="isa-header__button" aria-pressed="false" aria-label="Dark mode">'), out);
+}
 
 console.log('React components: all checks passed.');

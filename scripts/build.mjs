@@ -4,7 +4,8 @@ import { readJsonTree, load, resolve, cssName, cssValue, refOrValue } from './li
 
 const primitiveFiles = readJsonTree('tokens/primitive');
 const sharedSemanticFiles = readJsonTree('tokens/semantic').filter((f) => !f.includes('/themes/'));
-const themes = readdirSync('tokens/semantic/themes').filter((f) => f.endsWith('.json')).map((f) => f.replace('.json', ''));
+const themes = readdirSync('tokens/semantic/themes').filter((f) => f.endsWith('.json')).map((f) => f.replace('.json', ''))
+  .sort((a, b) => (a === 'light' ? -1 : b === 'light' ? 1 : a.localeCompare(b))); // light first: later themes must win over :root
 if (!themes.includes('light')) throw new Error('tokens/semantic/themes/light.json is required (default theme).');
 
 const base = load([...primitiveFiles, ...sharedSemanticFiles]);
@@ -24,6 +25,12 @@ for (const t of themes) {
   if (t !== 'light') css += '  color-scheme: dark;\n';
   for (const [k, tok] of Object.entries(themed[t])) css += `  ${cssName(k)}: ${refOrValue({ ...base, ...themed[t] }, tok.value)};\n`;
   css += '}\n\n';
+  // data-theme="system" follows the device setting (used until the person picks a theme with the switch).
+  if (t === 'dark') {
+    css += '@media (prefers-color-scheme: dark) {\n  [data-theme="system"] {\n    color-scheme: dark;\n';
+    for (const [k, tok] of Object.entries(themed[t])) css += `    ${cssName(k)}: ${refOrValue({ ...base, ...themed[t] }, tok.value)};\n`;
+    css += '  }\n}\n\n';
+  }
 }
 writeFileSync('dist/tokens.css', css);
 
@@ -74,7 +81,9 @@ copyFileSync('behavior/isa.js', 'dist/isa.js');
 const v = (k) => resolve(all, all[k].value);
 const examples = readdirSync('components').filter((f) => f.endsWith('.examples.html')).sort()
   .map((f) => `<section><h2>${f.replace('.examples.html', '').replace(/^./, (c) => c.toUpperCase()).replace('Field', 'Form fields').replace('Navigation', 'Header, navigation and footer').replace('Empty', 'Empty state').replace('Page', 'Page layout')}</h2>\n${readFileSync(`components/${f}`, 'utf8')}</section>`).join('\n');
-const rows = semanticColors.map((k) => `<tr><td><code>${k}</code></td><td><span class="sw" style="background:${v(k)}"></span></td><td><code>${v(k)}</code></td><td>${all[k].description ?? ''}</td></tr>`).join('\n');
+const dark = themed.dark ? { ...base, ...themed.dark } : null;
+const sw = (c) => `<span class="sw" style="background:${c}"></span> <code>${c}</code>`;
+const rows = semanticColors.map((k) => `<tr><td><code>${k}</code></td><td>${sw(v(k))}</td>${dark ? `<td>${sw(resolve(dark, dark[k].value))}</td>` : ''}<td>${all[k].description ?? ''}</td></tr>`).join('\n');
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ISA Design System preview</title>
 <link rel="stylesheet" href="./fonts.css"><link rel="stylesheet" href="./tokens.css"><link rel="stylesheet" href="./components.css">
 <style>
@@ -88,12 +97,12 @@ h3{font-size:var(--isa-font-size-xl);font-weight:var(--isa-font-weight-semibold)
 .stack{display:grid;gap:var(--isa-space-3);margin-top:var(--isa-space-4);max-width:40rem}.form{display:grid;gap:var(--isa-space-5);margin-top:var(--isa-space-4);max-width:28rem}
 .brand{background:var(--isa-color-surface-brand);padding:var(--isa-space-4);border-radius:var(--isa-radius-lg)}
 .scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:var(--isa-font-size-sm);margin-top:var(--isa-space-4)}
-td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-space-2);vertical-align:middle}
+th{text-align:left;padding:var(--isa-space-2)}td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-space-2);vertical-align:middle}
 .sw{display:inline-block;width:2.5rem;height:1.5rem;border-radius:var(--isa-radius-sm);border:1px solid var(--isa-color-border-default)}
 </style></head>
-<body><main><h1>ISA Design System</h1><p>Version ${JSON.parse(readFileSync('package.json', 'utf8')).version}. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
+<body><main><div class="row" style="justify-content:space-between"><h1>ISA Design System</h1><button type="button" class="isa-button isa-button--neutral" data-isa-theme-toggle aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M12 7l5 -2M12 12h9M12 17l5 2" /></svg>Dark mode</button></div><p>Version ${JSON.parse(readFileSync('package.json', 'utf8')).version}. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
 ${examples}
-<section><h2>Color roles</h2><p>Light theme. Run <code>npm run check</code> for contrast results.</p><div class="scroll"><table>${rows}</table></div></section>
+<section><h2>Color roles</h2><p>Run <code>npm run check</code> for contrast results in every theme.</p><div class="scroll"><table><thead><tr><th>Role</th><th>Light</th>${dark ? '<th>Dark</th>' : ''}<th>Use</th></tr></thead>${rows}</table></div></section>
 </main><script type="module">
 ${readFileSync('behavior/isa.js', 'utf8').replace(/^export /gm, '')}</script></body></html>
 `;

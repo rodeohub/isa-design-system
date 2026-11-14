@@ -15,7 +15,7 @@
   overflow-y: auto;
   border: var(--isa-border-width-thin) solid var(--isa-color-border-strong);
   border-radius: var(--isa-radius-md);
-  background-color: var(--isa-color-surface-default);
+  background-color: var(--isa-color-surface-raised);
   box-shadow: var(--isa-shadow-md);
   list-style: none;
   font-family: var(--isa-font-family-body);

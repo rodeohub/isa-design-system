@@ -11,10 +11,10 @@ h3{font-size:var(--isa-font-size-xl);font-weight:var(--isa-font-weight-semibold)
 .stack{display:grid;gap:var(--isa-space-3);margin-top:var(--isa-space-4);max-width:40rem}.form{display:grid;gap:var(--isa-space-5);margin-top:var(--isa-space-4);max-width:28rem}
 .brand{background:var(--isa-color-surface-brand);padding:var(--isa-space-4);border-radius:var(--isa-radius-lg)}
 .scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:var(--isa-font-size-sm);margin-top:var(--isa-space-4)}
-td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-space-2);vertical-align:middle}
+th{text-align:left;padding:var(--isa-space-2)}td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-space-2);vertical-align:middle}
 .sw{display:inline-block;width:2.5rem;height:1.5rem;border-radius:var(--isa-radius-sm);border:1px solid var(--isa-color-border-default)}
 </style></head>
-<body><main><h1>ISA Design System</h1><p>Version 0.11.0. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
+<body><main><div class="row" style="justify-content:space-between"><h1>ISA Design System</h1><button type="button" class="isa-button isa-button--neutral" data-isa-theme-toggle aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M12 7l5 -2M12 12h9M12 17l5 2" /></svg>Dark mode</button></div><p>Version 0.12.0. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
 <section><h2>Alert</h2>
 <!-- Alert examples. Every snippet is valid usage; copy from here. -->
 <div class="stack">
@@ -575,115 +575,117 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
   </span>
 </div>
 </section>
-<section><h2>Color roles</h2><p>Light theme. Run <code>npm run check</code> for contrast results.</p><div class="scroll"><table><tr><td><code>color.text.default</code></td><td><span class="sw" style="background:#29292A"></span></td><td><code>#29292A</code></td><td>Body and headings.</td></tr>
-<tr><td><code>color.text.muted</code></td><td><span class="sw" style="background:#454546"></span></td><td><code>#454546</code></td><td>Secondary text, help text, captions. Still AA on surface.default and surface.subtle.</td></tr>
-<tr><td><code>color.text.inverse</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td>Text on dark or brand surfaces.</td></tr>
-<tr><td><code>color.text.link</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td>Green 700, not 600: links also sit on surface.subtle where 600 falls below 4.5:1. Underline links in body text.</td></tr>
-<tr><td><code>color.text.link-hover</code></td><td><span class="sw" style="background:#004845"></span></td><td><code>#004845</code></td><td></td></tr>
-<tr><td><code>color.text.danger</code></td><td><span class="sw" style="background:#8B2617"></span></td><td><code>#8B2617</code></td><td>Error messages.</td></tr>
-<tr><td><code>color.text.success</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td></td></tr>
-<tr><td><code>color.surface.default</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
-<tr><td><code>color.surface.subtle</code></td><td><span class="sw" style="background:#F6F6F6"></span></td><td><code>#F6F6F6</code></td><td></td></tr>
-<tr><td><code>color.surface.muted</code></td><td><span class="sw" style="background:#ECECED"></span></td><td><code>#ECECED</code></td><td></td></tr>
-<tr><td><code>color.surface.inverse</code></td><td><span class="sw" style="background:#1F1F20"></span></td><td><code>#1F1F20</code></td><td></td></tr>
-<tr><td><code>color.surface.brand</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td>Header bars and brand areas with text.inverse on top.</td></tr>
-<tr><td><code>color.surface.brand-strong</code></td><td><span class="sw" style="background:#004845"></span></td><td><code>#004845</code></td><td>Hover and current-page background inside brand areas.</td></tr>
-<tr><td><code>color.surface.danger</code></td><td><span class="sw" style="background:#FEF5F4"></span></td><td><code>#FEF5F4</code></td><td></td></tr>
-<tr><td><code>color.surface.success</code></td><td><span class="sw" style="background:#F2FAFA"></span></td><td><code>#F2FAFA</code></td><td></td></tr>
-<tr><td><code>color.border.default</code></td><td><span class="sw" style="background:#D1D1D1"></span></td><td><code>#D1D1D1</code></td><td>Dividers and card outlines (decorative).</td></tr>
-<tr><td><code>color.border.strong</code></td><td><span class="sw" style="background:#7D7D7E"></span></td><td><code>#7D7D7E</code></td><td>Input borders and other borders that must be seen (3:1).</td></tr>
-<tr><td><code>color.border.focus</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td>Focus ring on light surfaces.</td></tr>
-<tr><td><code>color.border.focus-inverse</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td>Focus ring on surface.brand, surface.inverse, primary and danger buttons.</td></tr>
-<tr><td><code>color.border.danger</code></td><td><span class="sw" style="background:#D13A22"></span></td><td><code>#D13A22</code></td><td></td></tr>
-<tr><td><code>color.action.primary-bg</code></td><td><span class="sw" style="background:#00827E"></span></td><td><code>#00827E</code></td><td></td></tr>
-<tr><td><code>color.action.primary-bg-hover</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td></td></tr>
-<tr><td><code>color.action.primary-bg-active</code></td><td><span class="sw" style="background:#004845"></span></td><td><code>#004845</code></td><td></td></tr>
-<tr><td><code>color.action.primary-fg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
-<tr><td><code>color.action.secondary-bg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
-<tr><td><code>color.action.secondary-bg-hover</code></td><td><span class="sw" style="background:#F2FAFA"></span></td><td><code>#F2FAFA</code></td><td></td></tr>
-<tr><td><code>color.action.secondary-bg-active</code></td><td><span class="sw" style="background:#E6F5F5"></span></td><td><code>#E6F5F5</code></td><td></td></tr>
-<tr><td><code>color.action.secondary-fg</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td></td></tr>
-<tr><td><code>color.action.secondary-border</code></td><td><span class="sw" style="background:#00827E"></span></td><td><code>#00827E</code></td><td></td></tr>
-<tr><td><code>color.action.danger-bg</code></td><td><span class="sw" style="background:#D13A22"></span></td><td><code>#D13A22</code></td><td></td></tr>
-<tr><td><code>color.action.danger-bg-hover</code></td><td><span class="sw" style="background:#8B2617"></span></td><td><code>#8B2617</code></td><td></td></tr>
-<tr><td><code>color.action.danger-bg-active</code></td><td><span class="sw" style="background:#681D11"></span></td><td><code>#681D11</code></td><td></td></tr>
-<tr><td><code>color.action.danger-secondary-bg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
-<tr><td><code>color.action.danger-secondary-bg-hover</code></td><td><span class="sw" style="background:#FEF5F4"></span></td><td><code>#FEF5F4</code></td><td></td></tr>
-<tr><td><code>color.action.danger-secondary-bg-active</code></td><td><span class="sw" style="background:#FDECE9"></span></td><td><code>#FDECE9</code></td><td></td></tr>
-<tr><td><code>color.action.danger-secondary-fg</code></td><td><span class="sw" style="background:#8B2617"></span></td><td><code>#8B2617</code></td><td></td></tr>
-<tr><td><code>color.action.danger-secondary-border</code></td><td><span class="sw" style="background:#D13A22"></span></td><td><code>#D13A22</code></td><td></td></tr>
-<tr><td><code>color.action.neutral-bg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td>Neutral (default) button: an action with no emphasis.</td></tr>
-<tr><td><code>color.action.neutral-bg-hover</code></td><td><span class="sw" style="background:#F6F6F6"></span></td><td><code>#F6F6F6</code></td><td></td></tr>
-<tr><td><code>color.action.neutral-bg-active</code></td><td><span class="sw" style="background:#ECECED"></span></td><td><code>#ECECED</code></td><td></td></tr>
-<tr><td><code>color.action.neutral-fg</code></td><td><span class="sw" style="background:#29292A"></span></td><td><code>#29292A</code></td><td></td></tr>
-<tr><td><code>color.action.neutral-border</code></td><td><span class="sw" style="background:#7D7D7E"></span></td><td><code>#7D7D7E</code></td><td></td></tr>
-<tr><td><code>color.action.ghost-fg</code></td><td><span class="sw" style="background:#29292A"></span></td><td><code>#29292A</code></td><td>Ghost button: no background until hovered. Light surfaces only.</td></tr>
-<tr><td><code>color.action.ghost-bg-hover</code></td><td><span class="sw" style="background:#ECECED"></span></td><td><code>#ECECED</code></td><td></td></tr>
-<tr><td><code>color.action.ghost-bg-active</code></td><td><span class="sw" style="background:#D1D1D1"></span></td><td><code>#D1D1D1</code></td><td></td></tr>
-<tr><td><code>color.action.danger-fg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
-<tr><td><code>color.action.disabled-bg</code></td><td><span class="sw" style="background:#ECECED"></span></td><td><code>#ECECED</code></td><td></td></tr>
-<tr><td><code>color.action.disabled-fg</code></td><td><span class="sw" style="background:#7D7D7E"></span></td><td><code>#7D7D7E</code></td><td>Disabled controls are exempt from contrast rules, but keep them recognisable.</td></tr>
-<tr><td><code>color.table.header-bg</code></td><td><span class="sw" style="background:#F6F6F6"></span></td><td><code>#F6F6F6</code></td><td></td></tr>
-<tr><td><code>color.table.header-fg</code></td><td><span class="sw" style="background:#454546"></span></td><td><code>#454546</code></td><td></td></tr>
-<tr><td><code>color.table.row-hover-bg</code></td><td><span class="sw" style="background:#F6F6F6"></span></td><td><code>#F6F6F6</code></td><td></td></tr>
-<tr><td><code>color.table.border</code></td><td><span class="sw" style="background:#D1D1D1"></span></td><td><code>#D1D1D1</code></td><td></td></tr>
-<tr><td><code>color.tooltip.bg</code></td><td><span class="sw" style="background:#1F1F20"></span></td><td><code>#1F1F20</code></td><td></td></tr>
-<tr><td><code>color.tooltip.fg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
-<tr><td><code>color.spinner.fg</code></td><td><span class="sw" style="background:#009F9A"></span></td><td><code>#009F9A</code></td><td>Brand green: a graphic, needs 3:1.</td></tr>
-<tr><td><code>color.spinner.track</code></td><td><span class="sw" style="background:#D1D1D1"></span></td><td><code>#D1D1D1</code></td><td></td></tr>
-<tr><td><code>color.selected.fg</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td></td></tr>
-<tr><td><code>color.selected.bg</code></td><td><span class="sw" style="background:#F2FAFA"></span></td><td><code>#F2FAFA</code></td><td></td></tr>
-<tr><td><code>color.selected.border</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td></td></tr>
-<tr><td><code>color.overlay.backdrop</code></td><td><span class="sw" style="background:#15151599"></span></td><td><code>#15151599</code></td><td>Dimmed layer behind a dialog (gray 900 at 60%).</td></tr>
-<tr><td><code>color.field.bg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
-<tr><td><code>color.field.bg-readonly</code></td><td><span class="sw" style="background:#F6F6F6"></span></td><td><code>#F6F6F6</code></td><td></td></tr>
-<tr><td><code>color.field.bg-disabled</code></td><td><span class="sw" style="background:#ECECED"></span></td><td><code>#ECECED</code></td><td></td></tr>
-<tr><td><code>color.field.fg</code></td><td><span class="sw" style="background:#29292A"></span></td><td><code>#29292A</code></td><td></td></tr>
-<tr><td><code>color.field.fg-disabled</code></td><td><span class="sw" style="background:#7D7D7E"></span></td><td><code>#7D7D7E</code></td><td>Disabled controls are exempt from contrast rules.</td></tr>
-<tr><td><code>color.field.placeholder</code></td><td><span class="sw" style="background:#454546"></span></td><td><code>#454546</code></td><td>Placeholders are hints, never the label.</td></tr>
-<tr><td><code>color.field.border</code></td><td><span class="sw" style="background:#7D7D7E"></span></td><td><code>#7D7D7E</code></td><td></td></tr>
-<tr><td><code>color.field.border-hover</code></td><td><span class="sw" style="background:#454546"></span></td><td><code>#454546</code></td><td></td></tr>
-<tr><td><code>color.field.border-invalid</code></td><td><span class="sw" style="background:#D13A22"></span></td><td><code>#D13A22</code></td><td></td></tr>
-<tr><td><code>color.field.accent</code></td><td><span class="sw" style="background:#00827E"></span></td><td><code>#00827E</code></td><td>Checked checkboxes and radios.</td></tr>
-<tr><td><code>color.brand.red</code></td><td><span class="sw" style="background:#E84026"></span></td><td><code>#E84026</code></td><td>Logos, large display text (24px+), decoration. Not for small text on white.</td></tr>
-<tr><td><code>color.brand.green</code></td><td><span class="sw" style="background:#009F9A"></span></td><td><code>#009F9A</code></td><td>Logos, large display text (24px+), decoration. Not for small text on white.</td></tr>
-<tr><td><code>color.brand.gray</code></td><td><span class="sw" style="background:#454546"></span></td><td><code>#454546</code></td><td></td></tr>
-<tr><td><code>color.status.success-fg</code></td><td><span class="sw" style="background:#004845"></span></td><td><code>#004845</code></td><td></td></tr>
-<tr><td><code>color.status.success-bg</code></td><td><span class="sw" style="background:#E6F5F5"></span></td><td><code>#E6F5F5</code></td><td></td></tr>
-<tr><td><code>color.status.danger-fg</code></td><td><span class="sw" style="background:#8B2617"></span></td><td><code>#8B2617</code></td><td></td></tr>
-<tr><td><code>color.status.danger-bg</code></td><td><span class="sw" style="background:#FDECE9"></span></td><td><code>#FDECE9</code></td><td></td></tr>
-<tr><td><code>color.status.warning-fg</code></td><td><span class="sw" style="background:#93370D"></span></td><td><code>#93370D</code></td><td></td></tr>
-<tr><td><code>color.status.warning-bg</code></td><td><span class="sw" style="background:#FDEEE2"></span></td><td><code>#FDEEE2</code></td><td></td></tr>
-<tr><td><code>color.status.info-fg</code></td><td><span class="sw" style="background:#1849A9"></span></td><td><code>#1849A9</code></td><td></td></tr>
-<tr><td><code>color.status.info-bg</code></td><td><span class="sw" style="background:#E8F0FE"></span></td><td><code>#E8F0FE</code></td><td></td></tr>
-<tr><td><code>color.category.neutral-fg</code></td><td><span class="sw" style="background:#29292A"></span></td><td><code>#29292A</code></td><td></td></tr>
-<tr><td><code>color.category.neutral-bg</code></td><td><span class="sw" style="background:#ECECED"></span></td><td><code>#ECECED</code></td><td></td></tr>
-<tr><td><code>color.category.green-fg</code></td><td><span class="sw" style="background:#2F6512"></span></td><td><code>#2F6512</code></td><td></td></tr>
-<tr><td><code>color.category.green-bg</code></td><td><span class="sw" style="background:#EAF5DF"></span></td><td><code>#EAF5DF</code></td><td></td></tr>
-<tr><td><code>color.category.red-fg</code></td><td><span class="sw" style="background:#A3123A"></span></td><td><code>#A3123A</code></td><td></td></tr>
-<tr><td><code>color.category.red-bg</code></td><td><span class="sw" style="background:#FDE8EA"></span></td><td><code>#FDE8EA</code></td><td></td></tr>
-<tr><td><code>color.category.brand-fg</code></td><td><span class="sw" style="background:#004845"></span></td><td><code>#004845</code></td><td></td></tr>
-<tr><td><code>color.category.brand-bg</code></td><td><span class="sw" style="background:#E6F5F5"></span></td><td><code>#E6F5F5</code></td><td></td></tr>
-<tr><td><code>color.category.blue-fg</code></td><td><span class="sw" style="background:#1849A9"></span></td><td><code>#1849A9</code></td><td></td></tr>
-<tr><td><code>color.category.blue-bg</code></td><td><span class="sw" style="background:#E8F0FE"></span></td><td><code>#E8F0FE</code></td><td></td></tr>
-<tr><td><code>color.category.teal-fg</code></td><td><span class="sw" style="background:#0B5363"></span></td><td><code>#0B5363</code></td><td></td></tr>
-<tr><td><code>color.category.teal-bg</code></td><td><span class="sw" style="background:#E0F4F8"></span></td><td><code>#E0F4F8</code></td><td></td></tr>
-<tr><td><code>color.category.orange-fg</code></td><td><span class="sw" style="background:#93370D"></span></td><td><code>#93370D</code></td><td></td></tr>
-<tr><td><code>color.category.orange-bg</code></td><td><span class="sw" style="background:#FDEEE2"></span></td><td><code>#FDEEE2</code></td><td></td></tr>
-<tr><td><code>color.category.yellow-fg</code></td><td><span class="sw" style="background:#6B4F00"></span></td><td><code>#6B4F00</code></td><td></td></tr>
-<tr><td><code>color.category.yellow-bg</code></td><td><span class="sw" style="background:#FDF5D3"></span></td><td><code>#FDF5D3</code></td><td></td></tr>
-<tr><td><code>color.category.pink-fg</code></td><td><span class="sw" style="background:#9C1A78"></span></td><td><code>#9C1A78</code></td><td></td></tr>
-<tr><td><code>color.category.pink-bg</code></td><td><span class="sw" style="background:#FCE8F6"></span></td><td><code>#FCE8F6</code></td><td></td></tr>
-<tr><td><code>color.category.violet-fg</code></td><td><span class="sw" style="background:#4338CA"></span></td><td><code>#4338CA</code></td><td></td></tr>
-<tr><td><code>color.category.violet-bg</code></td><td><span class="sw" style="background:#ECEBFE"></span></td><td><code>#ECEBFE</code></td><td></td></tr>
-<tr><td><code>color.category.purple-fg</code></td><td><span class="sw" style="background:#6B21A8"></span></td><td><code>#6B21A8</code></td><td></td></tr>
-<tr><td><code>color.category.purple-bg</code></td><td><span class="sw" style="background:#F3E8FF"></span></td><td><code>#F3E8FF</code></td><td></td></tr></table></div></section>
+<section><h2>Color roles</h2><p>Run <code>npm run check</code> for contrast results in every theme.</p><div class="scroll"><table><thead><tr><th>Role</th><th>Light</th><th>Dark</th><th>Use</th></tr></thead><tr><td><code>color.text.default</code></td><td><span class="sw" style="background:#29292A"></span> <code>#29292A</code></td><td><span class="sw" style="background:#F6F6F6"></span> <code>#F6F6F6</code></td><td>Body and headings.</td></tr>
+<tr><td><code>color.text.muted</code></td><td><span class="sw" style="background:#454546"></span> <code>#454546</code></td><td><span class="sw" style="background:#B5B5B5"></span> <code>#B5B5B5</code></td><td>Secondary text, help text, captions. Still AA on surface.default and surface.subtle.</td></tr>
+<tr><td><code>color.text.inverse</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td>Text on dark or brand surfaces.</td></tr>
+<tr><td><code>color.text.link</code></td><td><span class="sw" style="background:#005F5C"></span> <code>#005F5C</code></td><td><span class="sw" style="background:#99D9D7"></span> <code>#99D9D7</code></td><td>Green 700, not 600: links also sit on surface.subtle where 600 falls below 4.5:1. Underline links in body text.</td></tr>
+<tr><td><code>color.text.link-hover</code></td><td><span class="sw" style="background:#004845"></span> <code>#004845</code></td><td><span class="sw" style="background:#BFE7E6"></span> <code>#BFE7E6</code></td><td></td></tr>
+<tr><td><code>color.text.danger</code></td><td><span class="sw" style="background:#8B2617"></span> <code>#8B2617</code></td><td><span class="sw" style="background:#F6B3A8"></span> <code>#F6B3A8</code></td><td>Error messages.</td></tr>
+<tr><td><code>color.text.success</code></td><td><span class="sw" style="background:#005F5C"></span> <code>#005F5C</code></td><td><span class="sw" style="background:#99D9D7"></span> <code>#99D9D7</code></td><td></td></tr>
+<tr><td><code>color.surface.default</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td><span class="sw" style="background:#151515"></span> <code>#151515</code></td><td></td></tr>
+<tr><td><code>color.surface.subtle</code></td><td><span class="sw" style="background:#F6F6F6"></span> <code>#F6F6F6</code></td><td><span class="sw" style="background:#1F1F20"></span> <code>#1F1F20</code></td><td></td></tr>
+<tr><td><code>color.surface.muted</code></td><td><span class="sw" style="background:#ECECED"></span> <code>#ECECED</code></td><td><span class="sw" style="background:#29292A"></span> <code>#29292A</code></td><td></td></tr>
+<tr><td><code>color.surface.raised</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td><span class="sw" style="background:#1F1F20"></span> <code>#1F1F20</code></td><td>Surfaces that float above the page: dialogs, drawers, menus, elevated cards. Same as the page in light; one step lighter in dark, where shadows do not show.</td></tr>
+<tr><td><code>color.surface.inverse</code></td><td><span class="sw" style="background:#1F1F20"></span> <code>#1F1F20</code></td><td><span class="sw" style="background:#3E3E3F"></span> <code>#3E3E3F</code></td><td></td></tr>
+<tr><td><code>color.surface.brand</code></td><td><span class="sw" style="background:#005F5C"></span> <code>#005F5C</code></td><td><span class="sw" style="background:#005F5C"></span> <code>#005F5C</code></td><td>Header bars and brand areas with text.inverse on top.</td></tr>
+<tr><td><code>color.surface.brand-strong</code></td><td><span class="sw" style="background:#004845"></span> <code>#004845</code></td><td><span class="sw" style="background:#004845"></span> <code>#004845</code></td><td>Hover and current-page background inside brand areas.</td></tr>
+<tr><td><code>color.surface.danger</code></td><td><span class="sw" style="background:#FEF5F4"></span> <code>#FEF5F4</code></td><td><span class="sw" style="background:#46130B"></span> <code>#46130B</code></td><td></td></tr>
+<tr><td><code>color.surface.success</code></td><td><span class="sw" style="background:#F2FAFA"></span> <code>#F2FAFA</code></td><td><span class="sw" style="background:#00302E"></span> <code>#00302E</code></td><td></td></tr>
+<tr><td><code>color.border.default</code></td><td><span class="sw" style="background:#D1D1D1"></span> <code>#D1D1D1</code></td><td><span class="sw" style="background:#3E3E3F"></span> <code>#3E3E3F</code></td><td>Dividers and card outlines (decorative).</td></tr>
+<tr><td><code>color.border.strong</code></td><td><span class="sw" style="background:#7D7D7E"></span> <code>#7D7D7E</code></td><td><span class="sw" style="background:#7D7D7E"></span> <code>#7D7D7E</code></td><td>Input borders and other borders that must be seen (3:1).</td></tr>
+<tr><td><code>color.border.focus</code></td><td><span class="sw" style="background:#005F5C"></span> <code>#005F5C</code></td><td><span class="sw" style="background:#4DBCB8"></span> <code>#4DBCB8</code></td><td>Focus ring on light surfaces.</td></tr>
+<tr><td><code>color.border.focus-inverse</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td>Focus ring on surface.brand, surface.inverse, primary and danger buttons.</td></tr>
+<tr><td><code>color.border.danger</code></td><td><span class="sw" style="background:#D13A22"></span> <code>#D13A22</code></td><td><span class="sw" style="background:#EF7967"></span> <code>#EF7967</code></td><td></td></tr>
+<tr><td><code>color.action.primary-bg</code></td><td><span class="sw" style="background:#00827E"></span> <code>#00827E</code></td><td><span class="sw" style="background:#00827E"></span> <code>#00827E</code></td><td></td></tr>
+<tr><td><code>color.action.primary-bg-hover</code></td><td><span class="sw" style="background:#005F5C"></span> <code>#005F5C</code></td><td><span class="sw" style="background:#005F5C"></span> <code>#005F5C</code></td><td></td></tr>
+<tr><td><code>color.action.primary-bg-active</code></td><td><span class="sw" style="background:#004845"></span> <code>#004845</code></td><td><span class="sw" style="background:#004845"></span> <code>#004845</code></td><td></td></tr>
+<tr><td><code>color.action.primary-fg</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td></td></tr>
+<tr><td><code>color.action.secondary-bg</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td><span class="sw" style="background:#151515"></span> <code>#151515</code></td><td></td></tr>
+<tr><td><code>color.action.secondary-bg-hover</code></td><td><span class="sw" style="background:#F2FAFA"></span> <code>#F2FAFA</code></td><td><span class="sw" style="background:#00302E"></span> <code>#00302E</code></td><td></td></tr>
+<tr><td><code>color.action.secondary-bg-active</code></td><td><span class="sw" style="background:#E6F5F5"></span> <code>#E6F5F5</code></td><td><span class="sw" style="background:#004845"></span> <code>#004845</code></td><td></td></tr>
+<tr><td><code>color.action.secondary-fg</code></td><td><span class="sw" style="background:#005F5C"></span> <code>#005F5C</code></td><td><span class="sw" style="background:#99D9D7"></span> <code>#99D9D7</code></td><td></td></tr>
+<tr><td><code>color.action.secondary-border</code></td><td><span class="sw" style="background:#00827E"></span> <code>#00827E</code></td><td><span class="sw" style="background:#4DBCB8"></span> <code>#4DBCB8</code></td><td></td></tr>
+<tr><td><code>color.action.danger-bg</code></td><td><span class="sw" style="background:#D13A22"></span> <code>#D13A22</code></td><td><span class="sw" style="background:#D13A22"></span> <code>#D13A22</code></td><td></td></tr>
+<tr><td><code>color.action.danger-bg-hover</code></td><td><span class="sw" style="background:#8B2617"></span> <code>#8B2617</code></td><td><span class="sw" style="background:#8B2617"></span> <code>#8B2617</code></td><td></td></tr>
+<tr><td><code>color.action.danger-bg-active</code></td><td><span class="sw" style="background:#681D11"></span> <code>#681D11</code></td><td><span class="sw" style="background:#681D11"></span> <code>#681D11</code></td><td></td></tr>
+<tr><td><code>color.action.danger-secondary-bg</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td><span class="sw" style="background:#151515"></span> <code>#151515</code></td><td></td></tr>
+<tr><td><code>color.action.danger-secondary-bg-hover</code></td><td><span class="sw" style="background:#FEF5F4"></span> <code>#FEF5F4</code></td><td><span class="sw" style="background:#46130B"></span> <code>#46130B</code></td><td></td></tr>
+<tr><td><code>color.action.danger-secondary-bg-active</code></td><td><span class="sw" style="background:#FDECE9"></span> <code>#FDECE9</code></td><td><span class="sw" style="background:#681D11"></span> <code>#681D11</code></td><td></td></tr>
+<tr><td><code>color.action.danger-secondary-fg</code></td><td><span class="sw" style="background:#8B2617"></span> <code>#8B2617</code></td><td><span class="sw" style="background:#F6B3A8"></span> <code>#F6B3A8</code></td><td></td></tr>
+<tr><td><code>color.action.danger-secondary-border</code></td><td><span class="sw" style="background:#D13A22"></span> <code>#D13A22</code></td><td><span class="sw" style="background:#EF7967"></span> <code>#EF7967</code></td><td></td></tr>
+<tr><td><code>color.action.neutral-bg</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td><span class="sw" style="background:#1F1F20"></span> <code>#1F1F20</code></td><td>Neutral (default) button: an action with no emphasis.</td></tr>
+<tr><td><code>color.action.neutral-bg-hover</code></td><td><span class="sw" style="background:#F6F6F6"></span> <code>#F6F6F6</code></td><td><span class="sw" style="background:#29292A"></span> <code>#29292A</code></td><td></td></tr>
+<tr><td><code>color.action.neutral-bg-active</code></td><td><span class="sw" style="background:#ECECED"></span> <code>#ECECED</code></td><td><span class="sw" style="background:#3E3E3F"></span> <code>#3E3E3F</code></td><td></td></tr>
+<tr><td><code>color.action.neutral-fg</code></td><td><span class="sw" style="background:#29292A"></span> <code>#29292A</code></td><td><span class="sw" style="background:#F6F6F6"></span> <code>#F6F6F6</code></td><td></td></tr>
+<tr><td><code>color.action.neutral-border</code></td><td><span class="sw" style="background:#7D7D7E"></span> <code>#7D7D7E</code></td><td><span class="sw" style="background:#7D7D7E"></span> <code>#7D7D7E</code></td><td></td></tr>
+<tr><td><code>color.action.ghost-fg</code></td><td><span class="sw" style="background:#29292A"></span> <code>#29292A</code></td><td><span class="sw" style="background:#F6F6F6"></span> <code>#F6F6F6</code></td><td>Ghost button: no background until hovered. Light surfaces only.</td></tr>
+<tr><td><code>color.action.ghost-bg-hover</code></td><td><span class="sw" style="background:#ECECED"></span> <code>#ECECED</code></td><td><span class="sw" style="background:#29292A"></span> <code>#29292A</code></td><td></td></tr>
+<tr><td><code>color.action.ghost-bg-active</code></td><td><span class="sw" style="background:#D1D1D1"></span> <code>#D1D1D1</code></td><td><span class="sw" style="background:#3E3E3F"></span> <code>#3E3E3F</code></td><td></td></tr>
+<tr><td><code>color.action.danger-fg</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td></td></tr>
+<tr><td><code>color.action.disabled-bg</code></td><td><span class="sw" style="background:#ECECED"></span> <code>#ECECED</code></td><td><span class="sw" style="background:#29292A"></span> <code>#29292A</code></td><td></td></tr>
+<tr><td><code>color.action.disabled-fg</code></td><td><span class="sw" style="background:#7D7D7E"></span> <code>#7D7D7E</code></td><td><span class="sw" style="background:#7D7D7E"></span> <code>#7D7D7E</code></td><td>Disabled controls are exempt from contrast rules, but keep them recognisable.</td></tr>
+<tr><td><code>color.table.header-bg</code></td><td><span class="sw" style="background:#F6F6F6"></span> <code>#F6F6F6</code></td><td><span class="sw" style="background:#1F1F20"></span> <code>#1F1F20</code></td><td></td></tr>
+<tr><td><code>color.table.header-fg</code></td><td><span class="sw" style="background:#454546"></span> <code>#454546</code></td><td><span class="sw" style="background:#B5B5B5"></span> <code>#B5B5B5</code></td><td></td></tr>
+<tr><td><code>color.table.row-hover-bg</code></td><td><span class="sw" style="background:#F6F6F6"></span> <code>#F6F6F6</code></td><td><span class="sw" style="background:#1F1F20"></span> <code>#1F1F20</code></td><td></td></tr>
+<tr><td><code>color.table.border</code></td><td><span class="sw" style="background:#D1D1D1"></span> <code>#D1D1D1</code></td><td><span class="sw" style="background:#3E3E3F"></span> <code>#3E3E3F</code></td><td></td></tr>
+<tr><td><code>color.tooltip.bg</code></td><td><span class="sw" style="background:#1F1F20"></span> <code>#1F1F20</code></td><td><span class="sw" style="background:#ECECED"></span> <code>#ECECED</code></td><td></td></tr>
+<tr><td><code>color.tooltip.fg</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td><span class="sw" style="background:#1F1F20"></span> <code>#1F1F20</code></td><td></td></tr>
+<tr><td><code>color.spinner.fg</code></td><td><span class="sw" style="background:#009F9A"></span> <code>#009F9A</code></td><td><span class="sw" style="background:#4DBCB8"></span> <code>#4DBCB8</code></td><td>Brand green: a graphic, needs 3:1.</td></tr>
+<tr><td><code>color.spinner.track</code></td><td><span class="sw" style="background:#D1D1D1"></span> <code>#D1D1D1</code></td><td><span class="sw" style="background:#3E3E3F"></span> <code>#3E3E3F</code></td><td></td></tr>
+<tr><td><code>color.selected.fg</code></td><td><span class="sw" style="background:#005F5C"></span> <code>#005F5C</code></td><td><span class="sw" style="background:#99D9D7"></span> <code>#99D9D7</code></td><td></td></tr>
+<tr><td><code>color.selected.bg</code></td><td><span class="sw" style="background:#F2FAFA"></span> <code>#F2FAFA</code></td><td><span class="sw" style="background:#00302E"></span> <code>#00302E</code></td><td></td></tr>
+<tr><td><code>color.selected.border</code></td><td><span class="sw" style="background:#005F5C"></span> <code>#005F5C</code></td><td><span class="sw" style="background:#99D9D7"></span> <code>#99D9D7</code></td><td></td></tr>
+<tr><td><code>color.overlay.backdrop</code></td><td><span class="sw" style="background:#15151599"></span> <code>#15151599</code></td><td><span class="sw" style="background:#000000B3"></span> <code>#000000B3</code></td><td>Dimmed layer behind a dialog (gray 900 at 60%).</td></tr>
+<tr><td><code>color.field.bg</code></td><td><span class="sw" style="background:#FFFFFF"></span> <code>#FFFFFF</code></td><td><span class="sw" style="background:#151515"></span> <code>#151515</code></td><td></td></tr>
+<tr><td><code>color.field.bg-readonly</code></td><td><span class="sw" style="background:#F6F6F6"></span> <code>#F6F6F6</code></td><td><span class="sw" style="background:#1F1F20"></span> <code>#1F1F20</code></td><td></td></tr>
+<tr><td><code>color.field.bg-disabled</code></td><td><span class="sw" style="background:#ECECED"></span> <code>#ECECED</code></td><td><span class="sw" style="background:#29292A"></span> <code>#29292A</code></td><td></td></tr>
+<tr><td><code>color.field.fg</code></td><td><span class="sw" style="background:#29292A"></span> <code>#29292A</code></td><td><span class="sw" style="background:#F6F6F6"></span> <code>#F6F6F6</code></td><td></td></tr>
+<tr><td><code>color.field.fg-disabled</code></td><td><span class="sw" style="background:#7D7D7E"></span> <code>#7D7D7E</code></td><td><span class="sw" style="background:#7D7D7E"></span> <code>#7D7D7E</code></td><td>Disabled controls are exempt from contrast rules.</td></tr>
+<tr><td><code>color.field.placeholder</code></td><td><span class="sw" style="background:#454546"></span> <code>#454546</code></td><td><span class="sw" style="background:#B5B5B5"></span> <code>#B5B5B5</code></td><td>Placeholders are hints, never the label.</td></tr>
+<tr><td><code>color.field.border</code></td><td><span class="sw" style="background:#7D7D7E"></span> <code>#7D7D7E</code></td><td><span class="sw" style="background:#7D7D7E"></span> <code>#7D7D7E</code></td><td></td></tr>
+<tr><td><code>color.field.border-hover</code></td><td><span class="sw" style="background:#454546"></span> <code>#454546</code></td><td><span class="sw" style="background:#B5B5B5"></span> <code>#B5B5B5</code></td><td></td></tr>
+<tr><td><code>color.field.border-invalid</code></td><td><span class="sw" style="background:#D13A22"></span> <code>#D13A22</code></td><td><span class="sw" style="background:#EF7967"></span> <code>#EF7967</code></td><td></td></tr>
+<tr><td><code>color.field.accent</code></td><td><span class="sw" style="background:#00827E"></span> <code>#00827E</code></td><td><span class="sw" style="background:#4DBCB8"></span> <code>#4DBCB8</code></td><td>Checked checkboxes and radios.</td></tr>
+<tr><td><code>color.brand.red</code></td><td><span class="sw" style="background:#E84026"></span> <code>#E84026</code></td><td><span class="sw" style="background:#E84026"></span> <code>#E84026</code></td><td>Logos, large display text (24px+), decoration. Not for small text on white.</td></tr>
+<tr><td><code>color.brand.green</code></td><td><span class="sw" style="background:#009F9A"></span> <code>#009F9A</code></td><td><span class="sw" style="background:#009F9A"></span> <code>#009F9A</code></td><td>Logos, large display text (24px+), decoration. Not for small text on white.</td></tr>
+<tr><td><code>color.brand.gray</code></td><td><span class="sw" style="background:#454546"></span> <code>#454546</code></td><td><span class="sw" style="background:#B5B5B5"></span> <code>#B5B5B5</code></td><td></td></tr>
+<tr><td><code>color.status.success-fg</code></td><td><span class="sw" style="background:#004845"></span> <code>#004845</code></td><td><span class="sw" style="background:#E6F5F5"></span> <code>#E6F5F5</code></td><td></td></tr>
+<tr><td><code>color.status.success-bg</code></td><td><span class="sw" style="background:#E6F5F5"></span> <code>#E6F5F5</code></td><td><span class="sw" style="background:#004845"></span> <code>#004845</code></td><td></td></tr>
+<tr><td><code>color.status.danger-fg</code></td><td><span class="sw" style="background:#8B2617"></span> <code>#8B2617</code></td><td><span class="sw" style="background:#FDECE9"></span> <code>#FDECE9</code></td><td></td></tr>
+<tr><td><code>color.status.danger-bg</code></td><td><span class="sw" style="background:#FDECE9"></span> <code>#FDECE9</code></td><td><span class="sw" style="background:#681D11"></span> <code>#681D11</code></td><td></td></tr>
+<tr><td><code>color.status.warning-fg</code></td><td><span class="sw" style="background:#93370D"></span> <code>#93370D</code></td><td><span class="sw" style="background:#FDEEE2"></span> <code>#FDEEE2</code></td><td></td></tr>
+<tr><td><code>color.status.warning-bg</code></td><td><span class="sw" style="background:#FDEEE2"></span> <code>#FDEEE2</code></td><td><span class="sw" style="background:#93370D"></span> <code>#93370D</code></td><td></td></tr>
+<tr><td><code>color.status.info-fg</code></td><td><span class="sw" style="background:#1849A9"></span> <code>#1849A9</code></td><td><span class="sw" style="background:#E8F0FE"></span> <code>#E8F0FE</code></td><td></td></tr>
+<tr><td><code>color.status.info-bg</code></td><td><span class="sw" style="background:#E8F0FE"></span> <code>#E8F0FE</code></td><td><span class="sw" style="background:#1849A9"></span> <code>#1849A9</code></td><td></td></tr>
+<tr><td><code>color.category.neutral-fg</code></td><td><span class="sw" style="background:#29292A"></span> <code>#29292A</code></td><td><span class="sw" style="background:#F6F6F6"></span> <code>#F6F6F6</code></td><td></td></tr>
+<tr><td><code>color.category.neutral-bg</code></td><td><span class="sw" style="background:#ECECED"></span> <code>#ECECED</code></td><td><span class="sw" style="background:#3E3E3F"></span> <code>#3E3E3F</code></td><td></td></tr>
+<tr><td><code>color.category.green-fg</code></td><td><span class="sw" style="background:#2F6512"></span> <code>#2F6512</code></td><td><span class="sw" style="background:#EAF5DF"></span> <code>#EAF5DF</code></td><td></td></tr>
+<tr><td><code>color.category.green-bg</code></td><td><span class="sw" style="background:#EAF5DF"></span> <code>#EAF5DF</code></td><td><span class="sw" style="background:#2F6512"></span> <code>#2F6512</code></td><td></td></tr>
+<tr><td><code>color.category.red-fg</code></td><td><span class="sw" style="background:#A3123A"></span> <code>#A3123A</code></td><td><span class="sw" style="background:#FDE8EA"></span> <code>#FDE8EA</code></td><td></td></tr>
+<tr><td><code>color.category.red-bg</code></td><td><span class="sw" style="background:#FDE8EA"></span> <code>#FDE8EA</code></td><td><span class="sw" style="background:#A3123A"></span> <code>#A3123A</code></td><td></td></tr>
+<tr><td><code>color.category.brand-fg</code></td><td><span class="sw" style="background:#004845"></span> <code>#004845</code></td><td><span class="sw" style="background:#E6F5F5"></span> <code>#E6F5F5</code></td><td></td></tr>
+<tr><td><code>color.category.brand-bg</code></td><td><span class="sw" style="background:#E6F5F5"></span> <code>#E6F5F5</code></td><td><span class="sw" style="background:#004845"></span> <code>#004845</code></td><td></td></tr>
+<tr><td><code>color.category.blue-fg</code></td><td><span class="sw" style="background:#1849A9"></span> <code>#1849A9</code></td><td><span class="sw" style="background:#E8F0FE"></span> <code>#E8F0FE</code></td><td></td></tr>
+<tr><td><code>color.category.blue-bg</code></td><td><span class="sw" style="background:#E8F0FE"></span> <code>#E8F0FE</code></td><td><span class="sw" style="background:#1849A9"></span> <code>#1849A9</code></td><td></td></tr>
+<tr><td><code>color.category.teal-fg</code></td><td><span class="sw" style="background:#0B5363"></span> <code>#0B5363</code></td><td><span class="sw" style="background:#E0F4F8"></span> <code>#E0F4F8</code></td><td></td></tr>
+<tr><td><code>color.category.teal-bg</code></td><td><span class="sw" style="background:#E0F4F8"></span> <code>#E0F4F8</code></td><td><span class="sw" style="background:#0B5363"></span> <code>#0B5363</code></td><td></td></tr>
+<tr><td><code>color.category.orange-fg</code></td><td><span class="sw" style="background:#93370D"></span> <code>#93370D</code></td><td><span class="sw" style="background:#FDEEE2"></span> <code>#FDEEE2</code></td><td></td></tr>
+<tr><td><code>color.category.orange-bg</code></td><td><span class="sw" style="background:#FDEEE2"></span> <code>#FDEEE2</code></td><td><span class="sw" style="background:#93370D"></span> <code>#93370D</code></td><td></td></tr>
+<tr><td><code>color.category.yellow-fg</code></td><td><span class="sw" style="background:#6B4F00"></span> <code>#6B4F00</code></td><td><span class="sw" style="background:#FDF5D3"></span> <code>#FDF5D3</code></td><td></td></tr>
+<tr><td><code>color.category.yellow-bg</code></td><td><span class="sw" style="background:#FDF5D3"></span> <code>#FDF5D3</code></td><td><span class="sw" style="background:#6B4F00"></span> <code>#6B4F00</code></td><td></td></tr>
+<tr><td><code>color.category.pink-fg</code></td><td><span class="sw" style="background:#9C1A78"></span> <code>#9C1A78</code></td><td><span class="sw" style="background:#FCE8F6"></span> <code>#FCE8F6</code></td><td></td></tr>
+<tr><td><code>color.category.pink-bg</code></td><td><span class="sw" style="background:#FCE8F6"></span> <code>#FCE8F6</code></td><td><span class="sw" style="background:#9C1A78"></span> <code>#9C1A78</code></td><td></td></tr>
+<tr><td><code>color.category.violet-fg</code></td><td><span class="sw" style="background:#4338CA"></span> <code>#4338CA</code></td><td><span class="sw" style="background:#ECEBFE"></span> <code>#ECEBFE</code></td><td></td></tr>
+<tr><td><code>color.category.violet-bg</code></td><td><span class="sw" style="background:#ECEBFE"></span> <code>#ECEBFE</code></td><td><span class="sw" style="background:#4338CA"></span> <code>#4338CA</code></td><td></td></tr>
+<tr><td><code>color.category.purple-fg</code></td><td><span class="sw" style="background:#6B21A8"></span> <code>#6B21A8</code></td><td><span class="sw" style="background:#F3E8FF"></span> <code>#F3E8FF</code></td><td></td></tr>
+<tr><td><code>color.category.purple-bg</code></td><td><span class="sw" style="background:#F3E8FF"></span> <code>#F3E8FF</code></td><td><span class="sw" style="background:#6B21A8"></span> <code>#6B21A8</code></td><td></td></tr></table></div></section>
 </main><script type="module">
 // ISA Design System: small behavior script for plain HTML pages (React projects use isa-design-system/react instead).
 // Load it once as a module script (type="module") from dist/isa.js, or import { init } from "isa-design-system/isa.js".
 // Tabs:   <div class="isa-tabs" role="tablist"> with <button role="tab" aria-controls="panel-id">
 // Autocomplete: <div class="isa-autocomplete" data-isa-autocomplete> with an input (role="combobox") and a <ul role="listbox"> of options
 // Filters: <button class="isa-filters__toggle" aria-expanded="false"> opens the fields on phones
+// Theme: <button data-isa-theme-toggle aria-pressed="false"> switches light and dark and remembers the choice; setTheme('dark')
 // Toast:  <button data-isa-toast="Saved" data-isa-toast-variant="success">, or showToast('Saved', { variant: 'success' })
 // Tooltip: closes with Escape (showing is done by CSS)
 // Dialog and Drawer: <button data-isa-dialog-open="dialog-id">, and inside the dialog <button data-isa-dialog-close>
@@ -883,7 +885,34 @@ function initFilters(root = document) {
   }
 }
 
-function init(root = document) { initTabs(root); initDialogs(root); initTooltips(root); initToasts(root); initAutocompletes(root); initFilters(root); }
+// Theme. <html data-theme="light|dark|system">: "system" follows the device until the person uses the switch.
+// The choice is kept in localStorage under "isa-theme". To avoid a flash of the wrong theme, also put this
+// one-liner in <head>: try{var t=localStorage.getItem('isa-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}
+const THEME_KEY = 'isa-theme';
+function isDark() {
+  const t = document.documentElement.dataset.theme;
+  return t === 'dark' || (t === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+}
+function syncThemeToggles() {
+  for (const b of document.querySelectorAll('[data-isa-theme-toggle]')) b.setAttribute('aria-pressed', String(isDark()));
+}
+function setTheme(theme, { remember = true } = {}) {
+  document.documentElement.dataset.theme = theme;
+  if (remember) { try { localStorage.setItem(THEME_KEY, theme); } catch { /* storage blocked: the choice lasts for this page only */ } }
+  syncThemeToggles();
+  document.dispatchEvent(new CustomEvent('isa:themechange', { detail: { theme, dark: isDark() } }));
+}
+function initTheme(root = document) {
+  try { const saved = localStorage.getItem(THEME_KEY); if (saved) document.documentElement.dataset.theme = saved; } catch { /* no storage */ }
+  for (const b of root.querySelectorAll('[data-isa-theme-toggle]')) {
+    if (b.dataset.isaReady) continue;
+    b.dataset.isaReady = 'true';
+    b.addEventListener('click', () => setTheme(isDark() ? 'light' : 'dark'));
+  }
+  syncThemeToggles();
+}
+
+function init(root = document) { initTabs(root); initDialogs(root); initTooltips(root); initToasts(root); initAutocompletes(root); initFilters(root); initTheme(root); }
 
 if (typeof document !== 'undefined') {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init());

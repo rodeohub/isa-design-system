@@ -1,0 +1,349 @@
+{
+  "$description": "Semantic color roles for the dark theme. Same keys as light.json. Dark gray surfaces, light text, lighter greens and reds for text and borders. Status and category pairs are the light pairs swapped (light text on the dark hue).",
+  "color": {
+    "$type": "color",
+    "text": {
+      "default": {
+        "$value": "{color.gray.50}",
+        "$description": "Body and headings."
+      },
+      "muted": {
+        "$value": "{color.gray.300}"
+      },
+      "inverse": {
+        "$value": "{color.white}"
+      },
+      "link": {
+        "$value": "{color.green.300}"
+      },
+      "link-hover": {
+        "$value": "{color.green.200}"
+      },
+      "danger": {
+        "$value": "{color.red.300}"
+      },
+      "success": {
+        "$value": "{color.green.300}"
+      }
+    },
+    "surface": {
+      "default": {
+        "$value": "{color.gray.900}"
+      },
+      "subtle": {
+        "$value": "{color.gray.800}"
+      },
+      "muted": {
+        "$value": "{color.gray.700}"
+      },
+      "raised": { "$value": "{color.gray.800}" },
+      "inverse": {
+        "$value": "{color.gray.600}"
+      },
+      "brand": {
+        "$value": "{color.green.700}"
+      },
+      "brand-strong": {
+        "$value": "{color.green.800}"
+      },
+      "danger": {
+        "$value": "{color.red.900}"
+      },
+      "success": {
+        "$value": "{color.green.900}"
+      }
+    },
+    "border": {
+      "default": {
+        "$value": "{color.gray.600}"
+      },
+      "strong": {
+        "$value": "{color.gray.400}"
+      },
+      "focus": {
+        "$value": "{color.green.400}"
+      },
+      "focus-inverse": {
+        "$value": "{color.white}"
+      },
+      "danger": {
+        "$value": "{color.red.400}"
+      }
+    },
+    "action": {
+      "primary-bg": {
+        "$value": "{color.green.600}"
+      },
+      "primary-bg-hover": {
+        "$value": "{color.green.700}"
+      },
+      "primary-bg-active": {
+        "$value": "{color.green.800}"
+      },
+      "primary-fg": {
+        "$value": "{color.white}"
+      },
+      "secondary-bg": {
+        "$value": "{color.gray.900}"
+      },
+      "secondary-bg-hover": {
+        "$value": "{color.green.900}"
+      },
+      "secondary-bg-active": {
+        "$value": "{color.green.800}"
+      },
+      "secondary-fg": {
+        "$value": "{color.green.300}"
+      },
+      "secondary-border": {
+        "$value": "{color.green.400}"
+      },
+      "danger-bg": {
+        "$value": "{color.red.600}"
+      },
+      "danger-bg-hover": {
+        "$value": "{color.red.700}"
+      },
+      "danger-bg-active": {
+        "$value": "{color.red.800}"
+      },
+      "danger-secondary-bg": {
+        "$value": "{color.gray.900}"
+      },
+      "danger-secondary-bg-hover": {
+        "$value": "{color.red.900}"
+      },
+      "danger-secondary-bg-active": {
+        "$value": "{color.red.800}"
+      },
+      "danger-secondary-fg": {
+        "$value": "{color.red.300}"
+      },
+      "danger-secondary-border": {
+        "$value": "{color.red.400}"
+      },
+      "neutral-bg": {
+        "$value": "{color.gray.800}",
+        "$description": "Neutral (default) button: an action with no emphasis."
+      },
+      "neutral-bg-hover": {
+        "$value": "{color.gray.700}"
+      },
+      "neutral-bg-active": {
+        "$value": "{color.gray.600}"
+      },
+      "neutral-fg": {
+        "$value": "{color.gray.50}"
+      },
+      "neutral-border": {
+        "$value": "{color.gray.400}"
+      },
+      "ghost-fg": {
+        "$value": "{color.gray.50}",
+        "$description": "Ghost button: no background until hovered. Light surfaces only."
+      },
+      "ghost-bg-hover": {
+        "$value": "{color.gray.700}"
+      },
+      "ghost-bg-active": {
+        "$value": "{color.gray.600}"
+      },
+      "danger-fg": {
+        "$value": "{color.white}"
+      },
+      "disabled-bg": {
+        "$value": "{color.gray.700}"
+      },
+      "disabled-fg": {
+        "$value": "{color.gray.400}"
+      }
+    },
+    "table": {
+      "header-bg": {
+        "$value": "{color.gray.800}"
+      },
+      "header-fg": {
+        "$value": "{color.gray.300}"
+      },
+      "row-hover-bg": {
+        "$value": "{color.gray.800}"
+      },
+      "border": {
+        "$value": "{color.gray.600}"
+      }
+    },
+    "tooltip": {
+      "bg": {
+        "$value": "{color.gray.100}"
+      },
+      "fg": {
+        "$value": "{color.gray.800}"
+      }
+    },
+    "spinner": {
+      "fg": {
+        "$value": "{color.green.400}"
+      },
+      "track": {
+        "$value": "{color.gray.600}"
+      }
+    },
+    "selected": {
+      "$description": "The chosen item in a set: the current tab, a selected filter or row.",
+      "fg": {
+        "$value": "{color.green.300}"
+      },
+      "bg": {
+        "$value": "{color.green.900}"
+      },
+      "border": {
+        "$value": "{color.green.300}"
+      }
+    },
+    "overlay": {
+      "backdrop": {
+        "$value": "#000000B3",
+        "$description": "Dimmed layer behind a dialog (black at 70%)."
+      }
+    },
+    "field": {
+      "$description": "Form controls: text inputs, text areas, selects, checkboxes, radios.",
+      "bg": {
+        "$value": "{color.gray.900}"
+      },
+      "bg-readonly": {
+        "$value": "{color.gray.800}"
+      },
+      "bg-disabled": {
+        "$value": "{color.gray.700}"
+      },
+      "fg": {
+        "$value": "{color.gray.50}"
+      },
+      "fg-disabled": {
+        "$value": "{color.gray.400}"
+      },
+      "placeholder": {
+        "$value": "{color.gray.300}"
+      },
+      "border": {
+        "$value": "{color.gray.400}"
+      },
+      "border-hover": {
+        "$value": "{color.gray.300}"
+      },
+      "border-invalid": {
+        "$value": "{color.red.400}"
+      },
+      "accent": {
+        "$value": "{color.green.400}"
+      }
+    },
+    "brand": {
+      "red": {
+        "$value": "{color.red.500}"
+      },
+      "green": {
+        "$value": "{color.green.500}"
+      },
+      "gray": {
+        "$value": "{color.gray.300}"
+      }
+    },
+    "status": {
+      "success-fg": {
+        "$value": "{color.green.100}"
+      },
+      "success-bg": {
+        "$value": "{color.green.800}"
+      },
+      "danger-fg": {
+        "$value": "{color.red.100}"
+      },
+      "danger-bg": {
+        "$value": "{color.red.800}"
+      },
+      "warning-fg": {
+        "$value": "{color.category-hue.orange.light}"
+      },
+      "warning-bg": {
+        "$value": "{color.category-hue.orange.dark}"
+      },
+      "info-fg": {
+        "$value": "{color.category-hue.blue.light}"
+      },
+      "info-bg": {
+        "$value": "{color.category-hue.blue.dark}"
+      }
+    },
+    "category": {
+      "$description": "Category colors for badges and tags (disciplines, contest levels, roles). Separate from brand and status colors. Each has fg and bg; use them as a pair.",
+      "neutral-fg": {
+        "$value": "{color.gray.50}"
+      },
+      "neutral-bg": {
+        "$value": "{color.gray.600}"
+      },
+      "green-fg": {
+        "$value": "{color.category-hue.green.light}"
+      },
+      "green-bg": {
+        "$value": "{color.category-hue.green.dark}"
+      },
+      "red-fg": {
+        "$value": "{color.category-hue.red.light}"
+      },
+      "red-bg": {
+        "$value": "{color.category-hue.red.dark}"
+      },
+      "brand-fg": {
+        "$value": "{color.green.100}"
+      },
+      "brand-bg": {
+        "$value": "{color.green.800}"
+      },
+      "blue-fg": {
+        "$value": "{color.category-hue.blue.light}"
+      },
+      "blue-bg": {
+        "$value": "{color.category-hue.blue.dark}"
+      },
+      "teal-fg": {
+        "$value": "{color.category-hue.teal.light}"
+      },
+      "teal-bg": {
+        "$value": "{color.category-hue.teal.dark}"
+      },
+      "orange-fg": {
+        "$value": "{color.category-hue.orange.light}"
+      },
+      "orange-bg": {
+        "$value": "{color.category-hue.orange.dark}"
+      },
+      "yellow-fg": {
+        "$value": "{color.category-hue.yellow.light}"
+      },
+      "yellow-bg": {
+        "$value": "{color.category-hue.yellow.dark}"
+      },
+      "pink-fg": {
+        "$value": "{color.category-hue.pink.light}"
+      },
+      "pink-bg": {
+        "$value": "{color.category-hue.pink.dark}"
+      },
+      "violet-fg": {
+        "$value": "{color.category-hue.violet.light}"
+      },
+      "violet-bg": {
+        "$value": "{color.category-hue.violet.dark}"
+      },
+      "purple-fg": {
+        "$value": "{color.category-hue.purple.light}"
+      },
+      "purple-bg": {
+        "$value": "{color.category-hue.purple.dark}"
+      }
+    }
+  }
+}

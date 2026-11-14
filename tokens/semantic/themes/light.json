@@ -15,6 +15,7 @@
       "default": { "$value": "{color.white}" },
       "subtle": { "$value": "{color.gray.50}" },
       "muted": { "$value": "{color.gray.100}" },
+      "raised": { "$value": "{color.white}", "$description": "Surfaces that float above the page: dialogs, drawers, menus, elevated cards. Same as the page in light; one step lighter in dark, where shadows do not show." },
       "inverse": { "$value": "{color.gray.800}" },
       "brand": { "$value": "{color.green.700}", "$description": "Header bars and brand areas with text.inverse on top." },
       "brand-strong": { "$value": "{color.green.800}", "$description": "Hover and current-page background inside brand areas." },

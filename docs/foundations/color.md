@@ -37,3 +37,6 @@ Rules: badge text is uppercase, `text-style.badge`, at least 12px; never rely on
 
 ## Tailwind class names
 Every role is a color in Tailwind under its full name: `bg-action-primary-bg`, `text-status-danger-fg`. Text, surface and border roles also have short forms: `text-muted` (= `text.muted`), `bg-subtle` (= `surface.subtle`), `border-strong` (= `border.strong`). The default Tailwind palette (`bg-red-500`) is removed on purpose.
+
+## Raised surfaces and themes
+`surface.raised` is for things that float above the page: dialogs, drawers, menus, elevated cards. In light it equals `surface.default`; in dark it is one step lighter, because shadows hardly show. All roles have a light and a dark value: see [theming.md](theming.md).

@@ -13,6 +13,7 @@
   --color-surface-default: var(--isa-color-surface-default);
   --color-surface-subtle: var(--isa-color-surface-subtle);
   --color-surface-muted: var(--isa-color-surface-muted);
+  --color-surface-raised: var(--isa-color-surface-raised);
   --color-surface-inverse: var(--isa-color-surface-inverse);
   --color-surface-brand: var(--isa-color-surface-brand);
   --color-surface-brand-strong: var(--isa-color-surface-brand-strong);
@@ -152,6 +153,7 @@
   --background-color-default: var(--isa-color-surface-default);
   --background-color-subtle: var(--isa-color-surface-subtle);
   --background-color-muted: var(--isa-color-surface-muted);
+  --background-color-raised: var(--isa-color-surface-raised);
   --background-color-inverse: var(--isa-color-surface-inverse);
   --background-color-brand: var(--isa-color-surface-brand);
   --background-color-brand-strong: var(--isa-color-surface-brand-strong);

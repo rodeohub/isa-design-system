@@ -18,3 +18,4 @@ export { ToastProvider, useToast } from './Toast.js';
 export { Autocomplete } from './Autocomplete.js';
 export { Filters } from './Filters.js';
 export { Page, Main, Container, PageTitle, Hero } from './Page.js';
+export { ThemeToggle, useTheme } from './Theme.js';

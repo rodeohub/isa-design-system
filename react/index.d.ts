@@ -358,3 +358,13 @@ export interface HeroProps extends React.HTMLAttributes<HTMLElement> {
   imgProps?: Record<string, unknown>;
 }
 export declare function Hero(props: HeroProps): React.ReactElement;
+
+/** [dark, setDark]. Sets data-theme on <html> and remembers the choice. */
+export declare function useTheme(): [boolean, (dark: boolean) => void];
+export interface ThemeToggleProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Name of the switch, for translation. Default "Dark mode". */
+  label?: string;
+  /** Show the label next to the icon. Default false (icon only, label for screen readers). */
+  showLabel?: boolean;
+}
+export declare function ThemeToggle(props: ThemeToggleProps): React.ReactElement;

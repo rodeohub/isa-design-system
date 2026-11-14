@@ -3,6 +3,7 @@
 // Tabs:   <div class="isa-tabs" role="tablist"> with <button role="tab" aria-controls="panel-id">
 // Autocomplete: <div class="isa-autocomplete" data-isa-autocomplete> with an input (role="combobox") and a <ul role="listbox"> of options
 // Filters: <button class="isa-filters__toggle" aria-expanded="false"> opens the fields on phones
+// Theme: <button data-isa-theme-toggle aria-pressed="false"> switches light and dark and remembers the choice; setTheme('dark')
 // Toast:  <button data-isa-toast="Saved" data-isa-toast-variant="success">, or showToast('Saved', { variant: 'success' })
 // Tooltip: closes with Escape (showing is done by CSS)
 // Dialog and Drawer: <button data-isa-dialog-open="dialog-id">, and inside the dialog <button data-isa-dialog-close>
@@ -202,7 +203,34 @@ export function initFilters(root = document) {
   }
 }
 
-export function init(root = document) { initTabs(root); initDialogs(root); initTooltips(root); initToasts(root); initAutocompletes(root); initFilters(root); }
+// Theme. <html data-theme="light|dark|system">: "system" follows the device until the person uses the switch.
+// The choice is kept in localStorage under "isa-theme". To avoid a flash of the wrong theme, also put this
+// one-liner in <head>: try{var t=localStorage.getItem('isa-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}
+const THEME_KEY = 'isa-theme';
+export function isDark() {
+  const t = document.documentElement.dataset.theme;
+  return t === 'dark' || (t === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+}
+function syncThemeToggles() {
+  for (const b of document.querySelectorAll('[data-isa-theme-toggle]')) b.setAttribute('aria-pressed', String(isDark()));
+}
+export function setTheme(theme, { remember = true } = {}) {
+  document.documentElement.dataset.theme = theme;
+  if (remember) { try { localStorage.setItem(THEME_KEY, theme); } catch { /* storage blocked: the choice lasts for this page only */ } }
+  syncThemeToggles();
+  document.dispatchEvent(new CustomEvent('isa:themechange', { detail: { theme, dark: isDark() } }));
+}
+export function initTheme(root = document) {
+  try { const saved = localStorage.getItem(THEME_KEY); if (saved) document.documentElement.dataset.theme = saved; } catch { /* no storage */ }
+  for (const b of root.querySelectorAll('[data-isa-theme-toggle]')) {
+    if (b.dataset.isaReady) continue;
+    b.dataset.isaReady = 'true';
+    b.addEventListener('click', () => setTheme(isDark() ? 'light' : 'dark'));
+  }
+  syncThemeToggles();
+}
+
+export function init(root = document) { initTabs(root); initDialogs(root); initTooltips(root); initToasts(root); initAutocompletes(root); initFilters(root); initTheme(root); }
 
 if (typeof document !== 'undefined') {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init());

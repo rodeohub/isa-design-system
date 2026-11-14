@@ -64,6 +64,7 @@
 .isa-header__brand { display: flex; align-items: center; margin-right: auto; color: inherit; text-decoration: none; font-family: var(--isa-font-family-heading); font-size: var(--isa-font-size-2xl); font-weight: var(--isa-font-weight-bold); line-height: 1; }
 .isa-header__brand :is(img, svg) { display: block; height: var(--isa-space-10); width: auto; }
 .isa-header__brand:focus-visible,
+.isa-header__button:focus-visible,
 .isa-header__menu-button:focus-visible {
   outline: var(--isa-size-focus-ring-width) solid var(--isa-focus-color, var(--isa-color-border-focus));
   outline-offset: var(--isa-size-focus-ring-offset);
@@ -74,6 +75,8 @@
 .isa-header .isa-header__nav .isa-nav__link { color: var(--isa-color-text-inverse); }
 .isa-header .isa-header__nav .isa-nav__link:hover,
 .isa-header .isa-header__nav .isa-nav__link[aria-current="page"] { background-color: var(--isa-color-surface-brand-strong); color: var(--isa-color-text-inverse); }
+/* Icon buttons in the header: the menu button, the theme switch. */
+.isa-header__button,
 .isa-header__menu-button {
   appearance: none;
   display: inline-flex;
@@ -88,8 +91,11 @@
   color: inherit;
   cursor: pointer;
 }
+.isa-header__button:hover,
 .isa-header__menu-button:hover { background-color: var(--isa-color-surface-brand-strong); }
+.isa-header__button svg,
 .isa-header__menu-button svg { width: 1.5rem; height: 1.5rem; }
+.isa-header__button[aria-pressed="true"] { background-color: var(--isa-color-surface-brand-strong); }
 /* From breakpoint.md (48rem): links in the bar, no menu button. */
 @media (min-width: 48rem) {
   .isa-header { padding-inline: var(--isa-space-6); }

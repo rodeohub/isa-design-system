@@ -56,7 +56,7 @@
 /* Other links and buttons inside a clickable card stay clickable. */
 .isa-card:has(.isa-card__link) :is(a, button):not(.isa-card__link) { position: relative; z-index: 1; }
 
-.isa-card--elevated { border-color: transparent; box-shadow: var(--isa-shadow-md); }
+.isa-card--elevated { border-color: transparent; background-color: var(--isa-color-surface-raised); box-shadow: var(--isa-shadow-md); }
 .isa-card--elevated:has(.isa-card__link:hover) { border-color: transparent; box-shadow: var(--isa-shadow-lg); }
 
 /* Horizontal from breakpoint.sm (40rem); stacked on phones. */

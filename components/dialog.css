@@ -9,7 +9,7 @@
   padding: 0;
   border: 0;
   border-radius: var(--isa-radius-lg);
-  background-color: var(--isa-color-surface-default);
+  background-color: var(--isa-color-surface-raised);
   color: var(--isa-color-text-default);
   box-shadow: var(--isa-shadow-lg);
   font-family: var(--isa-font-family-body);

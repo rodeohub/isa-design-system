@@ -47,20 +47,18 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | The footer is green like the header (`surface.brand`, white text), not light gray (v0.11.0). | Roberto |
 | 2026-11-14 | Figma library refreshed to v0.11.0: 9 new color roles, 24 layout variables, 16 new components. | Claude |
 | 2026-11-14 | Dark mode is on the to-do list. Before starting, Roberto answers the questions under Open questions. | Roberto |
+| 2026-11-14 | Dark mode built (v0.12.0). Roberto: a switch on the page; AA contrast; the Sport Hub mock page is the test page. Claude: opt-in per project (`data-theme="system"` follows the device until the switch is used; pages without `data-theme` stay light, so unchecked projects never turn dark by surprise); the choice is remembered in the browser; status and category colors are the light pairs swapped; new role `surface.raised`. | Roberto, Claude |
 
 ## Open questions
-1. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
+1. **Logo SVGs and usage rules:** Roberto asked to be reminded to provide the SVG logos (2026-11-14).
 2. **Review the mock page** `examples/sporthub-rankings.html`.
 3. **Solid badges (parked by Roberto, 2026-11-14):** SportHub has two solid badges (athlete: white on red, judge: white on green). Add a solid badge style, or keep soft and outline only? Do not raise again until Roberto does or the SportHub migration starts.
-4. **Dark mode, to answer before work starts:**
-   1. How is it switched: follows the device setting only, or also a switch on the page that is remembered?
-   2. Which project needs it first, and by when? (Decides how much to test.)
-   3. Header and footer in dark mode: stay green, or become dark gray with green accents?
-   4. Logos: is there a white or light version for dark backgrounds?
-   5. Contrast target in dark mode: AA as now, or stricter (AAA for body text)?
+4. **Header and footer in dark mode:** A green as in light (current), B deep green (green 900), or C dark gray with a green line. Try them in `sporthub-dark-mode-options.html` (sent to Roberto 2026-11-14).
+5. **Status and category colors in dark mode** are strong (light text on the full dark hue). Keep, or make them quieter (needs new dark tint primitives)?
+6. **Logos for dark and brand surfaces** (white or light versions): remind Roberto to provide the SVG logos.
 
 ## Next steps
-1. Dark mode (after the questions above): add `tokens/semantic/themes/dark.json`, a second mode in the Figma `Color` collection, contrast pairs checked in both themes.
+1. Dark mode follow-ups: the header and footer choice, a Dark mode in the Figma `Color` collection, hover and focus states checked by hand in dark.
 2. If the Sport Hub migrates later (separate project): a class map from default Tailwind colors to roles.
 3. Possible components: multi-select dropdown, number field with steppers.
 4. Storybook: not needed now (the preview page and the example page cover it). Worth adding when several developers build React components here and want to test states and run visual regression checks.

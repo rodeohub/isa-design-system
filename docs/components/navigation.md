@@ -29,6 +29,7 @@ HTML: see `components/navigation.examples.html`.
 - `<a class="isa-skip-link" href="#main">Skip to content</a>` and `<main id="main">`.
 - `<header class="isa-header" data-isa-surface="brand">` with `isa-header__brand`, `<nav class="isa-header__nav" aria-label="Main">` holding `<ul class="isa-nav">`, `isa-header__actions`, and `<button class="isa-header__menu-button" aria-label="Menu" data-isa-dialog-open="menu-id">` that opens an `isa-drawer` containing the same links as `<ul class="isa-nav isa-nav--vertical">`.
 - Links: `<a class="isa-nav__link" href="..." aria-current="page">` on the current page.
+- Icon buttons in the header (theme switch, search): `<button class="isa-header__button" aria-label="...">` inside `isa-header__actions`.
 - `<footer class="isa-footer">` with `<ul class="isa-footer__links">` and `<p class="isa-footer__note">`.
 
 React: `import { Header, Nav, Footer, SkipLink } from "isa-design-system/react"` (client components).
