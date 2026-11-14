@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // Scans a project folder for hard-coded colors that should be tokens.
 // Usage: node scripts/audit.mjs <folder>   (exit 1 if any are found)
 import { readFileSync, readdirSync, statSync } from 'node:fs';

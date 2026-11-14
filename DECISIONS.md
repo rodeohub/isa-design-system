@@ -2,7 +2,7 @@
 
 This repo is the final word on brand values (Roberto, 2026-11-14). The vault note "ISA Brand Guidelines" keeps a copy; Roberto tells it when to update.
 
-Agents: raise the open questions with Roberto at the start of a session until they are answered.
+Agents working with Roberto: raise the open questions with him at the start of a session until they are answered. Other contributors don't need to be asked.
 
 ## Decisions
 | Date | Decision | By |
@@ -21,10 +21,23 @@ Agents: raise the open questions with Roberto at the start of a session until th
 | 2026-11-14 | Three token layers (primitive, semantic, component); projects use semantic roles only. Themes are separate semantic files. | Claude, from the decisions above |
 | 2026-11-14 | Category colors are a ready-to-use set of pairs. Which category gets which color is up to each project (e.g. SportHub), not the system. | Roberto |
 | 2026-11-14 | Sean moves the repo to the International-Slackline-Association organization. Collaborator invites sent to Can-Sahin and mmrtnz. | Roberto |
-| 2026-11-14 | Destructive buttons use red 600 (4.84:1 with white text); text links and primary buttons use green 700 (7.52:1). Green 600 is not enough for normal text (3.96:1). | Claude, calculated |
+| 2026-11-14 | Green 600 changed from `#008F8B` to `#00827E` so white text passes AA (4.67:1). Green 500 (official) unchanged. Primary buttons use green 600; links and secondary-button text stay green 700 because they also sit on light gray (600 is 4.32:1 there). Destructive buttons use red 600 (4.84:1). The vault note still shows the old 600 until Roberto says to update it. | Roberto (600 change), Claude (role mapping) |
+| 2026-11-14 | Independent review (Fable 5.2) done. Fixed right away: Tailwind breakpoints, focus ring on dark surfaces (`border.focus-inverse`), audit shipped to projects (`npx isa-audit`), WCAG wording (44px is a house rule, AA is 24px), link underline rule. Other findings are listed below as next steps. | Claude |
 
 ## Open questions
 1. **Category hues:** the blue, teal, orange, yellow, pink and purple values in `tokens/primitive/color.json` were proposed by Claude (all pass AA). Fine as they are unless Roberto wants a different look.
 2. **Licence** (a LICENSE file saying what others may do with this public repo). Recommendation: MIT for the code and tokens, with a note that the ISA name and logos are not included. Needs a yes from Roberto (and ideally the ISA board).
-3. **Lighter primary button green:** primary buttons are green 700 (dark) because green 600 is slightly too light for white text (3.96:1, needs 4.5:1). Option: add one extra shade between them (about 4.6:1) so buttons look closer to the brand green. Default if nobody decides: keep green 700.
-4. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
+3. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
+
+## Next steps (from the review, not yet done)
+1. SportHub migration: SportHub uses about 815 default Tailwind color classes (`bg-white`, `text-gray-500`...) that this theme removes. Write a class map and ship an optional compatibility file first.
+2. Harden the audit: also catch `oklch()`, named colors, Tailwind palette classes and primitive tokens; fewer false positives.
+3. Category red and green equal status danger and success; shift them or drop them. SportHub also uses violet.
+4. Correct the component inventory: SportHub already has Alert, Table, Avatar, Spinner, Tooltip and Drawer.
+5. Tag releases (v0.1.0), add a CHANGELOG, and install projects from a tag, not main.
+6. Self-host fonts by default instead of loading from Google (privacy, GDPR).
+7. Missing tokens: elevation, z-index, easing, opacity, border width, icon sizes; text-style utilities for Tailwind.
+8. Consider strict W3C token format (or a tool like Style Dictionary) and a Tailwind compile test in CI.
+9. Shorter class names (`text-muted` instead of `text-text-muted`).
+10. A live examples page generated from the code (beyond the color preview).
+11. Open questions are for Roberto only; contributors should not be asked every session.

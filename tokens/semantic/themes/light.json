@@ -6,7 +6,7 @@
       "default": { "$value": "{color.gray.700}", "$description": "Body and headings." },
       "muted": { "$value": "{color.gray.500}", "$description": "Secondary text, help text, captions. Still AA on surface.default and surface.subtle." },
       "inverse": { "$value": "{color.white}", "$description": "Text on dark or brand surfaces." },
-      "link": { "$value": "{color.green.700}" },
+      "link": { "$value": "{color.green.700}", "$description": "Green 700, not 600: links also sit on surface.subtle where 600 falls below 4.5:1. Underline links in body text." },
       "link-hover": { "$value": "{color.green.800}" },
       "danger": { "$value": "{color.red.700}", "$description": "Error messages." },
       "success": { "$value": "{color.green.700}" }
@@ -23,17 +23,18 @@
     "border": {
       "default": { "$value": "{color.gray.200}", "$description": "Dividers and card outlines (decorative)." },
       "strong": { "$value": "{color.gray.400}", "$description": "Input borders and other borders that must be seen (3:1)." },
-      "focus": { "$value": "{color.green.700}", "$description": "Focus ring." },
+      "focus": { "$value": "{color.green.700}", "$description": "Focus ring on light surfaces." },
+      "focus-inverse": { "$value": "{color.white}", "$description": "Focus ring on surface.brand, surface.inverse, primary and danger buttons." },
       "danger": { "$value": "{color.red.600}" }
     },
     "action": {
-      "primary-bg": { "$value": "{color.green.700}" },
-      "primary-bg-hover": { "$value": "{color.green.800}" },
+      "primary-bg": { "$value": "{color.green.600}" },
+      "primary-bg-hover": { "$value": "{color.green.700}" },
       "primary-fg": { "$value": "{color.white}" },
       "secondary-bg": { "$value": "{color.white}" },
       "secondary-bg-hover": { "$value": "{color.green.50}" },
       "secondary-fg": { "$value": "{color.green.700}" },
-      "secondary-border": { "$value": "{color.green.700}" },
+      "secondary-border": { "$value": "{color.green.600}" },
       "danger-bg": { "$value": "{color.red.600}" },
       "danger-bg-hover": { "$value": "{color.red.700}" },
       "danger-fg": { "$value": "{color.white}" },

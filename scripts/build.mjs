@@ -34,7 +34,8 @@ for (const k of semanticColors) tw += `  --color-${k.slice(6).replace(/\./g, '-'
 tw += `  --font-heading: var(${cssName('font.family.heading')});\n  --font-body: var(${cssName('font.family.body')});\n  --font-sans: var(${cssName('font.family.body')});\n`;
 for (const k of Object.keys(base).filter((k) => k.startsWith('space.'))) tw += `  --spacing-${k.slice(6)}: var(${cssName(k)});\n`;
 for (const k of Object.keys(base).filter((k) => k.startsWith('radius.'))) tw += `  --radius-${k.slice(7)}: var(${cssName(k)});\n`;
-for (const k of Object.keys(base).filter((k) => k.startsWith('breakpoint.'))) tw += `  --breakpoint-${k.slice(11)}: var(${cssName(k)});\n`;
+// Breakpoints must be literal values: Tailwind cannot use var() inside media queries.
+for (const k of Object.keys(base).filter((k) => k.startsWith('breakpoint.'))) tw += `  --breakpoint-${k.slice(11)}: ${resolve(base, base[k].value)};\n`;
 for (const k of Object.keys(base).filter((k) => k.startsWith('font.size.'))) tw += `  --text-${k.slice(10)}: var(${cssName(k)});\n`;
 tw += '}\n';
 writeFileSync('dist/tailwind.css', tw);

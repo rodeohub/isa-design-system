@@ -20,6 +20,7 @@
   --color-border-default: var(--isa-color-border-default);
   --color-border-strong: var(--isa-color-border-strong);
   --color-border-focus: var(--isa-color-border-focus);
+  --color-border-focus-inverse: var(--isa-color-border-focus-inverse);
   --color-border-danger: var(--isa-color-border-danger);
   --color-action-primary-bg: var(--isa-color-action-primary-bg);
   --color-action-primary-bg-hover: var(--isa-color-action-primary-bg-hover);
@@ -83,11 +84,11 @@
   --radius-lg: var(--isa-radius-lg);
   --radius-xl: var(--isa-radius-xl);
   --radius-full: var(--isa-radius-full);
-  --breakpoint-xs: var(--isa-breakpoint-xs);
-  --breakpoint-sm: var(--isa-breakpoint-sm);
-  --breakpoint-md: var(--isa-breakpoint-md);
-  --breakpoint-lg: var(--isa-breakpoint-lg);
-  --breakpoint-xl: var(--isa-breakpoint-xl);
+  --breakpoint-xs: 20rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
   --text-xs: var(--isa-font-size-xs);
   --text-sm: var(--isa-font-size-sm);
   --text-md: var(--isa-font-size-md);

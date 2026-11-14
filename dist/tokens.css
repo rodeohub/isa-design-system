@@ -18,7 +18,7 @@
   --isa-color-green-300: #99D9D7;
   --isa-color-green-400: #4DBCB8;
   --isa-color-green-500: #009F9A;
-  --isa-color-green-600: #008F8B;
+  --isa-color-green-600: #00827E;
   --isa-color-green-700: #005F5C;
   --isa-color-green-800: #004845;
   --isa-color-green-900: #00302E;
@@ -155,14 +155,15 @@
   --isa-color-border-default: var(--isa-color-gray-200);
   --isa-color-border-strong: var(--isa-color-gray-400);
   --isa-color-border-focus: var(--isa-color-green-700);
+  --isa-color-border-focus-inverse: var(--isa-color-white);
   --isa-color-border-danger: var(--isa-color-red-600);
-  --isa-color-action-primary-bg: var(--isa-color-green-700);
-  --isa-color-action-primary-bg-hover: var(--isa-color-green-800);
+  --isa-color-action-primary-bg: var(--isa-color-green-600);
+  --isa-color-action-primary-bg-hover: var(--isa-color-green-700);
   --isa-color-action-primary-fg: var(--isa-color-white);
   --isa-color-action-secondary-bg: var(--isa-color-white);
   --isa-color-action-secondary-bg-hover: var(--isa-color-green-50);
   --isa-color-action-secondary-fg: var(--isa-color-green-700);
-  --isa-color-action-secondary-border: var(--isa-color-green-700);
+  --isa-color-action-secondary-border: var(--isa-color-green-600);
   --isa-color-action-danger-bg: var(--isa-color-red-600);
   --isa-color-action-danger-bg-hover: var(--isa-color-red-700);
   --isa-color-action-danger-fg: var(--isa-color-white);

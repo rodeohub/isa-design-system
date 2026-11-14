@@ -15,7 +15,7 @@
       "$description": "ISA Green. 500 is the brand color.",
       "50": { "$value": "#F2FAFA" }, "100": { "$value": "#E6F5F5" }, "200": { "$value": "#BFE7E6" },
       "300": { "$value": "#99D9D7" }, "400": { "$value": "#4DBCB8" }, "500": { "$value": "#009F9A" },
-      "600": { "$value": "#008F8B" }, "700": { "$value": "#005F5C" }, "800": { "$value": "#004845" },
+      "600": { "$value": "#00827E", "$description": "Darkened 2026-11-14 (was #008F8B) so white text passes AA (4.67:1). Roberto." }, "700": { "$value": "#005F5C" }, "800": { "$value": "#004845" },
       "900": { "$value": "#00302E" }
     },
     "gray": {

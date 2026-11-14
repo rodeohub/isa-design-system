@@ -19,7 +19,7 @@
   --isa-color-green-300: #99D9D7;
   --isa-color-green-400: #4DBCB8;
   --isa-color-green-500: #009F9A;
-  --isa-color-green-600: #008F8B;
+  --isa-color-green-600: #00827E;
   --isa-color-green-700: #005F5C;
   --isa-color-green-800: #004845;
   --isa-color-green-900: #00302E;
@@ -156,14 +156,15 @@
   --isa-color-border-default: var(--isa-color-gray-200);
   --isa-color-border-strong: var(--isa-color-gray-400);
   --isa-color-border-focus: var(--isa-color-green-700);
+  --isa-color-border-focus-inverse: var(--isa-color-white);
   --isa-color-border-danger: var(--isa-color-red-600);
-  --isa-color-action-primary-bg: var(--isa-color-green-700);
-  --isa-color-action-primary-bg-hover: var(--isa-color-green-800);
+  --isa-color-action-primary-bg: var(--isa-color-green-600);
+  --isa-color-action-primary-bg-hover: var(--isa-color-green-700);
   --isa-color-action-primary-fg: var(--isa-color-white);
   --isa-color-action-secondary-bg: var(--isa-color-white);
   --isa-color-action-secondary-bg-hover: var(--isa-color-green-50);
   --isa-color-action-secondary-fg: var(--isa-color-green-700);
-  --isa-color-action-secondary-border: var(--isa-color-green-700);
+  --isa-color-action-secondary-border: var(--isa-color-green-600);
   --isa-color-action-danger-bg: var(--isa-color-red-600);
   --isa-color-action-danger-bg-hover: var(--isa-color-red-700);
   --isa-color-action-danger-fg: var(--isa-color-white);
@@ -210,7 +211,7 @@ table{border-collapse:collapse;width:100%;font-size:.875rem}td{border-bottom:1px
 <table><tr><td><code>color.text.default</code></td><td><span class="sw" style="background:#29292A"></span></td><td><code>#29292A</code></td><td>Body and headings.</td></tr>
 <tr><td><code>color.text.muted</code></td><td><span class="sw" style="background:#454546"></span></td><td><code>#454546</code></td><td>Secondary text, help text, captions. Still AA on surface.default and surface.subtle.</td></tr>
 <tr><td><code>color.text.inverse</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td>Text on dark or brand surfaces.</td></tr>
-<tr><td><code>color.text.link</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td></td></tr>
+<tr><td><code>color.text.link</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td>Green 700, not 600: links also sit on surface.subtle where 600 falls below 4.5:1. Underline links in body text.</td></tr>
 <tr><td><code>color.text.link-hover</code></td><td><span class="sw" style="background:#004845"></span></td><td><code>#004845</code></td><td></td></tr>
 <tr><td><code>color.text.danger</code></td><td><span class="sw" style="background:#8B2617"></span></td><td><code>#8B2617</code></td><td>Error messages.</td></tr>
 <tr><td><code>color.text.success</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td></td></tr>
@@ -223,15 +224,16 @@ table{border-collapse:collapse;width:100%;font-size:.875rem}td{border-bottom:1px
 <tr><td><code>color.surface.success</code></td><td><span class="sw" style="background:#F2FAFA"></span></td><td><code>#F2FAFA</code></td><td></td></tr>
 <tr><td><code>color.border.default</code></td><td><span class="sw" style="background:#D1D1D1"></span></td><td><code>#D1D1D1</code></td><td>Dividers and card outlines (decorative).</td></tr>
 <tr><td><code>color.border.strong</code></td><td><span class="sw" style="background:#7D7D7E"></span></td><td><code>#7D7D7E</code></td><td>Input borders and other borders that must be seen (3:1).</td></tr>
-<tr><td><code>color.border.focus</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td>Focus ring.</td></tr>
+<tr><td><code>color.border.focus</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td>Focus ring on light surfaces.</td></tr>
+<tr><td><code>color.border.focus-inverse</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td>Focus ring on surface.brand, surface.inverse, primary and danger buttons.</td></tr>
 <tr><td><code>color.border.danger</code></td><td><span class="sw" style="background:#D13A22"></span></td><td><code>#D13A22</code></td><td></td></tr>
-<tr><td><code>color.action.primary-bg</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td></td></tr>
-<tr><td><code>color.action.primary-bg-hover</code></td><td><span class="sw" style="background:#004845"></span></td><td><code>#004845</code></td><td></td></tr>
+<tr><td><code>color.action.primary-bg</code></td><td><span class="sw" style="background:#00827E"></span></td><td><code>#00827E</code></td><td></td></tr>
+<tr><td><code>color.action.primary-bg-hover</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td></td></tr>
 <tr><td><code>color.action.primary-fg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
 <tr><td><code>color.action.secondary-bg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
 <tr><td><code>color.action.secondary-bg-hover</code></td><td><span class="sw" style="background:#F2FAFA"></span></td><td><code>#F2FAFA</code></td><td></td></tr>
 <tr><td><code>color.action.secondary-fg</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td></td></tr>
-<tr><td><code>color.action.secondary-border</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td></td></tr>
+<tr><td><code>color.action.secondary-border</code></td><td><span class="sw" style="background:#00827E"></span></td><td><code>#00827E</code></td><td></td></tr>
 <tr><td><code>color.action.danger-bg</code></td><td><span class="sw" style="background:#D13A22"></span></td><td><code>#D13A22</code></td><td></td></tr>
 <tr><td><code>color.action.danger-bg-hover</code></td><td><span class="sw" style="background:#8B2617"></span></td><td><code>#8B2617</code></td><td></td></tr>
 <tr><td><code>color.action.danger-fg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
