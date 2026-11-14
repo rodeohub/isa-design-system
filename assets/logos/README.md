@@ -33,7 +33,7 @@ The color variants use ISA Red `#E84026`, ISA Green `#009F9A` and ISA Gray `#454
 - Keep the proportions: set the height, leave the width to `auto`.
 - Keep clear space around the logo of about the height of the red "I" block. Minimum sizes and exact clear space are not defined yet (open point in `DECISIONS.md`).
 
-## Known issue
-`education/isa-education-color.svg` uses older color values (`#0DA69D`, `#EF4D34`, off-white `#FEFEFE`), not the official ones. It is included as provided. Roberto decides whether it gets corrected.
+## Note
+`education/isa-education-color.svg` was corrected in this repository on 2026-11-14 to the official colors (the provided file had `#0DA69D`, `#EF4D34` and `#FEFEFE`). The Figma source of the logos still needs the same fix, or the next export brings the old colors back.
 
 PNG exports (1x, 2x, 4x) exist outside the repo; ask Roberto if a project cannot use SVG.

@@ -77,33 +77,104 @@ writeFileSync('dist/components.css', header + componentFiles.map((f) => readFile
 // Behavior script for plain HTML pages (tabs, dialogs).
 copyFileSync('behavior/isa.js', 'dist/isa.js');
 
-// 6. preview.html: live examples of every component, then every color role. Built from the same files projects use.
+// 6. preview.html: the decisions (principles, colors, logos, type, layout), live examples of every component,
+// then every color role. Built from the same files projects use. Self-contained except for the three stylesheets.
 const v = (k) => resolve(all, all[k].value);
-const examples = readdirSync('components').filter((f) => f.endsWith('.examples.html')).sort()
-  .map((f) => `<section><h2>${f.replace('.examples.html', '').replace(/^./, (c) => c.toUpperCase()).replace('Field', 'Form fields').replace('Navigation', 'Header, navigation and footer').replace('Empty', 'Empty state').replace('Page', 'Page layout')}</h2>\n${readFileSync(`components/${f}`, 'utf8')}</section>`).join('\n');
 const dark = themed.dark ? { ...base, ...themed.dark } : null;
+const slug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const section = (title, body) => `<section id="${slug(title)}"><h2>${title}</h2>\n${body}</section>`;
 const sw = (c) => `<span class="sw" style="background:${c}"></span> <code>${c}</code>`;
+const px = (rem) => (String(rem).endsWith('rem') ? `${parseFloat(rem) * 16}px` : String(rem));
+const keys = (prefix) => Object.keys(base).filter((k) => k.startsWith(prefix));
+const logo = (path, alt, h = 64) => `<img src="data:image/svg+xml;base64,${readFileSync(`assets/logos/${path}`).toString('base64')}" alt="${alt}" style="height:${h}px;width:auto">`;
+const fig = (inner, caption) => `<figure class="fig">${inner}<figcaption><code>${caption}</code></figcaption></figure>`;
+
+const foundations = [
+  ['Principles', `<p>The decisions every ISA website and web app follows. Details and reasons: <code>AGENTS.md</code> and <code>DECISIONS.md</code>.</p>
+<ul class="plain">
+<li><strong>One source.</strong> Colors, fonts and sizes are defined once, as tokens, in this repository. Projects use the named roles, never their own values.</li>
+<li><strong>Readable for everyone.</strong> WCAG 2.2 AA at least: text contrast 4.5:1, a visible focus ring, links underlined, meaning never by color alone.</li>
+<li><strong>Phones first.</strong> Every screen works at 360px wide. Anything tappable is at least 44px.</li>
+<li><strong>Two fonts.</strong> Barlow Condensed for headings, Barlow for everything else. The same two for print and slides.</li>
+<li><strong>Light and dark.</strong> Every role has a light and a dark value. A project opts in to dark mode and offers a switch.</li>
+<li><strong>Reuse before you create.</strong> Use the components on this page. A new pattern is a decision for people, not for an agent alone.</li>
+<li><strong>Real HTML.</strong> Real buttons, links and labels; one main area and a skip link on every page.</li>
+</ul>`],
+  ['Brand colors', `<p>The three official colors (Roberto, 2026-10-27). Brand red and green are for logos, large display text and decoration. For text and buttons the system uses darker steps of the same scales, so contrast is met.</p>
+<div class="chips">${[['ISA Red', 'color.red.500'], ['ISA Green', 'color.green.500'], ['ISA Gray', 'color.gray.500']].map(([n, k]) => `<div class="chip"><span style="background:${base[k].value}"></span><strong>${n}</strong><code>${base[k].value}</code></div>`).join('')}</div>
+<h3>Scales</h3><p>Each brand color has ten steps, from 50 (lightest) to 900 (darkest). 500 is the brand color. Buttons use green 600, links and the header green 700.</p>
+${['red', 'green', 'gray'].map((h) => `<div class="scale">${keys(`color.${h}.`).map((k) => `<div><span style="background:${base[k].value}"></span><small>${k.split('.')[2]}<br><code>${base[k].value}</code></small></div>`).join('')}</div>`).join('')}
+<h3>Category colors</h3><p>For badges and tags (disciplines, levels, roles). Separate from the brand colors. Each is a pair: a light tint and a dark shade, checked for contrast. Each project decides which category gets which color.</p>
+<div class="row">${[...new Set(keys('color.category-hue.').map((k) => k.split('.')[2]))].map((h) => `<span class="pair" style="background:${base[`color.category-hue.${h}.light`].value};color:${base[`color.category-hue.${h}.dark`].value}">${h}</span>`).join('')}</div>`],
+  ['Logos', `<p>The official logos, in <code>assets/logos/</code>. Use them unchanged: never redraw, recolor or stretch one. They are not covered by the open license.</p>
+<h3>On light surfaces: color</h3>
+<div class="logos">${fig(logo('isa-default/isa-default-color.svg', 'ISA logo, default', 120), 'isa-default')}${fig(logo('isa-wide/isa-wide-color.svg', 'ISA logo, wide', 48), 'isa-wide')}${fig(logo('isa-minimal/isa-minimal-color.svg', 'ISA logo, minimal', 48), 'isa-minimal')}${fig(logo('education/isa-education-color.svg', 'ISA Education logo', 80), 'education')}${fig(logo('safety/isa-safety-color.svg', 'ISA Safety logo', 80), 'safety')}</div>
+<h3>On green and dark surfaces: white</h3>
+<div class="logos onbrand">${fig(logo('isa-wide/isa-wide-white.svg', 'ISA logo, wide, white', 48), 'isa-wide-white')}${fig(logo('isa-minimal/isa-minimal-white.svg', 'ISA logo, minimal, white', 48), 'isa-minimal-white')}${fig(logo('education/isa-education-white.svg', 'ISA Education logo, white', 80), 'education-white')}${fig(logo('safety/isa-safety-white.svg', 'ISA Safety logo, white', 80), 'safety-white')}</div>
+<h3>Certification marks</h3>
+<div class="logos">${['instructor', 'judge', 'rigger'].map((c) => fig(logo(`certifications/${c}-filled-color.svg`, `${c} mark, filled`, 32), `${c}-filled`) + fig(logo(`certifications/${c}-outline-color.svg`, `${c} mark, outline`, 32), `${c}-outline`)).join('')}</div>
+<p>Every logo also exists in black and grey (one-color use). Which variant where: <code>assets/logos/README.md</code>.</p>`],
+  ['Typography', `<p>Two families, both free (SIL Open Font License) and hosted with the system, so pages make no requests to Google.</p>
+<div class="chips"><div class="chip type"><span style="font-family:var(--isa-font-family-heading);font-weight:700">Barlow Condensed</span><strong>Headings, 20px and up</strong><code>font.family.heading</code></div><div class="chip type"><span style="font-family:var(--isa-font-family-body)">Barlow</span><strong>Body text, labels, buttons</strong><code>font.family.body</code></div></div>
+<h3>Text styles</h3><p>Ready-made combinations of family, weight, size and line height. In Tailwind: <code>type-h1</code>, <code>type-body</code> and so on.</p>
+<div class="scroll"><table><thead><tr><th>Style</th><th>Example</th><th>Size</th></tr></thead>${[...new Set(keys('text-style.').map((k) => k.split('.')[1]))].map((n) => { const t = (part) => `var(--isa-text-style-${n}-${part})`; return `<tr><td><code>${n}</code></td><td><span style="font-family:${t('family')};font-weight:${t('weight')};font-size:${t('size')};line-height:${t('line-height')}">${n === 'badge' ? 'FREESTYLE HIGHLINE' : n.startsWith('h') || n === 'display' ? 'Swiss Highline Open' : 'Three days of freestyle and speed highline.'}</span></td><td>${px(resolve(base, base[`text-style.${n}.size`].value))}</td></tr>`; }).join('')}</table></div>
+<p>Body text is at least 16px on phones. Sizes: ${keys('font.size.').map((k) => `<code>${k.split('.')[2]}</code> ${px(base[k].value)}`).join(', ')}.</p>`],
+  ['Spacing and shape', `<h3>Spacing</h3><p>One scale for all gaps and padding, in steps of 4px.</p>
+<div class="bars">${keys('space.').filter((k) => k !== 'space.0').map((k) => `<div><code>space.${k.slice(6)}</code><span style="width:${base[k].value}"></span><small>${px(base[k].value)}</small></div>`).join('')}</div>
+<h3>Corners</h3><div class="row">${keys('radius.').map((k) => `<div class="box" style="border-radius:${base[k].value}"><code>${k.slice(7)}</code><small>${base[k].value === '9999px' ? 'round' : px(base[k].value)}</small></div>`).join('')}</div>
+<h3>Shadows</h3><div class="row">${keys('shadow.').map((k) => `<div class="box" style="border-color:transparent;box-shadow:${base[k].value};border-radius:var(--isa-radius-lg)"><code>${k.slice(7)}</code></div>`).join('')}</div>
+<h3>Screen sizes</h3><p>Layouts start from the phone and change at: ${keys('breakpoint.').map((k) => `<code>${k.slice(11)}</code> ${px(base[k].value)}`).join(', ')}. Content is at most ${px(base['size.content-max'].value)} wide; text pages ${px(base['size.content-narrow'].value)}. Touch targets: ${px(base['size.touch-target'].value)}.</p>`],
+];
+const compTitle = (f) => f.replace('.examples.html', '').replace(/^./, (c) => c.toUpperCase()).replace('Field', 'Form fields').replace('Navigation', 'Header, navigation and footer').replace('Empty', 'Empty state').replace('Page', 'Page layout');
+const comps = readdirSync('components').filter((f) => f.endsWith('.examples.html')).sort().map((f) => [compTitle(f), readFileSync(`components/${f}`, 'utf8')]);
 const rows = semanticColors.map((k) => `<tr><td><code>${k}</code></td><td>${sw(v(k))}</td>${dark ? `<td>${sw(resolve(dark, dark[k].value))}</td>` : ''}<td>${all[k].description ?? ''}</td></tr>`).join('\n');
+const reference = [['Color roles', `<p>What projects and components actually use: a name for each job a color does. Each role points at a step of the scales above, with a light and a dark value. Run <code>npm run check</code> for contrast results in every theme.</p><div class="scroll"><table><thead><tr><th>Role</th><th>Light</th>${dark ? '<th>Dark</th>' : ''}<th>Use</th></tr></thead>${rows}</table></div>`]];
+const tocList = [['Foundations', foundations], ['Components', comps], ['Reference', reference]]
+  .map(([group, items]) => `<li><span>${group}</span><ul>${items.map(([t]) => `<li><a href="#${slug(t)}">${t}</a></li>`).join('')}</ul></li>`).join('');
+const themeButton = '<button type="button" class="isa-button isa-button--neutral" data-isa-theme-toggle aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M12 7l5 -2M12 12h9M12 17l5 2" /></svg>Dark mode</button>';
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ISA Design System preview</title>
 <link rel="stylesheet" href="./fonts.css"><link rel="stylesheet" href="./tokens.css"><link rel="stylesheet" href="./components.css">
 <style>
+html{scroll-behavior:smooth;scroll-padding-top:var(--isa-space-4)}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;font-family:var(--isa-font-family-body);color:var(--isa-color-text-default);background:var(--isa-color-surface-default);line-height:var(--isa-font-line-height-normal)}
-main{max-width:72rem;margin:0 auto;padding:var(--isa-space-8) var(--isa-space-4)}
+.layout{max-width:90rem;margin:0 auto}main{min-width:0;max-width:72rem;padding:var(--isa-space-8) var(--isa-space-4)}
 h1,h2,h3{font-family:var(--isa-font-family-heading);line-height:var(--isa-font-line-height-snug);margin:0}
 h1{font-size:var(--isa-font-size-5xl)}section>h2{font-size:var(--isa-font-size-4xl);margin-top:var(--isa-space-12);padding-top:var(--isa-space-6);border-top:1px solid var(--isa-color-border-default)}
 h3{font-size:var(--isa-font-size-xl);font-weight:var(--isa-font-weight-semibold);margin-top:var(--isa-space-6)}section>h3{margin-bottom:var(--isa-space-3)}
+main a:not([class]){color:var(--isa-color-text-link)}
 .row{display:flex;flex-wrap:wrap;gap:var(--isa-space-3);align-items:center;margin-top:var(--isa-space-3)}
-
 .stack{display:grid;gap:var(--isa-space-3);margin-top:var(--isa-space-4);max-width:40rem}.form{display:grid;gap:var(--isa-space-5);margin-top:var(--isa-space-4);max-width:28rem}
 .brand{background:var(--isa-color-surface-brand);padding:var(--isa-space-4);border-radius:var(--isa-radius-lg)}
 .scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:var(--isa-font-size-sm);margin-top:var(--isa-space-4)}
 th{text-align:left;padding:var(--isa-space-2)}td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-space-2);vertical-align:middle}
-.sw{display:inline-block;width:2.5rem;height:1.5rem;border-radius:var(--isa-radius-sm);border:1px solid var(--isa-color-border-default)}
+.sw{display:inline-block;width:2.5rem;height:1.5rem;border-radius:var(--isa-radius-sm);border:1px solid var(--isa-color-border-default);vertical-align:middle}
+.plain{padding-left:var(--isa-space-5);max-width:48rem}.plain li{margin-bottom:var(--isa-space-2)}section>p{max-width:48rem}
+.chips{display:flex;flex-wrap:wrap;gap:var(--isa-space-4);margin-top:var(--isa-space-4)}.chip{display:grid;gap:var(--isa-space-1);width:12rem}.chip>span{height:5rem;border-radius:var(--isa-radius-lg);border:1px solid var(--isa-color-border-default)}
+.chip.type{width:18rem}.chip.type>span{height:auto;border:0;font-size:var(--isa-font-size-4xl);line-height:var(--isa-font-line-height-snug)}
+.scale{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:var(--isa-space-1);margin-top:var(--isa-space-3)}.scale span{display:block;height:3rem;border-radius:var(--isa-radius-sm);border:1px solid var(--isa-color-border-default)}.scale small{display:block;font-size:var(--isa-font-size-xs);overflow-wrap:anywhere}
+@media (max-width:40rem){.scale{grid-template-columns:repeat(5,minmax(0,1fr))}}
+.pair{padding:var(--isa-space-2) var(--isa-space-3);border-radius:var(--isa-radius-md);font-weight:var(--isa-font-weight-bold);font-size:var(--isa-font-size-sm);text-transform:capitalize}
+.logos{display:flex;flex-wrap:wrap;align-items:flex-end;gap:var(--isa-space-6);padding:var(--isa-space-6);border:1px solid var(--isa-color-border-default);border-radius:var(--isa-radius-lg);background:#fff;color:#29292a}
+.logos.onbrand{background:var(--isa-color-surface-brand);color:#fff;border-color:transparent}.fig{margin:0;display:grid;gap:var(--isa-space-2)}.fig img{display:block;max-width:100%}.fig figcaption{font-size:var(--isa-font-size-xs)}
+.bars{display:grid;gap:var(--isa-space-1);margin-top:var(--isa-space-3)}.bars div{display:flex;align-items:center;gap:var(--isa-space-3)}.bars code{width:5rem}.bars span{height:var(--isa-space-4);background:var(--isa-color-spinner-fg);border-radius:var(--isa-radius-sm)}
+.box{display:grid;place-content:center;justify-items:center;width:6rem;height:5rem;border:1px solid var(--isa-color-border-strong);background:var(--isa-color-surface-raised)}
+.toc{font-size:var(--isa-font-size-sm)}.toc ul{list-style:none;margin:0;padding:0}.toc>ul>li>span{display:block;margin-top:var(--isa-space-4);font-weight:var(--isa-font-weight-bold);text-transform:uppercase;font-size:var(--isa-font-size-xs);color:var(--isa-color-text-muted)}
+.toc a{display:flex;align-items:center;min-height:var(--isa-size-control-sm);padding:0 var(--isa-space-2);border-radius:var(--isa-radius-sm);color:var(--isa-color-text-default);text-decoration:none}.toc a:hover{background:var(--isa-color-action-ghost-bg-hover);text-decoration:underline}
+.toc a:focus-visible{outline:var(--isa-size-focus-ring-width) solid var(--isa-color-border-focus)}
+.toc-side{display:none}.toc-top{margin-top:var(--isa-space-6);border:1px solid var(--isa-color-border-default);border-radius:var(--isa-radius-lg);padding:var(--isa-space-2) var(--isa-space-4)}
+.toc-top summary{min-height:var(--isa-size-touch-target);display:flex;align-items:center;font-weight:var(--isa-font-weight-semibold);cursor:pointer}.toc-top a{min-height:var(--isa-size-touch-target)}
+.top{position:fixed;right:var(--isa-space-4);bottom:var(--isa-space-4);z-index:var(--isa-z-sticky)}
+@media (min-width:64rem){.layout{display:grid;grid-template-columns:15rem minmax(0,1fr)}.toc-side{display:block;position:sticky;top:0;align-self:start;max-height:100vh;overflow-y:auto;box-sizing:border-box;padding:var(--isa-space-8) var(--isa-space-4);border-right:1px solid var(--isa-color-border-default)}.toc-top{display:none}}
 </style></head>
-<body><main><div class="row" style="justify-content:space-between"><h1>ISA Design System</h1><button type="button" class="isa-button isa-button--neutral" data-isa-theme-toggle aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M12 7l5 -2M12 12h9M12 17l5 2" /></svg>Dark mode</button></div><p>Version ${JSON.parse(readFileSync('package.json', 'utf8')).version}. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
-${examples}
-<section><h2>Color roles</h2><p>Run <code>npm run check</code> for contrast results in every theme.</p><div class="scroll"><table><thead><tr><th>Role</th><th>Light</th>${dark ? '<th>Dark</th>' : ''}<th>Use</th></tr></thead>${rows}</table></div></section>
-</main><script type="module">
+<body><a class="isa-skip-link" href="#main">Skip to content</a>
+<div class="layout"><nav class="toc toc-side" aria-label="Contents"><strong>Contents</strong><ul>${tocList}</ul></nav>
+<main id="main"><div class="row" style="justify-content:space-between"><h1 id="top">ISA Design System</h1>${themeButton}</div><p>Version ${JSON.parse(readFileSync('package.json', 'utf8')).version}. The decisions first (colors, logos, fonts, spacing), then live examples of every component, built from the same CSS that projects install. Press Tab to see focus rings.</p>
+<details class="toc toc-top"><summary>Contents</summary><nav aria-label="Contents"><ul>${tocList}</ul></nav></details>
+${foundations.map(([t, b]) => section(t, b)).join('\n')}
+${comps.map(([t, b]) => section(t, b)).join('\n')}
+${reference.map(([t, b]) => section(t, b)).join('\n')}
+<a class="isa-button isa-button--neutral isa-button--small top" href="#top">Back to top</a>
+</main></div><script type="module">
 ${readFileSync('behavior/isa.js', 'utf8').replace(/^export /gm, '')}</script></body></html>
 `;
 writeFileSync('dist/preview.html', html);

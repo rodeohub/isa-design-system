@@ -1,6 +1,10 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.13.0`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.13.1`, and upgrade on purpose.
+
+## 0.13.1 (2026-11-14)
+- Preview page (`dist/preview.html`): table of contents (side bar on wide screens, a "Contents" box on phones), a "Back to top" button, and new sections before the components: Principles, Brand colors (with scales and category colors), Logos, Typography, Spacing and shape.
+- Education color logo corrected to the official colors.
 
 ## 0.13.0 (2026-11-14)
 - **Logos** added in `assets/logos/`: ISA (default, wide, minimal), Education, Safety and the certification marks (instructor, judge, rigger), as SVG in color, black, grey and white. Not covered by the MIT License. Which variant to use where: `assets/logos/README.md`.
