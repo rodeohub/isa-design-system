@@ -3,7 +3,9 @@
 import assert from 'node:assert/strict';
 import { createElement as h } from 'react';
 import { renderToStaticMarkup as render } from 'react-dom/server';
-import { Button, Badge, Alert, TextField, TextArea, SelectField, Checkbox, Radio, Fieldset, Tabs, Dialog, Card, CardGrid, Table, Spinner, Tooltip } from '../react/index.js';
+import { pageList } from '../react/Pagination.js';
+import { initials } from '../react/Avatar.js';
+import { Button, Badge, Alert, TextField, TextArea, SelectField, Checkbox, Radio, Fieldset, Tabs, Dialog, Card, CardGrid, Table, Spinner, Tooltip, Drawer, Avatar, Header, Nav, Footer, SkipLink, Pagination } from '../react/index.js';
 
 const eq = (el, html) => assert.equal(render(el), html);
 
@@ -67,5 +69,29 @@ const tip = render(h(Tooltip, { content: 'Help', placement: 'bottom', align: 'st
 for (const part of ['class="isa-tooltip isa-tooltip--bottom isa-tooltip--start"', 'aria-label="More information"', 'role="tooltip"', '>Help</span>']) assert.ok(tip.includes(part), `Tooltip: missing ${part}`);
 assert.equal(tip.match(/aria-describedby="([^"]+)"/)[1], tip.match(/role="tooltip" id="([^"]+)"/)[1]);
 has(h(Tooltip, { content: 'Downloads CSV' }, h(Button, { variant: 'neutral' }, 'Export')), '<button aria-describedby="', 'class="isa-button isa-button--neutral" type="button">Export</button>');
+
+has(h(Drawer, { open: true, onClose() {}, title: 'Menu', side: 'start' }, 'Body'), '<dialog class="isa-drawer isa-drawer--start"', '<h2 class="isa-drawer__title"', 'Menu</h2>', 'aria-label="Close"', '<div class="isa-drawer__body">Body</div>');
+lacks(h(Drawer, { open: false, onClose() {}, title: 'Menu' }, 'Body'), 'Body');
+
+assert.equal(initials('Lena Maria Example'), 'LE'); assert.equal(initials('lena'), 'L'); assert.equal(initials(''), '');
+eq(h(Avatar, { name: 'Lena Example' }), '<span class="isa-avatar" role="img" aria-label="Lena Example">LE</span>');
+eq(h(Avatar, { name: 'Lena Example', src: '/l.jpg', size: 'large', square: true }), '<span class="isa-avatar isa-avatar--large isa-avatar--square"><img loading="lazy" src="/l.jpg" alt="Lena Example"/></span>');
+eq(h(Avatar, { name: 'Lena Example', size: 'small', decorative: true }), '<span class="isa-avatar isa-avatar--small" aria-hidden="true">LE</span>');
+
+const items = [{ href: '/', label: 'Home' }, { href: '/rankings', label: 'Rankings', current: true }];
+eq(h(Nav, { items, 'aria-label': 'Main' }), '<nav aria-label="Main"><ul class="isa-nav"><li><a class="isa-nav__link" href="/">Home</a></li><li><a class="isa-nav__link" href="/rankings" aria-current="page">Rankings</a></li></ul></nav>');
+const header = render(h(Header, { brand: 'Sport Hub', items, actions: h(Button, { variant: 'secondary', size: 'small' }, 'Sign in') }));
+for (const part of ['<header class="isa-header" data-isa-surface="brand">', '<a class="isa-header__brand" href="/">Sport Hub</a>', '<nav aria-label="Main" class="isa-header__nav">', 'class="isa-header__menu-button" aria-label="Menu" aria-haspopup="dialog"', '<dialog class="isa-drawer"', 'Sign in</button>']) assert.ok(header.includes(part), `Header: missing ${part} in ${header}`);
+eq(h(Footer, { links: [{ href: '/faq', label: 'FAQ' }], note: 'ISA' }), '<footer class="isa-footer"><nav aria-label="Footer"><ul class="isa-footer__links"><li><a href="/faq">FAQ</a></li></ul></nav><p class="isa-footer__note">ISA</p></footer>');
+eq(h(SkipLink, null), '<a class="isa-skip-link" href="#main">Skip to content</a>');
+
+assert.deepEqual(pageList(5, 12), [1, null, 4, 5, 6, null, 12]);
+assert.deepEqual(pageList(1, 3), [1, 2, 3]);
+assert.deepEqual(pageList(2, 5), [1, 2, 3, 4, 5]);
+assert.deepEqual(pageList(1, 1), [1]);
+const pag = render(h(Pagination, { page: 1, pageCount: 12, onPageChange() {} }));
+for (const part of ['<nav aria-label="Pagination" class="isa-pagination">', 'aria-label="Previous page" type="button" class="isa-pagination__item" disabled=""', 'aria-label="Page 1" aria-current="page"', 'class="isa-pagination__gap"', 'aria-label="Page 12"', 'aria-label="Next page"']) assert.ok(pag.includes(part), `Pagination: missing ${part} in ${pag}`);
+has(h(Pagination, { page: 2, pageCount: 3, getHref: (p) => `?page=${p}` }), '<a aria-label="Page 3" class="isa-pagination__item" href="?page=3">3</a>', 'href="?page=1"');
+eq(h(Pagination, { page: 1, pageCount: 1 }), '');
 
 console.log('React components: all checks passed.');

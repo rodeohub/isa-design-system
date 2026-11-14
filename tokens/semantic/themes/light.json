@@ -17,6 +17,7 @@
       "muted": { "$value": "{color.gray.100}" },
       "inverse": { "$value": "{color.gray.800}" },
       "brand": { "$value": "{color.green.700}", "$description": "Header bars and brand areas with text.inverse on top." },
+      "brand-strong": { "$value": "{color.green.800}", "$description": "Hover and current-page background inside brand areas." },
       "danger": { "$value": "{color.red.50}" },
       "success": { "$value": "{color.green.50}" }
     },

@@ -1,0 +1,138 @@
+/* Header, navigation, footer and skip link. Docs: docs/components/navigation.md.
+   Extracted from the Slackline Sport Hub and adapted. */
+
+/* Skip link: first element in <body>, visible only on keyboard focus. */
+.isa-skip-link {
+  position: absolute;
+  top: var(--isa-space-2);
+  left: var(--isa-space-2);
+  z-index: var(--isa-z-tooltip);
+  padding: var(--isa-space-2) var(--isa-space-4);
+  border-radius: var(--isa-radius-md);
+  background-color: var(--isa-color-surface-default);
+  color: var(--isa-color-text-link);
+  box-shadow: var(--isa-shadow-md);
+  font-family: var(--isa-font-family-body);
+  font-weight: var(--isa-font-weight-semibold);
+  transform: translateY(-200%);
+}
+.isa-skip-link:focus { transform: none; }
+
+/* Navigation list: horizontal by default. */
+.isa-nav { display: flex; flex-wrap: wrap; gap: var(--isa-space-1); margin: 0; padding: 0; list-style: none; font-family: var(--isa-font-family-body); }
+.isa-nav__link {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  min-height: var(--isa-size-touch-target);
+  padding: var(--isa-space-2) var(--isa-space-3);
+  border-radius: var(--isa-radius-md);
+  color: var(--isa-color-text-default);
+  font-size: var(--isa-font-size-md);
+  font-weight: var(--isa-font-weight-medium);
+  line-height: var(--isa-font-line-height-snug);
+  text-decoration: none;
+  transition: background-color var(--isa-duration-fast);
+}
+.isa-nav__link:hover { background-color: var(--isa-color-surface-muted); }
+.isa-nav__link[aria-current="page"] {
+  background-color: var(--isa-color-selected-bg);
+  color: var(--isa-color-selected-fg);
+  font-weight: var(--isa-font-weight-bold);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}
+.isa-nav__link:focus-visible {
+  outline: var(--isa-size-focus-ring-width) solid var(--isa-focus-color, var(--isa-color-border-focus));
+  outline-offset: calc(var(--isa-size-focus-ring-width) * -1);
+}
+.isa-nav--vertical { flex-direction: column; flex-wrap: nowrap; }
+
+/* Header bar on the brand color. Add data-isa-surface="brand" so focus rings turn white. */
+.isa-header {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--isa-space-4);
+  min-height: var(--isa-space-16);
+  padding: var(--isa-space-2) var(--isa-space-4);
+  background-color: var(--isa-color-surface-brand);
+  color: var(--isa-color-text-inverse);
+  font-family: var(--isa-font-family-body);
+}
+.isa-header__brand { display: flex; align-items: center; margin-right: auto; color: inherit; text-decoration: none; font-family: var(--isa-font-family-heading); font-size: var(--isa-font-size-2xl); font-weight: var(--isa-font-weight-bold); line-height: 1; }
+.isa-header__brand :is(img, svg) { display: block; height: var(--isa-space-10); width: auto; }
+.isa-header__brand:focus-visible,
+.isa-header__menu-button:focus-visible {
+  outline: var(--isa-size-focus-ring-width) solid var(--isa-focus-color, var(--isa-color-border-focus));
+  outline-offset: var(--isa-size-focus-ring-offset);
+  border-radius: var(--isa-radius-sm);
+}
+.isa-header__nav { display: none; }
+.isa-header__actions { display: flex; align-items: center; gap: var(--isa-space-2); }
+.isa-header .isa-header__nav .isa-nav__link { color: var(--isa-color-text-inverse); }
+.isa-header .isa-header__nav .isa-nav__link:hover,
+.isa-header .isa-header__nav .isa-nav__link[aria-current="page"] { background-color: var(--isa-color-surface-brand-strong); color: var(--isa-color-text-inverse); }
+.isa-header__menu-button {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--isa-size-touch-target);
+  height: var(--isa-size-touch-target);
+  padding: 0;
+  border: 0;
+  border-radius: var(--isa-radius-md);
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+.isa-header__menu-button:hover { background-color: var(--isa-color-surface-brand-strong); }
+.isa-header__menu-button svg { width: 1.5rem; height: 1.5rem; }
+/* From breakpoint.md (48rem): links in the bar, no menu button. */
+@media (min-width: 48rem) {
+  .isa-header { padding-inline: var(--isa-space-6); }
+  .isa-header__nav { display: block; }
+  .isa-header__menu-button { display: none; }
+}
+
+/* Footer */
+.isa-footer {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--isa-space-6);
+  padding: var(--isa-space-8) var(--isa-space-4);
+  border-top: 1px solid var(--isa-color-border-default);
+  background-color: var(--isa-color-surface-subtle);
+  color: var(--isa-color-text-default);
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-md);
+  line-height: var(--isa-font-line-height-normal);
+}
+.isa-footer__links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+  gap: var(--isa-space-1) var(--isa-space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.isa-footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--isa-size-touch-target);
+  color: var(--isa-color-text-link);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.isa-footer__links a:hover { color: var(--isa-color-text-link-hover); }
+.isa-footer a:focus-visible {
+  outline: var(--isa-size-focus-ring-width) solid var(--isa-focus-color, var(--isa-color-border-focus));
+  outline-offset: var(--isa-size-focus-ring-offset);
+  border-radius: var(--isa-radius-sm);
+}
+.isa-footer__note { margin: 0; color: var(--isa-color-text-muted); font-size: var(--isa-font-size-sm); }
+@media (min-width: 48rem) { .isa-footer { padding-inline: var(--isa-space-6); } }
+@media (prefers-reduced-motion: reduce) { .isa-nav__link { transition: none; } }

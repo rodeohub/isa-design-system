@@ -193,3 +193,86 @@ export interface TooltipProps extends Omit<React.HTMLAttributes<HTMLSpanElement>
   align?: 'center' | 'start' | 'end';
 }
 export declare function Tooltip(props: TooltipProps): React.ReactElement;
+
+export interface DrawerProps extends Omit<React.DialogHTMLAttributes<HTMLDialogElement>, 'title' | 'onClose'> {
+  open: boolean;
+  /** Called on Escape, the close button and a click on the dimmed area. */
+  onClose: () => void;
+  /** Heading of the drawer. Required. */
+  title: React.ReactNode;
+  /** end = right (default), start = left. */
+  side?: 'start' | 'end';
+  closeLabel?: string;
+}
+export declare function Drawer(props: DrawerProps): React.ReactElement;
+
+export interface AvatarProps extends React.HTMLAttributes<HTMLSpanElement> {
+  /** Person or organization. Used for the initials and as the text alternative. */
+  name?: string;
+  /** Photo. Without it the initials are shown. */
+  src?: string;
+  /** Text alternative, if it should differ from name. */
+  alt?: string;
+  /** 32, 48 (default), 80 and 120px. */
+  size?: 'small' | 'medium' | 'large' | 'xlarge';
+  /** For clubs and organizations. */
+  square?: boolean;
+  /** Set when the name is shown right next to the avatar, so it is not read twice. */
+  decorative?: boolean;
+  imgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
+}
+export declare const Avatar: React.ForwardRefExoticComponent<AvatarProps & React.RefAttributes<HTMLSpanElement>>;
+
+export interface NavItem { href: string; label: React.ReactNode; current?: boolean; }
+export interface NavProps extends React.HTMLAttributes<HTMLElement> {
+  items: NavItem[];
+  linkAs?: React.ElementType;
+  vertical?: boolean;
+  onItemClick?: () => void;
+  /** Required: names the navigation, e.g. "Main". */
+  'aria-label'?: string;
+}
+export declare function Nav(props: NavProps): React.ReactElement;
+export interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
+  /** Logo or product name. */
+  brand: React.ReactNode;
+  brandHref?: string;
+  /** Accessible name of the brand link when the brand is an image, e.g. "Sport Hub home". */
+  brandLabel?: string;
+  /** Main navigation. Mark the current page with current: true. */
+  items?: NavItem[];
+  linkAs?: React.ElementType;
+  /** Extra controls on the right (user menu, sign in). */
+  actions?: React.ReactNode;
+  navLabel?: string;
+  menuLabel?: string;
+  closeLabel?: string;
+}
+export declare function Header(props: HeaderProps): React.ReactElement;
+export interface FooterProps extends React.HTMLAttributes<HTMLElement> {
+  links?: { href: string; label: React.ReactNode }[];
+  linkAs?: React.ElementType;
+  navLabel?: string;
+  /** Small print at the bottom. */
+  note?: React.ReactNode;
+}
+export declare function Footer(props: FooterProps): React.ReactElement;
+export declare function SkipLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>): React.ReactElement;
+
+export interface PaginationLabels { nav: string; previous: string; next: string; previousPage: string; nextPage: string; page: (n: number) => string; }
+export interface PaginationProps extends Omit<React.HTMLAttributes<HTMLElement>, 'onChange'> {
+  /** Current page, starting at 1. */
+  page: number;
+  pageCount: number;
+  /** Buttons: called with the new page. */
+  onPageChange?: (page: number) => void;
+  /** Links: return the URL of a page. Use when each page has its own URL. */
+  getHref?: (page: number) => string;
+  linkAs?: React.ElementType;
+  /** Pages shown on each side of the current one. Default: 1. */
+  siblings?: number;
+  /** Texts, for translations. */
+  labels?: Partial<PaginationLabels>;
+}
+export declare function Pagination(props: PaginationProps): React.ReactElement | null;
+export declare function pageList(page: number, pageCount: number, siblings?: number): (number | null)[];

@@ -1,0 +1,45 @@
+/* Pagination. Docs: docs/components/pagination.md. Extracted from the Slackline Sport Hub table and adapted. */
+.isa-pagination { font-family: var(--isa-font-family-body); }
+.isa-pagination__list { display: flex; flex-wrap: wrap; align-items: center; gap: var(--isa-space-1); margin: 0; padding: 0; list-style: none; }
+.isa-pagination__item {
+  appearance: none;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--isa-space-1);
+  min-width: var(--isa-size-touch-target);
+  min-height: var(--isa-size-touch-target);
+  margin: 0;
+  padding: 0 var(--isa-space-3);
+  border: 1px solid transparent;
+  border-radius: var(--isa-radius-md);
+  background: none;
+  color: var(--isa-color-text-default);
+  font-family: inherit;
+  font-size: var(--isa-font-size-md);
+  font-weight: var(--isa-font-weight-medium);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--isa-duration-fast);
+}
+.isa-pagination__item:hover { background-color: var(--isa-color-action-ghost-bg-hover); }
+.isa-pagination__item[aria-current="page"] {
+  border-color: var(--isa-color-selected-border);
+  background-color: var(--isa-color-selected-bg);
+  color: var(--isa-color-selected-fg);
+  font-weight: var(--isa-font-weight-bold);
+}
+.isa-pagination__item:disabled,
+.isa-pagination__item[aria-disabled="true"] { background: none; color: var(--isa-color-action-disabled-fg); cursor: not-allowed; }
+.isa-pagination__item:focus-visible {
+  outline: var(--isa-size-focus-ring-width) solid var(--isa-focus-color, var(--isa-color-border-focus));
+  outline-offset: var(--isa-size-focus-ring-offset);
+}
+.isa-pagination__item svg { width: 1.25em; height: 1.25em; flex-shrink: 0; }
+.isa-pagination__gap { display: inline-flex; align-items: center; justify-content: center; min-width: var(--isa-space-6); color: var(--isa-color-text-muted); }
+/* On phones: hide the words "Previous" and "Next", keep the arrows (the buttons keep their aria-label). */
+@media (max-width: 40rem) { .isa-pagination__word { display: none; } }
+@media (prefers-reduced-motion: reduce) { .isa-pagination__item { transition: none; } }

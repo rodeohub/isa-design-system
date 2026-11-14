@@ -8,3 +8,7 @@ export { Card, CardGrid } from './Card.js';
 export { Table } from './Table.js';
 export { Spinner } from './Spinner.js';
 export { Tooltip } from './Tooltip.js';
+export { Drawer } from './Drawer.js';
+export { Avatar } from './Avatar.js';
+export { Header, Nav, Footer, SkipLink } from './Navigation.js';
+export { Pagination } from './Pagination.js';

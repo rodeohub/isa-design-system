@@ -1,6 +1,6 @@
 # Where the Sport Hub differs from the design system
 
-For the Sport Hub developers. Compared: design system v0.6.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
+For the Sport Hub developers. Compared: design system v0.7.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
 
 Nothing here has been changed in the Sport Hub. Updating it is a separate project that has not been decided (Roberto, 2026-11-14). This list is so you know what an update would involve. The Sport Hub was the starting point for the system, thank you for that work.
 
@@ -20,7 +20,11 @@ Nothing here has been changed in the Sport Hub. Updating it is a separate projec
 | Table | Medium | System table is presentation only; TanStack logic stays |
 | Spinner | Small | Colors and sizes |
 | Tooltip | Small | New props, any trigger |
-| Not yet in the system | None for now | Drawer, Avatar, Navigation and others |
+| Drawer | Small | Native `<dialog>`, `side` prop |
+| Avatar | Small | New sizes, `name` instead of `defaultLabel` |
+| Navigation and Footer | Medium | Items as props, CSS breakpoint, header color |
+| Pagination | Small to medium | Own component, counts from 1 |
+| Not yet in the system | None for now | PageLayout, autocomplete, table filters |
 
 ## 1. Colors
 **Brand values.** The official colors are ISA Red `#E84026`, ISA Green `#009F9A`, ISA Gray `#454546`. In the Sport Hub these sit at `green-600` and `red-600`; in the system they are `green.500` and `red.500`, and the scales around them are different values.
@@ -144,15 +148,40 @@ Other changes:
 - Any button or link can be the trigger (pass it as the child). Without a child it renders the info icon button, which now has an accessible name (`label`) and a 44px tap area.
 - Each tooltip gets its own id (now always `id="tooltip"`, which breaks with two on a page). Closes with Escape; the pointer can move onto the bubble.
 
-## 14. Accessibility rules that affect all screens
+## 14. Drawer
+- Built on the native `<dialog>`: adds a focus trap, a dialog role and name, an inert page behind, and focus return. The current Drawer has none of these.
+- `isOpen` becomes `open`; `position` becomes `side` (`start`, `end`). Top and bottom are gone. Default is right (was left).
+- A header with `title` (required) and a close button is built in.
+
+## 15. Avatar
+- Sizes are 32, 48, 80 and 120px (now 80, 120, 200). For 200px set `--isa-avatar-size`.
+- `image` becomes `src`; `defaultLabel` becomes `name` (initials are derived); `isSquare` becomes `square`. New `decorative`.
+- `next/image` is not built in (`imgProps` passes extra attributes to the `<img>`).
+
+## 16. Navigation and Footer
+- `Header` takes `brand`, `items` and `actions` as props; the Sport Hub's item list, logo and `UserMenu` are passed in.
+- The bar or the menu button is chosen by CSS at 768px. Now a script hook decides at 640px and renders a disabled "☰" button until it has run.
+- Header background is green 700. Now `#009F9A` with white text, 3.27:1.
+- The menu button is named "Menu" with an SVG icon; now "Open navigation menu" with `aria-controls="mobile-menu"`, an id that does not exist.
+- The current page is bold and underlined as well as darker.
+- `Footer` takes `links` as props; links are underlined; the logo needs real alt text (now `alt="logo"`).
+- New: skip link as the first element of each page.
+
+## 17. Pagination
+- A component of its own instead of markup inside the Table.
+- `page` starts at 1 (pass TanStack's `pageIndex + 1`).
+- First and last page always visible with gaps; this replaces the `<<` and `>>` buttons. Previous and Next have words and full names (now `<` and `>` with no names).
+- 44px controls. The "Show N entries" select and the "Showing x to y of z" text stay in the Sport Hub.
+
+## 18. Accessibility rules that affect all screens
 - WCAG 2.2 AA is the minimum. Body text `neutral-700` (6.48:1) and headings `neutral-600` (4.95:1) pass today; the items listed above do not.
 - Every interactive element needs a visible focus ring. The Sport Hub has 3 `outline: none` rules and no `:focus-visible` styles.
 - Touch targets at least 44px (house rule, stricter than AA's 24px).
 - Links inside text are underlined.
 - Screens must work at 320 to 360px wide.
 
-## 15. Sport Hub components not in the system yet
-Drawer, Avatar, Navigation, Footer, PageLayout. Until they are extracted, nothing changes for them.
+## 19. Sport Hub components not in the system yet
+PageLayout, Autocomplete (and FormikAutocomplete, UserAutocomplete), TableFilters, TableFilterFields, LinkFieldArray. Until they are extracted, nothing changes for them.
 
 Likely to stay Sport Hub specific: CountryFlag, EventDetailsCard, FeaturedAthleteCard, FeaturedEventCard, StackedMediaCard, ProfileMediaLinks, LabelValuePair, SortableList, UserForm, UserMenu, Icons.
 

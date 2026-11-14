@@ -1,0 +1,39 @@
+/* Drawer. Docs: docs/components/drawer.md. Extracted from the Slackline Sport Hub and adapted.
+   A native <dialog> that slides in from the side: same focus trap, Escape and focus return as Dialog. */
+.isa-drawer {
+  box-sizing: border-box;
+  width: min(var(--isa-size-drawer-max), calc(100vw - var(--isa-space-12)));
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0 0 0 auto; /* end side (right) by default */
+  padding: 0;
+  border: 0;
+  background-color: var(--isa-color-surface-default);
+  color: var(--isa-color-text-default);
+  box-shadow: var(--isa-shadow-lg);
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-md);
+  line-height: var(--isa-font-line-height-normal);
+  overflow: hidden;
+}
+.isa-drawer--start { margin: 0 auto 0 0; }
+.isa-drawer[open] { display: flex; flex-direction: column; }
+.isa-drawer::backdrop { background-color: var(--isa-color-overlay-backdrop); }
+html:has(.isa-drawer[open]) { overflow: hidden; }
+.isa-drawer__header {
+  display: flex;
+  align-items: center;
+  gap: var(--isa-space-3);
+  padding: var(--isa-space-3) var(--isa-space-3) var(--isa-space-3) var(--isa-space-5);
+  border-bottom: 1px solid var(--isa-color-border-default);
+}
+.isa-drawer__title {
+  flex: 1;
+  margin: 0;
+  font-family: var(--isa-font-family-heading);
+  font-size: var(--isa-font-size-xl);
+  font-weight: var(--isa-font-weight-semibold);
+  line-height: var(--isa-font-line-height-snug);
+}
+.isa-drawer__body { flex: 1; min-height: 0; padding: var(--isa-space-4) var(--isa-space-5); overflow-y: auto; }

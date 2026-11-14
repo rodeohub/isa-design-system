@@ -38,12 +38,14 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Figma library created in Roberto's team (he is admin there; guest in Thomas Buckingham's). Variables, styles and the six component families mirror v0.5.0. See `docs/figma.md`. | Claude |
 | 2026-11-14 | Tabs and Dialog approved. The Figma library is updated at the end of the project; the repo has priority. | Roberto |
 | 2026-11-14 | Card, Table, Spinner and Tooltip extracted (v0.6.0). Table is presentation only: SportHub's built-in sorting, paging and filters (TanStack) stay in SportHub. Cards do not move on hover. Tooltips open above or below only. | Claude |
+| 2026-11-14 | Card, Table, Spinner and Tooltip approved. Solid badges: parked. | Roberto |
+| 2026-11-14 | Drawer, Avatar, Header/Nav/Footer and Pagination extracted (v0.7.0). The header is green 700 (white text on the old brand green fails AA). Navigation items and logo are passed in by each project. The phone menu appears below 768px. Avatar sizes are 32, 48, 80 and 120px. | Claude |
 
 ## Open questions
 1. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
-2. **Review Card, Table, Spinner and Tooltip** in `dist/preview.html`.
-3. **Solid badges:** SportHub has two solid badges (athlete: white on red, judge: white on green). Add a solid badge style to the system, or keep soft and outline only? (Roberto asked to decide this in the next round.)
-4. **Next components:** Drawer, Avatar, Navigation and Footer, pagination suggested.
+2. **Review Drawer, Avatar, Header/Nav/Footer and Pagination** in `dist/preview.html`.
+3. **Solid badges (parked by Roberto, 2026-11-14):** SportHub has two solid badges (athlete: white on red, judge: white on green). Add a solid badge style, or keep soft and outline only? Do not raise again until Roberto does or the SportHub migration starts.
+4. **Next:** the component extraction is nearly complete (left: page layout, autocomplete, table filters). Other candidates: toast, empty state, breadcrumbs; or the remaining review items under Next steps.
 5. **Figma:** refresh the library at the end of the project (it is at v0.5.0).
 
 ## Next steps (from the review, not yet done)

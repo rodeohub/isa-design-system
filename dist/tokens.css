@@ -78,6 +78,11 @@
   --isa-size-spinner-lg: 2.5rem;
   --isa-size-tooltip-max: 16rem;
   --isa-size-card-min: 17.5rem;
+  --isa-size-drawer-max: 20rem;
+  --isa-size-avatar-sm: 2rem;
+  --isa-size-avatar-md: 3rem;
+  --isa-size-avatar-lg: 5rem;
+  --isa-size-avatar-xl: 7.5rem;
   --isa-size-dialog-max: 37rem;
   --isa-breakpoint-xs: 20rem;
   --isa-breakpoint-sm: 40rem;
@@ -167,6 +172,7 @@
   --isa-color-surface-muted: var(--isa-color-gray-100);
   --isa-color-surface-inverse: var(--isa-color-gray-800);
   --isa-color-surface-brand: var(--isa-color-green-700);
+  --isa-color-surface-brand-strong: var(--isa-color-green-800);
   --isa-color-surface-danger: var(--isa-color-red-50);
   --isa-color-surface-success: var(--isa-color-green-50);
   --isa-color-border-default: var(--isa-color-gray-200);

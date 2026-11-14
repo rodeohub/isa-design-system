@@ -2,7 +2,7 @@
 // Load it once as a module script (type="module") from dist/isa.js, or import { init } from "isa-design-system/isa.js".
 // Tabs:   <div class="isa-tabs" role="tablist"> with <button role="tab" aria-controls="panel-id">
 // Tooltip: closes with Escape (showing is done by CSS)
-// Dialog: <button data-isa-dialog-open="dialog-id">, and inside the dialog <button data-isa-dialog-close>
+// Dialog and Drawer: <button data-isa-dialog-open="dialog-id">, and inside the dialog <button data-isa-dialog-close>
 
 function selectTab(list, tab, focus) {
   for (const t of list.querySelectorAll('[role="tab"]')) {
@@ -44,7 +44,7 @@ export function initDialogs(root = document) {
     const opener = e.target.closest('[data-isa-dialog-open]');
     if (opener) return document.getElementById(opener.dataset.isaDialogOpen)?.showModal();
     if (e.target.closest('[data-isa-dialog-close]')) return e.target.closest('dialog')?.close();
-    if (e.target.matches('dialog.isa-dialog')) e.target.close(); // click on the dimmed area
+    if (e.target.matches('dialog.isa-dialog, dialog.isa-drawer')) e.target.close(); // click on the dimmed area
   });
 }
 

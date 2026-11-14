@@ -23,6 +23,11 @@
     "spinner-lg": { "$value": "2.5rem" },
     "tooltip-max": { "$value": "16rem" },
     "card-min": { "$value": "17.5rem", "$description": "Narrowest card in a card grid (280px)." },
+    "drawer-max": { "$value": "20rem", "$description": "Drawer width (320px), never wider than the screen minus 48px." },
+    "avatar-sm": { "$value": "2rem" },
+    "avatar-md": { "$value": "3rem" },
+    "avatar-lg": { "$value": "5rem" },
+    "avatar-xl": { "$value": "7.5rem" },
     "dialog-max": { "$value": "37rem", "$description": "Maximum dialog width (592px)." }
   },
   "breakpoint": {

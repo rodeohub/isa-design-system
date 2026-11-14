@@ -15,6 +15,7 @@
   --color-surface-muted: var(--isa-color-surface-muted);
   --color-surface-inverse: var(--isa-color-surface-inverse);
   --color-surface-brand: var(--isa-color-surface-brand);
+  --color-surface-brand-strong: var(--isa-color-surface-brand-strong);
   --color-surface-danger: var(--isa-color-surface-danger);
   --color-surface-success: var(--isa-color-surface-success);
   --color-border-default: var(--isa-color-border-default);

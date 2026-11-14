@@ -125,6 +125,10 @@
     ["color.tooltip.fg", "color.tooltip.bg", 4.5],
     ["color.spinner.fg", "color.surface.default", 3],
     ["color.spinner.fg", "color.surface.subtle", 3],
-    ["color.text.link", "color.table.row-hover-bg", 4.5]
+    ["color.text.link", "color.table.row-hover-bg", 4.5],
+    ["color.text.inverse", "color.surface.brand-strong", 4.5],
+    ["color.border.focus-inverse", "color.surface.brand-strong", 3],
+    ["color.text.default", "color.selected.bg", 4.5],
+    ["color.text.link", "color.surface.muted", 4.5]
   ]
 }

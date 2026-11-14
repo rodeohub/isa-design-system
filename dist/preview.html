@@ -14,7 +14,7 @@ h3{font-size:var(--isa-font-size-xl);font-weight:var(--isa-font-weight-semibold)
 td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-space-2);vertical-align:middle}
 .sw{display:inline-block;width:2.5rem;height:1.5rem;border-radius:var(--isa-radius-sm);border:1px solid var(--isa-color-border-default)}
 </style></head>
-<body><main><h1>ISA Design System</h1><p>Version 0.6.0. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
+<body><main><h1>ISA Design System</h1><p>Version 0.7.0. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
 <section><h2>Alert</h2>
 <!-- Alert examples. Every snippet is valid usage; copy from here. -->
 <div class="stack">
@@ -22,6 +22,21 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
   <div class="isa-alert isa-alert--success" role="status"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg><div class="isa-alert__body"><strong class="isa-alert__title">Results submitted</strong>The judges will review them within two days.</div></div>
   <div class="isa-alert isa-alert--warning" role="status"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg><div class="isa-alert__body">Your instructor certification expires in 30 days. <a href="#">Renew it</a>.</div></div>
   <div class="isa-alert isa-alert--danger" role="alert"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16h.01"/></svg><div class="isa-alert__body"><strong class="isa-alert__title">The form could not be saved</strong>Check the two fields marked below and try again.</div></div>
+</div>
+</section>
+<section><h2>Avatar</h2>
+<!-- Avatar examples. Every snippet is valid usage; copy from here. With a photo: <span class="isa-avatar"><img src="..." alt="Name"></span> -->
+<h3>Sizes (initials shown when there is no photo)</h3>
+<div class="row">
+  <span class="isa-avatar isa-avatar--small" role="img" aria-label="Lena Example">LE</span>
+  <span class="isa-avatar" role="img" aria-label="Lena Example">LE</span>
+  <span class="isa-avatar isa-avatar--large" role="img" aria-label="Lena Example">LE</span>
+  <span class="isa-avatar isa-avatar--xlarge" role="img" aria-label="Lena Example">LE</span>
+</div>
+<h3>Square (clubs, organizations) and next to a name</h3>
+<div class="row">
+  <span class="isa-avatar isa-avatar--large isa-avatar--square" role="img" aria-label="Swiss Slackline">SS</span>
+  <span class="row" style="margin: 0"><span class="isa-avatar isa-avatar--small" aria-hidden="true">LE</span> Lena Example</span>
 </div>
 </section>
 <section><h2>Badge</h2>
@@ -195,6 +210,33 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
   </div>
 </dialog>
 </section>
+<section><h2>Drawer</h2>
+<!-- Drawer examples. Every snippet is valid usage; copy from here. Needs isa.js (or the React Drawer) to open and close. -->
+<div class="row">
+  <button type="button" class="isa-button isa-button--secondary" data-isa-dialog-open="ex-drawer-end">Open drawer (right)</button>
+  <button type="button" class="isa-button isa-button--neutral" data-isa-dialog-open="ex-drawer-start">Open drawer (left)</button>
+</div>
+<dialog class="isa-drawer" id="ex-drawer-end" aria-labelledby="ex-drawer-end-title">
+  <div class="isa-drawer__header">
+    <h2 class="isa-drawer__title" id="ex-drawer-end-title">Filters</h2>
+    <button type="button" class="isa-button isa-button--ghost isa-button--icon" aria-label="Close" data-isa-dialog-close><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="isa-drawer__body">
+    <fieldset class="isa-fieldset">
+      <legend class="isa-label">Disciplines</legend>
+      <label class="isa-check"><input type="checkbox" checked> <span>Freestyle Highline</span></label>
+      <label class="isa-check"><input type="checkbox"> <span>Speed Highline</span></label>
+    </fieldset>
+  </div>
+</dialog>
+<dialog class="isa-drawer isa-drawer--start" id="ex-drawer-start" aria-labelledby="ex-drawer-start-title">
+  <div class="isa-drawer__header">
+    <h2 class="isa-drawer__title" id="ex-drawer-start-title">Menu</h2>
+    <button type="button" class="isa-button isa-button--ghost isa-button--icon" aria-label="Close" data-isa-dialog-close><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="isa-drawer__body"><p>Drawer content.</p></div>
+</dialog>
+</section>
 <section><h2>Form fields</h2>
 <!-- Form field examples. Every snippet is valid usage; copy from here. -->
 <div class="form">
@@ -248,6 +290,91 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
     <button type="button" class="isa-button isa-button--neutral">Cancel</button>
   </div>
 </div>
+</section>
+<section><h2>Header, navigation and footer</h2>
+<!-- Header, navigation, drawer menu and footer examples. Every snippet is valid usage; copy from here.
+     The skip link goes first in <body> and points at the id of <main>. -->
+<h3>Header (links in the bar from 768px, menu button below)</h3>
+<header class="isa-header" data-isa-surface="brand">
+  <a class="isa-header__brand" href="#" aria-label="Sport Hub home">Sport Hub</a>
+  <nav class="isa-header__nav" aria-label="Main">
+    <ul class="isa-nav">
+      <li><a class="isa-nav__link" href="#">Home</a></li>
+      <li><a class="isa-nav__link" href="#" aria-current="page">Rankings</a></li>
+      <li><a class="isa-nav__link" href="#">Competitions</a></li>
+      <li><a class="isa-nav__link" href="#">Judging</a></li>
+      <li><a class="isa-nav__link" href="#">Records &amp; Firsts</a></li>
+    </ul>
+  </nav>
+  <div class="isa-header__actions">
+    <button type="button" class="isa-header__menu-button" aria-label="Menu" data-isa-dialog-open="ex-menu"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<dialog class="isa-drawer" id="ex-menu" aria-labelledby="ex-menu-title">
+  <div class="isa-drawer__header">
+    <h2 class="isa-drawer__title" id="ex-menu-title">Menu</h2>
+    <button type="button" class="isa-button isa-button--ghost isa-button--icon" aria-label="Close" data-isa-dialog-close><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="isa-drawer__body">
+    <nav aria-label="Main">
+      <ul class="isa-nav isa-nav--vertical">
+      <li><a class="isa-nav__link" href="#">Home</a></li>
+      <li><a class="isa-nav__link" href="#" aria-current="page">Rankings</a></li>
+      <li><a class="isa-nav__link" href="#">Competitions</a></li>
+      <li><a class="isa-nav__link" href="#">Judging</a></li>
+      <li><a class="isa-nav__link" href="#">Records &amp; Firsts</a></li>
+      </ul>
+    </nav>
+  </div>
+</dialog>
+<h3>Navigation list on a light surface</h3>
+<nav aria-label="Section">
+  <ul class="isa-nav">
+      <li><a class="isa-nav__link" href="#" aria-current="page">Overview</a></li>
+      <li><a class="isa-nav__link" href="#">Results</a></li>
+      <li><a class="isa-nav__link" href="#">Registration</a></li>
+  </ul>
+</nav>
+<h3>Footer</h3>
+<footer class="isa-footer">
+  <nav aria-label="Footer">
+    <ul class="isa-footer__links">
+      <li><a href="#">Frequently asked questions</a></li>
+      <li><a href="#">ISA members and partners</a></li>
+      <li><a href="#">Event registration</a></li>
+      <li><a href="#">Open source</a></li>
+      <li><a href="#">About ISA sports</a></li>
+      <li><a href="#">Contact us</a></li>
+    </ul>
+  </nav>
+  <p class="isa-footer__note">International Slackline Association</p>
+</footer>
+</section>
+<section><h2>Pagination</h2>
+<!-- Pagination examples. Every snippet is valid usage; copy from here. Use <a href> instead of <button> when each page has its own URL. -->
+<nav class="isa-pagination" aria-label="Pagination">
+  <ul class="isa-pagination__list">
+    <li><button type="button" class="isa-pagination__item" aria-label="Previous page"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg><span class="isa-pagination__word">Previous</span></button></li>
+    <li><button type="button" class="isa-pagination__item" aria-label="Page 1">1</button></li>
+    <li><span class="isa-pagination__gap" aria-hidden="true">…</span></li>
+    <li><button type="button" class="isa-pagination__item" aria-label="Page 4">4</button></li>
+    <li><button type="button" class="isa-pagination__item" aria-label="Page 5" aria-current="page">5</button></li>
+    <li><button type="button" class="isa-pagination__item" aria-label="Page 6">6</button></li>
+    <li><span class="isa-pagination__gap" aria-hidden="true">…</span></li>
+    <li><button type="button" class="isa-pagination__item" aria-label="Page 12">12</button></li>
+    <li><button type="button" class="isa-pagination__item" aria-label="Next page"><span class="isa-pagination__word">Next</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button></li>
+  </ul>
+</nav>
+<h3>First page (Previous is disabled)</h3>
+<nav class="isa-pagination" aria-label="Pagination, second example">
+  <ul class="isa-pagination__list">
+    <li><button type="button" class="isa-pagination__item" aria-label="Previous page" disabled><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg><span class="isa-pagination__word">Previous</span></button></li>
+    <li><button type="button" class="isa-pagination__item" aria-label="Page 1" aria-current="page">1</button></li>
+    <li><button type="button" class="isa-pagination__item" aria-label="Page 2">2</button></li>
+    <li><button type="button" class="isa-pagination__item" aria-label="Page 3">3</button></li>
+    <li><button type="button" class="isa-pagination__item" aria-label="Next page"><span class="isa-pagination__word">Next</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button></li>
+  </ul>
+</nav>
 </section>
 <section><h2>Spinner</h2>
 <!-- Spinner examples. Every snippet is valid usage; copy from here. -->
@@ -360,6 +487,7 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
 <tr><td><code>color.surface.muted</code></td><td><span class="sw" style="background:#ECECED"></span></td><td><code>#ECECED</code></td><td></td></tr>
 <tr><td><code>color.surface.inverse</code></td><td><span class="sw" style="background:#1F1F20"></span></td><td><code>#1F1F20</code></td><td></td></tr>
 <tr><td><code>color.surface.brand</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td>Header bars and brand areas with text.inverse on top.</td></tr>
+<tr><td><code>color.surface.brand-strong</code></td><td><span class="sw" style="background:#004845"></span></td><td><code>#004845</code></td><td>Hover and current-page background inside brand areas.</td></tr>
 <tr><td><code>color.surface.danger</code></td><td><span class="sw" style="background:#FEF5F4"></span></td><td><code>#FEF5F4</code></td><td></td></tr>
 <tr><td><code>color.surface.success</code></td><td><span class="sw" style="background:#F2FAFA"></span></td><td><code>#F2FAFA</code></td><td></td></tr>
 <tr><td><code>color.border.default</code></td><td><span class="sw" style="background:#D1D1D1"></span></td><td><code>#D1D1D1</code></td><td>Dividers and card outlines (decorative).</td></tr>
@@ -455,7 +583,7 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
 // Load it once as a module script (type="module") from dist/isa.js, or import { init } from "isa-design-system/isa.js".
 // Tabs:   <div class="isa-tabs" role="tablist"> with <button role="tab" aria-controls="panel-id">
 // Tooltip: closes with Escape (showing is done by CSS)
-// Dialog: <button data-isa-dialog-open="dialog-id">, and inside the dialog <button data-isa-dialog-close>
+// Dialog and Drawer: <button data-isa-dialog-open="dialog-id">, and inside the dialog <button data-isa-dialog-close>
 
 function selectTab(list, tab, focus) {
   for (const t of list.querySelectorAll('[role="tab"]')) {
@@ -497,7 +625,7 @@ function initDialogs(root = document) {
     const opener = e.target.closest('[data-isa-dialog-open]');
     if (opener) return document.getElementById(opener.dataset.isaDialogOpen)?.showModal();
     if (e.target.closest('[data-isa-dialog-close]')) return e.target.closest('dialog')?.close();
-    if (e.target.matches('dialog.isa-dialog')) e.target.close(); // click on the dimmed area
+    if (e.target.matches('dialog.isa-dialog, dialog.isa-drawer')) e.target.close(); // click on the dimmed area
   });
 }
 

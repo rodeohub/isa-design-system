@@ -1,0 +1,57 @@
+<!-- Header, navigation, drawer menu and footer examples. Every snippet is valid usage; copy from here.
+     The skip link goes first in <body> and points at the id of <main>. -->
+<h3>Header (links in the bar from 768px, menu button below)</h3>
+<header class="isa-header" data-isa-surface="brand">
+  <a class="isa-header__brand" href="#" aria-label="Sport Hub home">Sport Hub</a>
+  <nav class="isa-header__nav" aria-label="Main">
+    <ul class="isa-nav">
+      <li><a class="isa-nav__link" href="#">Home</a></li>
+      <li><a class="isa-nav__link" href="#" aria-current="page">Rankings</a></li>
+      <li><a class="isa-nav__link" href="#">Competitions</a></li>
+      <li><a class="isa-nav__link" href="#">Judging</a></li>
+      <li><a class="isa-nav__link" href="#">Records &amp; Firsts</a></li>
+    </ul>
+  </nav>
+  <div class="isa-header__actions">
+    <button type="button" class="isa-header__menu-button" aria-label="Menu" data-isa-dialog-open="ex-menu"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<dialog class="isa-drawer" id="ex-menu" aria-labelledby="ex-menu-title">
+  <div class="isa-drawer__header">
+    <h2 class="isa-drawer__title" id="ex-menu-title">Menu</h2>
+    <button type="button" class="isa-button isa-button--ghost isa-button--icon" aria-label="Close" data-isa-dialog-close><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="isa-drawer__body">
+    <nav aria-label="Main">
+      <ul class="isa-nav isa-nav--vertical">
+      <li><a class="isa-nav__link" href="#">Home</a></li>
+      <li><a class="isa-nav__link" href="#" aria-current="page">Rankings</a></li>
+      <li><a class="isa-nav__link" href="#">Competitions</a></li>
+      <li><a class="isa-nav__link" href="#">Judging</a></li>
+      <li><a class="isa-nav__link" href="#">Records &amp; Firsts</a></li>
+      </ul>
+    </nav>
+  </div>
+</dialog>
+<h3>Navigation list on a light surface</h3>
+<nav aria-label="Section">
+  <ul class="isa-nav">
+      <li><a class="isa-nav__link" href="#" aria-current="page">Overview</a></li>
+      <li><a class="isa-nav__link" href="#">Results</a></li>
+      <li><a class="isa-nav__link" href="#">Registration</a></li>
+  </ul>
+</nav>
+<h3>Footer</h3>
+<footer class="isa-footer">
+  <nav aria-label="Footer">
+    <ul class="isa-footer__links">
+      <li><a href="#">Frequently asked questions</a></li>
+      <li><a href="#">ISA members and partners</a></li>
+      <li><a href="#">Event registration</a></li>
+      <li><a href="#">Open source</a></li>
+      <li><a href="#">About ISA sports</a></li>
+      <li><a href="#">Contact us</a></li>
+    </ul>
+  </nav>
+  <p class="isa-footer__note">International Slackline Association</p>
+</footer>

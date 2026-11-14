@@ -1,6 +1,11 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.6.0`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.7.0`, and upgrade on purpose.
+
+## 0.7.0 (2026-11-14)
+- New components, extracted from the Slackline Sport Hub and adapted: **Drawer**, **Avatar**, **Header, Nav, Footer and SkipLink**, and **Pagination**.
+- The header switches between a link bar and a menu drawer at 768px in CSS.
+- New role `surface.brand-strong`; new sizes for drawer and avatar.
 
 ## 0.6.0 (2026-11-14)
 - New components, extracted from the Slackline Sport Hub and adapted: **Card** (with card grid), **Table** (presentation only; sorting and paging stay in the project), **Spinner** and **Tooltip**.
