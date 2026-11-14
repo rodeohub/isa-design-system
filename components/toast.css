@@ -21,7 +21,7 @@
   width: 100%;
   max-width: var(--isa-size-toast-max);
   padding: var(--isa-space-3) var(--isa-space-2) var(--isa-space-3) var(--isa-space-4);
-  border: 1px solid var(--_fg);
+  border: var(--isa-border-width-thin) solid var(--_fg);
   border-radius: var(--isa-radius-md);
   background-color: var(--_bg);
   color: var(--_fg);

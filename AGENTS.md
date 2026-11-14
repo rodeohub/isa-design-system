@@ -3,7 +3,7 @@
 You are working with the design system of the International Slackline Association (ISA). Read this file first. It is short on purpose: open the linked doc for the area you are about to change, not all of them.
 
 ## Rules (always)
-1. **Use semantic tokens only.** Colors come from `--isa-color-<role>` (or the Tailwind classes built from them, e.g. `bg-action-primary-bg`, `text-text-muted`). Never write hex, rgb or hsl values, and never use primitive tokens (`--isa-color-green-700`) in a project. If no role fits, stop and propose a new role in this repo instead of inventing a value.
+1. **Use semantic tokens only.** Colors come from `--isa-color-<role>` (or the Tailwind classes built from them, e.g. `bg-action-primary-bg`, `text-muted`, `bg-subtle`, `border-strong`; text styles as `type-h1`, `type-body`). Never write hex, rgb or hsl values, and never use primitive tokens (`--isa-color-green-700`) in a project. If no role fits, stop and propose a new role in this repo instead of inventing a value.
 2. **WCAG 2.2 AA minimum.** Normal text 4.5:1, large text (24px+ or 18.66px+ bold) and UI parts 3:1, visible focus ring on everything interactive (`border.focus`, or `border.focus-inverse` on dark and brand surfaces), links in text underlined. House rule, stricter than AA: touch targets at least 44px. The roles are pre-checked; mixing roles that are not listed in `tokens/contrast-pairs.json` is not.
 3. **Fonts:** Barlow Condensed for headings 20px and up, Barlow for everything else. Body text at least 16px on phones.
 4. **Mobile first.** Every screen must work at 360px wide. Many ISA users are on phones.
@@ -33,7 +33,7 @@ You are working with the design system of the International Slackline Associatio
 ## Using it in a project
 - Tailwind v4: `@import "isa-design-system/fonts.css"; @import "isa-design-system/tailwind.css"; @import "isa-design-system/components.css" layer(components);`
 - Plain HTML: load `dist/fonts.css`, `dist/tokens.css`, `dist/components.css` and, for tabs, dialogs, drawers, tooltips, toasts, autocomplete and filters, `dist/isa.js` as a module script; then use `var(--isa-color-text-default)` etc.
-- Install a tagged version: `npm install github:rodeohub/isa-design-system#v0.9.0` (repo will move to the ISA GitHub organization). Check `CHANGELOG.md` before upgrading.
+- Install a tagged version: `npm install github:rodeohub/isa-design-system#v0.10.0` (repo will move to the ISA GitHub organization). Check `CHANGELOG.md` before upgrading.
 
 ## Changing the system (in this repo)
 1. Edit `tokens/` (DTCG JSON) or `components/`, and the matching doc in `docs/`.

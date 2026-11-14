@@ -142,4 +142,95 @@
   --text-4xl: var(--isa-font-size-4xl);
   --text-5xl: var(--isa-font-size-5xl);
   --text-6xl: var(--isa-font-size-6xl);
+  --text-color-default: var(--isa-color-text-default);
+  --text-color-muted: var(--isa-color-text-muted);
+  --text-color-inverse: var(--isa-color-text-inverse);
+  --text-color-link: var(--isa-color-text-link);
+  --text-color-link-hover: var(--isa-color-text-link-hover);
+  --text-color-danger: var(--isa-color-text-danger);
+  --text-color-success: var(--isa-color-text-success);
+  --background-color-default: var(--isa-color-surface-default);
+  --background-color-subtle: var(--isa-color-surface-subtle);
+  --background-color-muted: var(--isa-color-surface-muted);
+  --background-color-inverse: var(--isa-color-surface-inverse);
+  --background-color-brand: var(--isa-color-surface-brand);
+  --background-color-brand-strong: var(--isa-color-surface-brand-strong);
+  --background-color-danger: var(--isa-color-surface-danger);
+  --background-color-success: var(--isa-color-surface-success);
+  --border-color-default: var(--isa-color-border-default);
+  --border-color-strong: var(--isa-color-border-strong);
+  --border-color-focus: var(--isa-color-border-focus);
+  --border-color-focus-inverse: var(--isa-color-border-focus-inverse);
+  --border-color-danger: var(--isa-color-border-danger);
+  --ease-standard: var(--isa-easing-standard);
+}
+
+@utility type-display {
+  font-family: var(--isa-text-style-display-family);
+  font-weight: var(--isa-text-style-display-weight);
+  font-size: var(--isa-text-style-display-size);
+  line-height: var(--isa-text-style-display-line-height);
+}
+
+@utility type-h1 {
+  font-family: var(--isa-text-style-h1-family);
+  font-weight: var(--isa-text-style-h1-weight);
+  font-size: var(--isa-text-style-h1-size);
+  line-height: var(--isa-text-style-h1-line-height);
+}
+
+@utility type-h2 {
+  font-family: var(--isa-text-style-h2-family);
+  font-weight: var(--isa-text-style-h2-weight);
+  font-size: var(--isa-text-style-h2-size);
+  line-height: var(--isa-text-style-h2-line-height);
+}
+
+@utility type-h3 {
+  font-family: var(--isa-text-style-h3-family);
+  font-weight: var(--isa-text-style-h3-weight);
+  font-size: var(--isa-text-style-h3-size);
+  line-height: var(--isa-text-style-h3-line-height);
+}
+
+@utility type-h4 {
+  font-family: var(--isa-text-style-h4-family);
+  font-weight: var(--isa-text-style-h4-weight);
+  font-size: var(--isa-text-style-h4-size);
+  line-height: var(--isa-text-style-h4-line-height);
+}
+
+@utility type-body {
+  font-family: var(--isa-text-style-body-family);
+  font-weight: var(--isa-text-style-body-weight);
+  font-size: var(--isa-text-style-body-size);
+  line-height: var(--isa-text-style-body-line-height);
+}
+
+@utility type-body-sm {
+  font-family: var(--isa-text-style-body-sm-family);
+  font-weight: var(--isa-text-style-body-sm-weight);
+  font-size: var(--isa-text-style-body-sm-size);
+  line-height: var(--isa-text-style-body-sm-line-height);
+}
+
+@utility type-label {
+  font-family: var(--isa-text-style-label-family);
+  font-weight: var(--isa-text-style-label-weight);
+  font-size: var(--isa-text-style-label-size);
+  line-height: var(--isa-text-style-label-line-height);
+}
+
+@utility type-button {
+  font-family: var(--isa-text-style-button-family);
+  font-weight: var(--isa-text-style-button-weight);
+  font-size: var(--isa-text-style-button-size);
+  line-height: var(--isa-text-style-button-line-height);
+}
+
+@utility type-badge {
+  font-family: var(--isa-text-style-badge-family);
+  font-weight: var(--isa-text-style-badge-weight);
+  font-size: var(--isa-text-style-badge-size);
+  line-height: var(--isa-text-style-badge-line-height);
 }

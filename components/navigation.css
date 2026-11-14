@@ -104,7 +104,7 @@
   flex-direction: column;
   gap: var(--isa-space-6);
   padding: var(--isa-space-8) var(--isa-space-4);
-  border-top: 1px solid var(--isa-color-border-default);
+  border-top: var(--isa-border-width-thin) solid var(--isa-color-border-default);
   background-color: var(--isa-color-surface-subtle);
   color: var(--isa-color-text-default);
   font-family: var(--isa-font-family-body);

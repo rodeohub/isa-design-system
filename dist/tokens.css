@@ -103,6 +103,16 @@
   --isa-z-dropdown: 30;
   --isa-z-tooltip: 40;
   --isa-z-toast: 50;
+  --isa-border-width-thin: 1px;
+  --isa-border-width-thick: 2px;
+  --isa-icon-sm: 1rem;
+  --isa-icon-md: 1.25rem;
+  --isa-icon-lg: 1.5rem;
+  --isa-icon-xl: 2.5rem;
+  --isa-opacity-muted: 0.45;
+  --isa-opacity-hidden: 0;
+  --isa-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --isa-easing-linear: linear;
   --isa-duration-fast: 120ms;
   --isa-duration-normal: 200ms;
   --isa-duration-slow: 320ms;

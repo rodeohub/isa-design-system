@@ -12,7 +12,7 @@
   min-height: var(--isa-size-touch-target);
   margin: 0;
   padding: 0 var(--isa-space-3);
-  border: 1px solid transparent;
+  border: var(--isa-border-width-thin) solid transparent;
   border-radius: var(--isa-radius-md);
   background: none;
   color: var(--isa-color-text-default);

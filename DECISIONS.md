@@ -42,17 +42,17 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Drawer, Avatar, Header/Nav/Footer and Pagination extracted (v0.7.0). The header is green 700 (white text on the old brand green fails AA). Navigation items and logo are passed in by each project. The phone menu appears below 768px. Avatar sizes are 32, 48, 80 and 120px. | Claude |
 | 2026-11-14 | Breadcrumbs, Empty state and Toast added (v0.8.0), new in the system. Toasts sit at the bottom (right from 640px), leave after 6 seconds, pause on hover and focus; errors stay until closed; no actions inside a toast. Roberto approved the v0.7.0 batch. | Claude |
 | 2026-11-14 | Autocomplete, Filters and Page layout extracted (v0.9.0): the Sport Hub extraction is complete. No text on top of photos (title above, caption below). Autocomplete opens on typing, not on focus. Filters are layout only; projects keep their own filter logic. The multi-select filter dropdown is left out for now. | Claude |
+| 2026-11-14 | Review items done (v0.10.0): missing tokens (border width, icon sizes, opacity, easing), short Tailwind class names next to the long ones, text-style classes (`type-*`), Tailwind compile test in CI. The token files stay in the current DTCG-like JSON with the own zero-dependency build: Style Dictionary would add a dependency without a present need; revisit if a second output platform (iOS, Android) appears. Opacity is for decoration only, never for disabled or muted text. | Claude |
 
 ## Open questions
 1. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
-2. **Review Drawer, Avatar, Header/Nav/Footer and Pagination** in `dist/preview.html`.
+2. **Review** Breadcrumbs, Empty state, Toast (v0.8.0) and Autocomplete, Filters, Page layout (v0.9.0) in `dist/preview.html`. The v0.7.0 batch is approved (Roberto, 2026-11-14).
 3. **Solid badges (parked by Roberto, 2026-11-14):** SportHub has two solid badges (athlete: white on red, judge: white on green). Add a solid badge style, or keep soft and outline only? Do not raise again until Roberto does or the SportHub migration starts.
-4. **Next:** the review items under Next steps (Roberto: go ahead). The Figma refresh comes last. Possible later: multi-select dropdown.
+4. **Next:** components and review items are done. Roberto reviews v0.8.0 to v0.10.0; then the Figma refresh, or first use in a real project.
 5. **Figma:** refresh the library at the end of the project (it is at v0.5.0).
 
-## Next steps (from the review, not yet done)
-2. Missing tokens: elevation, z-index, easing, opacity, border width, icon sizes; text-style utilities for Tailwind.
-3. Consider strict W3C token format (or a tool like Style Dictionary) and a Tailwind compile test in CI.
-4. Shorter Tailwind class names (`text-muted` instead of `text-text-muted`).
-5. A live examples page generated from the code (beyond the color preview).
-6. If SportHub migrates later (separate project): a class map from default Tailwind colors to roles.
+## Next steps
+1. Refresh the Figma library (last, at the end of the project; it is at v0.5.0).
+2. If the Sport Hub migrates later (separate project): a class map from default Tailwind colors to roles.
+3. Possible components: multi-select dropdown, number field with steppers.
+4. Dark mode: add `tokens/semantic/themes/dark.json` when wanted.

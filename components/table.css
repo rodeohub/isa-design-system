@@ -1,7 +1,7 @@
 /* Table. Docs: docs/components/table.md. Extracted from the Slackline Sport Hub and adapted. */
 .isa-table-wrap {
   max-width: 100%;
-  border: 1px solid var(--isa-color-table-border);
+  border: var(--isa-border-width-thin) solid var(--isa-color-table-border);
   border-radius: var(--isa-radius-lg);
   background-color: var(--isa-color-surface-default);
   overflow-x: auto; /* wide tables scroll sideways on phones */
@@ -29,7 +29,7 @@
 .isa-table th,
 .isa-table td {
   padding: var(--isa-space-3) var(--isa-space-4);
-  border-bottom: 1px solid var(--isa-color-table-border);
+  border-bottom: var(--isa-border-width-thin) solid var(--isa-color-table-border);
   text-align: left;
   vertical-align: middle;
 }
@@ -68,7 +68,7 @@
   outline-offset: var(--isa-size-focus-ring-offset);
   border-radius: var(--isa-radius-sm);
 }
-.isa-table__sort svg { width: 1em; height: 1em; flex-shrink: 0; opacity: 0.45; }
+.isa-table__sort svg { width: 1em; height: 1em; flex-shrink: 0; opacity: var(--isa-opacity-muted); }
 .isa-table th[aria-sort="ascending"] .isa-table__sort,
 .isa-table th[aria-sort="descending"] .isa-table__sort { color: var(--isa-color-text-default); }
 .isa-table th[aria-sort="ascending"] .isa-table__sort svg,

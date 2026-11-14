@@ -30,7 +30,7 @@
   align-items: flex-start;
   gap: var(--isa-space-3);
   padding: var(--isa-space-3) var(--isa-space-4);
-  border: 1px solid var(--_fg);
+  border: var(--isa-border-width-thin) solid var(--_fg);
   border-radius: var(--isa-radius-md);
   background-color: var(--_bg);
   color: var(--_fg);
@@ -64,7 +64,7 @@
   margin: 0;
   padding: var(--isa-space-1);
   overflow-y: auto;
-  border: 1px solid var(--isa-color-border-strong);
+  border: var(--isa-border-width-thin) solid var(--isa-color-border-strong);
   border-radius: var(--isa-radius-md);
   background-color: var(--isa-color-surface-default);
   box-shadow: var(--isa-shadow-md);
@@ -134,7 +134,7 @@
   gap: var(--isa-space-1);
   max-width: 100%;
   padding: var(--isa-space-1) var(--isa-space-2);
-  border: 1px solid transparent;
+  border: var(--isa-border-width-thin) solid transparent;
   border-radius: var(--isa-radius-sm);
   background-color: var(--_bg);
   color: var(--_fg);
@@ -213,7 +213,7 @@
   min-width: var(--isa-size-touch-target);
   margin: 0;
   padding: var(--isa-space-2) var(--isa-space-5);
-  border: 1px solid var(--_border);
+  border: var(--isa-border-width-thin) solid var(--_border);
   border-radius: var(--isa-radius-md);
   background-color: var(--_bg);
   color: var(--_fg);
@@ -327,7 +327,7 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
-  border: 1px solid var(--isa-color-border-default);
+  border: var(--isa-border-width-thin) solid var(--isa-color-border-default);
   border-radius: var(--isa-radius-lg);
   background-color: var(--isa-color-surface-default);
   color: var(--isa-color-text-default);
@@ -489,7 +489,7 @@ html:has(.isa-drawer[open]) { overflow: hidden; }
   align-items: center;
   gap: var(--isa-space-3);
   padding: var(--isa-space-3) var(--isa-space-3) var(--isa-space-3) var(--isa-space-5);
-  border-bottom: 1px solid var(--isa-color-border-default);
+  border-bottom: var(--isa-border-width-thin) solid var(--isa-color-border-default);
 }
 .isa-drawer__title {
   flex: 1;
@@ -509,7 +509,7 @@ html:has(.isa-drawer[open]) { overflow: hidden; }
   align-items: center;
   gap: var(--isa-space-3);
   padding: var(--isa-space-10) var(--isa-space-4);
-  border: 1px dashed var(--isa-color-border-strong);
+  border: var(--isa-border-width-thin) dashed var(--isa-color-border-strong);
   border-radius: var(--isa-radius-lg);
   background-color: var(--isa-color-surface-subtle);
   color: var(--isa-color-text-default);
@@ -575,7 +575,7 @@ html:has(.isa-drawer[open]) { overflow: hidden; }
   min-height: var(--isa-size-touch-target);
   margin: 0;
   padding: var(--isa-space-2) var(--isa-space-3);
-  border: 1px solid var(--isa-color-field-border);
+  border: var(--isa-border-width-thin) solid var(--isa-color-field-border);
   border-radius: var(--isa-radius-md);
   background-color: var(--isa-color-field-bg);
   color: var(--isa-color-field-fg);
@@ -787,7 +787,7 @@ textarea.isa-input { min-height: calc(var(--isa-size-touch-target) * 2); resize:
   flex-direction: column;
   gap: var(--isa-space-6);
   padding: var(--isa-space-8) var(--isa-space-4);
-  border-top: 1px solid var(--isa-color-border-default);
+  border-top: var(--isa-border-width-thin) solid var(--isa-color-border-default);
   background-color: var(--isa-color-surface-subtle);
   color: var(--isa-color-text-default);
   font-family: var(--isa-font-family-body);
@@ -856,7 +856,7 @@ textarea.isa-input { min-height: calc(var(--isa-size-touch-target) * 2); resize:
   min-height: var(--isa-size-touch-target);
   margin: 0;
   padding: 0 var(--isa-space-3);
-  border: 1px solid transparent;
+  border: var(--isa-border-width-thin) solid transparent;
   border-radius: var(--isa-radius-md);
   background: none;
   color: var(--isa-color-text-default);
@@ -921,7 +921,7 @@ textarea.isa-input { min-height: calc(var(--isa-size-touch-target) * 2); resize:
 /* Table. Docs: docs/components/table.md. Extracted from the Slackline Sport Hub and adapted. */
 .isa-table-wrap {
   max-width: 100%;
-  border: 1px solid var(--isa-color-table-border);
+  border: var(--isa-border-width-thin) solid var(--isa-color-table-border);
   border-radius: var(--isa-radius-lg);
   background-color: var(--isa-color-surface-default);
   overflow-x: auto; /* wide tables scroll sideways on phones */
@@ -949,7 +949,7 @@ textarea.isa-input { min-height: calc(var(--isa-size-touch-target) * 2); resize:
 .isa-table th,
 .isa-table td {
   padding: var(--isa-space-3) var(--isa-space-4);
-  border-bottom: 1px solid var(--isa-color-table-border);
+  border-bottom: var(--isa-border-width-thin) solid var(--isa-color-table-border);
   text-align: left;
   vertical-align: middle;
 }
@@ -988,7 +988,7 @@ textarea.isa-input { min-height: calc(var(--isa-size-touch-target) * 2); resize:
   outline-offset: var(--isa-size-focus-ring-offset);
   border-radius: var(--isa-radius-sm);
 }
-.isa-table__sort svg { width: 1em; height: 1em; flex-shrink: 0; opacity: 0.45; }
+.isa-table__sort svg { width: 1em; height: 1em; flex-shrink: 0; opacity: var(--isa-opacity-muted); }
 .isa-table th[aria-sort="ascending"] .isa-table__sort,
 .isa-table th[aria-sort="descending"] .isa-table__sort { color: var(--isa-color-text-default); }
 .isa-table th[aria-sort="ascending"] .isa-table__sort svg,
@@ -1014,7 +1014,7 @@ textarea.isa-input { min-height: calc(var(--isa-size-touch-target) * 2); resize:
   display: flex;
   gap: var(--isa-space-6);
   overflow-x: auto;
-  border-bottom: 1px solid var(--isa-color-border-default);
+  border-bottom: var(--isa-border-width-thin) solid var(--isa-color-border-default);
   font-family: var(--isa-font-family-body);
   scrollbar-width: thin;
 }
@@ -1062,7 +1062,7 @@ textarea.isa-input { min-height: calc(var(--isa-size-touch-target) * 2); resize:
 .isa-tabs--pill { gap: var(--isa-space-2); border-bottom: 0; }
 .isa-tabs--pill .isa-tab {
   padding: var(--isa-space-2) var(--isa-space-4);
-  border: 1px solid transparent;
+  border: var(--isa-border-width-thin) solid transparent;
   border-radius: var(--isa-radius-full);
   background-color: var(--isa-color-surface-muted);
   color: var(--isa-color-text-default);
@@ -1104,7 +1104,7 @@ textarea.isa-input { min-height: calc(var(--isa-size-touch-target) * 2); resize:
   width: 100%;
   max-width: var(--isa-size-toast-max);
   padding: var(--isa-space-3) var(--isa-space-2) var(--isa-space-3) var(--isa-space-4);
-  border: 1px solid var(--_fg);
+  border: var(--isa-border-width-thin) solid var(--_fg);
   border-radius: var(--isa-radius-md);
   background-color: var(--_bg);
   color: var(--_fg);

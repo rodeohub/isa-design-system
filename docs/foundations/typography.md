@@ -21,3 +21,6 @@ Rules:
 - On phones, step headings down one level (h1 at 36px, h2 at 30px).
 - Line length for reading: 45 to 75 characters.
 - Use real heading order (h1, h2, h3); style is separate from level if needed.
+
+## Tailwind classes
+Each text style is one class: `type-display`, `type-h1`, `type-h2`, `type-h3`, `type-h4`, `type-body`, `type-body-sm`, `type-label`, `type-button`, `type-badge`. Prefer them over combining `font-heading text-5xl font-bold`. Add the color separately (`text-default`, `text-muted`).

@@ -57,6 +57,31 @@
     "tooltip": { "$value": 40 },
     "toast": { "$value": 50 }
   },
+  "border-width": {
+    "$type": "dimension",
+    "thin": { "$value": "1px", "$description": "Default border and divider." },
+    "thick": { "$value": "2px", "$description": "Emphasis: selected tab, focus ring." }
+  },
+  "icon": {
+    "$type": "dimension",
+    "$description": "Sizes for icons that stand alone. Icons inside text or buttons use 1.25em so they follow the text size.",
+    "sm": { "$value": "1rem" },
+    "md": { "$value": "1.25rem" },
+    "lg": { "$value": "1.5rem" },
+    "xl": { "$value": "2.5rem" }
+  },
+  "opacity": {
+    "$type": "number",
+    "$description": "For decoration only. Never fade text or controls to show a state: use the disabled and muted color roles, which are contrast checked.",
+    "muted": { "$value": 0.45 },
+    "hidden": { "$value": 0 }
+  },
+  "easing": {
+    "$type": "cubicBezier",
+    "$description": "How movement speeds up and slows down. Pair with duration.",
+    "standard": { "$value": "cubic-bezier(0.2, 0, 0, 1)" },
+    "linear": { "$value": "linear" }
+  },
   "duration": {
     "$type": "duration",
     "fast": { "$value": "120ms" }, "normal": { "$value": "200ms" }, "slow": { "$value": "320ms" }

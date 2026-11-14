@@ -9,7 +9,7 @@
   gap: var(--isa-space-1);
   max-width: 100%;
   padding: var(--isa-space-1) var(--isa-space-2);
-  border: 1px solid transparent;
+  border: var(--isa-border-width-thin) solid transparent;
   border-radius: var(--isa-radius-sm);
   background-color: var(--_bg);
   color: var(--_fg);

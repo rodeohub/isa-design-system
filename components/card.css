@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
-  border: 1px solid var(--isa-color-border-default);
+  border: var(--isa-border-width-thin) solid var(--isa-color-border-default);
   border-radius: var(--isa-radius-lg);
   background-color: var(--isa-color-surface-default);
   color: var(--isa-color-text-default);

@@ -3,7 +3,7 @@
   display: flex;
   gap: var(--isa-space-6);
   overflow-x: auto;
-  border-bottom: 1px solid var(--isa-color-border-default);
+  border-bottom: var(--isa-border-width-thin) solid var(--isa-color-border-default);
   font-family: var(--isa-font-family-body);
   scrollbar-width: thin;
 }
@@ -51,7 +51,7 @@
 .isa-tabs--pill { gap: var(--isa-space-2); border-bottom: 0; }
 .isa-tabs--pill .isa-tab {
   padding: var(--isa-space-2) var(--isa-space-4);
-  border: 1px solid transparent;
+  border: var(--isa-border-width-thin) solid transparent;
   border-radius: var(--isa-radius-full);
   background-color: var(--isa-color-surface-muted);
   color: var(--isa-color-text-default);

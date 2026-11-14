@@ -1,6 +1,11 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.9.0`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.10.0`, and upgrade on purpose.
+
+## 0.10.0 (2026-11-14)
+- Tailwind: short class names for text, surface and border roles (`text-muted`, `bg-subtle`, `border-strong`); the long names (`text-text-muted`) keep working. Text styles as one class each: `type-h1` to `type-h4`, `type-display`, `type-body`, `type-body-sm`, `type-label`, `type-button`, `type-badge`. `ease-standard`.
+- New tokens: `border-width.thin` and `thick`, `icon.sm` to `xl`, `opacity.muted`, `easing.standard`. Components use `border-width.thin`.
+- `npm run test:tailwind` compiles the theme with the real Tailwind v4 (also in CI).
 
 ## 0.9.0 (2026-11-14)
 - The last three components from the Slackline Sport Hub, adapted: **Autocomplete** (keyboard and screen reader support), **Filters** (the filter row above a table) and **Page layout** (`Page`, `Main`, `Container`, `PageTitle`, `Hero`).

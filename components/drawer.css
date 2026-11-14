@@ -26,7 +26,7 @@ html:has(.isa-drawer[open]) { overflow: hidden; }
   align-items: center;
   gap: var(--isa-space-3);
   padding: var(--isa-space-3) var(--isa-space-3) var(--isa-space-3) var(--isa-space-5);
-  border-bottom: 1px solid var(--isa-color-border-default);
+  border-bottom: var(--isa-border-width-thin) solid var(--isa-color-border-default);
 }
 .isa-drawer__title {
   flex: 1;

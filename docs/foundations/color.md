@@ -34,3 +34,6 @@ Pairs: `category.<name>-fg` on `category.<name>-bg`, names: neutral, brand (ISA 
 Which category gets which color is decided per project (for SportHub, in the SportHub code), not here.
 
 Rules: badge text is uppercase, `text-style.badge`, at least 12px; never rely on the color alone (the label always names the category).
+
+## Tailwind class names
+Every role is a color in Tailwind under its full name: `bg-action-primary-bg`, `text-status-danger-fg`. Text, surface and border roles also have short forms: `text-muted` (= `text.muted`), `bg-subtle` (= `surface.subtle`), `border-strong` (= `border.strong`). The default Tailwind palette (`bg-red-500`) is removed on purpose.

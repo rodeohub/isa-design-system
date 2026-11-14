@@ -12,5 +12,7 @@ jobs:
         run: npm run check
       - name: React components render as documented
         run: npm install --no-save react react-dom && npm run test:react
+      - name: Compiles in a real Tailwind v4 project
+        run: npm install --no-save tailwindcss@4 @tailwindcss/cli@4 && npm run test:tailwind
       - name: dist/ is up to date
         run: git diff --exit-code dist/ || (echo "Run npm run build and commit dist/." && exit 1)

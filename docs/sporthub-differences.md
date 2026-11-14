@@ -1,6 +1,6 @@
 # Where the Sport Hub differs from the design system
 
-For the Sport Hub developers. Compared: design system v0.9.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
+For the Sport Hub developers. Compared: design system v0.10.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
 
 Nothing here has been changed in the Sport Hub. Updating it is a separate project that has not been decided (Roberto, 2026-11-14). This list is so you know what an update would involve. The Sport Hub was the starting point for the system, thank you for that work.
 
@@ -132,7 +132,7 @@ Other changes:
 - New: `title`, `titleAs`, `meta`, `footer` props. EventDetailsCard, FeaturedAthleteCard, FeaturedEventCard and StackedMediaCard stay in the Sport Hub and can use this Card.
 
 ## 11. Table
-- The system Table only shows rows. Sorting and filter logic (TanStack Table) stay in the Sport Hub; Pagination and the Filters layout are system components (sections 17 and 19). The Sport Hub and pass the resulting rows, or the Sport Hub keeps its component and uses the `isa-table` classes.
+- The system Table only shows rows. Sorting and filter logic (TanStack Table) stay in the Sport Hub; Pagination and the Filters layout are system components (sections 17 and 19). The Sport Hub passes the resulting rows to the system Table, or keeps its component and uses the `isa-table` classes.
 - New and required: a caption (can be visually hidden). New: `<th scope="row">` for the cell that names the row.
 - Sort headers are real buttons with `aria-sort` on the `<th>` (now the `<th>` itself is clickable, with no keyboard access).
 - The scrolling wrapper is focusable; optional sticky first column for phones.

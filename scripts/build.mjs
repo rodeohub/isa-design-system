@@ -37,7 +37,18 @@ for (const k of Object.keys(base).filter((k) => k.startsWith('radius.'))) tw += 
 // Breakpoints must be literal values: Tailwind cannot use var() inside media queries.
 for (const k of Object.keys(base).filter((k) => k.startsWith('breakpoint.'))) tw += `  --breakpoint-${k.slice(11)}: ${resolve(base, base[k].value)};\n`;
 for (const k of Object.keys(base).filter((k) => k.startsWith('font.size.'))) tw += `  --text-${k.slice(10)}: var(${cssName(k)});\n`;
+// Short class names: text-muted, bg-subtle, border-strong (the long forms text-text-muted etc. keep working).
+for (const k of semanticColors.filter((k) => k.startsWith('color.text.'))) tw += `  --text-color-${k.slice(11)}: var(${cssName(k)});\n`;
+for (const k of semanticColors.filter((k) => k.startsWith('color.surface.'))) tw += `  --background-color-${k.slice(14)}: var(${cssName(k)});\n`;
+for (const k of semanticColors.filter((k) => k.startsWith('color.border.'))) tw += `  --border-color-${k.slice(13)}: var(${cssName(k)});\n`;
+tw += `  --ease-standard: var(${cssName('easing.standard')});\n`;
 tw += '}\n';
+// Text styles as one class each: type-h1, type-body, type-label ...
+const styleNames = [...new Set(Object.keys(base).filter((k) => k.startsWith('text-style.')).map((k) => k.split('.')[1]))];
+for (const n of styleNames) {
+  const v = (part) => `var(${cssName(`text-style.${n}.${part}`)})`;
+  tw += `\n@utility type-${n} {\n  font-family: ${v('family')};\n  font-weight: ${v('weight')};\n  font-size: ${v('size')};\n  line-height: ${v('line-height')};\n}\n`;
+}
 writeFileSync('dist/tailwind.css', tw);
 
 // 3. tokens.json: every token resolved to a final value (light theme), for agents and non-CSS tools.

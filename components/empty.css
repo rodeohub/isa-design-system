@@ -6,7 +6,7 @@
   align-items: center;
   gap: var(--isa-space-3);
   padding: var(--isa-space-10) var(--isa-space-4);
-  border: 1px dashed var(--isa-color-border-strong);
+  border: var(--isa-border-width-thin) dashed var(--isa-color-border-strong);
   border-radius: var(--isa-radius-lg);
   background-color: var(--isa-color-surface-subtle);
   color: var(--isa-color-text-default);

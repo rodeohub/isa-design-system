@@ -8,7 +8,7 @@
   align-items: flex-start;
   gap: var(--isa-space-3);
   padding: var(--isa-space-3) var(--isa-space-4);
-  border: 1px solid var(--_fg);
+  border: var(--isa-border-width-thin) solid var(--_fg);
   border-radius: var(--isa-radius-md);
   background-color: var(--_bg);
   color: var(--_fg);
