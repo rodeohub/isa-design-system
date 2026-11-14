@@ -50,13 +50,13 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Dark mode built (v0.12.0). Roberto: a switch on the page; AA contrast; the Sport Hub mock page is the test page. Claude: opt-in per project (`data-theme="system"` follows the device until the switch is used; pages without `data-theme` stay light, so unchecked projects never turn dark by surprise); the choice is remembered in the browser; status and category colors are the light pairs swapped; new role `surface.raised`. | Roberto, Claude |
 | 2026-11-14 | Dark mode: header and footer are deep green (option B, green 900), chosen over green 700 and dark gray with a green line (v0.12.1). | Roberto |
 | 2026-11-14 | No Figma plan upgrade. Figma stays light only (the free plan allows one mode per variable collection). Dark mode is checked in `dist/preview.html`. A workaround without upgrade exists if designers ever need it: a second variable collection with the dark values and a page of dark component copies. | Roberto |
+| 2026-11-14 | Alerts and badges in dark mode stay as they are (light text on the full dark hue). | Roberto |
+| 2026-11-14 | Logos added to the repo from Roberto's folder ISA-Logos (38 SVG files, v0.13.0). PNG exports stay outside the repo. White variant on green and dark surfaces. | Roberto, Claude |
 
 ## Open questions
-1. **Logo SVGs and usage rules:** Roberto asked to be reminded to provide the SVG logos (2026-11-14).
-2. **Review the mock page** `examples/sporthub-rankings.html`.
+1. **Education color logo** (`assets/logos/education/isa-education-color.svg`) uses older colors (`#0DA69D`, `#EF4D34`, `#FEFEFE`). Correct it to the official values, or leave it?
+2. **Logo rules:** minimum sizes and exact clear space are not defined.
 3. **Solid badges (parked by Roberto, 2026-11-14):** SportHub has two solid badges (athlete: white on red, judge: white on green). Add a solid badge style, or keep soft and outline only? Do not raise again until Roberto does or the SportHub migration starts.
-5. **Status and category colors in dark mode** are strong (light text on the full dark hue). Keep, or make them quieter (needs new dark tint primitives)?
-6. **Logos for dark and brand surfaces** (white or light versions): remind Roberto to provide the SVG logos.
 
 ## Next steps
 1. Dark mode follow-ups: a Dark mode in the Figma `Color` collection (needs a paid Figma plan: Starter allows one mode), hover and focus states checked by hand in dark.
