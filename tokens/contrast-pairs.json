@@ -43,6 +43,8 @@
     ["color.category.orange-fg", "color.category.orange-bg", 4.5],
     ["color.category.yellow-fg", "color.category.yellow-bg", 4.5],
     ["color.category.pink-fg", "color.category.pink-bg", 4.5],
+    ["color.category.violet-fg", "color.category.violet-bg", 4.5],
+    ["color.category.brand-fg", "color.category.brand-bg", 4.5],
     ["color.category.purple-fg", "color.category.purple-bg", 4.5]
   ]
 }

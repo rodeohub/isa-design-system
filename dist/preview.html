@@ -33,6 +33,10 @@
   --isa-color-gray-700: #29292A;
   --isa-color-gray-800: #1F1F20;
   --isa-color-gray-900: #151515;
+  --isa-color-category-hue-red-light: #FDE8EA;
+  --isa-color-category-hue-red-dark: #A3123A;
+  --isa-color-category-hue-green-light: #EAF5DF;
+  --isa-color-category-hue-green-dark: #2F6512;
   --isa-color-category-hue-blue-light: #E8F0FE;
   --isa-color-category-hue-blue-dark: #1849A9;
   --isa-color-category-hue-teal-light: #E0F4F8;
@@ -41,10 +45,12 @@
   --isa-color-category-hue-orange-dark: #93370D;
   --isa-color-category-hue-yellow-light: #FDF5D3;
   --isa-color-category-hue-yellow-dark: #6B4F00;
-  --isa-color-category-hue-pink-light: #FCE7F3;
-  --isa-color-category-hue-pink-dark: #9D174D;
-  --isa-color-category-hue-purple-light: #F1EBFD;
-  --isa-color-category-hue-purple-dark: #5B2BAA;
+  --isa-color-category-hue-pink-light: #FCE8F6;
+  --isa-color-category-hue-pink-dark: #9C1A78;
+  --isa-color-category-hue-violet-light: #ECEBFE;
+  --isa-color-category-hue-violet-dark: #4338CA;
+  --isa-color-category-hue-purple-light: #F3E8FF;
+  --isa-color-category-hue-purple-dark: #6B21A8;
   --isa-space-0: 0;
   --isa-space-1: 0.25rem;
   --isa-space-2: 0.5rem;
@@ -183,10 +189,12 @@
   --isa-color-status-info-bg: var(--isa-color-category-hue-blue-light);
   --isa-color-category-neutral-fg: var(--isa-color-gray-700);
   --isa-color-category-neutral-bg: var(--isa-color-gray-100);
-  --isa-color-category-green-fg: var(--isa-color-green-800);
-  --isa-color-category-green-bg: var(--isa-color-green-100);
-  --isa-color-category-red-fg: var(--isa-color-red-700);
-  --isa-color-category-red-bg: var(--isa-color-red-100);
+  --isa-color-category-green-fg: var(--isa-color-category-hue-green-dark);
+  --isa-color-category-green-bg: var(--isa-color-category-hue-green-light);
+  --isa-color-category-red-fg: var(--isa-color-category-hue-red-dark);
+  --isa-color-category-red-bg: var(--isa-color-category-hue-red-light);
+  --isa-color-category-brand-fg: var(--isa-color-green-800);
+  --isa-color-category-brand-bg: var(--isa-color-green-100);
   --isa-color-category-blue-fg: var(--isa-color-category-hue-blue-dark);
   --isa-color-category-blue-bg: var(--isa-color-category-hue-blue-light);
   --isa-color-category-teal-fg: var(--isa-color-category-hue-teal-dark);
@@ -197,6 +205,8 @@
   --isa-color-category-yellow-bg: var(--isa-color-category-hue-yellow-light);
   --isa-color-category-pink-fg: var(--isa-color-category-hue-pink-dark);
   --isa-color-category-pink-bg: var(--isa-color-category-hue-pink-light);
+  --isa-color-category-violet-fg: var(--isa-color-category-hue-violet-dark);
+  --isa-color-category-violet-bg: var(--isa-color-category-hue-violet-light);
   --isa-color-category-purple-fg: var(--isa-color-category-hue-purple-dark);
   --isa-color-category-purple-bg: var(--isa-color-category-hue-purple-light);
 }
@@ -206,7 +216,7 @@ body{margin:0;font-family:var(--isa-font-family-body);color:var(--isa-color-text
 main{max-width:72rem;margin:0 auto;padding:2rem 1rem}h1,h2{font-family:var(--isa-font-family-heading)}
 table{border-collapse:collapse;width:100%;font-size:.875rem}td{border-bottom:1px solid var(--isa-color-border-default);padding:.5rem;vertical-align:middle}
 .sw{display:inline-block;width:2.5rem;height:1.5rem;border-radius:.25rem;border:1px solid var(--isa-color-border-default)}</style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Barlow+Condensed:wght@600;700&display=swap"></head>
+<link rel="stylesheet" href="./fonts.css"></head>
 <body><main><h1>ISA Design System: color roles</h1><p>Generated from tokens/. Light theme. Run <code>npm run check</code> for contrast results.</p>
 <table><tr><td><code>color.text.default</code></td><td><span class="sw" style="background:#29292A"></span></td><td><code>#29292A</code></td><td>Body and headings.</td></tr>
 <tr><td><code>color.text.muted</code></td><td><span class="sw" style="background:#454546"></span></td><td><code>#454546</code></td><td>Secondary text, help text, captions. Still AA on surface.default and surface.subtle.</td></tr>
@@ -252,10 +262,12 @@ table{border-collapse:collapse;width:100%;font-size:.875rem}td{border-bottom:1px
 <tr><td><code>color.status.info-bg</code></td><td><span class="sw" style="background:#E8F0FE"></span></td><td><code>#E8F0FE</code></td><td></td></tr>
 <tr><td><code>color.category.neutral-fg</code></td><td><span class="sw" style="background:#29292A"></span></td><td><code>#29292A</code></td><td></td></tr>
 <tr><td><code>color.category.neutral-bg</code></td><td><span class="sw" style="background:#ECECED"></span></td><td><code>#ECECED</code></td><td></td></tr>
-<tr><td><code>color.category.green-fg</code></td><td><span class="sw" style="background:#004845"></span></td><td><code>#004845</code></td><td></td></tr>
-<tr><td><code>color.category.green-bg</code></td><td><span class="sw" style="background:#E6F5F5"></span></td><td><code>#E6F5F5</code></td><td></td></tr>
-<tr><td><code>color.category.red-fg</code></td><td><span class="sw" style="background:#8B2617"></span></td><td><code>#8B2617</code></td><td></td></tr>
-<tr><td><code>color.category.red-bg</code></td><td><span class="sw" style="background:#FDECE9"></span></td><td><code>#FDECE9</code></td><td></td></tr>
+<tr><td><code>color.category.green-fg</code></td><td><span class="sw" style="background:#2F6512"></span></td><td><code>#2F6512</code></td><td></td></tr>
+<tr><td><code>color.category.green-bg</code></td><td><span class="sw" style="background:#EAF5DF"></span></td><td><code>#EAF5DF</code></td><td></td></tr>
+<tr><td><code>color.category.red-fg</code></td><td><span class="sw" style="background:#A3123A"></span></td><td><code>#A3123A</code></td><td></td></tr>
+<tr><td><code>color.category.red-bg</code></td><td><span class="sw" style="background:#FDE8EA"></span></td><td><code>#FDE8EA</code></td><td></td></tr>
+<tr><td><code>color.category.brand-fg</code></td><td><span class="sw" style="background:#004845"></span></td><td><code>#004845</code></td><td></td></tr>
+<tr><td><code>color.category.brand-bg</code></td><td><span class="sw" style="background:#E6F5F5"></span></td><td><code>#E6F5F5</code></td><td></td></tr>
 <tr><td><code>color.category.blue-fg</code></td><td><span class="sw" style="background:#1849A9"></span></td><td><code>#1849A9</code></td><td></td></tr>
 <tr><td><code>color.category.blue-bg</code></td><td><span class="sw" style="background:#E8F0FE"></span></td><td><code>#E8F0FE</code></td><td></td></tr>
 <tr><td><code>color.category.teal-fg</code></td><td><span class="sw" style="background:#0B5363"></span></td><td><code>#0B5363</code></td><td></td></tr>
@@ -264,7 +276,9 @@ table{border-collapse:collapse;width:100%;font-size:.875rem}td{border-bottom:1px
 <tr><td><code>color.category.orange-bg</code></td><td><span class="sw" style="background:#FDEEE2"></span></td><td><code>#FDEEE2</code></td><td></td></tr>
 <tr><td><code>color.category.yellow-fg</code></td><td><span class="sw" style="background:#6B4F00"></span></td><td><code>#6B4F00</code></td><td></td></tr>
 <tr><td><code>color.category.yellow-bg</code></td><td><span class="sw" style="background:#FDF5D3"></span></td><td><code>#FDF5D3</code></td><td></td></tr>
-<tr><td><code>color.category.pink-fg</code></td><td><span class="sw" style="background:#9D174D"></span></td><td><code>#9D174D</code></td><td></td></tr>
-<tr><td><code>color.category.pink-bg</code></td><td><span class="sw" style="background:#FCE7F3"></span></td><td><code>#FCE7F3</code></td><td></td></tr>
-<tr><td><code>color.category.purple-fg</code></td><td><span class="sw" style="background:#5B2BAA"></span></td><td><code>#5B2BAA</code></td><td></td></tr>
-<tr><td><code>color.category.purple-bg</code></td><td><span class="sw" style="background:#F1EBFD"></span></td><td><code>#F1EBFD</code></td><td></td></tr></table></main></body></html>
+<tr><td><code>color.category.pink-fg</code></td><td><span class="sw" style="background:#9C1A78"></span></td><td><code>#9C1A78</code></td><td></td></tr>
+<tr><td><code>color.category.pink-bg</code></td><td><span class="sw" style="background:#FCE8F6"></span></td><td><code>#FCE8F6</code></td><td></td></tr>
+<tr><td><code>color.category.violet-fg</code></td><td><span class="sw" style="background:#4338CA"></span></td><td><code>#4338CA</code></td><td></td></tr>
+<tr><td><code>color.category.violet-bg</code></td><td><span class="sw" style="background:#ECEBFE"></span></td><td><code>#ECEBFE</code></td><td></td></tr>
+<tr><td><code>color.category.purple-fg</code></td><td><span class="sw" style="background:#6B21A8"></span></td><td><code>#6B21A8</code></td><td></td></tr>
+<tr><td><code>color.category.purple-bg</code></td><td><span class="sw" style="background:#F3E8FF"></span></td><td><code>#F3E8FF</code></td><td></td></tr></table></main></body></html>

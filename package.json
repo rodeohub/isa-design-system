@@ -1,6 +1,6 @@
 {
   "name": "isa-design-system",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Design system of the International Slackline Association: tokens, docs and components for people and AI agents.",
   "type": "module",
   "files": [
@@ -10,7 +10,9 @@
     "scripts",
     "AGENTS.md",
     "DECISIONS.md",
-    "assets"
+    "assets",
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "exports": {
     "./tokens.css": "./dist/tokens.css",
@@ -28,5 +30,6 @@
   },
   "bin": {
     "isa-audit": "scripts/audit.mjs"
-  }
+  },
+  "license": "SEE LICENSE IN LICENSE"
 }

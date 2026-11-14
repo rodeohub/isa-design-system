@@ -29,7 +29,7 @@ Use roles, not palette values. `var(--isa-color-text-default)`, not `var(--isa-c
 ## Category colors
 For badges and tags that sort content (disciplines, contest levels, roles). Separate from brand and status: a red category badge does not mean "error".
 
-Pairs: `category.<name>-fg` on `category.<name>-bg`, names: neutral, green, red, blue, teal, orange, yellow, pink, purple. All pass AA.
+Pairs: `category.<name>-fg` on `category.<name>-bg`, names: neutral, brand (ISA green, for ISA-specific badges such as "ISA verified"), red, green, blue, teal, orange, yellow, pink, violet, purple. All pass AA. The category red and green are deliberately different from the ISA red and green used for errors and success.
 
 Which category gets which color is decided per project (for SportHub, in the SportHub code), not here.
 

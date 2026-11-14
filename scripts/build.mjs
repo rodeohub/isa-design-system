@@ -1,5 +1,5 @@
 // Builds dist/ from tokens/. Run: npm run build
-import { mkdirSync, writeFileSync, readdirSync } from 'node:fs';
+import { mkdirSync, writeFileSync, readdirSync, copyFileSync } from 'node:fs';
 import { readJsonTree, load, resolve, cssName, cssValue, refOrValue } from './lib.mjs';
 
 const primitiveFiles = readJsonTree('tokens/primitive');
@@ -45,8 +45,12 @@ const flat = {};
 for (const [k, t] of Object.entries(all)) flat[k] = { value: resolve(all, t.value), ...(t.description ? { description: t.description } : {}) };
 writeFileSync('dist/tokens.json', JSON.stringify(flat, null, 2) + '\n');
 
-// 4. fonts.css: load Barlow and Barlow Condensed from Google Fonts (self-host via @fontsource if preferred).
-writeFileSync('dist/fonts.css', header + '@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap");\n');
+// 4. fonts: self-hosted Barlow and Barlow Condensed (no requests to Google).
+mkdirSync('dist/fonts', { recursive: true });
+for (const f of readdirSync('fonts')) {
+  if (f.endsWith('.woff2') || f === 'OFL.txt') copyFileSync(`fonts/${f}`, `dist/fonts/${f}`);
+}
+copyFileSync('fonts/fonts.css', 'dist/fonts.css');
 
 // 5. preview.html: a self-contained page showing every color role and its contrast.
 const v = (k) => resolve(all, all[k].value);
@@ -57,7 +61,7 @@ body{margin:0;font-family:var(--isa-font-family-body);color:var(--isa-color-text
 main{max-width:72rem;margin:0 auto;padding:2rem 1rem}h1,h2{font-family:var(--isa-font-family-heading)}
 table{border-collapse:collapse;width:100%;font-size:.875rem}td{border-bottom:1px solid var(--isa-color-border-default);padding:.5rem;vertical-align:middle}
 .sw{display:inline-block;width:2.5rem;height:1.5rem;border-radius:.25rem;border:1px solid var(--isa-color-border-default)}</style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Barlow+Condensed:wght@600;700&display=swap"></head>
+<link rel="stylesheet" href="./fonts.css"></head>
 <body><main><h1>ISA Design System: color roles</h1><p>Generated from tokens/. Light theme. Run <code>npm run check</code> for contrast results.</p>
 <table>${rows}</table></main></body></html>`;
 writeFileSync('dist/preview.html', html);

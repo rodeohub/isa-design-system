@@ -55,13 +55,15 @@
     "category": {
       "$description": "Category colors for badges and tags (disciplines, contest levels, roles). Separate from brand and status colors. Each has fg and bg; use them as a pair.",
       "neutral-fg": { "$value": "{color.gray.700}" }, "neutral-bg": { "$value": "{color.gray.100}" },
-      "green-fg": { "$value": "{color.green.800}" }, "green-bg": { "$value": "{color.green.100}" },
-      "red-fg": { "$value": "{color.red.700}" }, "red-bg": { "$value": "{color.red.100}" },
+      "green-fg": { "$value": "{color.category-hue.green.dark}" }, "green-bg": { "$value": "{color.category-hue.green.light}" },
+      "red-fg": { "$value": "{color.category-hue.red.dark}" }, "red-bg": { "$value": "{color.category-hue.red.light}" },
+      "brand-fg": { "$value": "{color.green.800}" }, "brand-bg": { "$value": "{color.green.100}" },
       "blue-fg": { "$value": "{color.category-hue.blue.dark}" }, "blue-bg": { "$value": "{color.category-hue.blue.light}" },
       "teal-fg": { "$value": "{color.category-hue.teal.dark}" }, "teal-bg": { "$value": "{color.category-hue.teal.light}" },
       "orange-fg": { "$value": "{color.category-hue.orange.dark}" }, "orange-bg": { "$value": "{color.category-hue.orange.light}" },
       "yellow-fg": { "$value": "{color.category-hue.yellow.dark}" }, "yellow-bg": { "$value": "{color.category-hue.yellow.light}" },
       "pink-fg": { "$value": "{color.category-hue.pink.dark}" }, "pink-bg": { "$value": "{color.category-hue.pink.light}" },
+      "violet-fg": { "$value": "{color.category-hue.violet.dark}" }, "violet-bg": { "$value": "{color.category-hue.violet.light}" },
       "purple-fg": { "$value": "{color.category-hue.purple.dark}" }, "purple-bg": { "$value": "{color.category-hue.purple.light}" }
     }
   }

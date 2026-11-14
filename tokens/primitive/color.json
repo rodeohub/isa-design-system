@@ -26,13 +26,16 @@
       "900": { "$value": "#151515" }
     },
     "category-hue": {
-      "$description": "PROPOSED (Claude, 2026-11-14), to review. Light background and dark foreground per hue for category badges. Each pair passes AA (see npm run check).",
+      "$description": "Category badge hues (Claude, 2026-11-14). Light background and dark foreground per hue. Red and green are deliberately different from the ISA red and green used for status (danger, success) so badges are not read as errors or success. Each pair passes AA (see npm run check).",
+      "red":    { "light": { "$value": "#FDE8EA" }, "dark": { "$value": "#A3123A" } },
+      "green":  { "light": { "$value": "#EAF5DF" }, "dark": { "$value": "#2F6512" } },
       "blue":   { "light": { "$value": "#E8F0FE" }, "dark": { "$value": "#1849A9" } },
       "teal":   { "light": { "$value": "#E0F4F8" }, "dark": { "$value": "#0B5363" } },
       "orange": { "light": { "$value": "#FDEEE2" }, "dark": { "$value": "#93370D" } },
       "yellow": { "light": { "$value": "#FDF5D3" }, "dark": { "$value": "#6B4F00" } },
-      "pink":   { "light": { "$value": "#FCE7F3" }, "dark": { "$value": "#9D174D" } },
-      "purple": { "light": { "$value": "#F1EBFD" }, "dark": { "$value": "#5B2BAA" } }
+      "pink":   { "light": { "$value": "#FCE8F6" }, "dark": { "$value": "#9C1A78" } },
+      "violet": { "light": { "$value": "#ECEBFE" }, "dark": { "$value": "#4338CA" } },
+      "purple": { "light": { "$value": "#F3E8FF" }, "dark": { "$value": "#6B21A8" } }
     }
   }
 }

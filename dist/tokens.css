@@ -32,6 +32,10 @@
   --isa-color-gray-700: #29292A;
   --isa-color-gray-800: #1F1F20;
   --isa-color-gray-900: #151515;
+  --isa-color-category-hue-red-light: #FDE8EA;
+  --isa-color-category-hue-red-dark: #A3123A;
+  --isa-color-category-hue-green-light: #EAF5DF;
+  --isa-color-category-hue-green-dark: #2F6512;
   --isa-color-category-hue-blue-light: #E8F0FE;
   --isa-color-category-hue-blue-dark: #1849A9;
   --isa-color-category-hue-teal-light: #E0F4F8;
@@ -40,10 +44,12 @@
   --isa-color-category-hue-orange-dark: #93370D;
   --isa-color-category-hue-yellow-light: #FDF5D3;
   --isa-color-category-hue-yellow-dark: #6B4F00;
-  --isa-color-category-hue-pink-light: #FCE7F3;
-  --isa-color-category-hue-pink-dark: #9D174D;
-  --isa-color-category-hue-purple-light: #F1EBFD;
-  --isa-color-category-hue-purple-dark: #5B2BAA;
+  --isa-color-category-hue-pink-light: #FCE8F6;
+  --isa-color-category-hue-pink-dark: #9C1A78;
+  --isa-color-category-hue-violet-light: #ECEBFE;
+  --isa-color-category-hue-violet-dark: #4338CA;
+  --isa-color-category-hue-purple-light: #F3E8FF;
+  --isa-color-category-hue-purple-dark: #6B21A8;
   --isa-space-0: 0;
   --isa-space-1: 0.25rem;
   --isa-space-2: 0.5rem;
@@ -182,10 +188,12 @@
   --isa-color-status-info-bg: var(--isa-color-category-hue-blue-light);
   --isa-color-category-neutral-fg: var(--isa-color-gray-700);
   --isa-color-category-neutral-bg: var(--isa-color-gray-100);
-  --isa-color-category-green-fg: var(--isa-color-green-800);
-  --isa-color-category-green-bg: var(--isa-color-green-100);
-  --isa-color-category-red-fg: var(--isa-color-red-700);
-  --isa-color-category-red-bg: var(--isa-color-red-100);
+  --isa-color-category-green-fg: var(--isa-color-category-hue-green-dark);
+  --isa-color-category-green-bg: var(--isa-color-category-hue-green-light);
+  --isa-color-category-red-fg: var(--isa-color-category-hue-red-dark);
+  --isa-color-category-red-bg: var(--isa-color-category-hue-red-light);
+  --isa-color-category-brand-fg: var(--isa-color-green-800);
+  --isa-color-category-brand-bg: var(--isa-color-green-100);
   --isa-color-category-blue-fg: var(--isa-color-category-hue-blue-dark);
   --isa-color-category-blue-bg: var(--isa-color-category-hue-blue-light);
   --isa-color-category-teal-fg: var(--isa-color-category-hue-teal-dark);
@@ -196,6 +204,8 @@
   --isa-color-category-yellow-bg: var(--isa-color-category-hue-yellow-light);
   --isa-color-category-pink-fg: var(--isa-color-category-hue-pink-dark);
   --isa-color-category-pink-bg: var(--isa-color-category-hue-pink-light);
+  --isa-color-category-violet-fg: var(--isa-color-category-hue-violet-dark);
+  --isa-color-category-violet-bg: var(--isa-color-category-hue-violet-light);
   --isa-color-category-purple-fg: var(--isa-color-category-hue-purple-dark);
   --isa-color-category-purple-bg: var(--isa-color-category-hue-purple-light);
 }

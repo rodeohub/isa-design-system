@@ -51,6 +51,8 @@
   --color-category-green-bg: var(--isa-color-category-green-bg);
   --color-category-red-fg: var(--isa-color-category-red-fg);
   --color-category-red-bg: var(--isa-color-category-red-bg);
+  --color-category-brand-fg: var(--isa-color-category-brand-fg);
+  --color-category-brand-bg: var(--isa-color-category-brand-bg);
   --color-category-blue-fg: var(--isa-color-category-blue-fg);
   --color-category-blue-bg: var(--isa-color-category-blue-bg);
   --color-category-teal-fg: var(--isa-color-category-teal-fg);
@@ -61,6 +63,8 @@
   --color-category-yellow-bg: var(--isa-color-category-yellow-bg);
   --color-category-pink-fg: var(--isa-color-category-pink-fg);
   --color-category-pink-bg: var(--isa-color-category-pink-bg);
+  --color-category-violet-fg: var(--isa-color-category-violet-fg);
+  --color-category-violet-bg: var(--isa-color-category-violet-bg);
   --color-category-purple-fg: var(--isa-color-category-purple-fg);
   --color-category-purple-bg: var(--isa-color-category-purple-bg);
   --font-heading: var(--isa-font-family-heading);

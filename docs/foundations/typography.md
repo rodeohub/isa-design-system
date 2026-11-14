@@ -1,6 +1,6 @@
 # Typography
 
-Fonts (Roberto, 2026-11-14): **Barlow Condensed** for headings, **Barlow** for body and UI. Both free (SIL Open Font License). Load with `dist/fonts.css` (Google Fonts) or self-host via `@fontsource/barlow` and `@fontsource/barlow-condensed`.
+Fonts (Roberto, 2026-11-14): **Barlow Condensed** for headings, **Barlow** for body and UI. Both free (SIL Open Font License). The font files ship inside this package (`dist/fonts/`, Latin and Latin Extended) and load from the project's own server via `dist/fonts.css`. No requests go to Google, which avoids the privacy (GDPR) issue of loading fonts from Google's servers. Licence: `dist/fonts/OFL.txt`.
 
 | Style | Font | Size | Weight | Line height |
 | --- | --- | --- | --- | --- |

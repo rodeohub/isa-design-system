@@ -29,11 +29,12 @@ You are working with the design system of the International Slackline Associatio
 ## Using it in a project
 - Tailwind v4: `@import "isa-design-system/fonts.css"; @import "isa-design-system/tailwind.css";`
 - Plain CSS: import `dist/fonts.css` and `dist/tokens.css`, then use `var(--isa-color-text-default)` etc.
-- Install: `npm install github:rodeohub/isa-design-system` (will move to the ISA GitHub organization).
+- Install a tagged version: `npm install github:rodeohub/isa-design-system#v0.2.0` (repo will move to the ISA GitHub organization). Check `CHANGELOG.md` before upgrading.
 
 ## Changing the system (in this repo)
 1. Edit `tokens/` (DTCG JSON) and the matching doc in `docs/`.
 2. Add any new color pairing to `tokens/contrast-pairs.json`.
 3. Run `npm run check` (builds `dist/` and fails below AA). Commit `dist/` with the change.
 4. Record decisions in `DECISIONS.md`. Brand-value changes need Roberto's OK.
-5. Writing style for docs: plain, concise, no em dashes.
+5. Releases: bump `version` in package.json (semantic versioning, see `CHANGELOG.md`), add a CHANGELOG entry, then tag `vX.Y.Z` and push the tag.
+6. Writing style for docs: plain, concise, no em dashes.

@@ -7,10 +7,12 @@ Design tokens, guidelines and (soon) components for projects of the [Internation
 - **Preview:** open `dist/preview.html` in a browser to see every color role.
 
 ## What is in here
-- `tokens/`: the source of truth (W3C Design Tokens format). Primitive values (official ISA palette, type, spacing) and semantic roles (text, surface, border, action, status, category).
+- `tokens/`: the source of truth (close to the W3C Design Tokens format, simplified). Primitive values (official ISA palette, type, spacing) and semantic roles (text, surface, border, action, status, category).
 - `dist/`: generated CSS variables, a Tailwind v4 theme, resolved JSON and a preview page.
 - `docs/`: how and when to use each foundation and component.
-- `scripts/`: build, contrast check (WCAG AA) and an audit that finds hard-coded colors in a project.
+- `scripts/`: build, contrast check (WCAG AA) and `isa-audit`, which finds colors in a project that bypass the system.
+- `fonts/`: Barlow and Barlow Condensed, self-hosted.
+- Licence: MIT, except the ISA name and logos (see LICENSE).
 
 ## Commands
 ```
