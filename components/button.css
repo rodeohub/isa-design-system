@@ -1,0 +1,125 @@
+/* Button. Docs: docs/components/button.md. Extracted from the Slackline Sport Hub and adapted. */
+.isa-button {
+  --_bg: var(--isa-color-action-primary-bg);
+  --_bg-hover: var(--isa-color-action-primary-bg-hover);
+  --_bg-active: var(--isa-color-action-primary-bg-active);
+  --_fg: var(--isa-color-action-primary-fg);
+  --_border: transparent;
+
+  appearance: none;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--isa-space-2);
+  min-height: var(--isa-size-touch-target);
+  min-width: var(--isa-size-touch-target);
+  margin: 0;
+  padding: var(--isa-space-2) var(--isa-space-5);
+  border: 1px solid var(--_border);
+  border-radius: var(--isa-radius-md);
+  background-color: var(--_bg);
+  color: var(--_fg);
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-md);
+  font-weight: var(--isa-font-weight-semibold);
+  line-height: var(--isa-font-line-height-snug);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--isa-duration-fast), border-color var(--isa-duration-fast), color var(--isa-duration-fast);
+}
+.isa-button:hover { background-color: var(--_bg-hover); }
+.isa-button:active { background-color: var(--_bg-active); }
+.isa-button:focus-visible {
+  outline: var(--isa-size-focus-ring-width) solid var(--isa-focus-color, var(--isa-color-border-focus));
+  outline-offset: var(--isa-size-focus-ring-offset);
+}
+.isa-button svg { width: 1.25em; height: 1.25em; flex-shrink: 0; }
+
+/* Variants */
+.isa-button--secondary {
+  --_bg: var(--isa-color-action-secondary-bg);
+  --_bg-hover: var(--isa-color-action-secondary-bg-hover);
+  --_bg-active: var(--isa-color-action-secondary-bg-active);
+  --_fg: var(--isa-color-action-secondary-fg);
+  --_border: var(--isa-color-action-secondary-border);
+}
+.isa-button--neutral {
+  --_bg: var(--isa-color-action-neutral-bg);
+  --_bg-hover: var(--isa-color-action-neutral-bg-hover);
+  --_bg-active: var(--isa-color-action-neutral-bg-active);
+  --_fg: var(--isa-color-action-neutral-fg);
+  --_border: var(--isa-color-action-neutral-border);
+}
+.isa-button--ghost {
+  --_bg: transparent;
+  --_bg-hover: var(--isa-color-action-ghost-bg-hover);
+  --_bg-active: var(--isa-color-action-ghost-bg-active);
+  --_fg: var(--isa-color-action-ghost-fg);
+}
+.isa-button--danger {
+  --_bg: var(--isa-color-action-danger-bg);
+  --_bg-hover: var(--isa-color-action-danger-bg-hover);
+  --_bg-active: var(--isa-color-action-danger-bg-active);
+  --_fg: var(--isa-color-action-danger-fg);
+}
+.isa-button--danger-secondary {
+  --_bg: var(--isa-color-action-danger-secondary-bg);
+  --_bg-hover: var(--isa-color-action-danger-secondary-bg-hover);
+  --_bg-active: var(--isa-color-action-danger-secondary-bg-active);
+  --_fg: var(--isa-color-action-danger-secondary-fg);
+  --_border: var(--isa-color-action-danger-secondary-border);
+}
+
+/* Sizes. Small looks 36px high but stays 44px tappable through the ::after hit area. */
+.isa-button--small {
+  min-height: var(--isa-size-control-sm);
+  min-width: var(--isa-size-control-sm);
+  padding: var(--isa-space-1) var(--isa-space-4);
+  font-size: var(--isa-font-size-sm);
+}
+.isa-button--small::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  min-width: var(--isa-size-touch-target);
+  height: var(--isa-size-touch-target);
+  transform: translate(-50%, -50%);
+}
+.isa-button--icon { padding: 0; width: var(--isa-size-touch-target); }
+.isa-button--icon.isa-button--small { width: var(--isa-size-control-sm); }
+.isa-button--full { display: flex; width: 100%; }
+
+/* Disabled */
+.isa-button:disabled,
+.isa-button[aria-disabled="true"]:not([aria-busy="true"]) {
+  --_bg: var(--isa-color-action-disabled-bg);
+  --_bg-hover: var(--isa-color-action-disabled-bg);
+  --_bg-active: var(--isa-color-action-disabled-bg);
+  --_fg: var(--isa-color-action-disabled-fg);
+  --_border: transparent;
+  cursor: not-allowed;
+}
+
+/* Loading: set aria-busy="true". Keeps its variant colors; a spinner shows before the label. */
+.isa-button[aria-busy="true"] { --_bg-hover: var(--_bg); --_bg-active: var(--_bg); cursor: progress; }
+.isa-button[aria-busy="true"]::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: var(--isa-radius-full);
+  animation: isa-spin 0.8s linear infinite;
+}
+@keyframes isa-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .isa-button { transition: none; }
+  .isa-button[aria-busy="true"]::before { animation: none; }
+}

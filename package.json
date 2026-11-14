@@ -1,29 +1,37 @@
 {
   "name": "isa-design-system",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Design system of the International Slackline Association: tokens, docs and components for people and AI agents.",
   "type": "module",
   "files": [
     "dist",
     "docs",
     "tokens",
+    "components",
+    "react",
     "scripts",
     "AGENTS.md",
     "DECISIONS.md",
-    "assets",
+    "CHANGELOG.md",
     "LICENSE",
-    "CHANGELOG.md"
+    "assets"
   ],
   "exports": {
     "./tokens.css": "./dist/tokens.css",
     "./tailwind.css": "./dist/tailwind.css",
     "./fonts.css": "./dist/fonts.css",
-    "./tokens.json": "./dist/tokens.json"
+    "./tokens.json": "./dist/tokens.json",
+    "./components.css": "./dist/components.css",
+    "./react": {
+      "types": "./react/index.d.ts",
+      "default": "./react/index.js"
+    }
   },
   "scripts": {
     "build": "node scripts/build.mjs",
-    "check": "node scripts/build.mjs && node scripts/check-contrast.mjs",
-    "audit": "node scripts/audit.mjs"
+    "check": "node scripts/build.mjs && node scripts/check-contrast.mjs && node scripts/audit.mjs components",
+    "audit": "node scripts/audit.mjs",
+    "test:react": "node scripts/test-react.mjs"
   },
   "engines": {
     "node": ">=18"
@@ -31,5 +39,13 @@
   "bin": {
     "isa-audit": "scripts/audit.mjs"
   },
-  "license": "SEE LICENSE IN LICENSE"
+  "license": "SEE LICENSE IN LICENSE",
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  }
 }

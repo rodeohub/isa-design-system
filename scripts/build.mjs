@@ -1,5 +1,5 @@
 // Builds dist/ from tokens/. Run: npm run build
-import { mkdirSync, writeFileSync, readdirSync, copyFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync, readFileSync, readdirSync, copyFileSync } from 'node:fs';
 import { readJsonTree, load, resolve, cssName, cssValue, refOrValue } from './lib.mjs';
 
 const primitiveFiles = readJsonTree('tokens/primitive');
@@ -52,18 +52,34 @@ for (const f of readdirSync('fonts')) {
 }
 copyFileSync('fonts/fonts.css', 'dist/fonts.css');
 
-// 5. preview.html: a self-contained page showing every color role and its contrast.
+// 5. components.css: base first, then each component (plain CSS on semantic tokens; works with or without Tailwind).
+const componentFiles = readdirSync('components').filter((f) => f.endsWith('.css')).sort((a, b) => (a === 'base.css' ? -1 : b === 'base.css' ? 1 : a.localeCompare(b)));
+writeFileSync('dist/components.css', header + componentFiles.map((f) => readFileSync(`components/${f}`, 'utf8').trim()).join('\n\n') + '\n');
+
+// 6. preview.html: live examples of every component, then every color role. Built from the same files projects use.
 const v = (k) => resolve(all, all[k].value);
+const examples = readdirSync('components').filter((f) => f.endsWith('.examples.html')).sort()
+  .map((f) => `<section><h2>${f.replace('.examples.html', '').replace(/^./, (c) => c.toUpperCase())}</h2>\n${readFileSync(`components/${f}`, 'utf8')}</section>`).join('\n');
 const rows = semanticColors.map((k) => `<tr><td><code>${k}</code></td><td><span class="sw" style="background:${v(k)}"></span></td><td><code>${v(k)}</code></td><td>${all[k].description ?? ''}</td></tr>`).join('\n');
-const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ISA Design System tokens</title>
-<style>${css}
-body{margin:0;font-family:var(--isa-font-family-body);color:var(--isa-color-text-default);background:var(--isa-color-surface-default)}
-main{max-width:72rem;margin:0 auto;padding:2rem 1rem}h1,h2{font-family:var(--isa-font-family-heading)}
-table{border-collapse:collapse;width:100%;font-size:.875rem}td{border-bottom:1px solid var(--isa-color-border-default);padding:.5rem;vertical-align:middle}
-.sw{display:inline-block;width:2.5rem;height:1.5rem;border-radius:.25rem;border:1px solid var(--isa-color-border-default)}</style>
-<link rel="stylesheet" href="./fonts.css"></head>
-<body><main><h1>ISA Design System: color roles</h1><p>Generated from tokens/. Light theme. Run <code>npm run check</code> for contrast results.</p>
-<table>${rows}</table></main></body></html>`;
+const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ISA Design System preview</title>
+<link rel="stylesheet" href="./fonts.css"><link rel="stylesheet" href="./tokens.css"><link rel="stylesheet" href="./components.css">
+<style>
+body{margin:0;font-family:var(--isa-font-family-body);color:var(--isa-color-text-default);background:var(--isa-color-surface-default);line-height:var(--isa-font-line-height-normal)}
+main{max-width:72rem;margin:0 auto;padding:var(--isa-space-8) var(--isa-space-4)}
+h1,h2,h3{font-family:var(--isa-font-family-heading);line-height:var(--isa-font-line-height-snug);margin:0}
+h1{font-size:var(--isa-font-size-5xl)}h2{font-size:var(--isa-font-size-4xl);margin-top:var(--isa-space-12);padding-top:var(--isa-space-6);border-top:1px solid var(--isa-color-border-default)}
+h3{font-size:var(--isa-font-size-xl);font-weight:var(--isa-font-weight-semibold);margin-top:var(--isa-space-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--isa-space-3);align-items:center;margin-top:var(--isa-space-3)}
+.brand{background:var(--isa-color-surface-brand);padding:var(--isa-space-4);border-radius:var(--isa-radius-lg)}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:var(--isa-font-size-sm);margin-top:var(--isa-space-4)}
+td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-space-2);vertical-align:middle}
+.sw{display:inline-block;width:2.5rem;height:1.5rem;border-radius:var(--isa-radius-sm);border:1px solid var(--isa-color-border-default)}
+</style></head>
+<body><main><h1>ISA Design System</h1><p>Version ${JSON.parse(readFileSync('package.json', 'utf8')).version}. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
+${examples}
+<section><h2>Color roles</h2><p>Light theme. Run <code>npm run check</code> for contrast results.</p><div class="scroll"><table>${rows}</table></div></section>
+</main></body></html>
+`;
 writeFileSync('dist/preview.html', html);
 
 console.log(`Built ${Object.keys(all).length} tokens, themes: ${themes.join(', ')}`);

@@ -28,13 +28,14 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Fonts self-hosted (files in the repo), no Google Fonts requests. | Roberto |
 | 2026-11-14 | Versions numbered with semantic versioning, CHANGELOG.md, git tags. First tagged release: v0.2.0 (0.1.0 was never tagged; it had a Tailwind bug). | Roberto |
 | 2026-11-14 | Licence: MIT, like most popular design systems (e.g. GitHub Primer, GOV.UK Frontend, Radix; IBM Carbon and Atlassian use Apache 2.0). ISA name and logos excluded; fonts under SIL OFL. The other ISA repo checked (SportHub) has no licence file. | Roberto (asked for this), Claude (choice) |
+| 2026-11-14 | SportHub's developers consent to their components being adapted into this system. | Roberto |
+| 2026-11-14 | Components ship as plain CSS classes (`isa-*`) plus optional React wrappers, so non-React projects can use them too. Button and Badge extracted first (v0.3.0). SportHub's domain badges (discipline, role...) stay in SportHub. | Claude |
 
 ## Open questions
 1. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
-2. **SportHub components in the system:** SportHub has no licence file, so its developers (Can Sahin, Muhammad Martinez, Jonas Umlauft and others) should agree before code is copied over. Then extract one at a time, starting with Button and Badge.
+2. **Review Button and Badge** in `dist/preview.html` (look, sizes, names) before more components follow. Next suggested: Alert, form fields, Tabs, Modal.
 
 ## Next steps (from the review, not yet done)
-1. Correct the component inventory: SportHub already has Alert, Avatar, Badge, Button, Card, Drawer, Modal, Spinner, Tab, Table, Tooltip and more.
 2. Missing tokens: elevation, z-index, easing, opacity, border width, icon sizes; text-style utilities for Tailwind.
 3. Consider strict W3C token format (or a tool like Style Dictionary) and a Tailwind compile test in CI.
 4. Shorter Tailwind class names (`text-muted` instead of `text-text-muted`).

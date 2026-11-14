@@ -9,6 +9,7 @@ Design tokens, guidelines and (soon) components for projects of the [Internation
 ## What is in here
 - `tokens/`: the source of truth (close to the W3C Design Tokens format, simplified). Primitive values (official ISA palette, type, spacing) and semantic roles (text, surface, border, action, status, category).
 - `dist/`: generated CSS variables, a Tailwind v4 theme, resolved JSON and a preview page.
+- `components/`, `react/`: component styles (plain CSS), live examples and React wrappers.
 - `docs/`: how and when to use each foundation and component.
 - `scripts/`: build, contrast check (WCAG AA) and `isa-audit`, which finds colors in a project that bypass the system.
 - `fonts/`: Barlow and Barlow Condensed, self-hosted.
@@ -23,4 +24,4 @@ node scripts/audit.mjs ../some-project/src   # find hard-coded colors in a proje
 No dependencies; Node 18+.
 
 ## Status
-Version 0.1: foundations only. Components will be extracted from the Slackline Sport Hub as they prove themselves. Maintainers: Roberto de Oliveira, with Can Sahin and Muhammad Martinez.
+Version 0.3: foundations plus the first two components (Button, Badge). More are extracted from the Slackline Sport Hub one at a time. Maintainers: Roberto de Oliveira, with Can Sahin and Muhammad Martinez.

@@ -8,7 +8,7 @@ You are working with the design system of the International Slackline Associatio
 3. **Fonts:** Barlow Condensed for headings 20px and up, Barlow for everything else. Body text at least 16px on phones.
 4. **Mobile first.** Every screen must work at 360px wide. Many ISA users are on phones.
 5. **Native HTML first:** real `<button>`, `<a href>`, `<label>` + `<input>`. No clickable divs.
-6. **Reuse before you create.** Check `docs/components/` for an existing component or pattern. New patterns need a human decision; note them in your PR.
+6. **Reuse before you create.** Check `docs/components/` for an existing component or pattern. Use `isa-button` and `isa-badge` (or the React `Button` and `Badge`) instead of styling your own. New patterns need a human decision; note them in your PR.
 7. **Brand red and green 500 are for logos, large display text and decoration**, not small text or small buttons on white.
 8. **Dark mode is not built yet,** but never hard-code light colors: using roles keeps it possible.
 9. **Before you say you are done** in a project: run `npx isa-audit <your src folder>` (zero hard-coded colors) and check your UI at 360px.
@@ -22,19 +22,21 @@ You are working with the design system of the International Slackline Associatio
 | Spacing, radius, breakpoints, layout | `docs/foundations/layout.md` |
 | Accessibility rules | `docs/foundations/accessibility.md` |
 | Themes and dark mode architecture | `docs/foundations/theming.md` |
-| Components (inventory, template) | `docs/components/README.md` |
+| Components: Button, Badge (list, how to add more) | `docs/components/README.md` |
+| Component styles and live examples | `components/*.css`, `components/*.examples.html` |
+| React components | `react/` (`import { Button, Badge } from "isa-design-system/react"`) |
 | Token sources (edit these) | `tokens/` |
-| Built outputs (never edit by hand) | `dist/tokens.css`, `dist/tailwind.css`, `dist/tokens.json`, `dist/fonts.css`, `dist/preview.html` |
+| Built outputs (never edit by hand) | `dist/tokens.css`, `dist/tailwind.css`, `dist/tokens.json`, `dist/fonts.css`, `dist/components.css`, `dist/preview.html` |
 
 ## Using it in a project
-- Tailwind v4: `@import "isa-design-system/fonts.css"; @import "isa-design-system/tailwind.css";`
-- Plain CSS: import `dist/fonts.css` and `dist/tokens.css`, then use `var(--isa-color-text-default)` etc.
-- Install a tagged version: `npm install github:rodeohub/isa-design-system#v0.2.0` (repo will move to the ISA GitHub organization). Check `CHANGELOG.md` before upgrading.
+- Tailwind v4: `@import "isa-design-system/fonts.css"; @import "isa-design-system/tailwind.css"; @import "isa-design-system/components.css" layer(components);`
+- Plain CSS: import `dist/fonts.css`, `dist/tokens.css` and `dist/components.css`, then use `var(--isa-color-text-default)` etc.
+- Install a tagged version: `npm install github:rodeohub/isa-design-system#v0.3.0` (repo will move to the ISA GitHub organization). Check `CHANGELOG.md` before upgrading.
 
 ## Changing the system (in this repo)
-1. Edit `tokens/` (DTCG JSON) and the matching doc in `docs/`.
+1. Edit `tokens/` (DTCG JSON) or `components/`, and the matching doc in `docs/`.
 2. Add any new color pairing to `tokens/contrast-pairs.json`.
-3. Run `npm run check` (builds `dist/` and fails below AA). Commit `dist/` with the change.
+3. Run `npm run check` (builds `dist/`, fails below AA, audits `components/`) and look at `dist/preview.html`. Commit `dist/` with the change.
 4. Record decisions in `DECISIONS.md`. Brand-value changes need Roberto's OK.
 5. Releases: bump `version` in package.json (semantic versioning, see `CHANGELOG.md`), add a CHANGELOG entry, then tag `vX.Y.Z` and push the tag.
 6. Writing style for docs: plain, concise, no em dashes.
