@@ -23,6 +23,7 @@ You are working with the design system of the International Slackline Associatio
 | Accessibility rules | `docs/foundations/accessibility.md` |
 | Themes and dark mode architecture | `docs/foundations/theming.md` |
 | Components: Button, Badge, Alert, form fields, Tabs, Dialog, Card, Table, Spinner, Tooltip, Drawer, Avatar, Header/Nav/Footer, Pagination, Breadcrumbs, Empty state, Toast, Autocomplete, Filters, Page layout (list, how to add more) | `docs/components/README.md` |
+| A full example page to model new pages on | `examples/sporthub-rankings.html` |
 | Component styles and live examples | `components/*.css`, `components/*.examples.html` |
 | React components | `react/` (`import { Button, Badge, Alert, TextField, ... } from "isa-design-system/react"`) |
 | What differs from the Slackline Sport Hub (for its developers) | `docs/sporthub-differences.md` |

@@ -2,6 +2,10 @@
 
 Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.10.0`, and upgrade on purpose.
 
+## 0.10.1 (2026-11-14)
+- `examples/sporthub-rankings.html`: a full example page (a mock of the Sport Hub rankings page with placeholder data) built only from the system. `scripts/standalone-example.mjs` writes a single-file copy for sharing.
+- Docs: Barlow and Barlow Condensed are also the fonts for print and slides.
+
 ## 0.10.0 (2026-11-14)
 - Tailwind: short class names for text, surface and border roles (`text-muted`, `bg-subtle`, `border-strong`); the long names (`text-text-muted`) keep working. Text styles as one class each: `type-h1` to `type-h4`, `type-display`, `type-body`, `type-body-sm`, `type-label`, `type-button`, `type-badge`. `ease-standard`.
 - New tokens: `border-width.thin` and `thick`, `icon.sm` to `xl`, `opacity.muted`, `easing.standard`. Components use `border-width.thin`.

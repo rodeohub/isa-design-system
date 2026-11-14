@@ -24,3 +24,6 @@ Rules:
 
 ## Tailwind classes
 Each text style is one class: `type-display`, `type-h1`, `type-h2`, `type-h3`, `type-h4`, `type-body`, `type-body-sm`, `type-label`, `type-button`, `type-badge`. Prefer them over combining `font-heading text-5xl font-bold`. Add the color separately (`text-default`, `text-muted`).
+
+## Print and slides
+The same two families, from Google Fonts: Barlow Condensed for headings, Barlow for text (Roberto, 2026-11-14). Both are in the font menu of Google Docs and Slides ("More fonts"). The size and contrast rules on this page are written for screens; for print, keep body text at 10pt or larger.

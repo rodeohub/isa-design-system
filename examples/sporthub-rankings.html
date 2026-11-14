@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- Example page: a mock of the Slackline Sport Hub rankings page, built only from the ISA Design System.
+     Athlete names, points and events are placeholders, not real data. Agents: use this as a model for a full page. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rankings: Sport Hub (mock)</title>
+<link rel="stylesheet" href="../dist/fonts.css"><link rel="stylesheet" href="../dist/tokens.css"><link rel="stylesheet" href="../dist/components.css">
+<style>
+/* Page-specific layout only. Tokens only, no colors of its own. */
+body { margin: 0; }
+main h2 { margin: 0 0 var(--isa-space-4); font-family: var(--isa-text-style-h2-family); font-weight: var(--isa-text-style-h2-weight); font-size: var(--isa-font-size-3xl); line-height: var(--isa-text-style-h2-line-height); }
+main p { margin: 0; }
+.stack { display: flex; flex-direction: column; gap: var(--isa-space-4); }
+.split { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--isa-space-3); }
+.athlete { display: inline-flex; align-items: center; gap: var(--isa-space-2); }
+.athlete a { color: var(--isa-color-text-link); }
+</style>
+</head>
+<body>
+<a class="isa-skip-link" href="#main">Skip to content</a>
+<div class="isa-page">
+  <header class="isa-header" data-isa-surface="brand">
+    <a class="isa-header__brand" href="#" aria-label="Sport Hub home">Sport Hub</a>
+    <nav class="isa-header__nav" aria-label="Main"><ul class="isa-nav"><li><a class="isa-nav__link" href="#">Home</a></li><li><a class="isa-nav__link" href="#" aria-current="page">Rankings</a></li><li><a class="isa-nav__link" href="#">Competitions</a></li><li><a class="isa-nav__link" href="#">Judging</a></li><li><a class="isa-nav__link" href="#">Records &amp; Firsts</a></li></ul></nav>
+    <div class="isa-header__actions">
+      <button type="button" class="isa-header__menu-button" aria-label="Menu" data-isa-dialog-open="menu"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+  <dialog class="isa-drawer" id="menu" aria-labelledby="menu-title">
+    <div class="isa-drawer__header">
+      <h2 class="isa-drawer__title" id="menu-title">Menu</h2>
+      <button type="button" class="isa-button isa-button--ghost isa-button--icon" aria-label="Close" data-isa-dialog-close><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="isa-drawer__body"><nav aria-label="Main"><ul class="isa-nav isa-nav--vertical"><li><a class="isa-nav__link" href="#">Home</a></li><li><a class="isa-nav__link" href="#" aria-current="page">Rankings</a></li><li><a class="isa-nav__link" href="#">Competitions</a></li><li><a class="isa-nav__link" href="#">Judging</a></li><li><a class="isa-nav__link" href="#">Records &amp; Firsts</a></li></ul></nav></div>
+  </dialog>
+
+  <main id="main" class="isa-main">
+    <nav class="isa-breadcrumbs" aria-label="Breadcrumb">
+      <ol><li><a href="#">Home</a></li><li><span aria-current="page">Rankings</span></li></ol>
+    </nav>
+
+    <div class="isa-page-title">
+      <h1>Rankings</h1>
+      <p>World rankings of ISA sanctioned competitions, updated after every event.</p>
+    </div>
+
+    <div class="isa-alert" role="status"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><div class="isa-alert__body">This is a mock page with placeholder data. <a href="#">How rankings are calculated</a>.</div></div>
+
+    <section class="stack" aria-labelledby="ranking-title">
+      <div class="isa-tabs isa-tabs--pill" role="tablist" aria-label="Category">
+        <button type="button" class="isa-tab" role="tab" id="t-women" aria-controls="p-ranking" aria-selected="true">Women</button>
+        <button type="button" class="isa-tab" role="tab" id="t-men" aria-controls="p-ranking">Men</button>
+        <button type="button" class="isa-tab" role="tab" id="t-all" aria-controls="p-ranking">All</button>
+      </div>
+      <div class="stack" id="p-ranking">
+        <div class="isa-filters">
+          <button type="button" class="isa-button isa-button--neutral isa-filters__toggle" aria-expanded="false" aria-controls="filter-fields"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Filters</button>
+          <div class="isa-filters__fields" id="filter-fields" role="group" aria-label="Filter athletes">
+            <div class="isa-field"><label class="isa-label" for="f-name">Name</label><input class="isa-input" id="f-name" type="search"></div>
+            <div class="isa-field"><label class="isa-label" for="f-disc">Discipline</label><span class="isa-select"><select id="f-disc"><option>Freestyle Highline</option><option>Speed Highline</option><option>Trickline</option><option>Speed Short</option></select></span></div>
+            <div class="isa-field"><label class="isa-label" for="f-country">Country</label>
+              <div class="isa-autocomplete" data-isa-autocomplete>
+                <input class="isa-input" id="f-country" type="text" role="combobox" aria-expanded="false" aria-controls="f-country-list" aria-autocomplete="list" autocomplete="off">
+                <ul class="isa-autocomplete__list" id="f-country-list" role="listbox" aria-label="Country" hidden><li class="isa-autocomplete__option" role="option" data-value="AUT">Austria</li><li class="isa-autocomplete__option" role="option" data-value="BRA">Brazil</li><li class="isa-autocomplete__option" role="option" data-value="CZE">Czechia</li><li class="isa-autocomplete__option" role="option" data-value="FRA">France</li><li class="isa-autocomplete__option" role="option" data-value="GER">Germany</li><li class="isa-autocomplete__option" role="option" data-value="POL">Poland</li><li class="isa-autocomplete__option" role="option" data-value="SUI">Switzerland</li><li class="isa-autocomplete__option" role="option" data-value="USA">United States</li></ul>
+                <p class="isa-autocomplete__empty" role="status" hidden>No matches</p>
+              </div>
+            </div>
+            <button type="button" class="isa-button isa-button--ghost">Reset</button>
+          </div>
+        </div>
+
+        <div class="split">
+          <p role="status">Showing 1 to 8 of 240 athletes</p>
+          <button type="button" class="isa-button isa-button--neutral isa-button--small" data-isa-toast="Link to this ranking copied." data-isa-toast-variant="success">Copy link</button>
+        </div>
+
+        <div class="isa-table-wrap" role="region" aria-labelledby="ranking-title" tabindex="0">
+          <table class="isa-table">
+            <caption id="ranking-title">Freestyle Highline ranking, women</caption>
+            <thead><tr>
+              <th scope="col" aria-sort="ascending" class="isa-table__num"><button type="button" class="isa-table__sort">Rank <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></th>
+              <th scope="col">Athlete</th><th scope="col">Country</th>
+              <th scope="col" aria-sort="none" class="isa-table__num"><button type="button" class="isa-table__sort">Points <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></th>
+              <th scope="col">Status</th>
+            </tr></thead>
+            <tbody>
+          <tr><td class="isa-table__num">1</td><th scope="row"><span class="athlete"><span class="isa-avatar isa-avatar--small" aria-hidden="true">A1</span><a href="#">[Athlete 1]</a></span></th><td>Czechia</td><td class="isa-table__num">1,240</td><td><span class="isa-badge isa-badge--brand isa-badge--outline">ISA verified</span></td></tr>
+          <tr><td class="isa-table__num">2</td><th scope="row"><span class="athlete"><span class="isa-avatar isa-avatar--small" aria-hidden="true">A2</span><a href="#">[Athlete 2]</a></span></th><td>Brazil</td><td class="isa-table__num">1,185</td><td><span class="isa-badge isa-badge--brand isa-badge--outline">ISA verified</span></td></tr>
+          <tr><td class="isa-table__num">3</td><th scope="row"><span class="athlete"><span class="isa-avatar isa-avatar--small" aria-hidden="true">A3</span><a href="#">[Athlete 3]</a></span></th><td>Germany</td><td class="isa-table__num">990</td><td><span class="isa-badge">Pending</span></td></tr>
+          <tr><td class="isa-table__num">4</td><th scope="row"><span class="athlete"><span class="isa-avatar isa-avatar--small" aria-hidden="true">A4</span><a href="#">[Athlete 4]</a></span></th><td>France</td><td class="isa-table__num">965</td><td><span class="isa-badge isa-badge--brand isa-badge--outline">ISA verified</span></td></tr>
+          <tr><td class="isa-table__num">5</td><th scope="row"><span class="athlete"><span class="isa-avatar isa-avatar--small" aria-hidden="true">A5</span><a href="#">[Athlete 5]</a></span></th><td>Switzerland</td><td class="isa-table__num">940</td><td><span class="isa-badge isa-badge--brand isa-badge--outline">ISA verified</span></td></tr>
+          <tr><td class="isa-table__num">6</td><th scope="row"><span class="athlete"><span class="isa-avatar isa-avatar--small" aria-hidden="true">A6</span><a href="#">[Athlete 6]</a></span></th><td>United States</td><td class="isa-table__num">905</td><td><span class="isa-badge isa-badge--brand isa-badge--outline">ISA verified</span></td></tr>
+          <tr><td class="isa-table__num">7</td><th scope="row"><span class="athlete"><span class="isa-avatar isa-avatar--small" aria-hidden="true">A7</span><a href="#">[Athlete 7]</a></span></th><td>Austria</td><td class="isa-table__num">870</td><td><span class="isa-badge">Pending</span></td></tr>
+          <tr><td class="isa-table__num">8</td><th scope="row"><span class="athlete"><span class="isa-avatar isa-avatar--small" aria-hidden="true">A8</span><a href="#">[Athlete 8]</a></span></th><td>Poland</td><td class="isa-table__num">815</td><td><span class="isa-badge isa-badge--brand isa-badge--outline">ISA verified</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <nav class="isa-pagination" aria-label="Pagination">
+          <ul class="isa-pagination__list">
+            <li><button type="button" class="isa-pagination__item" aria-label="Previous page" disabled><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg><span class="isa-pagination__word">Previous</span></button></li>
+            <li><button type="button" class="isa-pagination__item" aria-label="Page 1" aria-current="page">1</button></li>
+            <li><button type="button" class="isa-pagination__item" aria-label="Page 2">2</button></li>
+            <li><span class="isa-pagination__gap" aria-hidden="true">…</span></li>
+            <li><button type="button" class="isa-pagination__item" aria-label="Page 30">30</button></li>
+            <li><button type="button" class="isa-pagination__item" aria-label="Next page"><span class="isa-pagination__word">Next</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <section aria-labelledby="events-title">
+      <div class="split"><h2 id="events-title">Next competitions</h2><a class="isa-button isa-button--secondary isa-button--small" href="#">All competitions</a></div>
+      <ul class="isa-card-grid">
+      <li><article class="isa-card">
+        <div class="isa-card__media" aria-hidden="true"></div>
+        <div class="isa-card__body">
+          <h3 class="isa-card__title"><a class="isa-card__link" href="#">[Event name 1]</a></h3>
+          <p class="isa-card__meta">[City, country] · [dates]</p>
+          <div class="isa-card__footer"><span class="isa-badge isa-badge--orange">Freestyle Highline</span><span class="isa-badge isa-badge--info">Upcoming</span></div>
+        </div>
+      </article></li>
+      <li><article class="isa-card">
+        <div class="isa-card__media" aria-hidden="true"></div>
+        <div class="isa-card__body">
+          <h3 class="isa-card__title"><a class="isa-card__link" href="#">[Event name 2]</a></h3>
+          <p class="isa-card__meta">[City, country] · [dates]</p>
+          <div class="isa-card__footer"><span class="isa-badge isa-badge--blue">Speed Highline</span><span class="isa-badge isa-badge--success">Confirmed</span></div>
+        </div>
+      </article></li>
+      <li><article class="isa-card">
+        <div class="isa-card__media" aria-hidden="true"></div>
+        <div class="isa-card__body">
+          <h3 class="isa-card__title"><a class="isa-card__link" href="#">[Event name 3]</a></h3>
+          <p class="isa-card__meta">[City, country] · [dates]</p>
+          <div class="isa-card__footer"><span class="isa-badge isa-badge--violet">Trickline</span><span class="isa-badge isa-badge--info">Upcoming</span></div>
+        </div>
+      </article></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="records-title">
+      <h2 id="records-title">Your submitted records</h2>
+      <div class="isa-empty">
+        <h3 class="isa-empty__title">No records yet</h3>
+        <p class="isa-empty__text">Records you submit for review will appear here.</p>
+        <div class="isa-empty__actions"><a class="isa-button" href="#">Submit a record</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="isa-footer">
+    <nav aria-label="Footer"><ul class="isa-footer__links">
+      <li><a href="#">Frequently asked questions</a></li><li><a href="#">ISA members and partners</a></li><li><a href="#">Event registration</a></li><li><a href="#">Open source</a></li><li><a href="#">About ISA sports</a></li><li><a href="#">Contact us</a></li>
+    </ul></nav>
+    <p class="isa-footer__note">International Slackline Association</p>
+  </footer>
+</div>
+<script type="module" src="../dist/isa.js"></script>
+</body>
+</html>

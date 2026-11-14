@@ -31,7 +31,7 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | SportHub's developers consent to their components being adapted into this system. | Roberto |
 | 2026-11-14 | Components ship as plain CSS classes (`isa-*`) plus optional React wrappers, so non-React projects can use them too. Button and Badge extracted first (v0.3.0). SportHub's domain badges (discipline, role...) stay in SportHub. | Claude |
 | 2026-11-14 | Alert and form fields extracted (v0.4.0). Form components are not tied to Formik (SportHub's are), so any project can use them. Inputs are 44px high and 16px text; help text sits above the control; errors are text with an icon. SportHub's autocomplete and domain dropdowns stay in SportHub for now. | Claude |
-| 2026-11-14 | Barlow is the font for websites and web apps only. Fonts for print and slides are not decided. | Roberto |
+| 2026-11-14 | Barlow is the font for websites and web apps only. Print and slides: decided later the same day, see below. | Roberto |
 | 2026-11-14 | Tabs and Dialog extracted (v0.5.0). Dialog uses the browser's native `<dialog>` (focus trap, Escape, focus return for free). A small script `dist/isa.js` makes tabs and dialogs work on plain HTML pages. SportHub's Modal is called Dialog here. | Claude |
 | 2026-11-14 | Alert and form fields approved. | Roberto |
 | 2026-11-14 | A Figma library will mirror the repo (code stays the source). Team: Thomas Buckingham's or Roberto's, either is fine. | Roberto |
@@ -43,12 +43,13 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Breadcrumbs, Empty state and Toast added (v0.8.0), new in the system. Toasts sit at the bottom (right from 640px), leave after 6 seconds, pause on hover and focus; errors stay until closed; no actions inside a toast. Roberto approved the v0.7.0 batch. | Claude |
 | 2026-11-14 | Autocomplete, Filters and Page layout extracted (v0.9.0): the Sport Hub extraction is complete. No text on top of photos (title above, caption below). Autocomplete opens on typing, not on focus. Filters are layout only; projects keep their own filter logic. The multi-select filter dropdown is left out for now. | Claude |
 | 2026-11-14 | Review items done (v0.10.0): missing tokens (border width, icon sizes, opacity, easing), short Tailwind class names next to the long ones, text-style classes (`type-*`), Tailwind compile test in CI. The token files stay in the current DTCG-like JSON with the own zero-dependency build: Style Dictionary would add a dependency without a present need; revisit if a second output platform (iOS, Android) appears. Opacity is for decoration only, never for disabled or muted text. | Claude |
+| 2026-11-14 | Breadcrumbs, Empty state, Toast, Autocomplete, Filters and Page layout approved. Print and slides use the same fonts from Google Fonts (Barlow Condensed and Barlow), which Google Docs and Slides offer. A mock Sport Hub rankings page (`examples/sporthub-rankings.html`) is the first full page built from the system. | Roberto |
 
 ## Open questions
 1. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
-2. **Review** Breadcrumbs, Empty state, Toast (v0.8.0) and Autocomplete, Filters, Page layout (v0.9.0) in `dist/preview.html`. The v0.7.0 batch is approved (Roberto, 2026-11-14).
+2. **Review the mock page** `examples/sporthub-rankings.html`.
 3. **Solid badges (parked by Roberto, 2026-11-14):** SportHub has two solid badges (athlete: white on red, judge: white on green). Add a solid badge style, or keep soft and outline only? Do not raise again until Roberto does or the SportHub migration starts.
-4. **Next:** components and review items are done. Roberto reviews v0.8.0 to v0.10.0; then the Figma refresh, or first use in a real project.
+4. **Next:** the Figma refresh is in progress (Roberto, 2026-11-14: "Get Figma ready now").
 5. **Figma:** refresh the library at the end of the project (it is at v0.5.0).
 
 ## Next steps
