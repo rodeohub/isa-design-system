@@ -45,16 +45,22 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Review items done (v0.10.0): missing tokens (border width, icon sizes, opacity, easing), short Tailwind class names next to the long ones, text-style classes (`type-*`), Tailwind compile test in CI. The token files stay in the current DTCG-like JSON with the own zero-dependency build: Style Dictionary would add a dependency without a present need; revisit if a second output platform (iOS, Android) appears. Opacity is for decoration only, never for disabled or muted text. | Claude |
 | 2026-11-14 | Breadcrumbs, Empty state, Toast, Autocomplete, Filters and Page layout approved. Print and slides use the same fonts from Google Fonts (Barlow Condensed and Barlow), which Google Docs and Slides offer. A mock Sport Hub rankings page (`examples/sporthub-rankings.html`) is the first full page built from the system. | Roberto |
 | 2026-11-14 | The footer is green like the header (`surface.brand`, white text), not light gray (v0.11.0). | Roberto |
+| 2026-11-14 | Figma library refreshed to v0.11.0: 9 new color roles, 24 layout variables, 16 new components. | Claude |
+| 2026-11-14 | Dark mode is on the to-do list. Before starting, Roberto answers the questions under Open questions. | Roberto |
 
 ## Open questions
 1. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
 2. **Review the mock page** `examples/sporthub-rankings.html`.
 3. **Solid badges (parked by Roberto, 2026-11-14):** SportHub has two solid badges (athlete: white on red, judge: white on green). Add a solid badge style, or keep soft and outline only? Do not raise again until Roberto does or the SportHub migration starts.
-4. **Next:** the Figma refresh is in progress (Roberto, 2026-11-14: "Get Figma ready now").
-5. **Figma:** refresh the library at the end of the project (it is at v0.5.0).
+4. **Dark mode, to answer before work starts:**
+   1. How is it switched: follows the device setting only, or also a switch on the page that is remembered?
+   2. Which project needs it first, and by when? (Decides how much to test.)
+   3. Header and footer in dark mode: stay green, or become dark gray with green accents?
+   4. Logos: is there a white or light version for dark backgrounds?
+   5. Contrast target in dark mode: AA as now, or stricter (AAA for body text)?
 
 ## Next steps
-1. Refresh the Figma library (last, at the end of the project; it is at v0.5.0).
+1. Dark mode (after the questions above): add `tokens/semantic/themes/dark.json`, a second mode in the Figma `Color` collection, contrast pairs checked in both themes.
 2. If the Sport Hub migrates later (separate project): a class map from default Tailwind colors to roles.
 3. Possible components: multi-select dropdown, number field with steppers.
-4. Dark mode: add `tokens/semantic/themes/dark.json` when wanted.
+4. Storybook: not needed now (the preview page and the example page cover it). Worth adding when several developers build React components here and want to test states and run visual regression checks.
