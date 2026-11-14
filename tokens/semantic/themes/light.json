@@ -1,0 +1,67 @@
+{
+  "$description": "Semantic color roles for the light theme (the only theme for now). A dark theme is added later as themes/dark.json with the same keys and different values. Projects and components use ONLY these roles.",
+  "color": {
+    "$type": "color",
+    "text": {
+      "default": { "$value": "{color.gray.700}", "$description": "Body and headings." },
+      "muted": { "$value": "{color.gray.500}", "$description": "Secondary text, help text, captions. Still AA on surface.default and surface.subtle." },
+      "inverse": { "$value": "{color.white}", "$description": "Text on dark or brand surfaces." },
+      "link": { "$value": "{color.green.700}" },
+      "link-hover": { "$value": "{color.green.800}" },
+      "danger": { "$value": "{color.red.700}", "$description": "Error messages." },
+      "success": { "$value": "{color.green.700}" }
+    },
+    "surface": {
+      "default": { "$value": "{color.white}" },
+      "subtle": { "$value": "{color.gray.50}" },
+      "muted": { "$value": "{color.gray.100}" },
+      "inverse": { "$value": "{color.gray.800}" },
+      "brand": { "$value": "{color.green.700}", "$description": "Header bars and brand areas with text.inverse on top." },
+      "danger": { "$value": "{color.red.50}" },
+      "success": { "$value": "{color.green.50}" }
+    },
+    "border": {
+      "default": { "$value": "{color.gray.200}", "$description": "Dividers and card outlines (decorative)." },
+      "strong": { "$value": "{color.gray.400}", "$description": "Input borders and other borders that must be seen (3:1)." },
+      "focus": { "$value": "{color.green.700}", "$description": "Focus ring." },
+      "danger": { "$value": "{color.red.600}" }
+    },
+    "action": {
+      "primary-bg": { "$value": "{color.green.700}" },
+      "primary-bg-hover": { "$value": "{color.green.800}" },
+      "primary-fg": { "$value": "{color.white}" },
+      "secondary-bg": { "$value": "{color.white}" },
+      "secondary-bg-hover": { "$value": "{color.green.50}" },
+      "secondary-fg": { "$value": "{color.green.700}" },
+      "secondary-border": { "$value": "{color.green.700}" },
+      "danger-bg": { "$value": "{color.red.600}" },
+      "danger-bg-hover": { "$value": "{color.red.700}" },
+      "danger-fg": { "$value": "{color.white}" },
+      "disabled-bg": { "$value": "{color.gray.100}" },
+      "disabled-fg": { "$value": "{color.gray.400}", "$description": "Disabled controls are exempt from contrast rules, but keep them recognisable." }
+    },
+    "brand": {
+      "red": { "$value": "{color.red.500}", "$description": "Logos, large display text (24px+), decoration. Not for small text on white." },
+      "green": { "$value": "{color.green.500}", "$description": "Logos, large display text (24px+), decoration. Not for small text on white." },
+      "gray": { "$value": "{color.gray.500}" }
+    },
+    "status": {
+      "success-fg": { "$value": "{color.green.800}" }, "success-bg": { "$value": "{color.green.100}" },
+      "danger-fg": { "$value": "{color.red.700}" }, "danger-bg": { "$value": "{color.red.100}" },
+      "warning-fg": { "$value": "{color.category-hue.orange.dark}" }, "warning-bg": { "$value": "{color.category-hue.orange.light}" },
+      "info-fg": { "$value": "{color.category-hue.blue.dark}" }, "info-bg": { "$value": "{color.category-hue.blue.light}" }
+    },
+    "category": {
+      "$description": "Category colors for badges and tags (disciplines, contest levels, roles). Separate from brand and status colors. Each has fg and bg; use them as a pair.",
+      "neutral-fg": { "$value": "{color.gray.700}" }, "neutral-bg": { "$value": "{color.gray.100}" },
+      "green-fg": { "$value": "{color.green.800}" }, "green-bg": { "$value": "{color.green.100}" },
+      "red-fg": { "$value": "{color.red.700}" }, "red-bg": { "$value": "{color.red.100}" },
+      "blue-fg": { "$value": "{color.category-hue.blue.dark}" }, "blue-bg": { "$value": "{color.category-hue.blue.light}" },
+      "teal-fg": { "$value": "{color.category-hue.teal.dark}" }, "teal-bg": { "$value": "{color.category-hue.teal.light}" },
+      "orange-fg": { "$value": "{color.category-hue.orange.dark}" }, "orange-bg": { "$value": "{color.category-hue.orange.light}" },
+      "yellow-fg": { "$value": "{color.category-hue.yellow.dark}" }, "yellow-bg": { "$value": "{color.category-hue.yellow.light}" },
+      "pink-fg": { "$value": "{color.category-hue.pink.dark}" }, "pink-bg": { "$value": "{color.category-hue.pink.light}" },
+      "purple-fg": { "$value": "{color.category-hue.purple.dark}" }, "purple-bg": { "$value": "{color.category-hue.purple.light}" }
+    }
+  }
+}

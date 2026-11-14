@@ -1,0 +1,30 @@
+{
+  "$description": "Spacing on a 4px grid, radii, sizes and breakpoints. Breakpoints taken from SportHub.",
+  "space": {
+    "$type": "dimension",
+    "0": { "$value": "0" }, "1": { "$value": "0.25rem" }, "2": { "$value": "0.5rem" }, "3": { "$value": "0.75rem" },
+    "4": { "$value": "1rem" }, "5": { "$value": "1.25rem" }, "6": { "$value": "1.5rem" }, "8": { "$value": "2rem" },
+    "10": { "$value": "2.5rem" }, "12": { "$value": "3rem" }, "16": { "$value": "4rem" }, "24": { "$value": "6rem" }
+  },
+  "radius": {
+    "$type": "dimension",
+    "none": { "$value": "0" }, "sm": { "$value": "0.25rem" }, "md": { "$value": "0.5rem" },
+    "lg": { "$value": "0.75rem" }, "xl": { "$value": "1rem" }, "full": { "$value": "9999px" }
+  },
+  "size": {
+    "$type": "dimension",
+    "touch-target": { "$value": "2.75rem", "$description": "44px minimum for anything tappable (WCAG 2.5.5 / Apple HIG)." },
+    "focus-ring-width": { "$value": "2px" },
+    "focus-ring-offset": { "$value": "2px" },
+    "content-max": { "$value": "80rem" }
+  },
+  "breakpoint": {
+    "$type": "dimension",
+    "xs": { "$value": "20rem" }, "sm": { "$value": "40rem" }, "md": { "$value": "48rem" },
+    "lg": { "$value": "64rem" }, "xl": { "$value": "80rem" }
+  },
+  "duration": {
+    "$type": "duration",
+    "fast": { "$value": "120ms" }, "normal": { "$value": "200ms" }, "slow": { "$value": "320ms" }
+  }
+}

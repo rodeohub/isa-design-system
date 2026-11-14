@@ -1,0 +1,15 @@
+{
+  "$description": "Text styles. Theme-independent. Headings use Barlow Condensed only from 20px up; anything smaller uses Barlow.",
+  "text-style": {
+    "display": { "family": { "$value": "{font.family.heading}" }, "weight": { "$value": "{font.weight.bold}" }, "size": { "$value": "{font.size.6xl}" }, "line-height": { "$value": "{font.line-height.tight}" } },
+    "h1": { "family": { "$value": "{font.family.heading}" }, "weight": { "$value": "{font.weight.bold}" }, "size": { "$value": "{font.size.5xl}" }, "line-height": { "$value": "{font.line-height.tight}" } },
+    "h2": { "family": { "$value": "{font.family.heading}" }, "weight": { "$value": "{font.weight.bold}" }, "size": { "$value": "{font.size.4xl}" }, "line-height": { "$value": "{font.line-height.snug}" } },
+    "h3": { "family": { "$value": "{font.family.heading}" }, "weight": { "$value": "{font.weight.semibold}" }, "size": { "$value": "{font.size.2xl}" }, "line-height": { "$value": "{font.line-height.snug}" } },
+    "h4": { "family": { "$value": "{font.family.heading}" }, "weight": { "$value": "{font.weight.semibold}" }, "size": { "$value": "{font.size.xl}" }, "line-height": { "$value": "{font.line-height.snug}" } },
+    "body": { "family": { "$value": "{font.family.body}" }, "weight": { "$value": "{font.weight.regular}" }, "size": { "$value": "{font.size.md}" }, "line-height": { "$value": "{font.line-height.relaxed}" } },
+    "body-sm": { "family": { "$value": "{font.family.body}" }, "weight": { "$value": "{font.weight.regular}" }, "size": { "$value": "{font.size.sm}" }, "line-height": { "$value": "{font.line-height.normal}" } },
+    "label": { "family": { "$value": "{font.family.body}" }, "weight": { "$value": "{font.weight.semibold}" }, "size": { "$value": "{font.size.sm}" }, "line-height": { "$value": "{font.line-height.normal}" } },
+    "button": { "family": { "$value": "{font.family.body}" }, "weight": { "$value": "{font.weight.semibold}" }, "size": { "$value": "{font.size.md}" }, "line-height": { "$value": "{font.line-height.snug}" } },
+    "badge": { "family": { "$value": "{font.family.body}" }, "weight": { "$value": "{font.weight.bold}" }, "size": { "$value": "{font.size.xs}" }, "line-height": { "$value": "{font.line-height.snug}" } }
+  }
+}

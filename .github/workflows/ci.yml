@@ -1,0 +1,14 @@
+name: check
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build and check contrast (WCAG AA)
+        run: npm run check
+      - name: dist/ is up to date
+        run: git diff --exit-code dist/ || (echo "Run npm run build and commit dist/." && exit 1)
