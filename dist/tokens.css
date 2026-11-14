@@ -300,7 +300,7 @@
   --isa-color-surface-muted: var(--isa-color-gray-700);
   --isa-color-surface-raised: var(--isa-color-gray-800);
   --isa-color-surface-inverse: var(--isa-color-gray-600);
-  --isa-color-surface-brand: var(--isa-color-green-700);
+  --isa-color-surface-brand: var(--isa-color-green-900);
   --isa-color-surface-brand-strong: var(--isa-color-green-800);
   --isa-color-surface-danger: var(--isa-color-red-900);
   --isa-color-surface-success: var(--isa-color-green-900);
@@ -409,7 +409,7 @@
     --isa-color-surface-muted: var(--isa-color-gray-700);
     --isa-color-surface-raised: var(--isa-color-gray-800);
     --isa-color-surface-inverse: var(--isa-color-gray-600);
-    --isa-color-surface-brand: var(--isa-color-green-700);
+    --isa-color-surface-brand: var(--isa-color-green-900);
     --isa-color-surface-brand-strong: var(--isa-color-green-800);
     --isa-color-surface-danger: var(--isa-color-red-900);
     --isa-color-surface-success: var(--isa-color-green-900);

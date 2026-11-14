@@ -41,7 +41,7 @@
         "$value": "{color.gray.600}"
       },
       "brand": {
-        "$value": "{color.green.700}"
+        "$value": "{color.green.900}"
       },
       "brand-strong": {
         "$value": "{color.green.800}"

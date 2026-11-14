@@ -41,7 +41,7 @@ React: `<ThemeToggle />` (as a header action: `<Header actions={<ThemeToggle cla
 - Primary and danger buttons keep their colors (white text on green 600 and red 600).
 - Status and category colors are the light pairs swapped: light text on the dark hue.
 - Shadows hardly show on dark. Things that float (dialogs, drawers, menus, elevated cards) use `surface.raised`, one step lighter than the page.
-- Header and footer stay green for now. Open: Roberto is choosing between green, deep green and dark gray with a green line (see `DECISIONS.md`).
+- Header and footer are deep green (green 900) with white text (Roberto, 2026-11-14).
 
 ## For projects
 - Pictures and logos: use a white or light logo on dark and brand surfaces. Check photos and illustrations with transparent backgrounds in both themes.

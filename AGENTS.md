@@ -34,7 +34,7 @@ You are working with the design system of the International Slackline Associatio
 ## Using it in a project
 - Tailwind v4: `@import "isa-design-system/fonts.css"; @import "isa-design-system/tailwind.css"; @import "isa-design-system/components.css" layer(components);`
 - Plain HTML: load `dist/fonts.css`, `dist/tokens.css`, `dist/components.css` and, for tabs, dialogs, drawers, tooltips, toasts, autocomplete, filters and the theme switch, `dist/isa.js` as a module script; then use `var(--isa-color-text-default)` etc.
-- Install a tagged version: `npm install github:rodeohub/isa-design-system#v0.12.0` (repo will move to the ISA GitHub organization). Check `CHANGELOG.md` before upgrading.
+- Install a tagged version: `npm install github:rodeohub/isa-design-system#v0.12.1` (repo will move to the ISA GitHub organization). Check `CHANGELOG.md` before upgrading.
 
 ## Changing the system (in this repo)
 1. Edit `tokens/` (DTCG JSON) or `components/`, and the matching doc in `docs/`.

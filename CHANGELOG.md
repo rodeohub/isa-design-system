@@ -1,6 +1,9 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.12.0`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.12.1`, and upgrade on purpose.
+
+## 0.12.1 (2026-11-14)
+- Dark mode: header and footer are deep green (`surface.brand` = green 900 in the dark theme).
 
 ## 0.12.0 (2026-11-14)
 - **Dark mode.** New theme `tokens/semantic/themes/dark.json`; every contrast pair is checked in both themes. Set `data-theme="dark"` on `<html>`, or `data-theme="system"` to follow the device. Pages without `data-theme` stay light.
