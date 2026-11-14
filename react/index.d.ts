@@ -34,3 +34,46 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: 'soft' | 'outline';
 }
 export declare const Badge: React.ForwardRefExoticComponent<BadgeProps & React.RefAttributes<HTMLSpanElement>>;
+
+export interface AlertProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
+  /** Default: info. danger is announced immediately (role="alert"); the others politely (role="status"). */
+  variant?: 'info' | 'success' | 'warning' | 'danger';
+  /** Optional bold first line. */
+  title?: React.ReactNode;
+  /** Show the built-in status icon. Default: true. */
+  icon?: boolean;
+}
+export declare const Alert: React.ForwardRefExoticComponent<AlertProps & React.RefAttributes<HTMLDivElement>>;
+
+export interface FieldOwnProps {
+  /** Visible label. Required: placeholders are not labels. */
+  label: React.ReactNode;
+  /** Hint shown between label and control. */
+  help?: React.ReactNode;
+  /** Error message. Sets aria-invalid and links the message to the control. Say how to fix the problem. */
+  error?: React.ReactNode;
+  /** Marks the field as optional: true shows "(optional)", a string shows that text (for translations). */
+  optional?: boolean | string;
+}
+export type TextFieldProps = FieldOwnProps & Omit<React.InputHTMLAttributes<HTMLInputElement>, keyof FieldOwnProps>;
+export declare const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttributes<HTMLInputElement>>;
+export type TextAreaProps = FieldOwnProps & Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, keyof FieldOwnProps>;
+export declare const TextArea: React.ForwardRefExoticComponent<TextAreaProps & React.RefAttributes<HTMLTextAreaElement>>;
+export type SelectFieldProps = FieldOwnProps & Omit<React.SelectHTMLAttributes<HTMLSelectElement>, keyof FieldOwnProps>;
+export declare const SelectField: React.ForwardRefExoticComponent<SelectFieldProps & React.RefAttributes<HTMLSelectElement>>;
+
+export interface CheckProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  /** Visible label (or pass children). */
+  label?: React.ReactNode;
+}
+export declare const Checkbox: React.ForwardRefExoticComponent<CheckProps & React.RefAttributes<HTMLInputElement>>;
+export declare const Radio: React.ForwardRefExoticComponent<CheckProps & React.RefAttributes<HTMLInputElement>>;
+
+export interface FieldsetProps extends React.FieldsetHTMLAttributes<HTMLFieldSetElement> {
+  /** The question the group answers. */
+  legend: React.ReactNode;
+  help?: React.ReactNode;
+  error?: React.ReactNode;
+  optional?: boolean | string;
+}
+export declare const Fieldset: React.ForwardRefExoticComponent<FieldsetProps & React.RefAttributes<HTMLFieldSetElement>>;

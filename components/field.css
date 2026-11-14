@@ -1,0 +1,134 @@
+/* Form fields: label, help and error text, text input, text area, select, checkbox, radio, fieldset.
+   Docs: docs/components/field.md. Extracted from the Slackline Sport Hub and adapted. */
+.isa-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--isa-space-2);
+  min-width: 0;
+  font-family: var(--isa-font-family-body);
+}
+.isa-label {
+  padding: 0;
+  color: var(--isa-color-text-default);
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-sm);
+  font-weight: var(--isa-font-weight-semibold);
+  line-height: var(--isa-font-line-height-normal);
+}
+.isa-label__optional { color: var(--isa-color-text-muted); font-weight: var(--isa-font-weight-regular); }
+.isa-help,
+.isa-error {
+  margin: 0;
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-sm);
+  line-height: var(--isa-font-line-height-normal);
+}
+.isa-help { color: var(--isa-color-text-muted); }
+.isa-error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--isa-space-1);
+  color: var(--isa-color-text-danger);
+  font-weight: var(--isa-font-weight-semibold);
+}
+.isa-error svg { width: 1.25em; height: 1.25em; flex-shrink: 0; margin-top: 0.125em; }
+
+/* Text input, text area and select share one look. */
+.isa-input,
+.isa-select > select {
+  appearance: none;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--isa-size-touch-target);
+  margin: 0;
+  padding: var(--isa-space-2) var(--isa-space-3);
+  border: 1px solid var(--isa-color-field-border);
+  border-radius: var(--isa-radius-md);
+  background-color: var(--isa-color-field-bg);
+  color: var(--isa-color-field-fg);
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-md); /* 16px: smaller makes iOS zoom in */
+  line-height: var(--isa-font-line-height-normal);
+  transition: border-color var(--isa-duration-fast);
+}
+textarea.isa-input { min-height: calc(var(--isa-size-touch-target) * 2); resize: vertical; }
+.isa-input::placeholder { color: var(--isa-color-field-placeholder); opacity: 1; }
+.isa-input:hover,
+.isa-select > select:hover { border-color: var(--isa-color-field-border-hover); }
+.isa-input:focus-visible,
+.isa-select > select:focus-visible,
+.isa-check input:focus-visible {
+  outline: var(--isa-size-focus-ring-width) solid var(--isa-focus-color, var(--isa-color-border-focus));
+  outline-offset: var(--isa-size-focus-ring-offset);
+}
+.isa-input[readonly] { background-color: var(--isa-color-field-bg-readonly); }
+.isa-input:disabled,
+.isa-select > select:disabled {
+  border-color: transparent;
+  background-color: var(--isa-color-field-bg-disabled);
+  color: var(--isa-color-field-fg-disabled);
+  cursor: not-allowed;
+}
+/* Invalid: thicker red border. Always paired with an .isa-error message, never color alone. */
+.isa-input[aria-invalid="true"],
+.isa-select > select[aria-invalid="true"] {
+  border-color: var(--isa-color-field-border-invalid);
+  box-shadow: inset 0 0 0 1px var(--isa-color-field-border-invalid);
+}
+
+/* Select: wrap the native <select> so the arrow can be drawn in the text color. */
+.isa-select { position: relative; display: block; }
+.isa-select > select { padding-right: var(--isa-space-10); cursor: pointer; }
+.isa-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: var(--isa-space-4);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid var(--isa-color-field-fg);
+  border-bottom: 2px solid var(--isa-color-field-fg);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+.isa-select:has(> select:disabled)::after { border-color: var(--isa-color-field-fg-disabled); }
+
+/* Checkbox and radio: native controls in the brand color, whole row tappable. */
+.isa-check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--isa-space-3);
+  min-height: var(--isa-size-touch-target);
+  padding: var(--isa-space-3) 0;
+  box-sizing: border-box;
+  color: var(--isa-color-text-default);
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-md);
+  line-height: var(--isa-font-line-height-snug);
+  cursor: pointer;
+}
+.isa-check input {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  accent-color: var(--isa-color-field-accent);
+  cursor: inherit;
+}
+.isa-check:has(input:disabled) { color: var(--isa-color-field-fg-disabled); cursor: not-allowed; }
+
+/* Fieldset: groups checkboxes or radios under one question. */
+.isa-fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--isa-space-1);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.isa-fieldset > .isa-label { margin-bottom: var(--isa-space-1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .isa-input, .isa-select > select { transition: none; }
+}

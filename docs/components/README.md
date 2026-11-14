@@ -9,9 +9,11 @@ Each component ships as plain CSS (`dist/components.css`, classes `isa-*`, works
 | --- | --- | --- |
 | Button | [button.md](button.md) | draft |
 | Badge | [badge.md](badge.md) | draft |
+| Alert | [alert.md](alert.md) | draft |
+| Form fields (text input, text area, select, checkbox, radio, fieldset) | [field.md](field.md) | draft |
 
 ## To extract from the Sport Hub (`sport-hub/src/ui`)
-Suggested order: Alert, Form fields (Form, UserAutocomplete), Tab, Modal, Card, Table, Spinner, Tooltip, Drawer, Avatar, Navigation and Footer, PageLayout.
+Suggested order: Tab, Modal, Autocomplete, Card, Table, Spinner, Tooltip, Drawer, Avatar, Navigation and Footer, PageLayout.
 
 Sport Hub specific, likely to stay there: CountryFlag, EventDetailsCard, FeaturedAthleteCard, FeaturedEventCard, StackedMediaCard, ProfileMediaLinks, LabelValuePair, SortableList, UserForm, UserMenu, Icons.
 

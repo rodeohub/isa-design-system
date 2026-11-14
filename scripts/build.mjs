@@ -59,7 +59,7 @@ writeFileSync('dist/components.css', header + componentFiles.map((f) => readFile
 // 6. preview.html: live examples of every component, then every color role. Built from the same files projects use.
 const v = (k) => resolve(all, all[k].value);
 const examples = readdirSync('components').filter((f) => f.endsWith('.examples.html')).sort()
-  .map((f) => `<section><h2>${f.replace('.examples.html', '').replace(/^./, (c) => c.toUpperCase())}</h2>\n${readFileSync(`components/${f}`, 'utf8')}</section>`).join('\n');
+  .map((f) => `<section><h2>${f.replace('.examples.html', '').replace(/^./, (c) => c.toUpperCase()).replace('Field', 'Form fields')}</h2>\n${readFileSync(`components/${f}`, 'utf8')}</section>`).join('\n');
 const rows = semanticColors.map((k) => `<tr><td><code>${k}</code></td><td><span class="sw" style="background:${v(k)}"></span></td><td><code>${v(k)}</code></td><td>${all[k].description ?? ''}</td></tr>`).join('\n');
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ISA Design System preview</title>
 <link rel="stylesheet" href="./fonts.css"><link rel="stylesheet" href="./tokens.css"><link rel="stylesheet" href="./components.css">
@@ -70,6 +70,8 @@ h1,h2,h3{font-family:var(--isa-font-family-heading);line-height:var(--isa-font-l
 h1{font-size:var(--isa-font-size-5xl)}h2{font-size:var(--isa-font-size-4xl);margin-top:var(--isa-space-12);padding-top:var(--isa-space-6);border-top:1px solid var(--isa-color-border-default)}
 h3{font-size:var(--isa-font-size-xl);font-weight:var(--isa-font-weight-semibold);margin-top:var(--isa-space-6)}
 .row{display:flex;flex-wrap:wrap;gap:var(--isa-space-3);align-items:center;margin-top:var(--isa-space-3)}
+
+.stack{display:grid;gap:var(--isa-space-3);margin-top:var(--isa-space-4);max-width:40rem}.form{display:grid;gap:var(--isa-space-5);margin-top:var(--isa-space-4);max-width:28rem}
 .brand{background:var(--isa-color-surface-brand);padding:var(--isa-space-4);border-radius:var(--isa-radius-lg)}
 .scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:var(--isa-font-size-sm);margin-top:var(--isa-space-4)}
 td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-space-2);vertical-align:middle}

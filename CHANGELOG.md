@@ -1,6 +1,10 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.3.0`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.4.0`, and upgrade on purpose.
+
+## 0.4.0 (2026-11-14)
+- New components, extracted from the Slackline Sport Hub and adapted: **Alert** and **form fields** (label, help and error text, text input, text area, select, checkbox, radio, fieldset). CSS classes plus React components (`Alert`, `TextField`, `TextArea`, `SelectField`, `Checkbox`, `Radio`, `Fieldset`).
+- New `field.*` color roles with checked contrast pairs.
 
 ## 0.3.0 (2026-11-14)
 - First components, extracted from the Slackline Sport Hub and adapted: **Button** and **Badge**. Plain CSS in `dist/components.css` (classes `isa-button`, `isa-badge`) and React wrappers in `isa-design-system/react`.

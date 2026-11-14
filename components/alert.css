@@ -1,0 +1,28 @@
+/* Alert. Docs: docs/components/alert.md. Extracted from the Slackline Sport Hub and adapted. */
+.isa-alert {
+  --_bg: var(--isa-color-status-info-bg);
+  --_fg: var(--isa-color-status-info-fg);
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--isa-space-3);
+  padding: var(--isa-space-3) var(--isa-space-4);
+  border: 1px solid var(--_fg);
+  border-radius: var(--isa-radius-md);
+  background-color: var(--_bg);
+  color: var(--_fg);
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-md);
+  line-height: var(--isa-font-line-height-normal);
+}
+.isa-alert > svg { width: 1.25em; height: 1.25em; flex-shrink: 0; margin-top: 0.125em; }
+.isa-alert__body { flex: 1; min-width: 0; }
+.isa-alert__body > :first-child { margin-top: 0; }
+.isa-alert__body > :last-child { margin-bottom: 0; }
+.isa-alert__title { display: block; font-weight: var(--isa-font-weight-bold); }
+.isa-alert a { color: inherit; text-decoration: underline; }
+
+.isa-alert--success { --_bg: var(--isa-color-status-success-bg); --_fg: var(--isa-color-status-success-fg); }
+.isa-alert--warning { --_bg: var(--isa-color-status-warning-bg); --_fg: var(--isa-color-status-warning-fg); }
+.isa-alert--danger { --_bg: var(--isa-color-status-danger-bg); --_fg: var(--isa-color-status-danger-fg); }

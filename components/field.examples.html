@@ -1,0 +1,52 @@
+<!-- Form field examples. Every snippet is valid usage; copy from here. -->
+<div class="form">
+  <div class="isa-field">
+    <label class="isa-label" for="ex-name">Event name</label>
+    <input class="isa-input" id="ex-name" type="text" value="Swiss Highline Open">
+  </div>
+  <div class="isa-field">
+    <label class="isa-label" for="ex-web">Website <span class="isa-label__optional">(optional)</span></label>
+    <p class="isa-help" id="ex-web-help">Where people can find more information.</p>
+    <input class="isa-input" id="ex-web" type="url" placeholder="https://" aria-describedby="ex-web-help">
+  </div>
+  <div class="isa-field">
+    <label class="isa-label" for="ex-mail">Email</label>
+    <input class="isa-input" id="ex-mail" type="email" value="lena@example" aria-invalid="true" aria-describedby="ex-mail-error">
+    <p class="isa-error" id="ex-mail-error"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16h.01"/></svg> Enter a full email address, like name@example.org.</p>
+  </div>
+  <div class="isa-field">
+    <label class="isa-label" for="ex-country">Country</label>
+    <span class="isa-select">
+      <select id="ex-country">
+        <option>Switzerland</option>
+        <option>Germany</option>
+        <option>Brazil</option>
+      </select>
+    </span>
+  </div>
+  <div class="isa-field">
+    <label class="isa-label" for="ex-notes">Notes for the organizer <span class="isa-label__optional">(optional)</span></label>
+    <textarea class="isa-input" id="ex-notes" rows="3"></textarea>
+  </div>
+  <div class="isa-field">
+    <label class="isa-label" for="ex-id">ISA ID</label>
+    <input class="isa-input" id="ex-id" type="text" value="CH_042" disabled>
+  </div>
+  <fieldset class="isa-fieldset">
+    <legend class="isa-label">Disciplines</legend>
+    <label class="isa-check"><input type="checkbox" checked> <span>Freestyle Highline</span></label>
+    <label class="isa-check"><input type="checkbox"> <span>Speed Highline</span></label>
+    <label class="isa-check"><input type="checkbox" disabled> <span>Rigging (not offered at this event)</span></label>
+  </fieldset>
+  <fieldset class="isa-fieldset" aria-describedby="ex-cat-error">
+    <legend class="isa-label">Category</legend>
+    <label class="isa-check"><input type="radio" name="ex-cat"> <span>Women</span></label>
+    <label class="isa-check"><input type="radio" name="ex-cat"> <span>Men</span></label>
+    <p class="isa-error" id="ex-cat-error"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16h.01"/></svg> Choose a category.</p>
+  </fieldset>
+  <label class="isa-check"><input type="checkbox"> <span>I have read the ISA Code of Conduct.</span></label>
+  <div class="row">
+    <button type="submit" class="isa-button">Register</button>
+    <button type="button" class="isa-button isa-button--neutral">Cancel</button>
+  </div>
+</div>

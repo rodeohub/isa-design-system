@@ -7,12 +7,23 @@ h1,h2,h3{font-family:var(--isa-font-family-heading);line-height:var(--isa-font-l
 h1{font-size:var(--isa-font-size-5xl)}h2{font-size:var(--isa-font-size-4xl);margin-top:var(--isa-space-12);padding-top:var(--isa-space-6);border-top:1px solid var(--isa-color-border-default)}
 h3{font-size:var(--isa-font-size-xl);font-weight:var(--isa-font-weight-semibold);margin-top:var(--isa-space-6)}
 .row{display:flex;flex-wrap:wrap;gap:var(--isa-space-3);align-items:center;margin-top:var(--isa-space-3)}
+
+.stack{display:grid;gap:var(--isa-space-3);margin-top:var(--isa-space-4);max-width:40rem}.form{display:grid;gap:var(--isa-space-5);margin-top:var(--isa-space-4);max-width:28rem}
 .brand{background:var(--isa-color-surface-brand);padding:var(--isa-space-4);border-radius:var(--isa-radius-lg)}
 .scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:var(--isa-font-size-sm);margin-top:var(--isa-space-4)}
 td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-space-2);vertical-align:middle}
 .sw{display:inline-block;width:2.5rem;height:1.5rem;border-radius:var(--isa-radius-sm);border:1px solid var(--isa-color-border-default)}
 </style></head>
-<body><main><h1>ISA Design System</h1><p>Version 0.3.0. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
+<body><main><h1>ISA Design System</h1><p>Version 0.4.0. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
+<section><h2>Alert</h2>
+<!-- Alert examples. Every snippet is valid usage; copy from here. -->
+<div class="stack">
+  <div class="isa-alert" role="status"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><div class="isa-alert__body">Registration opens on 1 March.</div></div>
+  <div class="isa-alert isa-alert--success" role="status"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg><div class="isa-alert__body"><strong class="isa-alert__title">Results submitted</strong>The judges will review them within two days.</div></div>
+  <div class="isa-alert isa-alert--warning" role="status"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg><div class="isa-alert__body">Your instructor certification expires in 30 days. <a href="#">Renew it</a>.</div></div>
+  <div class="isa-alert isa-alert--danger" role="alert"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16h.01"/></svg><div class="isa-alert__body"><strong class="isa-alert__title">The form could not be saved</strong>Check the two fields marked below and try again.</div></div>
+</div>
+</section>
 <section><h2>Badge</h2>
 <!-- Badge examples. Every snippet is valid usage; copy from here. -->
 <h3>Category colors</h3>
@@ -102,6 +113,60 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
   <button type="button" class="isa-button isa-button--neutral">Menu</button>
 </div>
 </section>
+<section><h2>Form fields</h2>
+<!-- Form field examples. Every snippet is valid usage; copy from here. -->
+<div class="form">
+  <div class="isa-field">
+    <label class="isa-label" for="ex-name">Event name</label>
+    <input class="isa-input" id="ex-name" type="text" value="Swiss Highline Open">
+  </div>
+  <div class="isa-field">
+    <label class="isa-label" for="ex-web">Website <span class="isa-label__optional">(optional)</span></label>
+    <p class="isa-help" id="ex-web-help">Where people can find more information.</p>
+    <input class="isa-input" id="ex-web" type="url" placeholder="https://" aria-describedby="ex-web-help">
+  </div>
+  <div class="isa-field">
+    <label class="isa-label" for="ex-mail">Email</label>
+    <input class="isa-input" id="ex-mail" type="email" value="lena@example" aria-invalid="true" aria-describedby="ex-mail-error">
+    <p class="isa-error" id="ex-mail-error"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16h.01"/></svg> Enter a full email address, like name@example.org.</p>
+  </div>
+  <div class="isa-field">
+    <label class="isa-label" for="ex-country">Country</label>
+    <span class="isa-select">
+      <select id="ex-country">
+        <option>Switzerland</option>
+        <option>Germany</option>
+        <option>Brazil</option>
+      </select>
+    </span>
+  </div>
+  <div class="isa-field">
+    <label class="isa-label" for="ex-notes">Notes for the organizer <span class="isa-label__optional">(optional)</span></label>
+    <textarea class="isa-input" id="ex-notes" rows="3"></textarea>
+  </div>
+  <div class="isa-field">
+    <label class="isa-label" for="ex-id">ISA ID</label>
+    <input class="isa-input" id="ex-id" type="text" value="CH_042" disabled>
+  </div>
+  <fieldset class="isa-fieldset">
+    <legend class="isa-label">Disciplines</legend>
+    <label class="isa-check"><input type="checkbox" checked> <span>Freestyle Highline</span></label>
+    <label class="isa-check"><input type="checkbox"> <span>Speed Highline</span></label>
+    <label class="isa-check"><input type="checkbox" disabled> <span>Rigging (not offered at this event)</span></label>
+  </fieldset>
+  <fieldset class="isa-fieldset" aria-describedby="ex-cat-error">
+    <legend class="isa-label">Category</legend>
+    <label class="isa-check"><input type="radio" name="ex-cat"> <span>Women</span></label>
+    <label class="isa-check"><input type="radio" name="ex-cat"> <span>Men</span></label>
+    <p class="isa-error" id="ex-cat-error"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16h.01"/></svg> Choose a category.</p>
+  </fieldset>
+  <label class="isa-check"><input type="checkbox"> <span>I have read the ISA Code of Conduct.</span></label>
+  <div class="row">
+    <button type="submit" class="isa-button">Register</button>
+    <button type="button" class="isa-button isa-button--neutral">Cancel</button>
+  </div>
+</div>
+</section>
 <section><h2>Color roles</h2><p>Light theme. Run <code>npm run check</code> for contrast results.</p><div class="scroll"><table><tr><td><code>color.text.default</code></td><td><span class="sw" style="background:#29292A"></span></td><td><code>#29292A</code></td><td>Body and headings.</td></tr>
 <tr><td><code>color.text.muted</code></td><td><span class="sw" style="background:#454546"></span></td><td><code>#454546</code></td><td>Secondary text, help text, captions. Still AA on surface.default and surface.subtle.</td></tr>
 <tr><td><code>color.text.inverse</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td>Text on dark or brand surfaces.</td></tr>
@@ -149,6 +214,16 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
 <tr><td><code>color.action.danger-fg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
 <tr><td><code>color.action.disabled-bg</code></td><td><span class="sw" style="background:#ECECED"></span></td><td><code>#ECECED</code></td><td></td></tr>
 <tr><td><code>color.action.disabled-fg</code></td><td><span class="sw" style="background:#7D7D7E"></span></td><td><code>#7D7D7E</code></td><td>Disabled controls are exempt from contrast rules, but keep them recognisable.</td></tr>
+<tr><td><code>color.field.bg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
+<tr><td><code>color.field.bg-readonly</code></td><td><span class="sw" style="background:#F6F6F6"></span></td><td><code>#F6F6F6</code></td><td></td></tr>
+<tr><td><code>color.field.bg-disabled</code></td><td><span class="sw" style="background:#ECECED"></span></td><td><code>#ECECED</code></td><td></td></tr>
+<tr><td><code>color.field.fg</code></td><td><span class="sw" style="background:#29292A"></span></td><td><code>#29292A</code></td><td></td></tr>
+<tr><td><code>color.field.fg-disabled</code></td><td><span class="sw" style="background:#7D7D7E"></span></td><td><code>#7D7D7E</code></td><td>Disabled controls are exempt from contrast rules.</td></tr>
+<tr><td><code>color.field.placeholder</code></td><td><span class="sw" style="background:#454546"></span></td><td><code>#454546</code></td><td>Placeholders are hints, never the label.</td></tr>
+<tr><td><code>color.field.border</code></td><td><span class="sw" style="background:#7D7D7E"></span></td><td><code>#7D7D7E</code></td><td></td></tr>
+<tr><td><code>color.field.border-hover</code></td><td><span class="sw" style="background:#454546"></span></td><td><code>#454546</code></td><td></td></tr>
+<tr><td><code>color.field.border-invalid</code></td><td><span class="sw" style="background:#D13A22"></span></td><td><code>#D13A22</code></td><td></td></tr>
+<tr><td><code>color.field.accent</code></td><td><span class="sw" style="background:#00827E"></span></td><td><code>#00827E</code></td><td>Checked checkboxes and radios.</td></tr>
 <tr><td><code>color.brand.red</code></td><td><span class="sw" style="background:#E84026"></span></td><td><code>#E84026</code></td><td>Logos, large display text (24px+), decoration. Not for small text on white.</td></tr>
 <tr><td><code>color.brand.green</code></td><td><span class="sw" style="background:#009F9A"></span></td><td><code>#009F9A</code></td><td>Logos, large display text (24px+), decoration. Not for small text on white.</td></tr>
 <tr><td><code>color.brand.gray</code></td><td><span class="sw" style="background:#454546"></span></td><td><code>#454546</code></td><td></td></tr>

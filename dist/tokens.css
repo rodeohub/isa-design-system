@@ -192,6 +192,16 @@
   --isa-color-action-danger-fg: var(--isa-color-white);
   --isa-color-action-disabled-bg: var(--isa-color-gray-100);
   --isa-color-action-disabled-fg: var(--isa-color-gray-400);
+  --isa-color-field-bg: var(--isa-color-white);
+  --isa-color-field-bg-readonly: var(--isa-color-gray-50);
+  --isa-color-field-bg-disabled: var(--isa-color-gray-100);
+  --isa-color-field-fg: var(--isa-color-gray-700);
+  --isa-color-field-fg-disabled: var(--isa-color-gray-400);
+  --isa-color-field-placeholder: var(--isa-color-gray-500);
+  --isa-color-field-border: var(--isa-color-gray-400);
+  --isa-color-field-border-hover: var(--isa-color-gray-500);
+  --isa-color-field-border-invalid: var(--isa-color-red-600);
+  --isa-color-field-accent: var(--isa-color-green-600);
   --isa-color-brand-red: var(--isa-color-red-500);
   --isa-color-brand-green: var(--isa-color-green-500);
   --isa-color-brand-gray: var(--isa-color-gray-500);

@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 import { createElement as h } from 'react';
 import { renderToStaticMarkup as render } from 'react-dom/server';
-import { Button, Badge } from '../react/index.js';
+import { Button, Badge, Alert, TextField, TextArea, SelectField, Checkbox, Radio, Fieldset } from '../react/index.js';
 
 const eq = (el, html) => assert.equal(render(el), html);
 
@@ -20,5 +20,24 @@ eq(h(Button, { as: Link, to: '/home', fullWidth: true }, 'Home'), '<a href="/hom
 eq(h(Badge, null, 'Youth'), '<span class="isa-badge">Youth</span>');
 eq(h(Badge, { color: 'violet', variant: 'outline' }, 'Rigging'), '<span class="isa-badge isa-badge--violet isa-badge--outline">Rigging</span>');
 eq(h(Badge, { color: 'danger', className: 'x' }, 'Cancelled'), '<span class="isa-badge isa-badge--danger x">Cancelled</span>');
+
+const has = (el, ...parts) => { const out = render(el); for (const p of parts) assert.ok(out.includes(p), `missing ${p} in ${out}`); };
+const lacks = (el, part) => assert.ok(!render(el).includes(part));
+
+has(h(Alert, null, 'Hi'), '<div role="status" class="isa-alert"><svg aria-hidden="true"', '<div class="isa-alert__body">Hi</div>');
+has(h(Alert, { variant: 'danger', title: 'Failed' }, 'Try again'), 'role="alert"', 'isa-alert isa-alert--danger', '<strong class="isa-alert__title">Failed</strong>Try again');
+lacks(h(Alert, { icon: false }, 'Hi'), '<svg');
+
+has(h(TextField, { label: 'Email', id: 'e', type: 'email' }), '<div class="isa-field"><label class="isa-label" for="e">Email</label><input id="e" type="email" class="isa-input"/></div>');
+has(h(TextField, { label: 'Email', id: 'e', help: 'We reply here', error: 'Enter an email' }),
+  '<p class="isa-help" id="e-help">We reply here</p>', 'aria-describedby="e-help e-error"', 'aria-invalid="true"', '<p class="isa-error" id="e-error"><svg');
+has(h(TextField, { label: 'Website', id: 'w', optional: true }), '<span class="isa-label__optional"> (optional)</span>');
+has(h(TextArea, { label: 'Notes', id: 'n' }), '<textarea id="n" rows="3" class="isa-input"></textarea>');
+has(h(SelectField, { label: 'Country', id: 'c' }, h('option', null, 'CH')), '<span class="isa-select"><select id="c"><option>CH</option></select></span>');
+eq(h(Checkbox, { label: 'Agree', name: 'a' }), '<label class="isa-check"><input type="checkbox" name="a"/><span>Agree</span></label>');
+eq(h(Radio, { name: 'g', value: 'w' }, 'Women'), '<label class="isa-check"><input type="radio" name="g" value="w"/><span>Women</span></label>');
+has(h(Fieldset, { legend: 'Category', id: 'f', error: 'Choose one' }), '<fieldset id="f" class="isa-fieldset" aria-describedby="f-error"><legend class="isa-label">Category</legend>', 'id="f-error"');
+const auto = render(h(TextField, { label: 'Auto' }));
+assert.equal(auto.match(/for="([^"]+)"/)[1], auto.match(/<input id="([^"]+)"/)[1]);
 
 console.log('React components: all checks passed.');

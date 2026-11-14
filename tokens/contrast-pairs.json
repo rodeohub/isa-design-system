@@ -105,6 +105,16 @@
     ["color.status.warning-fg", "color.surface.muted", 4.5],
     ["color.status.info-fg", "color.surface.default", 4.5],
     ["color.status.info-fg", "color.surface.subtle", 4.5],
-    ["color.status.info-fg", "color.surface.muted", 4.5]
+    ["color.status.info-fg", "color.surface.muted", 4.5],
+    ["color.field.fg", "color.field.bg", 4.5],
+    ["color.field.fg", "color.field.bg-readonly", 4.5],
+    ["color.field.placeholder", "color.field.bg", 4.5],
+    ["color.field.border", "color.field.bg", 3],
+    ["color.field.border", "color.surface.subtle", 3],
+    ["color.field.border-hover", "color.field.bg", 3],
+    ["color.field.border-invalid", "color.field.bg", 3],
+    ["color.field.accent", "color.field.bg", 3],
+    ["color.text.danger", "color.field.bg", 4.5],
+    ["color.text.muted", "color.field.bg", 4.5]
   ]
 }

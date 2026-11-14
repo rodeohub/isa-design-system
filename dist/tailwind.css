@@ -50,6 +50,16 @@
   --color-action-danger-fg: var(--isa-color-action-danger-fg);
   --color-action-disabled-bg: var(--isa-color-action-disabled-bg);
   --color-action-disabled-fg: var(--isa-color-action-disabled-fg);
+  --color-field-bg: var(--isa-color-field-bg);
+  --color-field-bg-readonly: var(--isa-color-field-bg-readonly);
+  --color-field-bg-disabled: var(--isa-color-field-bg-disabled);
+  --color-field-fg: var(--isa-color-field-fg);
+  --color-field-fg-disabled: var(--isa-color-field-fg-disabled);
+  --color-field-placeholder: var(--isa-color-field-placeholder);
+  --color-field-border: var(--isa-color-field-border);
+  --color-field-border-hover: var(--isa-color-field-border-hover);
+  --color-field-border-invalid: var(--isa-color-field-border-invalid);
+  --color-field-accent: var(--isa-color-field-accent);
   --color-brand-red: var(--isa-color-brand-red);
   --color-brand-green: var(--isa-color-brand-green);
   --color-brand-gray: var(--isa-color-brand-gray);

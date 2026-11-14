@@ -30,10 +30,12 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Licence: MIT, like most popular design systems (e.g. GitHub Primer, GOV.UK Frontend, Radix; IBM Carbon and Atlassian use Apache 2.0). ISA name and logos excluded; fonts under SIL OFL. The other ISA repo checked (SportHub) has no licence file. | Roberto (asked for this), Claude (choice) |
 | 2026-11-14 | SportHub's developers consent to their components being adapted into this system. | Roberto |
 | 2026-11-14 | Components ship as plain CSS classes (`isa-*`) plus optional React wrappers, so non-React projects can use them too. Button and Badge extracted first (v0.3.0). SportHub's domain badges (discipline, role...) stay in SportHub. | Claude |
+| 2026-11-14 | Alert and form fields extracted (v0.4.0). Form components are not tied to Formik (SportHub's are), so any project can use them. Inputs are 44px high and 16px text; help text sits above the control; errors are text with an icon. SportHub's autocomplete and domain dropdowns stay in SportHub for now. | Claude |
+| 2026-11-14 | Barlow is the font for websites and web apps only. Fonts for print and slides are not decided. | Roberto |
 
 ## Open questions
 1. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
-2. **Review Button and Badge** in `dist/preview.html` (look, sizes, names) before more components follow. Next suggested: Alert, form fields, Tabs, Modal.
+2. **Review Alert and form fields** in `dist/preview.html`. Button and Badge are approved (Roberto, 2026-11-14). Next suggested: Tabs, Modal.
 
 ## Next steps (from the review, not yet done)
 2. Missing tokens: elevation, z-index, easing, opacity, border width, icon sizes; text-style utilities for Tailwind.

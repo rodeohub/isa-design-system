@@ -57,6 +57,19 @@
       "disabled-bg": { "$value": "{color.gray.100}" },
       "disabled-fg": { "$value": "{color.gray.400}", "$description": "Disabled controls are exempt from contrast rules, but keep them recognisable." }
     },
+    "field": {
+      "$description": "Form controls: text inputs, text areas, selects, checkboxes, radios.",
+      "bg": { "$value": "{color.white}" },
+      "bg-readonly": { "$value": "{color.gray.50}" },
+      "bg-disabled": { "$value": "{color.gray.100}" },
+      "fg": { "$value": "{color.gray.700}" },
+      "fg-disabled": { "$value": "{color.gray.400}", "$description": "Disabled controls are exempt from contrast rules." },
+      "placeholder": { "$value": "{color.gray.500}", "$description": "Placeholders are hints, never the label." },
+      "border": { "$value": "{color.gray.400}" },
+      "border-hover": { "$value": "{color.gray.500}" },
+      "border-invalid": { "$value": "{color.red.600}" },
+      "accent": { "$value": "{color.green.600}", "$description": "Checked checkboxes and radios." }
+    },
     "brand": {
       "red": { "$value": "{color.red.500}", "$description": "Logos, large display text (24px+), decoration. Not for small text on white." },
       "green": { "$value": "{color.green.500}", "$description": "Logos, large display text (24px+), decoration. Not for small text on white." },
