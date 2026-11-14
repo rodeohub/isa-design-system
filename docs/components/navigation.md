@@ -14,7 +14,7 @@ The frame of every page: a skip link, the header bar with the main navigation, a
 | Skip link | First element in `<body>`; lets keyboard users jump to the content |
 | Header | Brand on the left, main navigation, optional actions (sign in, user menu) |
 | Nav list | The links; also usable on its own for section navigation |
-| Footer | Secondary links, small print, optional logo |
+| Footer | Secondary links, small print, optional logo. Green like the header, with white text; use a white (inverse) logo |
 
 Keep the main navigation to about 5 to 7 items. On screens below 768px the links move into a Drawer behind a menu button.
 
@@ -22,7 +22,7 @@ Keep the main navigation to about 5 to 7 items. On screens below 768px the links
 Header: brand link, navigation list (from 768px), actions, menu button (below 768px). The current page is marked with a darker background, bold text and an underline.
 
 ## 4. Tokens used
-`surface.brand`, `surface.brand-strong`, `text.inverse`, `border.focus-inverse` (header); `text.default`, `surface.muted`, `selected.fg`, `selected.bg` (nav on light surfaces); `surface.subtle`, `border.default`, `text.link`, `text.muted` (footer).
+`surface.brand`, `surface.brand-strong`, `text.inverse`, `border.focus-inverse` (header and footer); `text.default`, `surface.muted`, `selected.fg`, `selected.bg` (nav on light surfaces).
 
 ## 5. API
 HTML: see `components/navigation.examples.html`.

@@ -1,6 +1,9 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.10.0`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.11.0`, and upgrade on purpose.
+
+## 0.11.0 (2026-11-14)
+- **Footer** is now green like the header (`surface.brand`, white text and links, white focus ring). It was light gray. No markup change.
 
 ## 0.10.1 (2026-11-14)
 - `examples/sporthub-rankings.html`: a full example page (a mock of the Sport Hub rankings page with placeholder data) built only from the system. `scripts/standalone-example.mjs` writes a single-file copy for sharing.

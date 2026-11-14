@@ -44,6 +44,7 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Autocomplete, Filters and Page layout extracted (v0.9.0): the Sport Hub extraction is complete. No text on top of photos (title above, caption below). Autocomplete opens on typing, not on focus. Filters are layout only; projects keep their own filter logic. The multi-select filter dropdown is left out for now. | Claude |
 | 2026-11-14 | Review items done (v0.10.0): missing tokens (border width, icon sizes, opacity, easing), short Tailwind class names next to the long ones, text-style classes (`type-*`), Tailwind compile test in CI. The token files stay in the current DTCG-like JSON with the own zero-dependency build: Style Dictionary would add a dependency without a present need; revisit if a second output platform (iOS, Android) appears. Opacity is for decoration only, never for disabled or muted text. | Claude |
 | 2026-11-14 | Breadcrumbs, Empty state, Toast, Autocomplete, Filters and Page layout approved. Print and slides use the same fonts from Google Fonts (Barlow Condensed and Barlow), which Google Docs and Slides offer. A mock Sport Hub rankings page (`examples/sporthub-rankings.html`) is the first full page built from the system. | Roberto |
+| 2026-11-14 | The footer is green like the header (`surface.brand`, white text), not light gray (v0.11.0). | Roberto |
 
 ## Open questions
 1. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).

@@ -1,6 +1,6 @@
 # Where the Sport Hub differs from the design system
 
-For the Sport Hub developers. Compared: design system v0.10.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
+For the Sport Hub developers. Compared: design system v0.11.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
 
 Nothing here has been changed in the Sport Hub. Updating it is a separate project that has not been decided (Roberto, 2026-11-14). This list is so you know what an update would involve. The Sport Hub was the starting point for the system, thank you for that work.
 
@@ -164,7 +164,7 @@ Other changes:
 - Header background is green 700. Now `#009F9A` with white text, 3.27:1.
 - The menu button is named "Menu" with an SVG icon; now "Open navigation menu" with `aria-controls="mobile-menu"`, an id that does not exist.
 - The current page is bold and underlined as well as darker.
-- `Footer` takes `links` as props; links are underlined; the logo needs real alt text (now `alt="logo"`).
+- The footer is green 700 with white text, like the header. `Footer` takes `links` as props; links are underlined; the logo needs real alt text (now `alt="logo"`).
 - New: skip link as the first element of each page.
 
 ## 17. Pagination

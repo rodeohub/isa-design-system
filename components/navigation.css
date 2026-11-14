@@ -104,9 +104,9 @@
   flex-direction: column;
   gap: var(--isa-space-6);
   padding: var(--isa-space-8) var(--isa-space-4);
-  border-top: var(--isa-border-width-thin) solid var(--isa-color-border-default);
-  background-color: var(--isa-color-surface-subtle);
-  color: var(--isa-color-text-default);
+  --isa-focus-color: var(--isa-color-border-focus-inverse); /* white focus ring on the brand surface */
+  background-color: var(--isa-color-surface-brand);
+  color: var(--isa-color-text-inverse);
   font-family: var(--isa-font-family-body);
   font-size: var(--isa-font-size-md);
   line-height: var(--isa-font-line-height-normal);
@@ -123,16 +123,16 @@
   display: inline-flex;
   align-items: center;
   min-height: var(--isa-size-touch-target);
-  color: var(--isa-color-text-link);
+  color: inherit;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
-.isa-footer__links a:hover { color: var(--isa-color-text-link-hover); }
+.isa-footer__links a:hover { text-decoration-thickness: var(--isa-border-width-thick); }
 .isa-footer a:focus-visible {
   outline: var(--isa-size-focus-ring-width) solid var(--isa-focus-color, var(--isa-color-border-focus));
   outline-offset: var(--isa-size-focus-ring-offset);
   border-radius: var(--isa-radius-sm);
 }
-.isa-footer__note { margin: 0; color: var(--isa-color-text-muted); font-size: var(--isa-font-size-sm); }
+.isa-footer__note { margin: 0; font-size: var(--isa-font-size-sm); }
 @media (min-width: 48rem) { .isa-footer { padding-inline: var(--isa-space-6); } }
 @media (prefers-reduced-motion: reduce) { .isa-nav__link { transition: none; } }
