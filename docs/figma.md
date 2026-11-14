@@ -13,7 +13,7 @@ File: [ISA Design System](https://www.figma.com/design/3U795EQvIDPLGrEyHRT7Um) i
 - **Effect styles:** Shadow/md, Shadow/lg.
 - **Components** (page "Components"), all bound to the variables: Button (variant, size, state), Badge (color, style), Alert (variant), Text field (state), Select, Checkbox, Radio, Tab (style, selected), Dialog.
 
-The library is at v0.5.0 and will be refreshed at the end of the project (Roberto, 2026-11-14): the components added in v0.6.0 to v0.8.0 are not in it yet.
+The library is at v0.5.0 and will be refreshed at the end of the project (Roberto, 2026-11-14): the components added in v0.6.0 to v0.9.0 are not in it yet.
 
 ## What is not in it
 - Hover, active, focus and loading states (defined in code; see each component doc).

@@ -9,6 +9,6 @@ Short, task-focused rules. Each foundation file says what exists, when to use it
 - foundations/theming.md
 - components/README.md (inventory and template)
 - patterns/README.md (page-level patterns, to come)
-- components/button.md, badge.md, alert.md, field.md, tabs.md, dialog.md, card.md, table.md, spinner.md, tooltip.md, drawer.md, avatar.md, navigation.md, pagination.md, breadcrumbs.md, empty.md, toast.md
+- components/button.md, badge.md, alert.md, field.md, tabs.md, dialog.md, card.md, table.md, spinner.md, tooltip.md, drawer.md, avatar.md, navigation.md, pagination.md, breadcrumbs.md, empty.md, toast.md, autocomplete.md, filters.md, page.md
 - figma.md (the Figma library and how to refresh it)
 - sporthub-differences.md (what the Sport Hub would need to change to match the system)

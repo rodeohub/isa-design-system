@@ -5,7 +5,7 @@ import { createElement as h } from 'react';
 import { renderToStaticMarkup as render } from 'react-dom/server';
 import { pageList } from '../react/Pagination.js';
 import { initials } from '../react/Avatar.js';
-import { Button, Badge, Alert, TextField, TextArea, SelectField, Checkbox, Radio, Fieldset, Tabs, Dialog, Card, CardGrid, Table, Spinner, Tooltip, Drawer, Avatar, Header, Nav, Footer, SkipLink, Pagination, Breadcrumbs, EmptyState, ToastProvider, useToast } from '../react/index.js';
+import { Button, Badge, Alert, TextField, TextArea, SelectField, Checkbox, Radio, Fieldset, Tabs, Dialog, Card, CardGrid, Table, Spinner, Tooltip, Drawer, Avatar, Header, Nav, Footer, SkipLink, Pagination, Breadcrumbs, EmptyState, ToastProvider, useToast, Autocomplete, Filters, Page, Main, PageTitle, Hero } from '../react/index.js';
 
 const eq = (el, html) => assert.equal(render(el), html);
 
@@ -102,5 +102,18 @@ eq(h(EmptyState, { title: 'Nothing', plain: true, titleAs: 'h2' }), '<div class=
 const Probe = () => { useToast(); return 'ok'; };
 eq(h(ToastProvider, null, h(Probe)), 'ok<div class="isa-toast-region" role="region" aria-label="Notifications" aria-live="polite"></div>');
 assert.throws(() => render(h(Probe)), /ToastProvider/);
+
+{
+  const out = render(h(Autocomplete, { label: 'Country', id: 'c', name: 'country', value: 'SUI', options: [{ value: 'SUI', label: 'Switzerland' }, { value: 'BRA', label: 'Brazil' }] }));
+  for (const part of ['<label class="isa-label" for="c">Country</label>', 'role="combobox"', 'aria-expanded="false"', 'aria-controls="c-list"', 'value="Switzerland"', '<input type="hidden" name="country" value="SUI"/>', 'role="listbox"', 'id="c-list-0" role="option" aria-selected="true"', '<p class="isa-autocomplete__empty" role="status" hidden="">No matches</p>'])
+    assert.ok(out.includes(part), `Autocomplete: missing ${part}\n${out}`);
+}
+{
+  const out = render(h(Filters, { label: 'Filter athletes', onReset() {}, activeCount: 2 }, h(TextField, { label: 'Name', id: 'n' })));
+  for (const part of ['class="isa-button isa-button--neutral isa-filters__toggle" aria-expanded="false"', 'Filters (2)', 'role="group" aria-label="Filter athletes"', '<button type="button" class="isa-button isa-button--ghost">Reset</button>'])
+    assert.ok(out.includes(part), `Filters: missing ${part}\n${out}`);
+}
+eq(h(Page, null, h(Main, { narrow: true }, h(PageTitle, { title: 'Results' }, 'Lead'), h(Hero, { src: '/a.jpg', alt: '', caption: 'Photo: X' }))),
+  '<link rel="preload" as="image" href="/a.jpg"/><div class="isa-page"><main id="main" class="isa-main isa-main--narrow"><div class="isa-page-title"><h1>Results</h1><p>Lead</p></div><figure class="isa-hero"><img src="/a.jpg" alt=""/><figcaption>Photo: X</figcaption></figure></main></div>');
 
 console.log('React components: all checks passed.');

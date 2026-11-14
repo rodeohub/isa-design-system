@@ -49,6 +49,51 @@
 .isa-alert--warning { --_bg: var(--isa-color-status-warning-bg); --_fg: var(--isa-color-status-warning-fg); }
 .isa-alert--danger { --_bg: var(--isa-color-status-danger-bg); --_fg: var(--isa-color-status-danger-fg); }
 
+/* Autocomplete: a text input that suggests matching options. Docs: docs/components/autocomplete.md.
+   Extracted from the Slackline Sport Hub and adapted. Needs isa.js or the React Autocomplete. */
+.isa-autocomplete { position: relative; display: block; }
+.isa-autocomplete__list,
+.isa-autocomplete__empty {
+  position: absolute;
+  top: calc(100% + var(--isa-space-1));
+  right: 0;
+  left: 0;
+  z-index: var(--isa-z-dropdown);
+  box-sizing: border-box;
+  max-height: var(--isa-size-dropdown-max);
+  margin: 0;
+  padding: var(--isa-space-1);
+  overflow-y: auto;
+  border: 1px solid var(--isa-color-border-strong);
+  border-radius: var(--isa-radius-md);
+  background-color: var(--isa-color-surface-default);
+  box-shadow: var(--isa-shadow-md);
+  list-style: none;
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-md);
+  line-height: var(--isa-font-line-height-snug);
+}
+.isa-autocomplete__list[hidden],
+.isa-autocomplete__empty[hidden] { display: none; }
+.isa-autocomplete__option {
+  display: flex;
+  align-items: center;
+  min-height: var(--isa-size-touch-target);
+  box-sizing: border-box;
+  padding: var(--isa-space-2) var(--isa-space-3);
+  border-radius: var(--isa-radius-sm);
+  color: var(--isa-color-text-default);
+}
+.isa-autocomplete__option { cursor: pointer; }
+.isa-autocomplete__option[hidden] { display: none; }
+.isa-autocomplete__empty { padding: var(--isa-space-3) var(--isa-space-4); color: var(--isa-color-text-muted); }
+/* Active = the option the arrow keys or the pointer are on. Marked by background and a bar, not color alone. */
+.isa-autocomplete__option:hover,
+.isa-autocomplete__option.is-active { background-color: var(--isa-color-selected-bg); box-shadow: inset 3px 0 0 var(--isa-color-selected-border); }
+.isa-autocomplete__option[aria-selected="true"] { font-weight: var(--isa-font-weight-semibold); }
+/* The typed part inside each option: bold, no highlight color. */
+.isa-autocomplete__option mark { background: none; color: inherit; font-weight: var(--isa-font-weight-bold); text-decoration: underline; }
+
 /* Avatar. Docs: docs/components/avatar.md. Extracted from the Slackline Sport Hub and adapted. */
 .isa-avatar {
   --isa-avatar-size: var(--isa-size-avatar-md);
@@ -621,6 +666,21 @@ textarea.isa-input { min-height: calc(var(--isa-size-touch-target) * 2); resize:
   .isa-input, .isa-select > select { transition: none; }
 }
 
+/* Filters: the row of search and filter fields above a table or list. Docs: docs/components/filters.md.
+   Extracted from the Slackline Sport Hub table filters and adapted. */
+.isa-filters { display: flex; flex-direction: column; align-items: flex-start; gap: var(--isa-space-4); font-family: var(--isa-font-family-body); }
+.isa-filters__fields { display: flex; flex-direction: column; gap: var(--isa-space-4); width: 100%; }
+.isa-filters__fields > .isa-field { width: 100%; }
+/* Phones: the fields are folded away until the toggle is pressed. */
+.isa-filters__toggle[aria-expanded="false"] + .isa-filters__fields { display: none; }
+/* From breakpoint.sm (40rem): always open, in a row that wraps. */
+@media (min-width: 40rem) {
+  .isa-filters__toggle { display: none; }
+  .isa-filters__fields,
+  .isa-filters__toggle[aria-expanded="false"] + .isa-filters__fields { display: flex; flex-flow: row wrap; align-items: flex-end; }
+  .isa-filters__fields > .isa-field { flex: 1 1 var(--isa-size-filter-min); width: auto; max-width: var(--isa-size-filter-max); }
+}
+
 /* Header, navigation, footer and skip link. Docs: docs/components/navigation.md.
    Extracted from the Slackline Sport Hub and adapted. */
 
@@ -759,6 +819,28 @@ textarea.isa-input { min-height: calc(var(--isa-size-touch-target) * 2); resize:
 .isa-footer__note { margin: 0; color: var(--isa-color-text-muted); font-size: var(--isa-font-size-sm); }
 @media (min-width: 48rem) { .isa-footer { padding-inline: var(--isa-space-6); } }
 @media (prefers-reduced-motion: reduce) { .isa-nav__link { transition: none; } }
+
+/* Page layout: the frame every page shares. Docs: docs/components/page.md.
+   Extracted from the Slackline Sport Hub PageLayout and adapted.
+   <div class="isa-page"> header, <main id="main" class="isa-main">, footer </div> */
+.isa-page { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; background-color: var(--isa-color-surface-default); color: var(--isa-color-text-default); font-family: var(--isa-font-family-body); }
+/* Content width: centered, with side padding that grows from phones up. */
+.isa-container,
+.isa-main { box-sizing: border-box; width: 100%; max-width: var(--isa-size-content-max); margin-inline: auto; padding-inline: var(--isa-space-4); }
+.isa-main { display: flex; flex: 1; flex-direction: column; gap: var(--isa-space-8); padding-block: var(--isa-space-6) var(--isa-space-12); }
+.isa-container--narrow,
+.isa-main--narrow { max-width: var(--isa-size-content-narrow); }
+@media (min-width: 48rem) { .isa-container, .isa-main { padding-inline: var(--isa-space-8); } }
+/* Page title block: one h1 per page, optional lead text. */
+.isa-page-title { display: flex; flex-direction: column; gap: var(--isa-space-2); }
+.isa-page-title h1 { margin: 0; font-family: var(--isa-font-family-heading); font-size: var(--isa-font-size-4xl); font-weight: var(--isa-font-weight-bold); line-height: var(--isa-font-line-height-tight); }
+.isa-page-title p { max-width: var(--isa-size-content-narrow); margin: 0; color: var(--isa-color-text-muted); font-size: var(--isa-font-size-lg); line-height: var(--isa-font-line-height-normal); }
+@media (min-width: 48rem) { .isa-page-title h1 { font-size: var(--isa-font-size-5xl); } }
+/* Hero image: wide picture under the title. The caption sits below it, never on top. */
+.isa-hero { margin: 0; }
+.isa-hero img { display: block; width: 100%; height: 40vw; min-height: var(--isa-size-hero-min); max-height: var(--isa-size-hero-max); border-radius: var(--isa-radius-lg); background-color: var(--isa-color-surface-muted); object-fit: cover; }
+.isa-hero--contain img { object-fit: contain; }
+.isa-hero figcaption { margin-top: var(--isa-space-2); color: var(--isa-color-text-muted); font-size: var(--isa-font-size-sm); line-height: var(--isa-font-line-height-normal); }
 
 /* Pagination. Docs: docs/components/pagination.md. Extracted from the Slackline Sport Hub table and adapted. */
 .isa-pagination { font-family: var(--isa-font-family-body); }

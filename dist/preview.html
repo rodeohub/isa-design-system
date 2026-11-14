@@ -14,7 +14,7 @@ h3{font-size:var(--isa-font-size-xl);font-weight:var(--isa-font-weight-semibold)
 td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-space-2);vertical-align:middle}
 .sw{display:inline-block;width:2.5rem;height:1.5rem;border-radius:var(--isa-radius-sm);border:1px solid var(--isa-color-border-default)}
 </style></head>
-<body><main><h1>ISA Design System</h1><p>Version 0.8.0. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
+<body><main><h1>ISA Design System</h1><p>Version 0.9.0. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
 <section><h2>Alert</h2>
 <!-- Alert examples. Every snippet is valid usage; copy from here. -->
 <div class="stack">
@@ -22,6 +22,27 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
   <div class="isa-alert isa-alert--success" role="status"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg><div class="isa-alert__body"><strong class="isa-alert__title">Results submitted</strong>The judges will review them within two days.</div></div>
   <div class="isa-alert isa-alert--warning" role="status"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg><div class="isa-alert__body">Your instructor certification expires in 30 days. <a href="#">Renew it</a>.</div></div>
   <div class="isa-alert isa-alert--danger" role="alert"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16h.01"/></svg><div class="isa-alert__body"><strong class="isa-alert__title">The form could not be saved</strong>Check the two fields marked below and try again.</div></div>
+</div>
+</section>
+<section><h2>Autocomplete</h2>
+<!-- Autocomplete examples. Every snippet is valid usage; copy from here. Needs isa.js (or the React Autocomplete). -->
+<div class="isa-field" style="max-width: 24rem">
+  <label class="isa-label" for="ex-ac-country">Country</label>
+  <p class="isa-help" id="ex-ac-country-help">Start typing, then pick from the list.</p>
+  <div class="isa-autocomplete" data-isa-autocomplete>
+    <input class="isa-input" id="ex-ac-country" type="text" role="combobox" aria-expanded="false" aria-controls="ex-ac-country-list" aria-autocomplete="list" aria-describedby="ex-ac-country-help" autocomplete="off">
+    <input type="hidden" name="country">
+    <ul class="isa-autocomplete__list" id="ex-ac-country-list" role="listbox" aria-label="Country" hidden>
+      <li class="isa-autocomplete__option" role="option" data-value="AUT">Austria</li>
+      <li class="isa-autocomplete__option" role="option" data-value="BRA">Brazil</li>
+      <li class="isa-autocomplete__option" role="option" data-value="CZE">Czechia</li>
+      <li class="isa-autocomplete__option" role="option" data-value="FRA">France</li>
+      <li class="isa-autocomplete__option" role="option" data-value="GER">Germany</li>
+      <li class="isa-autocomplete__option" role="option" data-value="SUI">Switzerland</li>
+      <li class="isa-autocomplete__option" role="option" data-value="USA">United States</li>
+    </ul>
+    <p class="isa-autocomplete__empty" role="status" hidden>No matches</p>
+  </div>
 </div>
 </section>
 <section><h2>Avatar</h2>
@@ -318,6 +339,31 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
   </div>
 </div>
 </section>
+<section><h2>Filters</h2>
+<!-- Filters examples. Every snippet is valid usage; copy from here. On phones the fields open with the Filters button (needs isa.js or React). -->
+<div class="isa-filters">
+  <button type="button" class="isa-button isa-button--neutral isa-filters__toggle" aria-expanded="false" aria-controls="ex-filters-fields">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+    Filters
+  </button>
+  <div class="isa-filters__fields" id="ex-filters-fields" role="group" aria-label="Filter athletes">
+    <div class="isa-field">
+      <label class="isa-label" for="ex-f-name">Name</label>
+      <input class="isa-input" id="ex-f-name" type="search">
+    </div>
+    <div class="isa-field">
+      <label class="isa-label" for="ex-f-disc">Discipline</label>
+      <span class="isa-select"><select id="ex-f-disc"><option value="">All</option><option>Freestyle Highline</option><option>Speed Highline</option><option>Trickline</option></select></span>
+    </div>
+    <div class="isa-field">
+      <label class="isa-label" for="ex-f-from">From</label>
+      <input class="isa-input" id="ex-f-from" type="date">
+    </div>
+    <button type="button" class="isa-button isa-button--ghost">Reset</button>
+  </div>
+</div>
+<p role="status">Showing 24 of 240 athletes</p>
+</section>
 <section><h2>Header, navigation and footer</h2>
 <!-- Header, navigation, drawer menu and footer examples. Every snippet is valid usage; copy from here.
      The skip link goes first in <body> and points at the id of <main>. -->
@@ -376,6 +422,24 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
   </nav>
   <p class="isa-footer__note">International Slackline Association</p>
 </footer>
+</section>
+<section><h2>Page layout</h2>
+<!-- Page layout examples. Every snippet is valid usage; copy from here.
+     A real page: <body><a class="isa-skip-link" href="#main">Skip to content</a><div class="isa-page"> header, main, footer </div></body>.
+     Here the frame is shown inside a box, so <div> stands in for <main id="main" class="isa-main">. -->
+<div style="border: 1px solid var(--isa-color-border-default); border-radius: var(--isa-radius-lg); overflow: hidden">
+  <div class="isa-main">
+    <div class="isa-page-title">
+      <h1>Swiss Highline Open</h1>
+      <p>Three days of freestyle and speed highline above the valley, open to athletes from all member associations.</p>
+    </div>
+    <figure class="isa-hero">
+      <img alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E">
+      <figcaption>The picture goes here, its caption below it. Photo: [photographer]</figcaption>
+    </figure>
+    <section><h2 style="margin: 0">Section</h2><p>Page sections follow, each with its own heading.</p></section>
+  </div>
+</div>
 </section>
 <section><h2>Pagination</h2>
 <!-- Pagination examples. Every snippet is valid usage; copy from here. Use <a href> instead of <button> when each page has its own URL. -->
@@ -618,6 +682,8 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
 // ISA Design System: small behavior script for plain HTML pages (React projects use isa-design-system/react instead).
 // Load it once as a module script (type="module") from dist/isa.js, or import { init } from "isa-design-system/isa.js".
 // Tabs:   <div class="isa-tabs" role="tablist"> with <button role="tab" aria-controls="panel-id">
+// Autocomplete: <div class="isa-autocomplete" data-isa-autocomplete> with an input (role="combobox") and a <ul role="listbox"> of options
+// Filters: <button class="isa-filters__toggle" aria-expanded="false"> opens the fields on phones
 // Toast:  <button data-isa-toast="Saved" data-isa-toast-variant="success">, or showToast('Saved', { variant: 'success' })
 // Tooltip: closes with Escape (showing is done by CSS)
 // Dialog and Drawer: <button data-isa-dialog-open="dialog-id">, and inside the dialog <button data-isa-dialog-close>
@@ -741,7 +807,83 @@ function initToasts(root = document) {
   });
 }
 
-function init(root = document) { initTabs(root); initDialogs(root); initTooltips(root); initToasts(root); }
+// Autocomplete: filters the listed options while typing; arrow keys, Enter and Escape as in the ARIA combobox pattern.
+// Fires "isa:select" on the wrapper with detail { value, label }; a hidden input inside receives the value.
+function initAutocompletes(root = document) {
+  for (const box of root.querySelectorAll('[data-isa-autocomplete]')) {
+    if (box.dataset.isaReady) continue;
+    box.dataset.isaReady = 'true';
+    const input = box.querySelector('input[role="combobox"]');
+    const list = box.querySelector('[role="listbox"]');
+    if (!input || !list) continue;
+    const empty = box.querySelector('.isa-autocomplete__empty');
+    const hidden = box.querySelector('input[type="hidden"]');
+    const options = [...list.querySelectorAll('[role="option"]')];
+    options.forEach((o, i) => { o.dataset.label = o.textContent.trim(); o.id ||= `${list.id || 'isa-ac'}-${i}`; });
+    const visible = () => options.filter((o) => !o.hidden);
+    let active = null;
+    const setActive = (o) => {
+      active?.classList.remove('is-active');
+      active = o;
+      if (o) { o.classList.add('is-active'); o.scrollIntoView({ block: 'nearest' }); input.setAttribute('aria-activedescendant', o.id); }
+      else input.removeAttribute('aria-activedescendant');
+    };
+    const close = () => { list.hidden = true; if (empty) empty.hidden = true; input.setAttribute('aria-expanded', 'false'); setActive(null); };
+    const open = () => {
+      const q = input.value.trim().toLowerCase();
+      for (const o of options) {
+        const label = o.dataset.label;
+        const at = q ? label.toLowerCase().indexOf(q) : 0;
+        o.hidden = at < 0;
+        o.textContent = '';
+        if (q && at >= 0) {
+          const mark = document.createElement('mark');
+          mark.textContent = label.slice(at, at + q.length);
+          o.append(label.slice(0, at), mark, label.slice(at + q.length));
+        } else o.textContent = label;
+      }
+      const any = visible().length > 0;
+      list.hidden = !any;
+      if (empty) empty.hidden = any;
+      input.setAttribute('aria-expanded', String(any));
+      setActive(null);
+    };
+    const select = (o) => {
+      for (const x of options) x.setAttribute('aria-selected', String(x === o));
+      input.value = o.dataset.label;
+      if (hidden) hidden.value = o.dataset.value ?? o.dataset.label;
+      close();
+      box.dispatchEvent(new CustomEvent('isa:select', { bubbles: true, detail: { value: o.dataset.value ?? o.dataset.label, label: o.dataset.label } }));
+    };
+    input.addEventListener('input', () => { if (hidden) hidden.value = ''; open(); });
+    input.addEventListener('click', open);
+    input.addEventListener('keydown', (e) => {
+      const isOpen = !list.hidden;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (!isOpen) open();
+        const v = visible();
+        if (!v.length) return;
+        const i = v.indexOf(active);
+        setActive(e.key === 'ArrowDown' ? v[(i + 1) % v.length] : v[(i - 1 + v.length) % v.length]);
+      } else if (e.key === 'Enter' && isOpen && active) { e.preventDefault(); select(active); }
+      else if (e.key === 'Escape' && (isOpen || (empty && !empty.hidden))) { e.preventDefault(); close(); }
+    });
+    list.addEventListener('pointerdown', (e) => e.preventDefault()); // keep focus in the input
+    list.addEventListener('click', (e) => { const o = e.target.closest('[role="option"]'); if (o) select(o); });
+    input.addEventListener('blur', close);
+  }
+}
+
+function initFilters(root = document) {
+  for (const toggle of root.querySelectorAll('.isa-filters__toggle')) {
+    if (toggle.dataset.isaReady) continue;
+    toggle.dataset.isaReady = 'true';
+    toggle.addEventListener('click', () => toggle.setAttribute('aria-expanded', String(toggle.getAttribute('aria-expanded') !== 'true')));
+  }
+}
+
+function init(root = document) { initTabs(root); initDialogs(root); initTooltips(root); initToasts(root); initAutocompletes(root); initFilters(root); }
 
 if (typeof document !== 'undefined') {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init());

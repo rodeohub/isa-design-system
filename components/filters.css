@@ -1,0 +1,14 @@
+/* Filters: the row of search and filter fields above a table or list. Docs: docs/components/filters.md.
+   Extracted from the Slackline Sport Hub table filters and adapted. */
+.isa-filters { display: flex; flex-direction: column; align-items: flex-start; gap: var(--isa-space-4); font-family: var(--isa-font-family-body); }
+.isa-filters__fields { display: flex; flex-direction: column; gap: var(--isa-space-4); width: 100%; }
+.isa-filters__fields > .isa-field { width: 100%; }
+/* Phones: the fields are folded away until the toggle is pressed. */
+.isa-filters__toggle[aria-expanded="false"] + .isa-filters__fields { display: none; }
+/* From breakpoint.sm (40rem): always open, in a row that wraps. */
+@media (min-width: 40rem) {
+  .isa-filters__toggle { display: none; }
+  .isa-filters__fields,
+  .isa-filters__toggle[aria-expanded="false"] + .isa-filters__fields { display: flex; flex-flow: row wrap; align-items: flex-end; }
+  .isa-filters__fields > .isa-field { flex: 1 1 var(--isa-size-filter-min); width: auto; max-width: var(--isa-size-filter-max); }
+}

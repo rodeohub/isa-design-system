@@ -1,0 +1,44 @@
+/* Autocomplete: a text input that suggests matching options. Docs: docs/components/autocomplete.md.
+   Extracted from the Slackline Sport Hub and adapted. Needs isa.js or the React Autocomplete. */
+.isa-autocomplete { position: relative; display: block; }
+.isa-autocomplete__list,
+.isa-autocomplete__empty {
+  position: absolute;
+  top: calc(100% + var(--isa-space-1));
+  right: 0;
+  left: 0;
+  z-index: var(--isa-z-dropdown);
+  box-sizing: border-box;
+  max-height: var(--isa-size-dropdown-max);
+  margin: 0;
+  padding: var(--isa-space-1);
+  overflow-y: auto;
+  border: 1px solid var(--isa-color-border-strong);
+  border-radius: var(--isa-radius-md);
+  background-color: var(--isa-color-surface-default);
+  box-shadow: var(--isa-shadow-md);
+  list-style: none;
+  font-family: var(--isa-font-family-body);
+  font-size: var(--isa-font-size-md);
+  line-height: var(--isa-font-line-height-snug);
+}
+.isa-autocomplete__list[hidden],
+.isa-autocomplete__empty[hidden] { display: none; }
+.isa-autocomplete__option {
+  display: flex;
+  align-items: center;
+  min-height: var(--isa-size-touch-target);
+  box-sizing: border-box;
+  padding: var(--isa-space-2) var(--isa-space-3);
+  border-radius: var(--isa-radius-sm);
+  color: var(--isa-color-text-default);
+}
+.isa-autocomplete__option { cursor: pointer; }
+.isa-autocomplete__option[hidden] { display: none; }
+.isa-autocomplete__empty { padding: var(--isa-space-3) var(--isa-space-4); color: var(--isa-color-text-muted); }
+/* Active = the option the arrow keys or the pointer are on. Marked by background and a bar, not color alone. */
+.isa-autocomplete__option:hover,
+.isa-autocomplete__option.is-active { background-color: var(--isa-color-selected-bg); box-shadow: inset 3px 0 0 var(--isa-color-selected-border); }
+.isa-autocomplete__option[aria-selected="true"] { font-weight: var(--isa-font-weight-semibold); }
+/* The typed part inside each option: bold, no highlight color. */
+.isa-autocomplete__option mark { background: none; color: inherit; font-weight: var(--isa-font-weight-bold); text-decoration: underline; }

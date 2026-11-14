@@ -1,0 +1,21 @@
+/* Page layout: the frame every page shares. Docs: docs/components/page.md.
+   Extracted from the Slackline Sport Hub PageLayout and adapted.
+   <div class="isa-page"> header, <main id="main" class="isa-main">, footer </div> */
+.isa-page { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; background-color: var(--isa-color-surface-default); color: var(--isa-color-text-default); font-family: var(--isa-font-family-body); }
+/* Content width: centered, with side padding that grows from phones up. */
+.isa-container,
+.isa-main { box-sizing: border-box; width: 100%; max-width: var(--isa-size-content-max); margin-inline: auto; padding-inline: var(--isa-space-4); }
+.isa-main { display: flex; flex: 1; flex-direction: column; gap: var(--isa-space-8); padding-block: var(--isa-space-6) var(--isa-space-12); }
+.isa-container--narrow,
+.isa-main--narrow { max-width: var(--isa-size-content-narrow); }
+@media (min-width: 48rem) { .isa-container, .isa-main { padding-inline: var(--isa-space-8); } }
+/* Page title block: one h1 per page, optional lead text. */
+.isa-page-title { display: flex; flex-direction: column; gap: var(--isa-space-2); }
+.isa-page-title h1 { margin: 0; font-family: var(--isa-font-family-heading); font-size: var(--isa-font-size-4xl); font-weight: var(--isa-font-weight-bold); line-height: var(--isa-font-line-height-tight); }
+.isa-page-title p { max-width: var(--isa-size-content-narrow); margin: 0; color: var(--isa-color-text-muted); font-size: var(--isa-font-size-lg); line-height: var(--isa-font-line-height-normal); }
+@media (min-width: 48rem) { .isa-page-title h1 { font-size: var(--isa-font-size-5xl); } }
+/* Hero image: wide picture under the title. The caption sits below it, never on top. */
+.isa-hero { margin: 0; }
+.isa-hero img { display: block; width: 100%; height: 40vw; min-height: var(--isa-size-hero-min); max-height: var(--isa-size-hero-max); border-radius: var(--isa-radius-lg); background-color: var(--isa-color-surface-muted); object-fit: cover; }
+.isa-hero--contain img { object-fit: contain; }
+.isa-hero figcaption { margin-top: var(--isa-space-2); color: var(--isa-color-text-muted); font-size: var(--isa-font-size-sm); line-height: var(--isa-font-line-height-normal); }

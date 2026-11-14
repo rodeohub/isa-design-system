@@ -73,6 +73,12 @@
   --isa-size-focus-ring-width: 2px;
   --isa-size-focus-ring-offset: 2px;
   --isa-size-content-max: 80rem;
+  --isa-size-content-narrow: 45rem;
+  --isa-size-hero-min: 12.5rem;
+  --isa-size-hero-max: 32.5rem;
+  --isa-size-dropdown-max: 16rem;
+  --isa-size-filter-min: 10rem;
+  --isa-size-filter-max: 16rem;
   --isa-size-spinner-sm: 1rem;
   --isa-size-spinner-md: 1.5rem;
   --isa-size-spinner-lg: 2.5rem;
@@ -94,6 +100,7 @@
   --isa-shadow-md: 0 2px 8px #1515151f;
   --isa-shadow-lg: 0 12px 32px #15151533;
   --isa-z-sticky: 10;
+  --isa-z-dropdown: 30;
   --isa-z-tooltip: 40;
   --isa-z-toast: 50;
   --isa-duration-fast: 120ms;

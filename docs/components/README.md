@@ -23,6 +23,9 @@ Each component ships as plain CSS (`dist/components.css`, classes `isa-*`, works
 | Breadcrumbs | [breadcrumbs.md](breadcrumbs.md) | draft |
 | Empty state | [empty.md](empty.md) | draft |
 | Toast | [toast.md](toast.md) | draft |
+| Autocomplete | [autocomplete.md](autocomplete.md) | draft |
+| Filters | [filters.md](filters.md) | draft |
+| Page layout | [page.md](page.md) | draft |
 | Form fields (text input, text area, select, checkbox, radio, fieldset) | [field.md](field.md) | draft |
 
 ## To extract from the Sport Hub (`sport-hub/src/ui`)

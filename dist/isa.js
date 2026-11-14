@@ -1,6 +1,8 @@
 // ISA Design System: small behavior script for plain HTML pages (React projects use isa-design-system/react instead).
 // Load it once as a module script (type="module") from dist/isa.js, or import { init } from "isa-design-system/isa.js".
 // Tabs:   <div class="isa-tabs" role="tablist"> with <button role="tab" aria-controls="panel-id">
+// Autocomplete: <div class="isa-autocomplete" data-isa-autocomplete> with an input (role="combobox") and a <ul role="listbox"> of options
+// Filters: <button class="isa-filters__toggle" aria-expanded="false"> opens the fields on phones
 // Toast:  <button data-isa-toast="Saved" data-isa-toast-variant="success">, or showToast('Saved', { variant: 'success' })
 // Tooltip: closes with Escape (showing is done by CSS)
 // Dialog and Drawer: <button data-isa-dialog-open="dialog-id">, and inside the dialog <button data-isa-dialog-close>
@@ -124,7 +126,83 @@ export function initToasts(root = document) {
   });
 }
 
-export function init(root = document) { initTabs(root); initDialogs(root); initTooltips(root); initToasts(root); }
+// Autocomplete: filters the listed options while typing; arrow keys, Enter and Escape as in the ARIA combobox pattern.
+// Fires "isa:select" on the wrapper with detail { value, label }; a hidden input inside receives the value.
+export function initAutocompletes(root = document) {
+  for (const box of root.querySelectorAll('[data-isa-autocomplete]')) {
+    if (box.dataset.isaReady) continue;
+    box.dataset.isaReady = 'true';
+    const input = box.querySelector('input[role="combobox"]');
+    const list = box.querySelector('[role="listbox"]');
+    if (!input || !list) continue;
+    const empty = box.querySelector('.isa-autocomplete__empty');
+    const hidden = box.querySelector('input[type="hidden"]');
+    const options = [...list.querySelectorAll('[role="option"]')];
+    options.forEach((o, i) => { o.dataset.label = o.textContent.trim(); o.id ||= `${list.id || 'isa-ac'}-${i}`; });
+    const visible = () => options.filter((o) => !o.hidden);
+    let active = null;
+    const setActive = (o) => {
+      active?.classList.remove('is-active');
+      active = o;
+      if (o) { o.classList.add('is-active'); o.scrollIntoView({ block: 'nearest' }); input.setAttribute('aria-activedescendant', o.id); }
+      else input.removeAttribute('aria-activedescendant');
+    };
+    const close = () => { list.hidden = true; if (empty) empty.hidden = true; input.setAttribute('aria-expanded', 'false'); setActive(null); };
+    const open = () => {
+      const q = input.value.trim().toLowerCase();
+      for (const o of options) {
+        const label = o.dataset.label;
+        const at = q ? label.toLowerCase().indexOf(q) : 0;
+        o.hidden = at < 0;
+        o.textContent = '';
+        if (q && at >= 0) {
+          const mark = document.createElement('mark');
+          mark.textContent = label.slice(at, at + q.length);
+          o.append(label.slice(0, at), mark, label.slice(at + q.length));
+        } else o.textContent = label;
+      }
+      const any = visible().length > 0;
+      list.hidden = !any;
+      if (empty) empty.hidden = any;
+      input.setAttribute('aria-expanded', String(any));
+      setActive(null);
+    };
+    const select = (o) => {
+      for (const x of options) x.setAttribute('aria-selected', String(x === o));
+      input.value = o.dataset.label;
+      if (hidden) hidden.value = o.dataset.value ?? o.dataset.label;
+      close();
+      box.dispatchEvent(new CustomEvent('isa:select', { bubbles: true, detail: { value: o.dataset.value ?? o.dataset.label, label: o.dataset.label } }));
+    };
+    input.addEventListener('input', () => { if (hidden) hidden.value = ''; open(); });
+    input.addEventListener('click', open);
+    input.addEventListener('keydown', (e) => {
+      const isOpen = !list.hidden;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (!isOpen) open();
+        const v = visible();
+        if (!v.length) return;
+        const i = v.indexOf(active);
+        setActive(e.key === 'ArrowDown' ? v[(i + 1) % v.length] : v[(i - 1 + v.length) % v.length]);
+      } else if (e.key === 'Enter' && isOpen && active) { e.preventDefault(); select(active); }
+      else if (e.key === 'Escape' && (isOpen || (empty && !empty.hidden))) { e.preventDefault(); close(); }
+    });
+    list.addEventListener('pointerdown', (e) => e.preventDefault()); // keep focus in the input
+    list.addEventListener('click', (e) => { const o = e.target.closest('[role="option"]'); if (o) select(o); });
+    input.addEventListener('blur', close);
+  }
+}
+
+export function initFilters(root = document) {
+  for (const toggle of root.querySelectorAll('.isa-filters__toggle')) {
+    if (toggle.dataset.isaReady) continue;
+    toggle.dataset.isaReady = 'true';
+    toggle.addEventListener('click', () => toggle.setAttribute('aria-expanded', String(toggle.getAttribute('aria-expanded') !== 'true')));
+  }
+}
+
+export function init(root = document) { initTabs(root); initDialogs(root); initTooltips(root); initToasts(root); initAutocompletes(root); initFilters(root); }
 
 if (typeof document !== 'undefined') {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init());

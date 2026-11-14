@@ -306,3 +306,55 @@ export interface ToastOptions {
 export declare function ToastProvider(props: { children?: React.ReactNode; regionLabel?: string; closeLabel?: string }): React.ReactElement;
 /** Returns show(message, options), which returns a function that removes the toast. */
 export declare function useToast(): (message: React.ReactNode, options?: ToastOptions) => () => void;
+
+export interface AutocompleteOption { value: string; label: string }
+export interface AutocompleteProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'type' | 'role'> {
+  label: React.ReactNode;
+  help?: React.ReactNode;
+  error?: React.ReactNode;
+  optional?: boolean | string;
+  options: AutocompleteOption[];
+  /** The selected option's value ('' for none). */
+  value?: string;
+  /** Called when an option is picked, and with ('', null) when the text is changed after a pick. */
+  onChange?: (value: string, option: AutocompleteOption | null) => void;
+  /** Called on every keystroke: use it to load options from a server, with filter={false}. */
+  onInputChange?: (text: string) => void;
+  /** Filter options by the typed text. Default true. */
+  filter?: boolean;
+  noResultsText?: React.ReactNode;
+  /** Adds a hidden input with the value, for plain form posts. */
+  name?: string;
+}
+export declare const Autocomplete: React.ForwardRefExoticComponent<AutocompleteProps & React.RefAttributes<HTMLInputElement>>;
+
+export interface FiltersProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Name of the group for screen readers: "Filter athletes". */
+  label: string;
+  /** Shows a Reset button that calls this. */
+  onReset?: () => void;
+  /** Number of filters in use, shown on the phone toggle: "Filters (2)". */
+  activeCount?: number;
+  toggleLabel?: string;
+  resetLabel?: string;
+  /** Open on phones from the start. */
+  defaultOpen?: boolean;
+}
+export declare function Filters(props: FiltersProps): React.ReactElement;
+
+export declare function Page(props: React.HTMLAttributes<HTMLDivElement>): React.ReactElement;
+export interface MainProps extends React.HTMLAttributes<HTMLElement> { /** Text width (720px) for articles and forms. */ narrow?: boolean }
+export declare const Main: React.ForwardRefExoticComponent<MainProps & React.RefAttributes<HTMLElement>>;
+export declare function Container(props: React.HTMLAttributes<HTMLElement> & { narrow?: boolean; as?: React.ElementType }): React.ReactElement;
+export declare function PageTitle(props: Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> & { title: React.ReactNode }): React.ReactElement;
+export interface HeroProps extends React.HTMLAttributes<HTMLElement> {
+  src: string;
+  /** Describe the picture, or "" when it is decoration. */
+  alt: string;
+  caption?: React.ReactNode;
+  /** Show the whole picture instead of cropping it to fill. */
+  contain?: boolean;
+  imgAs?: React.ElementType;
+  imgProps?: Record<string, unknown>;
+}
+export declare function Hero(props: HeroProps): React.ReactElement;

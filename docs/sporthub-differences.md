@@ -1,6 +1,6 @@
 # Where the Sport Hub differs from the design system
 
-For the Sport Hub developers. Compared: design system v0.8.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
+For the Sport Hub developers. Compared: design system v0.9.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
 
 Nothing here has been changed in the Sport Hub. Updating it is a separate project that has not been decided (Roberto, 2026-11-14). This list is so you know what an update would involve. The Sport Hub was the starting point for the system, thank you for that work.
 
@@ -24,7 +24,7 @@ Nothing here has been changed in the Sport Hub. Updating it is a separate projec
 | Avatar | Small | New sizes, `name` instead of `defaultLabel` |
 | Navigation and Footer | Medium | Items as props, CSS breakpoint, header color |
 | Pagination | Small to medium | Own component, counts from 1 |
-| Not yet in the system | None for now | PageLayout, autocomplete, table filters |
+| Autocomplete, Filters, Page layout | Small to medium | Keyboard support, no text on photos; see section 19 |
 
 ## 1. Colors
 **Brand values.** The official colors are ISA Red `#E84026`, ISA Green `#009F9A`, ISA Gray `#454546`. In the Sport Hub these sit at `green-600` and `red-600`; in the system they are `green.500` and `red.500`, and the scales around them are different values.
@@ -105,7 +105,7 @@ Other changes:
 - Placeholder color passes AA (now `#8784A7`, 3.57:1).
 - Checkbox and radio: native controls in ISA green with a 44px tappable row.
 - Select: native `<select>` inside a `<span class="isa-select">`; the arrow is drawn in the text color instead of an inline SVG image.
-- Not in the system yet: `Autocomplete`, `FormikAutocomplete`, `UserAutocomplete`, `LinkFieldArray`, number field with steppers, and the domain dropdowns (discipline, gender, contest size). They stay as they are.
+- Autocomplete: see section 19. Not in the system: `LinkFieldArray`, number field with steppers, and the domain dropdowns (discipline, gender, contest size). They stay as they are.
 
 ## 8. Tabs
 - `TabGroup` becomes `Tabs`. Variants: `primary` is `underline` (default), `secondary` is `pill`, `large` is `size="large"`. The Button `tab` variant is gone.
@@ -132,7 +132,7 @@ Other changes:
 - New: `title`, `titleAs`, `meta`, `footer` props. EventDetailsCard, FeaturedAthleteCard, FeaturedEventCard and StackedMediaCard stay in the Sport Hub and can use this Card.
 
 ## 11. Table
-- The system Table only shows rows. Sorting, pagination and filters (TanStack Table, `TableFilters`, `TableFilterFields`) stay in the Sport Hub and pass the resulting rows, or the Sport Hub keeps its component and uses the `isa-table` classes.
+- The system Table only shows rows. Sorting and filter logic (TanStack Table) stay in the Sport Hub; Pagination and the Filters layout are system components (sections 17 and 19). The Sport Hub and pass the resulting rows, or the Sport Hub keeps its component and uses the `isa-table` classes.
 - New and required: a caption (can be visually hidden). New: `<th scope="row">` for the cell that names the row.
 - Sort headers are real buttons with `aria-sort` on the `<th>` (now the `<th>` itself is clickable, with no keyboard access).
 - The scrolling wrapper is focusable; optional sticky first column for phones.
@@ -180,8 +180,12 @@ Other changes:
 - Links inside text are underlined.
 - Screens must work at 320 to 360px wide.
 
-## 19. Sport Hub components not in the system yet
-PageLayout, Autocomplete (and FormikAutocomplete, UserAutocomplete), TableFilters, TableFilterFields, LinkFieldArray. Until they are extracted, nothing changes for them.
+## 19. Autocomplete, table filters and page layout
+- **Autocomplete** (medium): one `Autocomplete` replaces `Autocomplete`, `FormikAutocomplete` and `UserAutocomplete`. It adds arrow keys, Enter, Escape and screen reader roles, includes the label and error, and opens on typing, not on focus. Server search: `onInputChange` with `filter={false}`.
+- **Filters** (medium): `Filters` is layout only. `TableFilters` would keep reading the TanStack columns and render system fields (`TextField`, `SelectField`, `Autocomplete`) inside it. The phone toggle no longer needs `useClientMediaQuery`. The multi-select dropdown has no system version yet; its `role="listbox"` around checkboxes is not valid ARIA and should become a fieldset of checkboxes in a popover or a plain group.
+- **Page layout** (small to medium): `Main`, `PageTitle` and `Hero` replace `PageLayout`. The title is no longer overlaid on the hero image on phones (white text on a photo, description at 8px), and the blurred background image is dropped.
+
+Not extracted: LinkFieldArray (a form pattern: build it from system fields and buttons).
 
 Likely to stay Sport Hub specific: CountryFlag, EventDetailsCard, FeaturedAthleteCard, FeaturedEventCard, StackedMediaCard, ProfileMediaLinks, LabelValuePair, SortableList, UserForm, UserMenu, Icons.
 

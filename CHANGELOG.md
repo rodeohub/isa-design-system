@@ -1,6 +1,11 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.8.0`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.9.0`, and upgrade on purpose.
+
+## 0.9.0 (2026-11-14)
+- The last three components from the Slackline Sport Hub, adapted: **Autocomplete** (keyboard and screen reader support), **Filters** (the filter row above a table) and **Page layout** (`Page`, `Main`, `Container`, `PageTitle`, `Hero`).
+- `dist/isa.js` also handles autocomplete fields and the filters toggle.
+- New tokens `z.dropdown`, `size.content-narrow`, `size.hero-min`, `size.hero-max`, `size.dropdown-max`, `size.filter-min`, `size.filter-max`.
 
 ## 0.8.0 (2026-11-14)
 - New components that the Slackline Sport Hub does not have: **Breadcrumbs**, **Empty state** and **Toast** (CSS classes and React: `Breadcrumbs`, `EmptyState`, `ToastProvider`, `useToast`).

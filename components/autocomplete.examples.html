@@ -1,0 +1,19 @@
+<!-- Autocomplete examples. Every snippet is valid usage; copy from here. Needs isa.js (or the React Autocomplete). -->
+<div class="isa-field" style="max-width: 24rem">
+  <label class="isa-label" for="ex-ac-country">Country</label>
+  <p class="isa-help" id="ex-ac-country-help">Start typing, then pick from the list.</p>
+  <div class="isa-autocomplete" data-isa-autocomplete>
+    <input class="isa-input" id="ex-ac-country" type="text" role="combobox" aria-expanded="false" aria-controls="ex-ac-country-list" aria-autocomplete="list" aria-describedby="ex-ac-country-help" autocomplete="off">
+    <input type="hidden" name="country">
+    <ul class="isa-autocomplete__list" id="ex-ac-country-list" role="listbox" aria-label="Country" hidden>
+      <li class="isa-autocomplete__option" role="option" data-value="AUT">Austria</li>
+      <li class="isa-autocomplete__option" role="option" data-value="BRA">Brazil</li>
+      <li class="isa-autocomplete__option" role="option" data-value="CZE">Czechia</li>
+      <li class="isa-autocomplete__option" role="option" data-value="FRA">France</li>
+      <li class="isa-autocomplete__option" role="option" data-value="GER">Germany</li>
+      <li class="isa-autocomplete__option" role="option" data-value="SUI">Switzerland</li>
+      <li class="isa-autocomplete__option" role="option" data-value="USA">United States</li>
+    </ul>
+    <p class="isa-autocomplete__empty" role="status" hidden>No matches</p>
+  </div>
+</div>

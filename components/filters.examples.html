@@ -1,0 +1,23 @@
+<!-- Filters examples. Every snippet is valid usage; copy from here. On phones the fields open with the Filters button (needs isa.js or React). -->
+<div class="isa-filters">
+  <button type="button" class="isa-button isa-button--neutral isa-filters__toggle" aria-expanded="false" aria-controls="ex-filters-fields">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+    Filters
+  </button>
+  <div class="isa-filters__fields" id="ex-filters-fields" role="group" aria-label="Filter athletes">
+    <div class="isa-field">
+      <label class="isa-label" for="ex-f-name">Name</label>
+      <input class="isa-input" id="ex-f-name" type="search">
+    </div>
+    <div class="isa-field">
+      <label class="isa-label" for="ex-f-disc">Discipline</label>
+      <span class="isa-select"><select id="ex-f-disc"><option value="">All</option><option>Freestyle Highline</option><option>Speed Highline</option><option>Trickline</option></select></span>
+    </div>
+    <div class="isa-field">
+      <label class="isa-label" for="ex-f-from">From</label>
+      <input class="isa-input" id="ex-f-from" type="date">
+    </div>
+    <button type="button" class="isa-button isa-button--ghost">Reset</button>
+  </div>
+</div>
+<p role="status">Showing 24 of 240 athletes</p>

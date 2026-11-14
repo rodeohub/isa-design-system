@@ -15,3 +15,6 @@ export { Pagination } from './Pagination.js';
 export { Breadcrumbs } from './Breadcrumbs.js';
 export { EmptyState } from './EmptyState.js';
 export { ToastProvider, useToast } from './Toast.js';
+export { Autocomplete } from './Autocomplete.js';
+export { Filters } from './Filters.js';
+export { Page, Main, Container, PageTitle, Hero } from './Page.js';

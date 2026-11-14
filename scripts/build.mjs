@@ -62,7 +62,7 @@ copyFileSync('behavior/isa.js', 'dist/isa.js');
 // 6. preview.html: live examples of every component, then every color role. Built from the same files projects use.
 const v = (k) => resolve(all, all[k].value);
 const examples = readdirSync('components').filter((f) => f.endsWith('.examples.html')).sort()
-  .map((f) => `<section><h2>${f.replace('.examples.html', '').replace(/^./, (c) => c.toUpperCase()).replace('Field', 'Form fields').replace('Navigation', 'Header, navigation and footer').replace('Empty', 'Empty state')}</h2>\n${readFileSync(`components/${f}`, 'utf8')}</section>`).join('\n');
+  .map((f) => `<section><h2>${f.replace('.examples.html', '').replace(/^./, (c) => c.toUpperCase()).replace('Field', 'Form fields').replace('Navigation', 'Header, navigation and footer').replace('Empty', 'Empty state').replace('Page', 'Page layout')}</h2>\n${readFileSync(`components/${f}`, 'utf8')}</section>`).join('\n');
 const rows = semanticColors.map((k) => `<tr><td><code>${k}</code></td><td><span class="sw" style="background:${v(k)}"></span></td><td><code>${v(k)}</code></td><td>${all[k].description ?? ''}</td></tr>`).join('\n');
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ISA Design System preview</title>
 <link rel="stylesheet" href="./fonts.css"><link rel="stylesheet" href="./tokens.css"><link rel="stylesheet" href="./components.css">
