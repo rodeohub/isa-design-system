@@ -31,14 +31,6 @@ For badges and tags that sort content (disciplines, contest levels, roles). Sepa
 
 Pairs: `category.<name>-fg` on `category.<name>-bg`, names: neutral, green, red, blue, teal, orange, yellow, pink, purple. All pass AA.
 
-Current SportHub use (proposal, to confirm):
-| Category | Color |
-| --- | --- |
-| Speed Highline | blue |
-| Speedline Short | green |
-| Freestyle Highline | orange |
-| Trickline | red |
-| Rigging | purple |
-| Roles, age, neutral info | neutral |
+Which category gets which color is decided per project (for SportHub, in the SportHub code), not here.
 
 Rules: badge text is uppercase, `text-style.badge`, at least 12px; never rely on the color alone (the label always names the category).

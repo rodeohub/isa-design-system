@@ -19,11 +19,12 @@ Agents: raise the open questions with Roberto at the start of a session until th
 | 2026-11-14 | Ignore slacklineinternational.org (may be outdated) for decisions. | Roberto |
 | 2026-11-14 | Repo lives on GitHub, public, created as rodeohub/isa-design-system and to be transferred to the International-Slackline-Association organization. Collaborators: Can Sahin (Can-Sahin), Muhammad Martinez (mmrtnz). | Roberto |
 | 2026-11-14 | Three token layers (primitive, semantic, component); projects use semantic roles only. Themes are separate semantic files. | Claude, from the decisions above |
+| 2026-11-14 | Category colors are a ready-to-use set of pairs. Which category gets which color is up to each project (e.g. SportHub), not the system. | Roberto |
+| 2026-11-14 | Sean moves the repo to the International-Slackline-Association organization. Collaborator invites sent to Can-Sahin and mmrtnz. | Roberto |
 | 2026-11-14 | Destructive buttons use red 600 (4.84:1 with white text); text links and primary buttons use green 700 (7.52:1). Green 600 is not enough for normal text (3.96:1). | Claude, calculated |
 
 ## Open questions
-1. **Category palette:** the blue, teal, orange, yellow, pink and purple values in `tokens/primitive/color.json` are proposals (all pass AA). Approve or adjust. Also: which category goes with which discipline (see `docs/foundations/color.md`).
-2. **Transfer to the ISA GitHub organization:** who does it (Can is an org member) and when.
-3. **Licence** for the repo (e.g. MIT for code, plus a note that ISA logos and name are not covered).
-4. **Green between 600 and 700:** the official scale jumps from 3.96:1 to 7.52:1. A lighter accessible green (about 4.6:1) for buttons would need a new shade. Keep as is, or add one?
-5. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
+1. **Category hues:** the blue, teal, orange, yellow, pink and purple values in `tokens/primitive/color.json` were proposed by Claude (all pass AA). Fine as they are unless Roberto wants a different look.
+2. **Licence** (a LICENSE file saying what others may do with this public repo). Recommendation: MIT for the code and tokens, with a note that the ISA name and logos are not included. Needs a yes from Roberto (and ideally the ISA board).
+3. **Lighter primary button green:** primary buttons are green 700 (dark) because green 600 is slightly too light for white text (3.96:1, needs 4.5:1). Option: add one extra shade between them (about 4.6:1) so buttons look closer to the brand green. Default if nobody decides: keep green 700.
+4. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
