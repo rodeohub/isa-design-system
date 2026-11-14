@@ -50,6 +50,10 @@
   --color-action-danger-fg: var(--isa-color-action-danger-fg);
   --color-action-disabled-bg: var(--isa-color-action-disabled-bg);
   --color-action-disabled-fg: var(--isa-color-action-disabled-fg);
+  --color-selected-fg: var(--isa-color-selected-fg);
+  --color-selected-bg: var(--isa-color-selected-bg);
+  --color-selected-border: var(--isa-color-selected-border);
+  --color-overlay-backdrop: var(--isa-color-overlay-backdrop);
   --color-field-bg: var(--isa-color-field-bg);
   --color-field-bg-readonly: var(--isa-color-field-bg-readonly);
   --color-field-bg-disabled: var(--isa-color-field-bg-disabled);

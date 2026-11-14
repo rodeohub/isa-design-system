@@ -1,6 +1,6 @@
 # Where the Sport Hub differs from the design system
 
-For the Sport Hub developers. Compared: design system v0.4.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
+For the Sport Hub developers. Compared: design system v0.5.0 and Sport Hub `sport-hub/` at commit `24bc7b7` (2026-11-12). Contrast numbers are calculated (WCAG 2.x), minimum for normal text is 4.5:1, for borders and large text 3:1.
 
 Nothing here has been changed in the Sport Hub. Updating it is a separate project that has not been decided (Roberto, 2026-11-14). This list is so you know what an update would involve. The Sport Hub was the starting point for the system, thank you for that work.
 
@@ -14,7 +14,9 @@ Nothing here has been changed in the Sport Hub. Updating it is a separate projec
 | Alert | Small | Renamed variant, new markup |
 | Form fields | Medium to large | No Formik inside, bigger inputs, new error and help layout |
 | Accessibility | Medium | Contrast, focus rings, touch targets |
-| Not yet in the system | None for now | Tabs, Modal, Table, Card, Drawer, Tooltip and others |
+| Tabs | Small to medium | Renamed, full keyboard and screen reader support |
+| Modal (now Dialog) | Medium | Native `<dialog>`, own action buttons |
+| Not yet in the system | None for now | Table, Card, Drawer, Tooltip and others |
 
 ## 1. Colors
 **Brand values.** The official colors are ISA Red `#E84026`, ISA Green `#009F9A`, ISA Gray `#454546`. In the Sport Hub these sit at `green-600` and `red-600`; in the system they are `green.500` and `red.500`, and the scales around them are different values.
@@ -97,21 +99,37 @@ Other changes:
 - Select: native `<select>` inside a `<span class="isa-select">`; the arrow is drawn in the text color instead of an inline SVG image.
 - Not in the system yet: `Autocomplete`, `FormikAutocomplete`, `UserAutocomplete`, `LinkFieldArray`, number field with steppers, and the domain dropdowns (discipline, gender, contest size). They stay as they are.
 
-## 8. Accessibility rules that affect all screens
+## 8. Tabs
+- `TabGroup` becomes `Tabs`. Variants: `primary` is `underline` (default), `secondary` is `pill`, `large` is `size="large"`. The Button `tab` variant is gone.
+- Same data shape (`tabs={[{ id, label, disabled }]}`), `activeTab` becomes `value`, `onTabChange` becomes `onChange`. New: `content` per tab renders the panels, and `aria-label` is required.
+- Each tab now has `role="tab"` and `aria-selected`, with arrow-key navigation. Before, only the list had `role="tablist"`.
+- Selected color is green 700 with an underline. Now `#009F9A` text, 3.27:1. Unselected text is dark gray; now `neutral-500`, 3.28:1.
+- 44px tap height (now about 22px for underline tabs).
+- For tabs that change the URL, the system uses links with `aria-current="page"`.
+
+## 9. Modal, now Dialog
+- `Modal` becomes `Dialog`, `isOpen` becomes `open`. `title`, `onClose`, `actions` and `children` stay.
+- Built on the native `<dialog>` element. This adds what the current version lacks: focus stays inside, focus returns to the opener, the page behind is inert and does not scroll, and Escape works wherever focus is.
+- `showDefaultActions`, `onSave` and `formRef` are gone: pass the buttons in `actions` (Cancel as `neutral`, main action last).
+- The title id is generated per dialog (now always `modal-title`, which breaks with two modals on a page).
+- Title is 24px Barlow Condensed (now 18px), body 16px (now 14px), close button 44px with the label "Close".
+- On phones the footer buttons are full width with the main action on top.
+
+## 10. Accessibility rules that affect all screens
 - WCAG 2.2 AA is the minimum. Body text `neutral-700` (6.48:1) and headings `neutral-600` (4.95:1) pass today; the items listed above do not.
 - Every interactive element needs a visible focus ring. The Sport Hub has 3 `outline: none` rules and no `:focus-visible` styles.
 - Touch targets at least 44px (house rule, stricter than AA's 24px).
 - Links inside text are underlined.
 - Screens must work at 320 to 360px wide.
 
-## 9. Sport Hub components not in the system yet
-Tab, Modal, Table, Card, Drawer, Tooltip, Spinner, Avatar, Navigation, Footer, PageLayout. Until they are extracted, nothing changes for them. Planned next: Tabs and Modal.
+## 11. Sport Hub components not in the system yet
+Table, Card, Drawer, Tooltip, Spinner, Avatar, Navigation, Footer, PageLayout. Until they are extracted, nothing changes for them.
 
 Likely to stay Sport Hub specific: CountryFlag, EventDetailsCard, FeaturedAthleteCard, FeaturedEventCard, StackedMediaCard, ProfileMediaLinks, LabelValuePair, SortableList, UserForm, UserMenu, Icons.
 
 ## If a migration is decided later, a sensible order
 1. Install a tagged version and load `fonts.css` and `tokens.css` only (no Tailwind theme yet). Nothing breaks; the roles become available.
 2. Switch fonts.
-3. Replace Button, Badge, Alert and form fields with the system components, one at a time.
+3. Replace Button, Badge, Alert, form fields, Tabs and Modal with the system components, one at a time.
 4. Replace colors file by file, using `npx isa-audit` to track what is left.
 5. Import the Tailwind theme last, when no default color classes remain.

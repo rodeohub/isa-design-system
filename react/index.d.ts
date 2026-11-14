@@ -77,3 +77,40 @@ export interface FieldsetProps extends React.FieldsetHTMLAttributes<HTMLFieldSet
   optional?: boolean | string;
 }
 export declare const Fieldset: React.ForwardRefExoticComponent<FieldsetProps & React.RefAttributes<HTMLFieldSetElement>>;
+
+export interface TabItem {
+  id: string;
+  label: React.ReactNode;
+  disabled?: boolean;
+  /** Panel content. Leave out on all tabs to render only the tab row and show content yourself. */
+  content?: React.ReactNode;
+}
+export interface TabsProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  tabs: TabItem[];
+  /** Selected tab id (controlled). */
+  value?: string;
+  /** Initially selected tab id (uncontrolled). Default: the first enabled tab. */
+  defaultValue?: string;
+  onChange?: (id: string) => void;
+  /** underline (default) for page sections, pill for filters and switches. */
+  variant?: 'underline' | 'pill';
+  size?: 'medium' | 'large';
+  /** Class for each panel. */
+  panelClassName?: string;
+  /** Required: names the tab list for screen readers. */
+  'aria-label'?: string;
+}
+export declare function Tabs(props: TabsProps): React.ReactElement;
+
+export interface DialogProps extends Omit<React.DialogHTMLAttributes<HTMLDialogElement>, 'title' | 'onClose'> {
+  open: boolean;
+  /** Called on Escape, the close button and a click on the dimmed area. Set open to false in it. */
+  onClose: () => void;
+  /** Heading of the dialog. Required. */
+  title: React.ReactNode;
+  /** Buttons for the footer: secondary first, main action last. */
+  actions?: React.ReactNode;
+  /** Label of the close button, for translations. Default: "Close". */
+  closeLabel?: string;
+}
+export declare function Dialog(props: DialogProps): React.ReactElement;

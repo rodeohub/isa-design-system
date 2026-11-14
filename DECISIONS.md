@@ -32,10 +32,13 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Components ship as plain CSS classes (`isa-*`) plus optional React wrappers, so non-React projects can use them too. Button and Badge extracted first (v0.3.0). SportHub's domain badges (discipline, role...) stay in SportHub. | Claude |
 | 2026-11-14 | Alert and form fields extracted (v0.4.0). Form components are not tied to Formik (SportHub's are), so any project can use them. Inputs are 44px high and 16px text; help text sits above the control; errors are text with an icon. SportHub's autocomplete and domain dropdowns stay in SportHub for now. | Claude |
 | 2026-11-14 | Barlow is the font for websites and web apps only. Fonts for print and slides are not decided. | Roberto |
+| 2026-11-14 | Tabs and Dialog extracted (v0.5.0). Dialog uses the browser's native `<dialog>` (focus trap, Escape, focus return for free). A small script `dist/isa.js` makes tabs and dialogs work on plain HTML pages. SportHub's Modal is called Dialog here. | Claude |
+| 2026-11-14 | Alert and form fields approved. | Roberto |
+| 2026-11-14 | A Figma library will mirror the repo (code stays the source). Team: Thomas Buckingham's or Roberto's, either is fine. | Roberto |
 
 ## Open questions
 1. **Logo SVGs and usage rules** (Roberto will provide; don't ask until then).
-2. **Review Alert and form fields** in `dist/preview.html`. Button and Badge are approved (Roberto, 2026-11-14). Next suggested: Tabs, Modal.
+2. **Review Tabs and Dialog** in `dist/preview.html`. Next suggested: Card, Table, Spinner, Tooltip.
 
 ## Next steps (from the review, not yet done)
 2. Missing tokens: elevation, z-index, easing, opacity, border width, icon sizes; text-style utilities for Tailwind.

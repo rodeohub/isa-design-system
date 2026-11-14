@@ -1,6 +1,12 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.4.0`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.5.0`, and upgrade on purpose.
+
+## 0.5.0 (2026-11-14)
+- New components, extracted from the Slackline Sport Hub and adapted: **Tabs** (underline, large, pill, and links for page navigation) and **Dialog** (built on the native `<dialog>`).
+- `dist/isa.js`: a small script for plain HTML pages that makes tabs and dialogs work. React projects use `Tabs` and `Dialog` from `isa-design-system/react`.
+- New roles `selected.*` and `overlay.backdrop`; new tokens `shadow.md`, `shadow.lg`, `size.dialog-max`.
+- `docs/sporthub-differences.md`: what the Sport Hub would need to change to match the system.
 
 ## 0.4.0 (2026-11-14)
 - New components, extracted from the Slackline Sport Hub and adapted: **Alert** and **form fields** (label, help and error text, text input, text area, select, checkbox, radio, fieldset). CSS classes plus React components (`Alert`, `TextField`, `TextArea`, `SelectField`, `Checkbox`, `Radio`, `Fieldset`).

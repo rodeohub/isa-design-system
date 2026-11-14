@@ -17,12 +17,19 @@
     "control-sm": { "$value": "2.25rem", "$description": "Visual height of small controls (36px). The tappable area is still extended to touch-target." },
     "focus-ring-width": { "$value": "2px" },
     "focus-ring-offset": { "$value": "2px" },
-    "content-max": { "$value": "80rem" }
+    "content-max": { "$value": "80rem" },
+    "dialog-max": { "$value": "37rem", "$description": "Maximum dialog width (592px)." }
   },
   "breakpoint": {
     "$type": "dimension",
     "xs": { "$value": "20rem" }, "sm": { "$value": "40rem" }, "md": { "$value": "48rem" },
     "lg": { "$value": "64rem" }, "xl": { "$value": "80rem" }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "$description": "Elevation. Simplified to CSS strings (gray 900 at low opacity).",
+    "md": { "$value": "0 2px 8px #1515151f" },
+    "lg": { "$value": "0 12px 32px #15151533" }
   },
   "duration": {
     "$type": "duration",

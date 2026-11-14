@@ -56,6 +56,9 @@ copyFileSync('fonts/fonts.css', 'dist/fonts.css');
 const componentFiles = readdirSync('components').filter((f) => f.endsWith('.css')).sort((a, b) => (a === 'base.css' ? -1 : b === 'base.css' ? 1 : a.localeCompare(b)));
 writeFileSync('dist/components.css', header + componentFiles.map((f) => readFileSync(`components/${f}`, 'utf8').trim()).join('\n\n') + '\n');
 
+// Behavior script for plain HTML pages (tabs, dialogs).
+copyFileSync('behavior/isa.js', 'dist/isa.js');
+
 // 6. preview.html: live examples of every component, then every color role. Built from the same files projects use.
 const v = (k) => resolve(all, all[k].value);
 const examples = readdirSync('components').filter((f) => f.endsWith('.examples.html')).sort()
@@ -67,7 +70,7 @@ const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta n
 body{margin:0;font-family:var(--isa-font-family-body);color:var(--isa-color-text-default);background:var(--isa-color-surface-default);line-height:var(--isa-font-line-height-normal)}
 main{max-width:72rem;margin:0 auto;padding:var(--isa-space-8) var(--isa-space-4)}
 h1,h2,h3{font-family:var(--isa-font-family-heading);line-height:var(--isa-font-line-height-snug);margin:0}
-h1{font-size:var(--isa-font-size-5xl)}h2{font-size:var(--isa-font-size-4xl);margin-top:var(--isa-space-12);padding-top:var(--isa-space-6);border-top:1px solid var(--isa-color-border-default)}
+h1{font-size:var(--isa-font-size-5xl)}section>h2{font-size:var(--isa-font-size-4xl);margin-top:var(--isa-space-12);padding-top:var(--isa-space-6);border-top:1px solid var(--isa-color-border-default)}
 h3{font-size:var(--isa-font-size-xl);font-weight:var(--isa-font-weight-semibold);margin-top:var(--isa-space-6)}
 .row{display:flex;flex-wrap:wrap;gap:var(--isa-space-3);align-items:center;margin-top:var(--isa-space-3)}
 
@@ -80,7 +83,8 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
 <body><main><h1>ISA Design System</h1><p>Version ${JSON.parse(readFileSync('package.json', 'utf8')).version}. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
 ${examples}
 <section><h2>Color roles</h2><p>Light theme. Run <code>npm run check</code> for contrast results.</p><div class="scroll"><table>${rows}</table></div></section>
-</main></body></html>
+</main><script type="module">
+${readFileSync('behavior/isa.js', 'utf8').replace(/^export /gm, '')}</script></body></html>
 `;
 writeFileSync('dist/preview.html', html);
 

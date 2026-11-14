@@ -1,0 +1,31 @@
+<!-- Tabs examples. Every snippet is valid usage; copy from here. Needs isa.js (or the React Tabs) for switching and arrow keys. -->
+<h3>Underline (default)</h3>
+<div class="isa-tabs" role="tablist" aria-label="Sport Hub sections">
+  <button type="button" class="isa-tab" role="tab" id="ex-t1" aria-controls="ex-p1" aria-selected="true">Rankings</button>
+  <button type="button" class="isa-tab" role="tab" id="ex-t2" aria-controls="ex-p2">Events</button>
+  <button type="button" class="isa-tab" role="tab" id="ex-t3" aria-controls="ex-p3">Athletes</button>
+  <button type="button" class="isa-tab" role="tab" id="ex-t4" aria-controls="ex-p4">Judges</button>
+  <button type="button" class="isa-tab" role="tab" id="ex-t5" disabled>World Records</button>
+</div>
+<div class="isa-tabpanel" role="tabpanel" id="ex-p1" aria-labelledby="ex-t1" tabindex="0">Rankings content.</div>
+<div class="isa-tabpanel" role="tabpanel" id="ex-p2" aria-labelledby="ex-t2" tabindex="0" hidden>Events content.</div>
+<div class="isa-tabpanel" role="tabpanel" id="ex-p3" aria-labelledby="ex-t3" tabindex="0" hidden>Athletes content.</div>
+<div class="isa-tabpanel" role="tabpanel" id="ex-p4" aria-labelledby="ex-t4" tabindex="0" hidden>Judges content.</div>
+<h3>Large</h3>
+<div class="isa-tabs isa-tabs--large" role="tablist" aria-label="Example large tabs">
+  <button type="button" class="isa-tab" role="tab" aria-selected="true">Rankings</button>
+  <button type="button" class="isa-tab" role="tab">Events</button>
+  <button type="button" class="isa-tab" role="tab">Judges and Scoring</button>
+</div>
+<h3>Pill (filters)</h3>
+<div class="isa-tabs isa-tabs--pill" role="tablist" aria-label="Category">
+  <button type="button" class="isa-tab" role="tab" aria-selected="true">Women</button>
+  <button type="button" class="isa-tab" role="tab">Men</button>
+  <button type="button" class="isa-tab" role="tab">All</button>
+</div>
+<h3>As page navigation (links)</h3>
+<nav class="isa-tabs" aria-label="Event pages">
+  <a class="isa-tab" href="#" aria-current="page">Overview</a>
+  <a class="isa-tab" href="#">Results</a>
+  <a class="isa-tab" href="#">Registration</a>
+</nav>

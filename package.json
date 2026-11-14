@@ -1,6 +1,6 @@
 {
   "name": "isa-design-system",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Design system of the International Slackline Association: tokens, docs and components for people and AI agents.",
   "type": "module",
   "files": [
@@ -8,6 +8,7 @@
     "docs",
     "tokens",
     "components",
+    "behavior",
     "react",
     "scripts",
     "AGENTS.md",
@@ -25,7 +26,8 @@
     "./react": {
       "types": "./react/index.d.ts",
       "default": "./react/index.js"
-    }
+    },
+    "./isa.js": "./dist/isa.js"
   },
   "scripts": {
     "build": "node scripts/build.mjs",

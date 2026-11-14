@@ -4,7 +4,7 @@
 body{margin:0;font-family:var(--isa-font-family-body);color:var(--isa-color-text-default);background:var(--isa-color-surface-default);line-height:var(--isa-font-line-height-normal)}
 main{max-width:72rem;margin:0 auto;padding:var(--isa-space-8) var(--isa-space-4)}
 h1,h2,h3{font-family:var(--isa-font-family-heading);line-height:var(--isa-font-line-height-snug);margin:0}
-h1{font-size:var(--isa-font-size-5xl)}h2{font-size:var(--isa-font-size-4xl);margin-top:var(--isa-space-12);padding-top:var(--isa-space-6);border-top:1px solid var(--isa-color-border-default)}
+h1{font-size:var(--isa-font-size-5xl)}section>h2{font-size:var(--isa-font-size-4xl);margin-top:var(--isa-space-12);padding-top:var(--isa-space-6);border-top:1px solid var(--isa-color-border-default)}
 h3{font-size:var(--isa-font-size-xl);font-weight:var(--isa-font-weight-semibold);margin-top:var(--isa-space-6)}
 .row{display:flex;flex-wrap:wrap;gap:var(--isa-space-3);align-items:center;margin-top:var(--isa-space-3)}
 
@@ -14,7 +14,7 @@ h3{font-size:var(--isa-font-size-xl);font-weight:var(--isa-font-weight-semibold)
 td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-space-2);vertical-align:middle}
 .sw{display:inline-block;width:2.5rem;height:1.5rem;border-radius:var(--isa-radius-sm);border:1px solid var(--isa-color-border-default)}
 </style></head>
-<body><main><h1>ISA Design System</h1><p>Version 0.4.0. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
+<body><main><h1>ISA Design System</h1><p>Version 0.5.0. Live examples built from the same CSS that projects install. Press Tab to see focus rings.</p>
 <section><h2>Alert</h2>
 <!-- Alert examples. Every snippet is valid usage; copy from here. -->
 <div class="stack">
@@ -113,6 +113,42 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
   <button type="button" class="isa-button isa-button--neutral">Menu</button>
 </div>
 </section>
+<section><h2>Dialog</h2>
+<!-- Dialog examples. Every snippet is valid usage; copy from here. Needs isa.js (or the React Dialog) to open and close. -->
+<div class="row">
+  <button type="button" class="isa-button isa-button--secondary" data-isa-dialog-open="ex-dialog">Open dialog</button>
+  <button type="button" class="isa-button isa-button--danger-secondary" data-isa-dialog-open="ex-confirm">Withdraw from event</button>
+</div>
+<dialog class="isa-dialog" id="ex-dialog" aria-labelledby="ex-dialog-title">
+  <div class="isa-dialog__header">
+    <h2 class="isa-dialog__title" id="ex-dialog-title">Edit profile</h2>
+    <button type="button" class="isa-button isa-button--ghost isa-button--icon" aria-label="Close" data-isa-dialog-close><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="isa-dialog__body">
+    <div class="isa-field">
+      <label class="isa-label" for="ex-d-name">Display name</label>
+      <input class="isa-input" id="ex-d-name" type="text" value="Lena Example" autofocus>
+    </div>
+  </div>
+  <div class="isa-dialog__footer">
+    <button type="button" class="isa-button isa-button--neutral" data-isa-dialog-close>Cancel</button>
+    <button type="button" class="isa-button" data-isa-dialog-close>Save</button>
+  </div>
+</dialog>
+<dialog class="isa-dialog" id="ex-confirm" aria-labelledby="ex-confirm-title">
+  <div class="isa-dialog__header">
+    <h2 class="isa-dialog__title" id="ex-confirm-title">Withdraw from Swiss Highline Open?</h2>
+    <button type="button" class="isa-button isa-button--ghost isa-button--icon" aria-label="Close" data-isa-dialog-close><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="isa-dialog__body">
+    <p>Your place goes to the next athlete on the waiting list. You cannot undo this.</p>
+  </div>
+  <div class="isa-dialog__footer">
+    <button type="button" class="isa-button isa-button--neutral" data-isa-dialog-close>Keep my place</button>
+    <button type="button" class="isa-button isa-button--danger" data-isa-dialog-close>Withdraw</button>
+  </div>
+</dialog>
+</section>
 <section><h2>Form fields</h2>
 <!-- Form field examples. Every snippet is valid usage; copy from here. -->
 <div class="form">
@@ -167,6 +203,39 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
   </div>
 </div>
 </section>
+<section><h2>Tabs</h2>
+<!-- Tabs examples. Every snippet is valid usage; copy from here. Needs isa.js (or the React Tabs) for switching and arrow keys. -->
+<h3>Underline (default)</h3>
+<div class="isa-tabs" role="tablist" aria-label="Sport Hub sections">
+  <button type="button" class="isa-tab" role="tab" id="ex-t1" aria-controls="ex-p1" aria-selected="true">Rankings</button>
+  <button type="button" class="isa-tab" role="tab" id="ex-t2" aria-controls="ex-p2">Events</button>
+  <button type="button" class="isa-tab" role="tab" id="ex-t3" aria-controls="ex-p3">Athletes</button>
+  <button type="button" class="isa-tab" role="tab" id="ex-t4" aria-controls="ex-p4">Judges</button>
+  <button type="button" class="isa-tab" role="tab" id="ex-t5" disabled>World Records</button>
+</div>
+<div class="isa-tabpanel" role="tabpanel" id="ex-p1" aria-labelledby="ex-t1" tabindex="0">Rankings content.</div>
+<div class="isa-tabpanel" role="tabpanel" id="ex-p2" aria-labelledby="ex-t2" tabindex="0" hidden>Events content.</div>
+<div class="isa-tabpanel" role="tabpanel" id="ex-p3" aria-labelledby="ex-t3" tabindex="0" hidden>Athletes content.</div>
+<div class="isa-tabpanel" role="tabpanel" id="ex-p4" aria-labelledby="ex-t4" tabindex="0" hidden>Judges content.</div>
+<h3>Large</h3>
+<div class="isa-tabs isa-tabs--large" role="tablist" aria-label="Example large tabs">
+  <button type="button" class="isa-tab" role="tab" aria-selected="true">Rankings</button>
+  <button type="button" class="isa-tab" role="tab">Events</button>
+  <button type="button" class="isa-tab" role="tab">Judges and Scoring</button>
+</div>
+<h3>Pill (filters)</h3>
+<div class="isa-tabs isa-tabs--pill" role="tablist" aria-label="Category">
+  <button type="button" class="isa-tab" role="tab" aria-selected="true">Women</button>
+  <button type="button" class="isa-tab" role="tab">Men</button>
+  <button type="button" class="isa-tab" role="tab">All</button>
+</div>
+<h3>As page navigation (links)</h3>
+<nav class="isa-tabs" aria-label="Event pages">
+  <a class="isa-tab" href="#" aria-current="page">Overview</a>
+  <a class="isa-tab" href="#">Results</a>
+  <a class="isa-tab" href="#">Registration</a>
+</nav>
+</section>
 <section><h2>Color roles</h2><p>Light theme. Run <code>npm run check</code> for contrast results.</p><div class="scroll"><table><tr><td><code>color.text.default</code></td><td><span class="sw" style="background:#29292A"></span></td><td><code>#29292A</code></td><td>Body and headings.</td></tr>
 <tr><td><code>color.text.muted</code></td><td><span class="sw" style="background:#454546"></span></td><td><code>#454546</code></td><td>Secondary text, help text, captions. Still AA on surface.default and surface.subtle.</td></tr>
 <tr><td><code>color.text.inverse</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td>Text on dark or brand surfaces.</td></tr>
@@ -214,6 +283,10 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
 <tr><td><code>color.action.danger-fg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
 <tr><td><code>color.action.disabled-bg</code></td><td><span class="sw" style="background:#ECECED"></span></td><td><code>#ECECED</code></td><td></td></tr>
 <tr><td><code>color.action.disabled-fg</code></td><td><span class="sw" style="background:#7D7D7E"></span></td><td><code>#7D7D7E</code></td><td>Disabled controls are exempt from contrast rules, but keep them recognisable.</td></tr>
+<tr><td><code>color.selected.fg</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td></td></tr>
+<tr><td><code>color.selected.bg</code></td><td><span class="sw" style="background:#F2FAFA"></span></td><td><code>#F2FAFA</code></td><td></td></tr>
+<tr><td><code>color.selected.border</code></td><td><span class="sw" style="background:#005F5C"></span></td><td><code>#005F5C</code></td><td></td></tr>
+<tr><td><code>color.overlay.backdrop</code></td><td><span class="sw" style="background:#15151599"></span></td><td><code>#15151599</code></td><td>Dimmed layer behind a dialog (gray 900 at 60%).</td></tr>
 <tr><td><code>color.field.bg</code></td><td><span class="sw" style="background:#FFFFFF"></span></td><td><code>#FFFFFF</code></td><td></td></tr>
 <tr><td><code>color.field.bg-readonly</code></td><td><span class="sw" style="background:#F6F6F6"></span></td><td><code>#F6F6F6</code></td><td></td></tr>
 <tr><td><code>color.field.bg-disabled</code></td><td><span class="sw" style="background:#ECECED"></span></td><td><code>#ECECED</code></td><td></td></tr>
@@ -257,4 +330,60 @@ td{border-bottom:1px solid var(--isa-color-border-default);padding:var(--isa-spa
 <tr><td><code>color.category.violet-bg</code></td><td><span class="sw" style="background:#ECEBFE"></span></td><td><code>#ECEBFE</code></td><td></td></tr>
 <tr><td><code>color.category.purple-fg</code></td><td><span class="sw" style="background:#6B21A8"></span></td><td><code>#6B21A8</code></td><td></td></tr>
 <tr><td><code>color.category.purple-bg</code></td><td><span class="sw" style="background:#F3E8FF"></span></td><td><code>#F3E8FF</code></td><td></td></tr></table></div></section>
-</main></body></html>
+</main><script type="module">
+// ISA Design System: small behavior script for plain HTML pages (React projects use isa-design-system/react instead).
+// Load it once as a module script (type="module") from dist/isa.js, or import { init } from "isa-design-system/isa.js".
+// Tabs:   <div class="isa-tabs" role="tablist"> with <button role="tab" aria-controls="panel-id">
+// Dialog: <button data-isa-dialog-open="dialog-id">, and inside the dialog <button data-isa-dialog-close>
+
+function selectTab(list, tab, focus) {
+  for (const t of list.querySelectorAll('[role="tab"]')) {
+    const on = t === tab;
+    t.setAttribute('aria-selected', String(on));
+    t.tabIndex = on ? 0 : -1;
+    const panel = document.getElementById(t.getAttribute('aria-controls') ?? '');
+    if (panel) panel.hidden = !on;
+  }
+  if (focus) tab.focus();
+  list.dispatchEvent(new CustomEvent('isa:tabchange', { bubbles: true, detail: { tab } }));
+}
+
+function initTabs(root = document) {
+  for (const list of root.querySelectorAll('.isa-tabs[role="tablist"]')) {
+    if (list.dataset.isaReady) continue;
+    list.dataset.isaReady = 'true';
+    const enabled = () => [...list.querySelectorAll('[role="tab"]')].filter((t) => !t.disabled && t.getAttribute('aria-disabled') !== 'true');
+    const current = list.querySelector('[role="tab"][aria-selected="true"]') ?? enabled()[0];
+    if (current) selectTab(list, current, false);
+    list.addEventListener('click', (e) => {
+      const tab = e.target.closest('[role="tab"]');
+      if (tab && enabled().includes(tab)) selectTab(list, tab, false);
+    });
+    list.addEventListener('keydown', (e) => {
+      const tabs = enabled();
+      const i = tabs.indexOf(document.activeElement);
+      if (i < 0) return;
+      const next = { ArrowRight: tabs[(i + 1) % tabs.length], ArrowLeft: tabs[(i - 1 + tabs.length) % tabs.length], Home: tabs[0], End: tabs[tabs.length - 1] }[e.key];
+      if (next) { e.preventDefault(); selectTab(list, next, true); }
+    });
+  }
+}
+
+function initDialogs(root = document) {
+  if (root.isaDialogsReady) return;
+  root.isaDialogsReady = true;
+  root.addEventListener('click', (e) => {
+    const opener = e.target.closest('[data-isa-dialog-open]');
+    if (opener) return document.getElementById(opener.dataset.isaDialogOpen)?.showModal();
+    if (e.target.closest('[data-isa-dialog-close]')) return e.target.closest('dialog')?.close();
+    if (e.target.matches('dialog.isa-dialog')) e.target.close(); // click on the dimmed area
+  });
+}
+
+function init(root = document) { initTabs(root); initDialogs(root); }
+
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init());
+  else init();
+}
+</script></body></html>

@@ -57,6 +57,15 @@
       "disabled-bg": { "$value": "{color.gray.100}" },
       "disabled-fg": { "$value": "{color.gray.400}", "$description": "Disabled controls are exempt from contrast rules, but keep them recognisable." }
     },
+    "selected": {
+      "$description": "The chosen item in a set: the current tab, a selected filter or row.",
+      "fg": { "$value": "{color.green.700}" },
+      "bg": { "$value": "{color.green.50}" },
+      "border": { "$value": "{color.green.700}" }
+    },
+    "overlay": {
+      "backdrop": { "$value": "#15151599", "$description": "Dimmed layer behind a dialog (gray 900 at 60%)." }
+    },
     "field": {
       "$description": "Form controls: text inputs, text areas, selects, checkboxes, radios.",
       "bg": { "$value": "{color.white}" },

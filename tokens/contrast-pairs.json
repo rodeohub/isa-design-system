@@ -115,6 +115,10 @@
     ["color.field.border-invalid", "color.field.bg", 3],
     ["color.field.accent", "color.field.bg", 3],
     ["color.text.danger", "color.field.bg", 4.5],
-    ["color.text.muted", "color.field.bg", 4.5]
+    ["color.text.muted", "color.field.bg", 4.5],
+    ["color.selected.fg", "color.surface.default", 4.5],
+    ["color.selected.fg", "color.selected.bg", 4.5],
+    ["color.selected.border", "color.surface.default", 3],
+    ["color.selected.border", "color.selected.bg", 3]
   ]
 }

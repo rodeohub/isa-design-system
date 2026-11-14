@@ -2,7 +2,7 @@
 
 Components are extracted from the Slackline Sport Hub one at a time (with its developers' consent, Roberto 2026-11-14), adapted to these foundations, and documented here. Only components that exist in code are documented.
 
-Each component ships as plain CSS (`dist/components.css`, classes `isa-*`, works in any stack) plus an optional React wrapper (`isa-design-system/react`). Live examples: `dist/preview.html`, sources in `components/*.examples.html`.
+Each component ships as plain CSS (`dist/components.css`, classes `isa-*`, works in any stack) plus an optional React wrapper (`isa-design-system/react`). Plain HTML pages load `dist/isa.js` for the two interactive ones (Tabs, Dialog). Live examples: `dist/preview.html`, sources in `components/*.examples.html`.
 
 ## Available
 | Component | Doc | Status |
@@ -10,10 +10,12 @@ Each component ships as plain CSS (`dist/components.css`, classes `isa-*`, works
 | Button | [button.md](button.md) | draft |
 | Badge | [badge.md](badge.md) | draft |
 | Alert | [alert.md](alert.md) | draft |
+| Tabs | [tabs.md](tabs.md) | draft |
+| Dialog (modal) | [dialog.md](dialog.md) | draft |
 | Form fields (text input, text area, select, checkbox, radio, fieldset) | [field.md](field.md) | draft |
 
 ## To extract from the Sport Hub (`sport-hub/src/ui`)
-Suggested order: Tab, Modal, Autocomplete, Card, Table, Spinner, Tooltip, Drawer, Avatar, Navigation and Footer, PageLayout.
+Suggested order: Card, Autocomplete, Table, Spinner, Tooltip, Drawer, Avatar, Navigation and Footer, PageLayout.
 
 Sport Hub specific, likely to stay there: CountryFlag, EventDetailsCard, FeaturedAthleteCard, FeaturedEventCard, StackedMediaCard, ProfileMediaLinks, LabelValuePair, SortableList, UserForm, UserMenu, Icons.
 

@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 import { createElement as h } from 'react';
 import { renderToStaticMarkup as render } from 'react-dom/server';
-import { Button, Badge, Alert, TextField, TextArea, SelectField, Checkbox, Radio, Fieldset } from '../react/index.js';
+import { Button, Badge, Alert, TextField, TextArea, SelectField, Checkbox, Radio, Fieldset, Tabs, Dialog } from '../react/index.js';
 
 const eq = (el, html) => assert.equal(render(el), html);
 
@@ -39,5 +39,15 @@ eq(h(Radio, { name: 'g', value: 'w' }, 'Women'), '<label class="isa-check"><inpu
 has(h(Fieldset, { legend: 'Category', id: 'f', error: 'Choose one' }), '<fieldset id="f" class="isa-fieldset" aria-describedby="f-error"><legend class="isa-label">Category</legend>', 'id="f-error"');
 const auto = render(h(TextField, { label: 'Auto' }));
 assert.equal(auto.match(/for="([^"]+)"/)[1], auto.match(/<input id="([^"]+)"/)[1]);
+
+const tabs = render(h(Tabs, { 'aria-label': 'Sections', tabs: [{ id: 'a', label: 'A', content: 'Panel A' }, { id: 'b', label: 'B', content: 'Panel B' }, { id: 'c', label: 'C', disabled: true }] }));
+for (const part of ['role="tablist"', 'class="isa-tabs"', 'aria-label="Sections"', 'aria-selected="true"', 'tabindex="-1"', 'role="tabpanel"', 'hidden=""', 'Panel B', 'disabled=""']) assert.ok(tabs.includes(part), `Tabs: missing ${part}`);
+assert.equal((tabs.match(/aria-selected="true"/g) || []).length, 1);
+has(h(Tabs, { 'aria-label': 'Cat', variant: 'pill', size: 'large', value: 'm', tabs: [{ id: 'w', label: 'Women' }, { id: 'm', label: 'Men' }] }), 'class="isa-tabs isa-tabs--pill isa-tabs--large"');
+lacks(h(Tabs, { 'aria-label': 'Cat', tabs: [{ id: 'w', label: 'Women' }] }), 'tabpanel');
+
+eq(h(Dialog, { open: false, onClose() {}, title: 'Edit' }, 'Body'), render(h('dialog', { className: 'isa-dialog', 'aria-labelledby': render(h(Dialog, { open: false, onClose() {}, title: 'Edit' })).match(/aria-labelledby="([^"]+)"/)[1] })));
+has(h(Dialog, { open: true, onClose() {}, title: 'Edit profile', actions: h(Button, null, 'Save') }, 'Body'),
+  '<h2 class="isa-dialog__title"', 'Edit profile</h2>', 'aria-label="Close"', '<div class="isa-dialog__body">Body</div>', '<div class="isa-dialog__footer"><button class="isa-button" type="button">Save</button></div>');
 
 console.log('React components: all checks passed.');

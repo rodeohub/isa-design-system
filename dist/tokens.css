@@ -73,11 +73,14 @@
   --isa-size-focus-ring-width: 2px;
   --isa-size-focus-ring-offset: 2px;
   --isa-size-content-max: 80rem;
+  --isa-size-dialog-max: 37rem;
   --isa-breakpoint-xs: 20rem;
   --isa-breakpoint-sm: 40rem;
   --isa-breakpoint-md: 48rem;
   --isa-breakpoint-lg: 64rem;
   --isa-breakpoint-xl: 80rem;
+  --isa-shadow-md: 0 2px 8px #1515151f;
+  --isa-shadow-lg: 0 12px 32px #15151533;
   --isa-duration-fast: 120ms;
   --isa-duration-normal: 200ms;
   --isa-duration-slow: 320ms;
@@ -192,6 +195,10 @@
   --isa-color-action-danger-fg: var(--isa-color-white);
   --isa-color-action-disabled-bg: var(--isa-color-gray-100);
   --isa-color-action-disabled-fg: var(--isa-color-gray-400);
+  --isa-color-selected-fg: var(--isa-color-green-700);
+  --isa-color-selected-bg: var(--isa-color-green-50);
+  --isa-color-selected-border: var(--isa-color-green-700);
+  --isa-color-overlay-backdrop: #15151599;
   --isa-color-field-bg: var(--isa-color-white);
   --isa-color-field-bg-readonly: var(--isa-color-gray-50);
   --isa-color-field-bg-disabled: var(--isa-color-gray-100);
