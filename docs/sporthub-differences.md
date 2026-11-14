@@ -81,7 +81,7 @@ Other changes:
 - Every variant has its own icon (success had none). Text is left-aligned (was centered) and 16px (was 14px).
 - `size="SM"` (plain bold error text) is gone: field errors come from the form field's `error` prop.
 - `role="alert"` for danger and `role="status"` for the others are set automatically.
-- Colors are the AA status pairs. Now: error text 3.73:1. The warning and info variants use `yellow-50` and `blue-50`, which are not defined in `globals.css`, so they currently have no background.
+- Colors are the AA status pairs. Now: error text 3.73:1.
 - Optional `title` prop.
 
 ## 7. Form fields
