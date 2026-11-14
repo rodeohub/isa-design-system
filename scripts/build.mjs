@@ -113,7 +113,16 @@ ${['red', 'green', 'gray'].map((h) => `<div class="scale">${keys(`color.${h}.`).
 <div class="logos onbrand">${fig(logo('isa-wide/isa-wide-white.svg', 'ISA logo, wide, white', 48), 'isa-wide-white')}${fig(logo('isa-minimal/isa-minimal-white.svg', 'ISA logo, minimal, white', 48), 'isa-minimal-white')}${fig(logo('education/isa-education-white.svg', 'ISA Education logo, white', 80), 'education-white')}${fig(logo('safety/isa-safety-white.svg', 'ISA Safety logo, white', 80), 'safety-white')}</div>
 <h3>Certification marks</h3>
 <div class="logos">${['instructor', 'judge', 'rigger'].map((c) => fig(logo(`certifications/${c}-filled-color.svg`, `${c} mark, filled`, 32), `${c}-filled`) + fig(logo(`certifications/${c}-outline-color.svg`, `${c} mark, outline`, 32), `${c}-outline`)).join('')}</div>
-<p>Every logo also exists in black and grey (one-color use). Which variant where: <code>assets/logos/README.md</code>.</p>`],
+<p>Every logo also exists in black and grey (one-color use).</p>
+<h3>Rules</h3>
+<ul class="plain">
+<li><strong>Color first.</strong> Use the color version on white and light backgrounds. White on green, dark and photo backgrounds. Black or grey only for one-color printing.</li>
+<li><strong>Clear space.</strong> Keep at least half the height of the ISA mark free on all sides (about the width of the red "I").</li>
+<li><strong>Minimum height on screens.</strong> Default 64px, wide 32px, minimal 24px, Education and Safety 48px, certification marks 24px. In print 16mm for all.</li>
+<li><strong>Which shape.</strong> Default where there is room, wide in headers, minimal for small sizes and icons.</li>
+<li><strong>Never</strong> recolor, redraw, stretch, rotate, crop or add effects, and never place the color version on a colored or busy background.</li>
+</ul>
+<p>Full rules, based on the ISA CD Manual: <code>assets/logos/README.md</code>.</p>`],
   ['Typography', `<p>Two families, both free (SIL Open Font License) and hosted with the system, so pages make no requests to Google.</p>
 <div class="chips"><div class="chip type"><span style="font-family:var(--isa-font-family-heading);font-weight:700">Barlow Condensed</span><strong>Headings, 20px and up</strong><code>font.family.heading</code></div><div class="chip type"><span style="font-family:var(--isa-font-family-body)">Barlow</span><strong>Body text, labels, buttons</strong><code>font.family.body</code></div></div>
 <h3>Text styles</h3><p>Ready-made combinations of family, weight, size and line height. In Tailwind: <code>type-h1</code>, <code>type-body</code> and so on.</p>

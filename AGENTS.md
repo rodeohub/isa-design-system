@@ -9,7 +9,7 @@ You are working with the design system of the International Slackline Associatio
 4. **Mobile first.** Every screen must work at 360px wide. Many ISA users are on phones.
 5. **Native HTML first:** real `<button>`, `<a href>`, `<label>` + `<input>`. No clickable divs. Every page starts with a skip link and has one `<main id="main">` (use the page layout: `docs/components/page.md`).
 6. **Reuse before you create.** Check `docs/components/` for an existing component or pattern. Use the `isa-*` classes (or the React components) for buttons, badges, alerts, form fields, tabs, dialogs, cards, tables, spinners, tooltips, drawers, avatars, the page header and footer, pagination, breadcrumbs, empty states, toasts, autocomplete, filters and the page layout instead of styling your own. New patterns need a human decision; note them in your PR.
-7. **Brand red and green 500 are for logos, large display text and decoration**, not small text or small buttons on white. Logos come from `assets/logos/` unchanged: never redraw or recolor one; use the white variant on green and dark surfaces.
+7. **Brand red and green 500 are for logos, large display text and decoration**, not small text or small buttons on white. Logos come from `assets/logos/` unchanged: never redraw or recolor one; use the white variant on green and dark surfaces, and keep the minimum sizes and clear space in `assets/logos/README.md`.
 8. **Light and dark themes.** Roles change with the theme (`data-theme` on `<html>`), so never hard-code colors and check your UI in both. Things that float (menus, popovers) use `surface.raised`. See `docs/foundations/theming.md`.
 9. **Before you say you are done** in a project: run `npx isa-audit <your src folder>` (zero hard-coded colors) and check your UI at 360px.
 
@@ -28,14 +28,14 @@ You are working with the design system of the International Slackline Associatio
 | React components | `react/` (`import { Button, Badge, Alert, TextField, ... } from "isa-design-system/react"`) |
 | What differs from the Slackline Sport Hub (for its developers) | `docs/sporthub-differences.md` |
 | Figma library (a mirror of this repo) | `docs/figma.md` |
-| Logos (SVG) and which variant to use where | `assets/logos/README.md` |
+| Logos (SVG): variants, minimum sizes, clear space, rules | `assets/logos/README.md` |
 | Token sources (edit these) | `tokens/` |
 | Built outputs (never edit by hand) | `dist/tokens.css`, `dist/tailwind.css`, `dist/tokens.json`, `dist/fonts.css`, `dist/components.css`, `dist/isa.js`, `dist/preview.html` (open it to see all decisions and components on one page) |
 
 ## Using it in a project
 - Tailwind v4: `@import "isa-design-system/fonts.css"; @import "isa-design-system/tailwind.css"; @import "isa-design-system/components.css" layer(components);`
 - Plain HTML: load `dist/fonts.css`, `dist/tokens.css`, `dist/components.css` and, for tabs, dialogs, drawers, tooltips, toasts, autocomplete, filters and the theme switch, `dist/isa.js` as a module script; then use `var(--isa-color-text-default)` etc.
-- Install a tagged version: `npm install github:rodeohub/isa-design-system#v0.13.1` (repo will move to the ISA GitHub organization). Check `CHANGELOG.md` before upgrading.
+- Install a tagged version: `npm install github:rodeohub/isa-design-system#v0.13.2` (repo will move to the ISA GitHub organization). Check `CHANGELOG.md` before upgrading.
 
 ## Changing the system (in this repo)
 1. Edit `tokens/` (DTCG JSON) or `components/`, and the matching doc in `docs/`.

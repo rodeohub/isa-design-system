@@ -1,6 +1,9 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.13.1`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/isa-design-system#v0.13.2`, and upgrade on purpose.
+
+## 0.13.2 (2026-11-14)
+- Logo rules in `assets/logos/README.md` and on the preview page: minimum sizes, clear space, which shape and variant to use, what not to do. Based on the ISA CD Manual.
 
 ## 0.13.1 (2026-11-14)
 - Preview page (`dist/preview.html`): table of contents (side bar on wide screens, a "Contents" box on phones), a "Back to top" button, and new sections before the components: Principles, Brand colors (with scales and category colors), Logos, Typography, Spacing and shape.
