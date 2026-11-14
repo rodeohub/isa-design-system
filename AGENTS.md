@@ -25,6 +25,7 @@ You are working with the design system of the International Slackline Associatio
 | Components: Button, Badge, Alert, form fields (list, how to add more) | `docs/components/README.md` |
 | Component styles and live examples | `components/*.css`, `components/*.examples.html` |
 | React components | `react/` (`import { Button, Badge, Alert, TextField, ... } from "isa-design-system/react"`) |
+| What differs from the Slackline Sport Hub (for its developers) | `docs/sporthub-differences.md` |
 | Token sources (edit these) | `tokens/` |
 | Built outputs (never edit by hand) | `dist/tokens.css`, `dist/tailwind.css`, `dist/tokens.json`, `dist/fonts.css`, `dist/components.css`, `dist/preview.html` |
 
