@@ -56,15 +56,10 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-14 | Logo rules defined (v0.13.2). From the ISA CD Manual (Google Doc "00_ISA CD Manual", owner Thomas Buckingham): color first, no changes, calm backgrounds, 16mm minimum in print. Defined here: screen minimum heights (default 64px, wide 32px, minimal 24px, commissions 48px, certification marks 24px) and clear space of half the height of the ISA mark. The CD Manual's font (TheSans C4s) is replaced by Barlow for ISA material; TheSans stays only inside the logo artwork. | Roberto, Claude |
 | 2026-11-15 | The design system is called **Onsight** (Roberto: "something cool like Onsight"). At first a display name only; made official the same day, see the next row. The preview page is published with GitHub Pages at https://rodeohub.github.io/isa-design-system/ (the address changes when the repository moves to the ISA organization). | Roberto, Claude |
 | 2026-11-15 | **Onsight is the official name**, used everywhere: package `onsight`, repository `onsight`, docs, preview page, Figma file, Claude project, vault. Class and variable names keep the prefix `isa-` (Roberto chose to keep it). Docs and comments call it Onsight; "the ISA design system" only as a description. v0.15.0. | Roberto |
+| 2026-11-15 | Rename carried out: GitHub repository renamed to `rodeohub/onsight` (the old address forwards), description updated; GitHub Pages on (https://rodeohub.github.io/onsight/); Figma file renamed to "Onsight"; vault notes updated; releases v0.14.0 and v0.15.0 tagged. | Claude |
 
 ## Pending actions
-Need Roberto's Chrome (the Mac awake with Chrome open); not reachable on 2026-11-15:
-- **Rename the GitHub repository** to `onsight` (Settings, General, Repository name). Until then the links to `rodeohub/onsight` in the docs do not work; the old address keeps working afterwards.
-- **Switch on GitHub Pages** (Settings, Pages, deploy from branch `main`, folder `/`): https://rodeohub.github.io/onsight/.
-- **Tag releases v0.14.0 and v0.15.0.**
-- **Rename the Figma file** "ISA Design System" to "Onsight".
-- **Rename the Claude project** "ISA Design System" to "Onsight" (in claude.ai, project settings; Roberto).
-- **Vault:** replace "ISA Design System" with "Onsight" in the notes that mention it (needs the vault connected).
+- **Rename the Claude project** "ISA Design System" to "Onsight" (claude.ai, project settings; only Roberto can do this).
 
 ## Open questions
 3. **Solid badges (parked by Roberto, 2026-11-14):** SportHub has two solid badges (athlete: white on red, judge: white on green). Add a solid badge style, or keep soft and outline only? Do not raise again until Roberto does or the SportHub migration starts.
