@@ -1,4 +1,4 @@
-// Onsight: form fields (React). Needs @isa/onsight/components.css loaded.
+// Onsight: form fields (React). Needs @slacklineinternational/onsight/components.css loaded.
 // Docs: docs/components/field.md
 // Plain controlled or uncontrolled inputs: works with any form library (spread its field props).
 import { createElement as h, forwardRef, useId } from 'react';

@@ -1,4 +1,4 @@
-// Onsight: Badge (React). Needs @isa/onsight/components.css loaded.
+// Onsight: Badge (React). Needs @slacklineinternational/onsight/components.css loaded.
 // Docs: docs/components/badge.md
 import { createElement, forwardRef } from 'react';
 

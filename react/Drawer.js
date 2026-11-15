@@ -1,5 +1,5 @@
 'use client';
-// Onsight: Drawer (React). Needs @isa/onsight/components.css loaded.
+// Onsight: Drawer (React). Needs @slacklineinternational/onsight/components.css loaded.
 // Docs: docs/components/drawer.md
 import { createElement as h, useEffect, useId, useRef } from 'react';
 

@@ -1,5 +1,5 @@
 'use client';
-// Onsight: Dialog (React). Needs @isa/onsight/components.css loaded.
+// Onsight: Dialog (React). Needs @slacklineinternational/onsight/components.css loaded.
 // Docs: docs/components/dialog.md
 // Uses the native <dialog>: focus trap, Escape and focus return come from the browser.
 import { createElement as h, useEffect, useId, useRef } from 'react';

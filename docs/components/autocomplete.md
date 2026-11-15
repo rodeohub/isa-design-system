@@ -26,7 +26,7 @@ HTML (needs `dist/isa.js`): inside an `isa-field`, `<div class="isa-autocomplete
 
 Picking an option fires `isa:select` on the wrapper with `detail: { value, label }`.
 
-React: `import { Autocomplete } from "@isa/onsight/react"`. It renders the whole field.
+React: `import { Autocomplete } from "@slacklineinternational/onsight/react"`. It renders the whole field.
 
 | Prop | Type | Default |
 | --- | --- | --- |

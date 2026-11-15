@@ -1,4 +1,4 @@
-// Onsight: Avatar (React). Needs @isa/onsight/components.css loaded.
+// Onsight: Avatar (React). Needs @slacklineinternational/onsight/components.css loaded.
 // Docs: docs/components/avatar.md
 import { createElement as h, forwardRef } from 'react';
 

@@ -27,7 +27,7 @@ HTML:
 - Sortable column: `<th aria-sort="ascending|descending|none">` containing `<button class="isa-table__sort">Label <svg ...></button>`.
 - Modifiers on the table: `isa-table--compact`, `isa-table--sticky-first`.
 
-React: `import { Table } from "@isa/onsight/react"`.
+React: `import { Table } from "@slacklineinternational/onsight/react"`.
 
 | Prop | Type |
 | --- | --- |

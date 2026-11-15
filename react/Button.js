@@ -1,4 +1,4 @@
-// Onsight: Button (React). Needs @isa/onsight/components.css loaded.
+// Onsight: Button (React). Needs @slacklineinternational/onsight/components.css loaded.
 // Docs: docs/components/button.md
 import { createElement, forwardRef } from 'react';
 

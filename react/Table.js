@@ -1,4 +1,4 @@
-// Onsight: Table (React). Needs @isa/onsight/components.css loaded.
+// Onsight: Table (React). Needs @slacklineinternational/onsight/components.css loaded.
 // Docs: docs/components/table.md
 // Presentation only: sorting, filtering and paging of the data are done by the project
 // (plain code or a library such as TanStack Table); this component shows the result.

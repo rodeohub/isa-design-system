@@ -20,7 +20,7 @@ A "Filters" button (phones only), the fields in a row that wraps (stacked on pho
 ## 5. API
 HTML: `<div class="isa-filters">` with `<button class="isa-button isa-button--neutral isa-filters__toggle" aria-expanded="false" aria-controls="ID">` and `<div class="isa-filters__fields" id="ID" role="group" aria-label="Filter athletes">` holding `isa-field` blocks and a ghost Reset button. `dist/isa.js` makes the toggle work.
 
-React: `import { Filters } from "@isa/onsight/react"`.
+React: `import { Filters } from "@slacklineinternational/onsight/react"`.
 
 | Prop | Type | Default |
 | --- | --- | --- |

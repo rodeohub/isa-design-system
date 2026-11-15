@@ -20,7 +20,7 @@ A row of links from the top level down, separated by small arrows. The last item
 ## 5. API
 HTML: `<nav class="isa-breadcrumbs" aria-label="Breadcrumb">` with an `<ol>`; each item is `<li><a href>`; the last is `<li><span aria-current="page">`. The separators are drawn by CSS: do not type ">" or "/".
 
-React: `import { Breadcrumbs } from "@isa/onsight/react"`.
+React: `import { Breadcrumbs } from "@slacklineinternational/onsight/react"`.
 
 | Prop | Type | Default |
 | --- | --- | --- |

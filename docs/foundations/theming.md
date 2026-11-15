@@ -26,7 +26,7 @@ A project that supports dark mode starts with `<html data-theme="system">` and o
   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M12 7l5 -2M12 12h9M12 17l5 2"/></svg>
 </button>
 ```
-`dist/isa.js` makes it work and keeps `aria-pressed` right. In the header use the class `isa-header__button`; elsewhere a normal button (`isa-button isa-button--neutral`) with the words "Dark mode". From a script: `import { setTheme, isDark } from "@isa/onsight/isa.js"`.
+`dist/isa.js` makes it work and keeps `aria-pressed` right. In the header use the class `isa-header__button`; elsewhere a normal button (`isa-button isa-button--neutral`) with the words "Dark mode". From a script: `import { setTheme, isDark } from "@slacklineinternational/onsight/isa.js"`.
 
 React: `<ThemeToggle />` (as a header action: `<Header actions={<ThemeToggle className="isa-header__button" />} />`), or `const [dark, setDark] = useTheme()`.
 

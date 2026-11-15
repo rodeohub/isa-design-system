@@ -1,5 +1,5 @@
 'use client';
-// Onsight: Header, Nav, Footer, SkipLink (React). Needs @isa/onsight/components.css loaded.
+// Onsight: Header, Nav, Footer, SkipLink (React). Needs @slacklineinternational/onsight/components.css loaded.
 // Docs: docs/components/navigation.md
 import { createElement as h, useState } from 'react';
 import { Drawer } from './Drawer.js';

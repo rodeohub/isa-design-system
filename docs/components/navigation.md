@@ -32,7 +32,7 @@ HTML: see `components/navigation.examples.html`.
 - Icon buttons in the header (theme switch, search): `<button class="isa-header__button" aria-label="...">` inside `isa-header__actions`.
 - `<footer class="isa-footer">` with `<ul class="isa-footer__links">` and `<p class="isa-footer__note">`.
 
-React: `import { Header, Nav, Footer, SkipLink } from "@isa/onsight/react"` (client components).
+React: `import { Header, Nav, Footer, SkipLink } from "@slacklineinternational/onsight/react"` (client components).
 
 | Component | Props |
 | --- | --- |

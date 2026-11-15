@@ -20,7 +20,7 @@ Wrapper, trigger (a button or link), dark bubble with one or two short sentences
 ## 5. API
 HTML: `<span class="isa-tooltip">` containing the trigger with `aria-describedby="tip-id"` and `<span class="isa-tooltip__content" role="tooltip" id="tip-id">`. Modifiers: `isa-tooltip--bottom`, `isa-tooltip--start`, `isa-tooltip--end`. Showing on hover and focus is pure CSS; `dist/isa.js` adds closing with Escape and keeps the bubble inside the screen.
 
-React: `import { Tooltip } from "@isa/onsight/react"` (a client component).
+React: `import { Tooltip } from "@slacklineinternational/onsight/react"` (a client component).
 
 | Prop | Type | Default |
 | --- | --- | --- |

@@ -1,4 +1,4 @@
-// Onsight: page layout (React). Needs @isa/onsight/components.css loaded.
+// Onsight: page layout (React). Needs @slacklineinternational/onsight/components.css loaded.
 // Docs: docs/components/page.md
 // <SkipLink /> <Page> <Header .../> <Main> <PageTitle title="..."/> ... </Main> <Footer .../> </Page>
 import { createElement as h, forwardRef } from 'react';

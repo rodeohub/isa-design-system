@@ -1,5 +1,5 @@
-# Publishes @isa/onsight to npm when a GitHub release is published.
-# Needs the repository secret NPM_TOKEN: an npm access token with publish rights for the @isa scope.
+# Publishes @slacklineinternational/onsight to npm when a GitHub release is published.
+# Needs the repository secret NPM_TOKEN: an npm access token with publish rights for the @slacklineinternational scope.
 name: Publish to npm
 on:
   release:

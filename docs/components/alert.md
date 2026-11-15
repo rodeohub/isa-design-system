@@ -27,7 +27,7 @@ Container, status icon, body with an optional bold title and the message. Links 
 ## 5. API
 HTML: `<div class="isa-alert isa-alert--<variant>" role="status">` with an icon `<svg aria-hidden="true">` and `<div class="isa-alert__body">`. Optional title: `<strong class="isa-alert__title">`.
 
-React: `import { Alert } from "@isa/onsight/react"`.
+React: `import { Alert } from "@slacklineinternational/onsight/react"`.
 
 | Prop | Type | Default |
 | --- | --- | --- |

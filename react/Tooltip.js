@@ -1,5 +1,5 @@
 'use client';
-// Onsight: Tooltip (React). Needs @isa/onsight/components.css loaded.
+// Onsight: Tooltip (React). Needs @slacklineinternational/onsight/components.css loaded.
 // Docs: docs/components/tooltip.md
 import { cloneElement, createElement as h, isValidElement, useId, useRef, useState } from 'react';
 
