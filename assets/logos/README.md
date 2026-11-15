@@ -5,11 +5,7 @@ Official ISA logos as SVG, provided by Roberto on 2026-11-14. Use these files as
 **Not covered by the MIT License** of this repository (see LICENSE, Exclusions). They may only be used with the permission of the International Slackline Association.
 
 ## Still missing
-Roberto will add these (2026-11-15), more may follow:
-- ISA Sport (Sport Commission)
-- ISA Nature and Access (Nature and Access Commission)
-
-Add each in the same set as the others: SVG in color, black, grey and white, one folder per logo, then list it in the table below.
+More may follow (for example ISA Nature). Add each in the same set as the others: SVG in color, black, grey and white, one folder per logo, then list it in the table below.
 
 ## Files
 | Folder | Logo | Shape (width x height) | Variants |
@@ -17,8 +13,10 @@ Add each in the same set as the others: SVG in color, black, grey and white, one
 | `isa-default/` | ISA: mark with the full name below. The main logo. | 568 x 441 | color, black, grey, white |
 | `isa-wide/` | ISA: mark with the full name beside it. For wide, low spaces such as headers. | 1158 x 208 | color, black, grey, white |
 | `isa-minimal/` | ISA: the mark alone. For small sizes, icons and avatars. | 568 x 208 | color, black, grey, white |
-| `education/` | ISA Education (Education Commission). | 568 x 328 | color, black, grey, white |
-| `safety/` | ISA Safety (Safety Commission). | 568 x 328 | color, black, grey, white |
+| `education/` | ISA Education (Education Commission). | 567 x 328 | color, black, grey, white |
+| `safety/` | ISA Safety (Safety Commission). | 567 x 328 | color, black, grey, white |
+| `sport/` | ISA Sport (Sport Commission). | 567 x 328 | color, black, grey, white |
+| `access/` | ISA Access (Nature and Access Commission). | 567 x 328 | color, black, grey, white |
 | `certifications/` | Certification marks: `instructor`, `judge`, `rigger`. | 284 x 43 | filled or outline, each in color, black, white |
 
 File names: `<logo>-<variant>.svg`, e.g. `isa-wide-white.svg`, `rigger-outline-color.svg`.
@@ -49,7 +47,7 @@ Based on the ISA CD Manual (Thomas Buckingham, Nina Mappes; logo design by Andre
 | `isa-default` | 64px |
 | `isa-wide` | 32px |
 | `isa-minimal` | 24px (16px as a favicon or app icon) |
-| `education`, `safety` | 48px |
+| `education`, `safety`, `sport`, `access` | 48px |
 | `certifications` | 24px |
 
 Below these sizes the words stop being readable: switch to `isa-minimal`.
@@ -78,6 +76,6 @@ Keep free space on all four sides of at least half the height of the ISA mark (t
 - Follow the minimum sizes and clear space under Rules.
 
 ## Source
-The logos are components in the Figma file "ISA RIGGER CERT ADS" (page Components: sets "ISA Logos" and "ISA CERTIFICATIONS LOGOS"). The Education color logo was corrected to the official colors there and here on 2026-11-14.
+The logos are components in the Figma file "ISA RIGGER CERT ADS" (page Components: sets "ISA Logos" and "ISA CERTIFICATIONS LOGOS"). The Education color logo was corrected to the official colors there and here on 2026-11-14. Roberto redrew the four commission logos (Education, Safety, Sport, Access) on 2026-11-15 so they share one artwork and one size.
 
 PNG exports (1x, 2x, 4x) exist outside the repo; ask Roberto if a project cannot use SVG.
