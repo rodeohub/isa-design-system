@@ -2,8 +2,11 @@
 
 Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install @slacklineinternational/onsight@0.16.0` (or from GitHub: `npm install github:rodeohub/onsight#v0.16.0`), and upgrade on purpose.
 
-## 0.17.3 (2026-11-15)
-- Fix: the trusted publishing setup. 0.17.2 was tagged on GitHub but never reached npm; 0.17.3 has the same content.
+## 0.17.4 (2026-11-15)
+- First release published with npm trusted publishing (no token). Same content as 0.17.1 to 0.17.3.
+
+## 0.17.3 (2026-11-15, not on npm)
+- Fix: the trusted publishing setup. Not published: the preview page in `dist/` still showed the old version number.
 
 ## 0.17.2 (2026-11-15, not on npm)
 - Publishing uses npm trusted publishing: GitHub publishes without a token. Nothing changes for projects.
