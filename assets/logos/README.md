@@ -4,6 +4,13 @@ Official ISA logos as SVG, provided by Roberto on 2026-11-14. Use these files as
 
 **Not covered by the MIT License** of this repository (see LICENSE, Exclusions). They may only be used with the permission of the International Slackline Association.
 
+## Still missing
+Roberto will add these (2026-11-15), more may follow:
+- ISA Sport (Sport Commission)
+- ISA Nature and Access (Nature and Access Commission)
+
+Add each in the same set as the others: SVG in color, black, grey and white, one folder per logo, then list it in the table below.
+
 ## Files
 | Folder | Logo | Shape (width x height) | Variants |
 | --- | --- | --- | --- |

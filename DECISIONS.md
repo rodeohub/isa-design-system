@@ -60,6 +60,7 @@ Agents working with Roberto: raise the open questions with him at the start of a
 
 ## Pending actions
 - **Rename the Claude project** "ISA Design System" to "Onsight" (claude.ai, project settings; only Roberto can do this).
+- **Missing logos:** ISA Sport and ISA Nature and Access, more to follow (Roberto, 2026-11-15). Roberto provides the SVGs; they go into `assets/logos/` (list in `assets/logos/README.md`, Still missing).
 
 ## Open questions
 3. **Solid badges (parked by Roberto, 2026-11-14):** SportHub has two solid badges (athlete: white on red, judge: white on green). Add a solid badge style, or keep soft and outline only? Do not raise again until Roberto does or the SportHub migration starts.
