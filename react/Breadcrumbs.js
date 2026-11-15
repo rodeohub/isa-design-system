@@ -1,4 +1,4 @@
-// ISA Design System: Breadcrumbs (React). Needs isa-design-system/components.css loaded.
+// Onsight: Breadcrumbs (React). Needs onsight/components.css loaded.
 // Docs: docs/components/breadcrumbs.md
 import { createElement as h } from 'react';
 

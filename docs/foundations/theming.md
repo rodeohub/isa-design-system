@@ -5,7 +5,7 @@ The system has two themes: light (default) and dark (added in v0.12.0, Roberto 2
 ## How it works
 1. **Primitive tokens** (`tokens/primitive/`): raw values, the same in every theme.
 2. **Semantic roles** (`tokens/semantic/themes/light.json`, `dark.json`): what each value is for. Both files have the same keys.
-3. **Projects and components** use roles only. A hard-coded color or a primitive token will be wrong in one of the themes: `npx isa-audit` finds them.
+3. **Projects and components** use roles only. A hard-coded color or a primitive token will be wrong in one of the themes: `npx onsight-audit` finds them.
 
 `npm run check` tests every pair in `tokens/contrast-pairs.json` in both themes (WCAG AA).
 
@@ -26,7 +26,7 @@ A project that supports dark mode starts with `<html data-theme="system">` and o
   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M12 7l5 -2M12 12h9M12 17l5 2"/></svg>
 </button>
 ```
-`dist/isa.js` makes it work and keeps `aria-pressed` right. In the header use the class `isa-header__button`; elsewhere a normal button (`isa-button isa-button--neutral`) with the words "Dark mode". From a script: `import { setTheme, isDark } from "isa-design-system/isa.js"`.
+`dist/isa.js` makes it work and keeps `aria-pressed` right. In the header use the class `isa-header__button`; elsewhere a normal button (`isa-button isa-button--neutral`) with the words "Dark mode". From a script: `import { setTheme, isDark } from "onsight/isa.js"`.
 
 React: `<ThemeToggle />` (as a header action: `<Header actions={<ThemeToggle className="isa-header__button" />} />`), or `const [dark, setDark] = useTheme()`.
 

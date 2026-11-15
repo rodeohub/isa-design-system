@@ -1,5 +1,5 @@
-// ISA Design System: small behavior script for plain HTML pages (React projects use isa-design-system/react instead).
-// Load it once as a module script (type="module") from dist/isa.js, or import { init } from "isa-design-system/isa.js".
+// Onsight: small behavior script for plain HTML pages (React projects use onsight/react instead).
+// Load it once as a module script (type="module") from dist/isa.js, or import { init } from "onsight/isa.js".
 // Tabs:   <div class="isa-tabs" role="tablist"> with <button role="tab" aria-controls="panel-id">
 // Autocomplete: <div class="isa-autocomplete" data-isa-autocomplete> with an input (role="combobox") and a <ul role="listbox"> of options
 // Filters: <button class="isa-filters__toggle" aria-expanded="false"> opens the fields on phones

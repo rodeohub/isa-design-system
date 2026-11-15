@@ -1,4 +1,4 @@
-// ISA Design System: Avatar (React). Needs isa-design-system/components.css loaded.
+// Onsight: Avatar (React). Needs onsight/components.css loaded.
 // Docs: docs/components/avatar.md
 import { createElement as h, forwardRef } from 'react';
 

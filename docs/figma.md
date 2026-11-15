@@ -1,6 +1,6 @@
 # Figma library
 
-File: [ISA Design System](https://www.figma.com/design/3U795EQvIDPLGrEyHRT7Um) in Roberto's Figma team (created 2026-11-14). It can be moved to another team later.
+File: [Onsight](https://www.figma.com/design/3U795EQvIDPLGrEyHRT7Um) (named "ISA Design System" until it is renamed) in Roberto's Figma team (created 2026-11-14). It can be moved to another team later.
 
 **The repository is the source. Figma is a mirror** for people who design visually. Never change values in Figma first: change `tokens/` or `components/` here, release, then refresh the Figma file.
 

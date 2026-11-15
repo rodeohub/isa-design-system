@@ -1,4 +1,4 @@
-// ISA Design System: EmptyState (React). Needs isa-design-system/components.css loaded.
+// Onsight: EmptyState (React). Needs onsight/components.css loaded.
 // Docs: docs/components/empty.md
 import { createElement as h, forwardRef } from 'react';
 

@@ -20,7 +20,7 @@ Dimmed backdrop; panel with a header (title and close button) and a scrolling bo
 ## 5. API
 HTML: a native `<dialog class="isa-drawer" id="..." aria-labelledby="title-id">` with `isa-drawer__header` (an `<h2 class="isa-drawer__title">` and a close button) and `isa-drawer__body`. `isa-drawer--start` opens on the left. Open and close exactly like a Dialog: `data-isa-dialog-open="id"`, `data-isa-dialog-close`, or `showModal()` and `close()`.
 
-React: `import { Drawer } from "isa-design-system/react"` (a client component).
+React: `import { Drawer } from "onsight/react"` (a client component).
 
 | Prop | Type | Default |
 | --- | --- | --- |

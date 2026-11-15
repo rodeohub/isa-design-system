@@ -32,7 +32,7 @@ HTML:
 - Load `dist/isa.js` once: it handles clicks, arrow keys and showing the right panel, and fires an `isa:tabchange` event.
 - Page navigation: `<nav class="isa-tabs" aria-label="...">` with `<a class="isa-tab" href="..." aria-current="page">`. No script needed.
 
-React: `import { Tabs } from "isa-design-system/react"` (a client component).
+React: `import { Tabs } from "onsight/react"` (a client component).
 
 | Prop | Type | Default |
 | --- | --- | --- |

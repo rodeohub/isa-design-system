@@ -1,6 +1,6 @@
-# AGENTS.md: Onsight, the ISA Design System
+# AGENTS.md: Onsight
 
-You are working with Onsight, the design system of the International Slackline Association (ISA). "Onsight" is only the display name: the package is `isa-design-system`, and classes and variables start with `isa-`. Read this file first. It is short on purpose: open the linked doc for the area you are about to change, not all of them.
+You are working with **Onsight**, the official design system of the International Slackline Association (ISA). Call it Onsight in code comments, docs, commit messages and pull requests. The package is `onsight`; classes and variables keep the prefix `isa-`. Read this file first. It is short on purpose: open the linked doc for the area you are about to change, not all of them.
 
 ## Rules (always)
 1. **Use semantic tokens only.** Colors come from `--isa-color-<role>` (or the Tailwind classes built from them, e.g. `bg-action-primary-bg`, `text-muted`, `bg-subtle`, `border-strong`; text styles as `type-h1`, `type-body`). Never write hex, rgb or hsl values, and never use primitive tokens (`--isa-color-green-700`) in a project. If no role fits, stop and propose a new role in this repo instead of inventing a value.
@@ -11,7 +11,7 @@ You are working with Onsight, the design system of the International Slackline A
 6. **Reuse before you create.** Check `docs/components/` for an existing component or pattern. Use the `isa-*` classes (or the React components) for buttons, badges, alerts, form fields, tabs, dialogs, cards, tables, spinners, tooltips, drawers, avatars, the page header and footer, pagination, breadcrumbs, empty states, toasts, autocomplete, filters and the page layout instead of styling your own. New patterns need a human decision; note them in your PR.
 7. **Brand red and green 500 are for logos, large display text and decoration**, not small text or small buttons on white. Logos come from `assets/logos/` unchanged: never redraw or recolor one; use the white variant on green and dark surfaces, and keep the minimum sizes and clear space in `assets/logos/README.md`.
 8. **Light and dark themes.** Roles change with the theme (`data-theme` on `<html>`), so never hard-code colors and check your UI in both. Things that float (menus, popovers) use `surface.raised`. See `docs/foundations/theming.md`.
-9. **Before you say you are done** in a project: run `npx isa-audit <your src folder>` (zero hard-coded colors) and check your UI at 360px.
+9. **Before you say you are done** in a project: run `npx onsight-audit <your src folder>` (zero hard-coded colors) and check your UI at 360px.
 
 ## Where things are
 | Need | File |
@@ -25,17 +25,17 @@ You are working with Onsight, the design system of the International Slackline A
 | Components: Button, Badge, Alert, form fields, Tabs, Dialog, Card, Table, Spinner, Tooltip, Drawer, Avatar, Header/Nav/Footer, Pagination, Breadcrumbs, Empty state, Toast, Autocomplete, Filters, Page layout (list, how to add more) | `docs/components/README.md` |
 | A full example page to model new pages on | `examples/sporthub-rankings.html` |
 | Component styles and live examples | `components/*.css`, `components/*.examples.html` |
-| React components | `react/` (`import { Button, Badge, Alert, TextField, ... } from "isa-design-system/react"`) |
+| React components | `react/` (`import { Button, Badge, Alert, TextField, ... } from "onsight/react"`) |
 | What differs from the Slackline Sport Hub (for its developers) | `docs/sporthub-differences.md` |
 | Figma library (a mirror of this repo) | `docs/figma.md` |
 | Logos (SVG): variants, minimum sizes, clear space, rules | `assets/logos/README.md` |
 | Token sources (edit these) | `tokens/` |
-| Built outputs (never edit by hand) | `dist/tokens.css`, `dist/tailwind.css`, `dist/tokens.json`, `dist/fonts.css`, `dist/components.css`, `dist/isa.js`, `dist/preview.html` (all decisions and components on one page; online at https://rodeohub.github.io/isa-design-system/) |
+| Built outputs (never edit by hand) | `dist/tokens.css`, `dist/tailwind.css`, `dist/tokens.json`, `dist/fonts.css`, `dist/components.css`, `dist/isa.js`, `dist/preview.html` (all decisions and components on one page; online at https://rodeohub.github.io/onsight/) |
 
 ## Using it in a project
-- Tailwind v4: `@import "isa-design-system/fonts.css"; @import "isa-design-system/tailwind.css"; @import "isa-design-system/components.css" layer(components);`
+- Tailwind v4: `@import "onsight/fonts.css"; @import "onsight/tailwind.css"; @import "onsight/components.css" layer(components);`
 - Plain HTML: load `dist/fonts.css`, `dist/tokens.css`, `dist/components.css` and, for tabs, dialogs, drawers, tooltips, toasts, autocomplete, filters and the theme switch, `dist/isa.js` as a module script; then use `var(--isa-color-text-default)` etc.
-- Install a tagged version: `npm install github:rodeohub/isa-design-system#v0.14.0` (repo will move to the ISA GitHub organization). Check `CHANGELOG.md` before upgrading.
+- Install a tagged version: `npm install github:rodeohub/onsight#v0.15.0` (repo will move to the ISA GitHub organization). Check `CHANGELOG.md` before upgrading.
 
 ## Changing the system (in this repo)
 1. Edit `tokens/` (DTCG JSON) or `components/`, and the matching doc in `docs/`.

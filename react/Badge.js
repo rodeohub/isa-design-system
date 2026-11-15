@@ -1,4 +1,4 @@
-// ISA Design System: Badge (React). Needs isa-design-system/components.css loaded.
+// Onsight: Badge (React). Needs onsight/components.css loaded.
 // Docs: docs/components/badge.md
 import { createElement, forwardRef } from 'react';
 

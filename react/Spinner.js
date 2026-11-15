@@ -1,4 +1,4 @@
-// ISA Design System: Spinner (React). Needs isa-design-system/components.css loaded.
+// Onsight: Spinner (React). Needs onsight/components.css loaded.
 // Docs: docs/components/spinner.md
 import { createElement as h, forwardRef } from 'react';
 

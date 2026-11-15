@@ -1,5 +1,5 @@
 'use client';
-// ISA Design System: theme switch (React). Docs: docs/foundations/theming.md
+// Onsight: theme switch (React). Docs: docs/foundations/theming.md
 // <html data-theme="light|dark|system">. The choice is kept in localStorage under "isa-theme".
 import { createElement as h, useCallback, useEffect, useState } from 'react';
 

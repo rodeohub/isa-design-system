@@ -19,7 +19,7 @@ Status icon, optional bold title, message, close button. Toasts stack at the bot
 
 ## 5. API
 Plain HTML, with `dist/isa.js` loaded:
-- From a script: `import { showToast } from "isa-design-system/isa.js"; showToast("Results saved.", { variant: "success" })`.
+- From a script: `import { showToast } from "onsight/isa.js"; showToast("Results saved.", { variant: "success" })`.
 - Without a script: `<button data-isa-toast="Results saved." data-isa-toast-variant="success">` shows it on click (`data-isa-toast-title` adds a title).
 
 React: wrap the app once in `<ToastProvider>`, then `const toast = useToast(); toast("Results saved.", { variant: "success" })`.

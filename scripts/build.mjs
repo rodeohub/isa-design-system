@@ -160,8 +160,8 @@ const tocList = [['Foundations', foundations], ['Components', comps], ['Referenc
   .map(([group, items]) => `<li><span>${group}</span><ul>${items.map(([t]) => `<li><a href="#${slug(t)}">${t}</a></li>`).join('')}</ul></li>`).join('');
 const themeButton = '<button type="button" class="isa-button isa-button--neutral" data-isa-theme-toggle aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M12 7l5 -2M12 12h9M12 17l5 2" /></svg>Dark mode</button>';
 const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
-const name = pkg.displayName ?? 'ISA Design System';
-const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${name}: ISA Design System</title>
+const name = 'Onsight';
+const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${name}: the ISA design system</title>
 <link rel="stylesheet" href="./fonts.css"><link rel="stylesheet" href="./tokens.css"><link rel="stylesheet" href="./components.css">
 <style>
 html{scroll-behavior:smooth;scroll-padding-top:var(--isa-space-4)}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -204,7 +204,7 @@ td.ondark{background:#151515}
 <body><a class="isa-skip-link" href="#main">Skip to content</a>
 <div class="layout"><nav class="toc toc-side" aria-label="Contents"><strong>${name}</strong><ul>${tocList}</ul></nav>
 <main id="main"><div class="row" style="justify-content:space-between" id="top"><span class="mast">${logo('isa-wide/isa-wide-color.svg', 'International Slackline Association', 40).replace('<img ', '<img class="only-light" ')}${logo('isa-wide/isa-wide-white.svg', 'International Slackline Association', 40).replace('<img ', '<img class="only-dark" ')}</span>${themeButton}</div>
-<h1>${name}</h1><p class="lead">The design system of the International Slackline Association. Version ${pkg.version}.</p><p>The decisions first (colors, logos, fonts, spacing), then live examples of every component, built from the same CSS that projects install. Press Tab to see focus rings.</p>
+<h1>${name}</h1><p class="lead">The official design system of the International Slackline Association (ISA). Version ${pkg.version}.</p><p>The decisions first (colors, logos, fonts, spacing), then live examples of every component, built from the same CSS that projects install. Press Tab to see focus rings.</p>
 <details class="toc toc-top"><summary>Contents</summary><nav aria-label="Contents"><ul>${tocList}</ul></nav></details>
 ${foundations.map(([t, b]) => section(t, b)).join('\n')}
 ${comps.map(([t, b]) => section(t, b)).join('\n')}

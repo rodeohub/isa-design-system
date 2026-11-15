@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-// isa-audit: finds colors in a project that bypass the ISA design system.
-// Usage: npx isa-audit <folder>   (exit 1 if anything is found)
+// onsight-audit (also available as isa-audit): finds colors in a project that bypass Onsight, the ISA design system.
+// Usage: npx onsight-audit <folder>   (exit 1 if anything is found)
 // Ignore one line on purpose by adding the comment: isa-audit-ignore <reason>
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, extname, resolve } from 'node:path';
 
 const root = resolve(process.argv[2] ?? '.');
 const exts = new Set(['.css', '.scss', '.sass', '.less', '.html', '.jsx', '.tsx', '.js', '.ts', '.mjs', '.vue', '.svelte', '.astro', '.php', '.mdx']);
-const skipDirs = new Set(['node_modules', '.git', '.next', '.nuxt', '.svelte-kit', 'coverage', 'isa-design-system']);
+const skipDirs = new Set(['node_modules', '.git', '.next', '.nuxt', '.svelte-kit', 'coverage', 'onsight', 'isa-design-system']);
 const skipRootDirs = new Set(['dist', 'build', 'out', 'public']);
 
 const twColors = 'slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|white|black';
@@ -59,4 +59,4 @@ if (findings.length) {
   console.error(`\n${findings.length} finding(s). Use semantic tokens: var(--isa-color-<role>) or the Tailwind role classes (see AGENTS.md).`);
   process.exit(1);
 }
-console.log('isa-audit: no colors outside the design system.');
+console.log('onsight-audit: no colors outside the design system.');

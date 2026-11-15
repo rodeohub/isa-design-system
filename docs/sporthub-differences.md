@@ -39,7 +39,7 @@ Nothing here has been changed in the Sport Hub. Updating it is a separate projec
 
 **Roles, not palette names.** Projects use roles such as `--isa-color-text-default`, `--isa-color-action-primary-bg`, `--isa-color-border-strong`. Palette variables and raw values are not used directly. This is what makes dark mode possible later.
 
-**How much.** Running `npx isa-audit src` on the Sport Hub reports 1,015 places: 813 default Tailwind color classes (`bg-white`, `text-gray-500`...), 157 hex values, 20 `rgb()`/`rgba()` values and 25 named colors. On top of that, about 180 uses of `var(--color-...)` would need a role instead.
+**How much.** Running `npx onsight-audit src` on the Sport Hub reports 1,015 places: 813 default Tailwind color classes (`bg-white`, `text-gray-500`...), 157 hex values, 20 `rgb()`/`rgba()` values and 25 named colors. On top of that, about 180 uses of `var(--color-...)` would need a role instead.
 
 **Tailwind.** The system's Tailwind theme removes the default color palette on purpose, so classes like `text-gray-500` stop working once it is imported. A migration would need a class map (old class to role) and probably a temporary compatibility file. Neither exists yet.
 
@@ -198,5 +198,5 @@ Breadcrumbs, Empty state and Toast (v0.8.0). Nothing to change: they are availab
 1. Install a tagged version and load `fonts.css` and `tokens.css` only (no Tailwind theme yet). Nothing breaks; the roles become available.
 2. Switch fonts.
 3. Replace Button, Badge, Alert, form fields, Tabs, Modal, Card, Spinner and Tooltip with the system components, one at a time.
-4. Replace colors file by file, using `npx isa-audit` to track what is left.
+4. Replace colors file by file, using `npx onsight-audit` to track what is left.
 5. Import the Tailwind theme last, when no default color classes remain.

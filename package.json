@@ -1,8 +1,7 @@
 {
-  "name": "isa-design-system",
-  "displayName": "Onsight",
-  "version": "0.14.0",
-  "description": "Onsight, the design system of the International Slackline Association: tokens, docs and components for people and AI agents.",
+  "name": "onsight",
+  "version": "0.15.0",
+  "description": "Onsight, the official design system of the International Slackline Association (ISA): tokens, docs and components for people and AI agents.",
   "type": "module",
   "files": [
     "dist",
@@ -42,6 +41,7 @@
     "node": ">=18"
   },
   "bin": {
+    "onsight-audit": "scripts/audit.mjs",
     "isa-audit": "scripts/audit.mjs"
   },
   "license": "SEE LICENSE IN LICENSE",

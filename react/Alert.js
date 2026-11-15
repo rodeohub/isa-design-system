@@ -1,4 +1,4 @@
-// ISA Design System: Alert (React). Needs isa-design-system/components.css loaded.
+// Onsight: Alert (React). Needs onsight/components.css loaded.
 // Docs: docs/components/alert.md
 import { createElement as h, forwardRef } from 'react';
 import { StatusIcon } from './icons.js';

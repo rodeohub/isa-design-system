@@ -1,4 +1,4 @@
-// ISA Design System: Button (React). Needs isa-design-system/components.css loaded.
+// Onsight: Button (React). Needs onsight/components.css loaded.
 // Docs: docs/components/button.md
 import { createElement, forwardRef } from 'react';
 

@@ -1,5 +1,5 @@
 'use client';
-// ISA Design System: Tooltip (React). Needs isa-design-system/components.css loaded.
+// Onsight: Tooltip (React). Needs onsight/components.css loaded.
 // Docs: docs/components/tooltip.md
 import { cloneElement, createElement as h, isValidElement, useId, useRef, useState } from 'react';
 

@@ -1,5 +1,5 @@
 'use client';
-// ISA Design System: toasts (React). Needs isa-design-system/components.css loaded.
+// Onsight: toasts (React). Needs onsight/components.css loaded.
 // Docs: docs/components/toast.md
 // Wrap the app once in <ToastProvider>, then: const toast = useToast(); toast('Saved', { variant: 'success' });
 import { createContext, createElement as h, useCallback, useContext, useEffect, useRef, useState } from 'react';

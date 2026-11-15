@@ -1,5 +1,5 @@
 'use client';
-// ISA Design System: Filters (React). Needs isa-design-system/components.css loaded.
+// Onsight: Filters (React). Needs onsight/components.css loaded.
 // Docs: docs/components/filters.md
 import { createElement as h, useId, useState } from 'react';
 

@@ -1,5 +1,5 @@
 'use client';
-// ISA Design System: Header, Nav, Footer, SkipLink (React). Needs isa-design-system/components.css loaded.
+// Onsight: Header, Nav, Footer, SkipLink (React). Needs onsight/components.css loaded.
 // Docs: docs/components/navigation.md
 import { createElement as h, useState } from 'react';
 import { Drawer } from './Drawer.js';

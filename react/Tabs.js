@@ -1,5 +1,5 @@
 'use client';
-// ISA Design System: Tabs (React). Needs isa-design-system/components.css loaded.
+// Onsight: Tabs (React). Needs onsight/components.css loaded.
 // Docs: docs/components/tabs.md
 import { createElement as h, useId, useRef, useState } from 'react';
 

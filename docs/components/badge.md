@@ -20,7 +20,7 @@ Container, label (uppercase, 12px bold), optional icon before the label.
 ## 5. API
 HTML: `<span class="isa-badge isa-badge--<color>">`. Add `isa-badge--outline` for the border-only style.
 
-React: `import { Badge } from "isa-design-system/react"`.
+React: `import { Badge } from "onsight/react"`.
 
 | Prop | Type | Default |
 | --- | --- | --- |

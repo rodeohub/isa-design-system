@@ -1,4 +1,4 @@
-// ISA Design System: Card and CardGrid (React). Needs isa-design-system/components.css loaded.
+// Onsight: Card and CardGrid (React). Needs onsight/components.css loaded.
 // Docs: docs/components/card.md
 import { createElement as h, forwardRef } from 'react';
 
