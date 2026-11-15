@@ -2,6 +2,10 @@
 
 Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install @slacklineinternational/onsight@0.16.0` (or from GitHub: `npm install github:rodeohub/onsight#v0.16.0`), and upgrade on purpose.
 
+## 0.17.2 (2026-11-15)
+- Publishing uses npm trusted publishing: GitHub publishes without a token. Nothing changes for projects.
+- The placeholder version `0.0.0-stage` on npm is marked as deprecated.
+
 ## 0.17.1 (2026-11-15)
 - Preview page: logos grouped into "ISA logo" and "Commission logos" (Education, Safety, Sport, Nature and Access), each in color and white.
 
