@@ -1,6 +1,10 @@
 # Changelog
 
-Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install github:rodeohub/onsight#v0.15.0`, and upgrade on purpose.
+Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install @isa/onsight@0.16.0` (or from GitHub: `npm install github:rodeohub/onsight#v0.16.0`), and upgrade on purpose.
+
+## 0.16.0 (2026-11-15)
+- **Breaking:** the package is now `@isa/onsight`, published on npm. Install with `npm install @isa/onsight` and change imports from `onsight/...` to `@isa/onsight/...` (for example `@isa/onsight/react`, `@isa/onsight/tailwind.css`).
+- Every GitHub release now publishes to npm automatically (`.github/workflows/publish.yml`), with provenance.
 
 ## 0.15.0 (2026-11-15)
 **Onsight is the official name** of the ISA design system (Roberto, 2026-11-15).

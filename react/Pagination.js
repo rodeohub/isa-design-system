@@ -1,4 +1,4 @@
-// Onsight: Pagination (React). Needs onsight/components.css loaded.
+// Onsight: Pagination (React). Needs @isa/onsight/components.css loaded.
 // Docs: docs/components/pagination.md
 import { createElement as h } from 'react';
 

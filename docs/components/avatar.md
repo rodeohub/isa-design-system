@@ -27,7 +27,7 @@ A circle (or rounded square) with an image, or with one or two initials on a gra
 ## 5. API
 HTML: `<span class="isa-avatar"><img src="..." alt="Name"></span>`, or with initials `<span class="isa-avatar" role="img" aria-label="Name">LE</span>`. Modifiers: `isa-avatar--small`, `--large`, `--xlarge`, `--square`.
 
-React: `import { Avatar } from "onsight/react"`.
+React: `import { Avatar } from "@isa/onsight/react"`.
 
 | Prop | Type | Default |
 | --- | --- | --- |

@@ -39,7 +39,7 @@ HTML classes:
 | `isa-check` | `<label>` wrapped around a checkbox or radio and its text |
 | `isa-fieldset` | `<fieldset>` with a `<legend class="isa-label">` |
 
-React: `import { TextField, TextArea, SelectField, Checkbox, Radio, Fieldset } from "onsight/react"`.
+React: `import { TextField, TextArea, SelectField, Checkbox, Radio, Fieldset } from "@isa/onsight/react"`.
 
 | Component | Own props | Renders |
 | --- | --- | --- |

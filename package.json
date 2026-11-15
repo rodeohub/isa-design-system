@@ -1,7 +1,24 @@
 {
-  "name": "onsight",
-  "version": "0.15.0",
+  "name": "@isa/onsight",
+  "version": "0.16.0",
   "description": "Onsight, the official design system of the International Slackline Association (ISA): tokens, docs and components for people and AI agents.",
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "slackline",
+    "isa",
+    "tailwind",
+    "react",
+    "accessibility"
+  ],
+  "homepage": "https://rodeohub.github.io/onsight/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodeohub/onsight.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rodeohub/onsight/issues"
+  },
   "type": "module",
   "files": [
     "dist",
@@ -52,5 +69,9 @@
     "react": {
       "optional": true
     }
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }

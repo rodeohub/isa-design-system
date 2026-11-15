@@ -22,7 +22,7 @@ HTML: a native `<dialog class="isa-dialog" id="..." aria-labelledby="title-id">`
 - Load `dist/isa.js` once. Open with `<button data-isa-dialog-open="dialog-id">`; close with `data-isa-dialog-close` on any button inside.
 - Or call `dialog.showModal()` and `dialog.close()` yourself. Always `showModal()`, never the `open` attribute, otherwise there is no focus trap.
 
-React: `import { Dialog } from "onsight/react"` (a client component).
+React: `import { Dialog } from "@isa/onsight/react"` (a client component).
 
 | Prop | Type | Default |
 | --- | --- | --- |

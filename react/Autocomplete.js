@@ -1,5 +1,5 @@
 'use client';
-// Onsight: Autocomplete (React). Needs onsight/components.css loaded.
+// Onsight: Autocomplete (React). Needs @isa/onsight/components.css loaded.
 // Docs: docs/components/autocomplete.md
 import { createElement as h, forwardRef, useEffect, useId, useState } from 'react';
 import { StatusIcon } from './icons.js';

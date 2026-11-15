@@ -2,7 +2,7 @@
 
 Components are extracted from the Slackline Sport Hub one at a time (with its developers' consent, Roberto 2026-11-14), adapted to these foundations, and documented here. Only components that exist in code are documented.
 
-Each component ships as plain CSS (`dist/components.css`, classes `isa-*`, works in any stack) plus an optional React wrapper (`onsight/react`). Plain HTML pages load `dist/isa.js` for the interactive ones (Tabs, Dialog, Drawer, Tooltip). Live examples: `dist/preview.html`, sources in `components/*.examples.html`.
+Each component ships as plain CSS (`dist/components.css`, classes `isa-*`, works in any stack) plus an optional React wrapper (`@isa/onsight/react`). Plain HTML pages load `dist/isa.js` for the interactive ones (Tabs, Dialog, Drawer, Tooltip). Live examples: `dist/preview.html`, sources in `components/*.examples.html`.
 
 ## Available
 | Component | Doc | Status |

@@ -23,7 +23,7 @@ HTML: `<article class="isa-card">` with `isa-card__media`, `isa-card__body`, `is
 - Modifiers: `isa-card--horizontal` (media left from 640px, stacked on phones), `isa-card--elevated` (shadow instead of border).
 - Grid: `<ul class="isa-card-grid">` with one `<li>` per card. It fits as many columns as there is room for (cards at least 280px wide) and one column on phones.
 
-React: `import { Card, CardGrid } from "onsight/react"`.
+React: `import { Card, CardGrid } from "@isa/onsight/react"`.
 
 | Prop | Type | Default |
 | --- | --- | --- |

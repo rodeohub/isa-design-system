@@ -37,7 +37,7 @@ HTML: class `isa-button` plus modifiers.
 | `isa-button--icon` | square, icon only (needs `aria-label`) |
 | `isa-button--full` | full width |
 
-React: `import { Button } from "onsight/react"`.
+React: `import { Button } from "@isa/onsight/react"`.
 
 | Prop | Type | Default |
 | --- | --- | --- |

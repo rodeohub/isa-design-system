@@ -1,4 +1,4 @@
-// Onsight: Breadcrumbs (React). Needs onsight/components.css loaded.
+// Onsight: Breadcrumbs (React). Needs @isa/onsight/components.css loaded.
 // Docs: docs/components/breadcrumbs.md
 import { createElement as h } from 'react';
 

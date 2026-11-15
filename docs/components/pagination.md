@@ -20,7 +20,7 @@ Previous, page numbers (first, last, the current page and its neighbours, gaps s
 ## 5. API
 HTML: `<nav class="isa-pagination" aria-label="Pagination">` with `<ul class="isa-pagination__list">`; each control is `<button class="isa-pagination__item">` (or `<a href>` when pages have URLs); the current page has `aria-current="page"`; gaps are `<span class="isa-pagination__gap" aria-hidden="true">…</span>`.
 
-React: `import { Pagination } from "onsight/react"`.
+React: `import { Pagination } from "@isa/onsight/react"`.
 
 | Prop | Type | Default |
 | --- | --- | --- |

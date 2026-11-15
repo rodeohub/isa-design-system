@@ -1,4 +1,4 @@
-// Onsight: Spinner (React). Needs onsight/components.css loaded.
+// Onsight: Spinner (React). Needs @isa/onsight/components.css loaded.
 // Docs: docs/components/spinner.md
 import { createElement as h, forwardRef } from 'react';
 

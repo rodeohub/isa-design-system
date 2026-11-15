@@ -36,7 +36,7 @@ HTML:
 </body>
 ```
 
-React: `import { Page, Main, Container, PageTitle, Hero } from "onsight/react"`.
+React: `import { Page, Main, Container, PageTitle, Hero } from "@isa/onsight/react"`.
 
 | Component | Props |
 | --- | --- |

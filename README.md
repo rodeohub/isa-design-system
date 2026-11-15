@@ -2,7 +2,7 @@
 
 **Onsight is the official design system of the International Slackline Association (ISA).** To onsight a line is to walk it clean on the first try.
 
-Package and repository: `onsight`. Class and variable names keep the prefix `isa-` (`isa-button`, `--isa-color-text-default`), because they stand for the ISA.
+npm package: `@isa/onsight`. Repository: `rodeohub/onsight`. Class and variable names keep the prefix `isa-` (`isa-button`, `--isa-color-text-default`), because they stand for the ISA.
 
 Design tokens, guidelines and components for projects of the [International Slackline Association](https://slacklineinternational.org): web apps such as the Slackline Sport Hub, websites and future tools. It is written for people and for AI coding agents (Claude Code and others).
 

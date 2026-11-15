@@ -57,10 +57,12 @@ Agents working with Roberto: raise the open questions with him at the start of a
 | 2026-11-15 | The design system is called **Onsight** (Roberto: "something cool like Onsight"). At first a display name only; made official the same day, see the next row. The preview page is published with GitHub Pages at https://rodeohub.github.io/isa-design-system/ (the address changes when the repository moves to the ISA organization). | Roberto, Claude |
 | 2026-11-15 | **Onsight is the official name**, used everywhere: package `onsight`, repository `onsight`, docs, preview page, Figma file, Claude project, vault. Class and variable names keep the prefix `isa-` (Roberto chose to keep it). Docs and comments call it Onsight; "the ISA design system" only as a description. v0.15.0. | Roberto |
 | 2026-11-15 | Rename carried out: GitHub repository renamed to `rodeohub/onsight` (the old address forwards), description updated; GitHub Pages on (https://rodeohub.github.io/onsight/); Figma file renamed to "Onsight"; vault notes updated; releases v0.14.0 and v0.15.0 tagged. | Claude |
+| 2026-11-15 | Published on npm as `@isa/onsight` (team request; Roberto chose the scope `@isa`). Plain `onsight` is taken on npm by an unrelated game framework. The npm scope is an npm organization, separate from GitHub, so it stays the same when the repository moves to the ISA GitHub organization. Each GitHub release publishes automatically through GitHub Actions, using the secret `NPM_TOKEN` (v0.16.0). | Roberto |
 
 ## Pending actions
 - **Rename the Claude project** "ISA Design System" to "Onsight" (claude.ai, project settings; only Roberto can do this).
 - **Missing logos:** ISA Sport and ISA Nature and Access, more to follow (Roberto, 2026-11-15). Roberto provides the SVGs; they go into `assets/logos/` (list in `assets/logos/README.md`, Still missing).
+- **npm (Roberto, once):** sign in at npmjs.com, create the free organization `isa` (if the name is taken: tell Claude, pick another scope), create a granular access token with read and write for the `@isa` scope, and add it in GitHub as the repository secret `NPM_TOKEN` (Settings, Secrets and variables, Actions). Then Claude publishes the GitHub release v0.16.0, which publishes the package.
 
 ## Open questions
 3. **Solid badges (parked by Roberto, 2026-11-14):** SportHub has two solid badges (athlete: white on red, judge: white on green). Add a solid badge style, or keep soft and outline only? Do not raise again until Roberto does or the SportHub migration starts.

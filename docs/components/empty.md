@@ -20,7 +20,7 @@ Optional icon, title, one or two sentences, and at most two actions. By default 
 ## 5. API
 HTML: `<div class="isa-empty">` with an optional `<svg aria-hidden="true">`, a heading with `isa-empty__title`, `<p class="isa-empty__text">` and `<div class="isa-empty__actions">` holding buttons.
 
-React: `import { EmptyState } from "onsight/react"`.
+React: `import { EmptyState } from "@isa/onsight/react"`.
 
 | Prop | Type | Default |
 | --- | --- | --- |

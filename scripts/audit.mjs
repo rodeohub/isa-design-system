@@ -7,7 +7,7 @@ import { join, extname, resolve } from 'node:path';
 
 const root = resolve(process.argv[2] ?? '.');
 const exts = new Set(['.css', '.scss', '.sass', '.less', '.html', '.jsx', '.tsx', '.js', '.ts', '.mjs', '.vue', '.svelte', '.astro', '.php', '.mdx']);
-const skipDirs = new Set(['node_modules', '.git', '.next', '.nuxt', '.svelte-kit', 'coverage', 'onsight', 'isa-design-system']);
+const skipDirs = new Set(['node_modules', '.git', '.next', '.nuxt', '.svelte-kit', 'coverage', 'onsight', '@isa', 'isa-design-system']);
 const skipRootDirs = new Set(['dist', 'build', 'out', 'public']);
 
 const twColors = 'slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|white|black';
