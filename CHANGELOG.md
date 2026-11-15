@@ -2,6 +2,9 @@
 
 Versions follow semantic versioning: MAJOR for changes that can break projects (a role renamed or removed), MINOR for new roles, tokens or docs, PATCH for fixes. Projects install a tagged version, e.g. `npm install @slacklineinternational/onsight@0.16.0` (or from GitHub: `npm install github:rodeohub/onsight#v0.16.0`), and upgrade on purpose.
 
+## 0.17.1 (2026-11-15)
+- Preview page: logos grouped into "ISA logo" and "Commission logos" (Education, Safety, Sport, Nature and Access), each in color and white.
+
 ## 0.17.0 (2026-11-15)
 - **Logos:** new ISA Sport (`assets/logos/sport/`) and ISA Access (`assets/logos/access/`, Nature and Access Commission), in color, black, grey and white.
 - Education and Safety replaced with Roberto's redrawn versions. All four commission logos now share one artwork and one size (567 x 328); file names are unchanged.
