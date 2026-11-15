@@ -1,6 +1,6 @@
 {
   "name": "@slacklineinternational/onsight",
-  "version": "0.17.2",
+  "version": "0.17.3",
   "description": "Onsight, the official design system of the International Slackline Association (ISA): tokens, docs and components for people and AI agents.",
   "keywords": [
     "design-system",

@@ -65,7 +65,7 @@ Agents working with Roberto: raise the open questions with him at the start of a
 ## Pending actions
 - **Rename the Claude project** "ISA Design System" to "Onsight" (claude.ai, project settings; only Roberto can do this).
 - **Missing logos:** more may follow (for example ISA Nature). Roberto provides the SVGs; they go into `assets/logos/` (list in `assets/logos/README.md`, Still missing).
-- **npm token (Roberto):** trusted publishing is set up (2026-11-15) and used from v0.17.2. Once v0.17.2 is on npm, delete the GitHub secret `NPM_TOKEN` and the token on npmjs.com, and remove `.github/workflows/npm-deprecate.yml` (it needs the token). If the repo moves, update the trusted publisher owner on npmjs.com first.
+- **npm token (Roberto):** trusted publishing is set up (2026-11-15) and used from v0.17.3 (v0.17.2 failed to publish: the Node setup step added a placeholder token). Once v0.17.3 is on npm, delete the GitHub secret `NPM_TOKEN` and the token on npmjs.com, and remove `.github/workflows/npm-deprecate.yml` (it needs the token). If the repo moves, update the trusted publisher owner on npmjs.com first.
 
 ## Open questions
 3. **Solid badges (parked by Roberto, 2026-11-14):** SportHub has two solid badges (athlete: white on red, judge: white on green). Add a solid badge style, or keep soft and outline only? Do not raise again until Roberto does or the SportHub migration starts.

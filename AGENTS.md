@@ -35,7 +35,7 @@ You are working with **Onsight**, the official design system of the Internationa
 ## Using it in a project
 - Tailwind v4: `@import "@slacklineinternational/onsight/fonts.css"; @import "@slacklineinternational/onsight/tailwind.css"; @import "@slacklineinternational/onsight/components.css" layer(components);`
 - Plain HTML: load `dist/fonts.css`, `dist/tokens.css`, `dist/components.css` and, for tabs, dialogs, drawers, tooltips, toasts, autocomplete, filters and the theme switch, `dist/isa.js` as a module script; then use `var(--isa-color-text-default)` etc.
-- Install: `npm install @slacklineinternational/onsight` (or a tagged version straight from GitHub: `npm install github:rodeohub/onsight#v0.17.2`; the repo will move to the `slacklineinternational` GitHub account). Check `CHANGELOG.md` before upgrading.
+- Install: `npm install @slacklineinternational/onsight` (or a tagged version straight from GitHub: `npm install github:rodeohub/onsight#v0.17.3`; the repo will move to the `slacklineinternational` GitHub account). Check `CHANGELOG.md` before upgrading.
 
 ## Changing the system (in this repo)
 1. Edit `tokens/` (DTCG JSON) or `components/`, and the matching doc in `docs/`.

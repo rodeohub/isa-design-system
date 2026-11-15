@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # No registry-url here: with it, setup-node writes a placeholder token that npm would try instead of trusted publishing.
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          registry-url: https://registry.npmjs.org
       - name: npm version with trusted publishing (11.5.1 or newer)
         run: npm install -g npm@latest
       - name: The release tag matches package.json
